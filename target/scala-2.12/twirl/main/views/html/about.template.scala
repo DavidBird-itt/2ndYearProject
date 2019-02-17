@@ -22,26 +22,24 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object about extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object about extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply():play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.27*/("""
-"""),_display_(/*2.2*/main("About Us", user)/*2.24*/ {_display_(Seq[Any](format.raw/*2.26*/("""
-	"""),format.raw/*3.2*/("""<h1>About us</h1>
-	<h3>We are the amazing, brilliant, magnificent, one and only online flea market!</h3>
+Seq[Any](_display_(/*1.2*/main("On Sale")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
+	"""),format.raw/*2.2*/("""<p>Delete this</p>
 """)))}))
       }
     }
   }
 
-  def render(user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
+  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
 
-  def f:((models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
+  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
 
   def ref: this.type = this
 
@@ -50,11 +48,11 @@ Seq[Any](format.raw/*1.27*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Dec 01 17:48:10 GMT 2018
-                  SOURCE: /home/jvk/wdd1labs/LabWork/WDD1PlayLab/app/views/about.scala.html
-                  HASH: eb06cc5ff17fed2749c7d1d6f53c70e7eb0833ae
-                  MATRIX: 959->1|1079->26|1107->29|1137->51|1176->53|1205->56
-                  LINES: 28->1|33->1|34->2|34->2|34->2|35->3
+                  DATE: Sun Feb 17 11:10:50 GMT 2019
+                  SOURCE: /home/wdd/temp/PlayReminder/app/views/about.scala.html
+                  HASH: 3867e3667e50df239e292e68dea0efd08601db5a
+                  MATRIX: 1030->1|1053->16|1091->17|1119->19
+                  LINES: 33->1|33->1|33->1|34->2
                   -- GENERATED --
               */
           

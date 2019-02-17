@@ -22,28 +22,81 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply():play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.27*/("""
-"""),_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.raw/*2.21*/("""
-	"""),format.raw/*3.2*/("""<h1>Welcome to the Online Flea Market!</h1>
-	<h3>The place where you can buy anything and sell anyting<br/> (as long as it is legal and morally sound)</h3>
-""")))}),format.raw/*5.2*/("""
-
-"""))
+Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.15*/("""
+		"""),format.raw/*2.3*/("""<div class="container-fluid">
+			<div class="col-sm-3">
+				<div id="search-form">
+					<span class="title">Search Properties</span>
+					
+					Area<br>
+					<select>
+						<option value="dublin1">Dublin 1</option>
+						<option value="dublin2">Dublin 2</option>
+						<option value="dublin3">Dublin 3</option>
+						<option value="dublin4">Dublin 4</option>
+						<option value="dublin5">Dublin 5</option>
+						<option value="dublin6">Dublin 6</option>
+						<option value="dublin7">Dublin 7</option>
+						<option value="dublin8">Dublin 8</option>
+						<option value="dublin9">Dublin 9</option>
+						<option value="dublin10">Dublin 10</option>
+						<option value="dublin11">Dublin 11</option>
+						<option value="dublin12">Dublin 12</option>
+						<option value="dublin13">Dublin 13</option>
+						<option value="dublin14">Dublin 14</option>
+						<option value="dublin15">Dublin 15</option>
+						<option value="dublin16">Dublin 16</option>
+						<option value="dublin17">Dublin 17</option>
+						<option value="dublin18">Dublin 18</option>
+						<option value="dublin19">Dublin 19</option>
+						<option value="dublin20">Dublin 20</option>
+						<option value="dublin21">Dublin 21</option>
+						<option value="dublin22">Dublin 22</option>
+						<option value="dublin23">Dublin 23</option>
+						<option value="dublin24">Dublin 24</option>
+					</select>
+					<br><br>
+					Minimum Price<br>
+					€ <input type="text" placeholder="Enter minimum price here" />
+					
+					<br><br>
+					Maximum Price<br>
+					€ <input type="text" placeholder="Enter minimum price here" />
+					
+					<br><br>
+					<input type="submit" />
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div id="slide-show">
+					<img src="http://www.bmccormackconstruction.ie/wp-content/uploads/2017/10/dsc9892-350x350.jpg" alt="Slideshow" />
+					<div class="title">Property in AreaName</div>
+					<div class="property-text">hhhhhh</div>
+					zz
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div id="search-form">
+					zzzzz
+				</div>
+			</div>
+		</div>
+	""")))}))
       }
     }
   }
 
-  def render(user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
+  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
 
-  def f:((models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
+  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
 
   def ref: this.type = this
 
@@ -52,11 +105,11 @@ Seq[Any](format.raw/*1.27*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Dec 01 17:48:10 GMT 2018
-                  SOURCE: /home/jvk/wdd1labs/LabWork/WDD1PlayLab/app/views/index.scala.html
-                  HASH: 4cd752082dea538a2efd59f05eee4b753c5b0616
-                  MATRIX: 959->1|1079->26|1107->29|1133->47|1171->48|1200->51|1388->210
-                  LINES: 28->1|33->1|34->2|34->2|34->2|35->3|37->5
+                  DATE: Sun Feb 17 11:10:50 GMT 2019
+                  SOURCE: /home/wdd/temp/PlayReminder/app/views/index.scala.html
+                  HASH: 5a3fc5d7e9fd307efedf7ab890cbe5656a47ba65
+                  MATRIX: 1030->1|1050->13|1088->14|1117->17
+                  LINES: 33->1|33->1|33->1|34->2
                   -- GENERATED --
               */
           
