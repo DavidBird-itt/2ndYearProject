@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/temp/PlayReminder/conf/routes
-// @DATE:Sun Feb 17 11:10:49 GMT 2019
+// @SOURCE:/home/wdd/RealEstate/Real_Estate_Project/Project/conf/routes
+// @DATE:Sun Feb 17 12:39:26 GMT 2019
 
 
 package router {

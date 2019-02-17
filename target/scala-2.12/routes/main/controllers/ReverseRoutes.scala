@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/temp/PlayReminder/conf/routes
-// @DATE:Sun Feb 17 11:10:49 GMT 2019
+// @SOURCE:/home/wdd/RealEstate/Real_Estate_Project/Project/conf/routes
+// @DATE:Sun Feb 17 12:39:26 GMT 2019
 
 import play.api.mvc.Call
 
@@ -10,60 +10,6 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
-
-  // @LINE:10
-  class ReverseAsyncController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:10
-    def message(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "message")
-    }
-  
-  }
-
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:15
-    def onsale(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "onsale")
-    }
-  
-    // @LINE:21
-    def CRUD(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "CRUD")
-    }
-  
-    // @LINE:19
-    def payment(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "payment")
-    }
-  
-    // @LINE:17
-    def about(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "about")
-    }
-  
-    // @LINE:6
-    def index(): Call = {
-      
-      Call("GET", _prefix)
-    }
-  
-  }
 
   // @LINE:13
   class ReverseAssets(_prefix: => String) {
@@ -91,6 +37,81 @@ package controllers {
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")
+    }
+  
+  }
+
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:21
+    def onsale(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "onsale")
+    }
+  
+    // @LINE:27
+    def CRUD(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "CRUD")
+    }
+  
+    // @LINE:25
+    def payment(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "payment")
+    }
+  
+    // @LINE:23
+    def about(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "about")
+    }
+  
+    // @LINE:6
+    def index(): Call = {
+      
+      Call("GET", _prefix)
+    }
+  
+  }
+
+  // @LINE:10
+  class ReverseAsyncController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:10
+    def message(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "message")
+    }
+  
+  }
+
+  // @LINE:16
+  class ReverseLoginController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:18
+    def loginSubmit(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "loginSubmit")
+    }
+  
+    // @LINE:16
+    def login(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "login")
     }
   
   }
