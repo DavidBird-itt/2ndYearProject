@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/RealEstate/Real_Estate_Project/Project/app/controllers/LoginController.java:31:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method bindFormRequest()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class play.data.Form<models.users.Login>[0m
-[0m[[0m[31merror[0m] [0m[0m        Form<Login> loginForm = formFactory.form(Login.class).bindFormRequest();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/temp/PlayReminder/app/views/main.scala.html:56:70: value LoginConroller is not a member of object controllers.routes[0m
+[0m[[0m[31merror[0m] [0m[0m							<li @if(pagename == "Login"){class="active"}><a href="@routes.LoginConroller.login()">Log Out</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m							                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

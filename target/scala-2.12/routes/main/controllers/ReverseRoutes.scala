@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/RealEstate/Real_Estate_Project/Project/conf/routes
-// @DATE:Sun Feb 17 12:39:26 GMT 2019
+// @SOURCE:/home/wdd/temp/PlayReminder/conf/routes
+// @DATE:Sun Feb 17 15:05:28 GMT 2019
 
 import play.api.mvc.Call
 

@@ -47,13 +47,13 @@
             <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="/index">ADK Houses</a>
+                            <a class="navbar-brand" href="@routes.HomeController.index()">ADK Houses</a>
                         </div>
                         <ul class="nav navbar-nav">
                             <li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                             <li @if(pagename == "Payment"){class="active"}><a href="@routes.HomeController.payment()">Payment</a></li>
 							<li @if(pagename == "CRUD"){class="active"}><a href="@routes.HomeController.CRUD()">CRUD</a></li>
-							<li @if(pagename == "Login"){class="active"}><a href="@routes.LoginConroller.login()">Log Out</a></li>
+							<li @if(pagename == "Login"){class="active"}><a href="@routes.LoginController.login()">Login</a></li>
                         </ul>
                     </div>
                 </nav>
