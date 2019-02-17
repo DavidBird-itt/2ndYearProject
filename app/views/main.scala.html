@@ -1,0 +1,61 @@
+@(pagename: String)(content: Html)
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ADK @pagename</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<style>
+			#search-form {
+				background-color:#1f9a95;
+				color:white;
+				text-align:center;
+				padding-bottom:1em;
+			}
+			#slide-show {
+				background-color:#d5f1ef;
+				height:350px;
+				/*margin-left:150px;*/
+			}
+			#slide-show img {
+				height:100%;
+				width:350px;
+				float:left;
+			}
+			#slide-show .property-text {
+				background-color:green;
+				height:70%;
+			}
+			#search-form select {
+				color:black;
+			}
+			.title {
+				display:block;
+				color:white;
+				text-align:center;
+				background-color:rgba(0,0,0,0.2);
+				padding:0.7em;
+				font-size:1.2em;
+				margin-bottom:0.4em;
+			}
+		</style>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	</head>
+	<body>
+            <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/index">ADK Houses</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li @if(pagename== "Home"){class="active"}><a href="/">Home</a></li>
+                            <li @if(pagename == "Payment"){class="active"}><a href="/payment">Payment</a></li>
+                            <li @if(pagename == "CRUD"){class="active"}><a href="/CRUD">CRUD</a></li>
+                        </ul>
+                    </div>
+                </nav>
+        @content
+	</body>
+</html>
