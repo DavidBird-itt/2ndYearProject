@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/temp/PlayReminder/conf/routes
-// @DATE:Sun Feb 17 15:05:28 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Mon Feb 18 17:06:40 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,27 +59,27 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
-    def onsale: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.onsale",
+    // @LINE:24
+    def database: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.database",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "onsale"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "database"})
         }
       """
     )
   
-    // @LINE:27
-    def CRUD: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.CRUD",
+    // @LINE:28
+    def addHouseSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addHouseSubmit",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "CRUD"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addHouseSubmit"})
         }
       """
     )
   
-    // @LINE:25
+    // @LINE:22
     def payment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.payment",
       """
@@ -89,12 +89,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:23
-    def about: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.about",
+    // @LINE:30
+    def deleteHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteHouse",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteHouse/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def addHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addHouse",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "about"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addHouse"})
         }
       """
     )

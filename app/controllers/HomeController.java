@@ -21,29 +21,60 @@ import views.html.*;
  */
 public class HomeController extends Controller {
 
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
+    //Allows the user to make a class off a form
+    public FormFactory formFactory;
+
+    @Inject
+    public HomeController(FormFactory f) {
+        this.formFactory = f;
+    }
+    
     public Result index() {
         return ok(index.render());
     }
 
-    public Result onsale() {
-        return ok(onsale.render());
-    }
-
-    public Result about() {
-        return ok(about.render());
-    }
 
     public Result payment() {
         return ok(payment.render());
     }
 
-    public Result CRUD() {
-        return ok(CRUD.render());
+    public Result database() {
+        List<Houses> houseList = Houses.findAll();
+        return ok(database.render(houseList));
+    }
+
+    public Result addHouse() {
+        Form<Houses> houseForm = formFactory.form(Houses.class);
+        return ok(addHouse.render(houseForm));
+    }
+
+    public Result addHouseSubmit() {
+        Form<Houses> newHouseForm = formFactory.form(Houses.class).bindFromRequest();
+
+        //Error handling
+        if (newHouseForm.hasErrors()) {
+            //Finds the error and gives the user a new form to fill out
+            return badRequest(addHouse.render(newHouseForm));
+        } else {
+            //Puts the form into the houses constructor
+            Houses newHouse = newHouseForm.get();
+
+            //Saves to the database
+            newHouse.save();
+
+            flash("success", "House " + newHouse.getAddress() + " was added.");
+
+            //Brings them back to the initial page and shows the update
+            return redirect(controllers.routes.HomeController.database());
+        }
+
+    }
+
+    public Result deleteHouse(Long id) {
+        Houses.find.ref(id).delete();
+
+        //Flash message showing result
+        flash("success", "House has been deleted.");
+        return redirect(controllers.routes.HomeController.database());
     }
 }

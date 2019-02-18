@@ -1,4 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/temp/PlayReminder/app/views/main.scala.html:56:70: value LoginConroller is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m							<li @if(pagename == "Login"){class="active"}><a href="@routes.LoginConroller.login()">Log Out</a></li>[0m
-[0m[[0m[31merror[0m] [0m[0m							                                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:68:1: method database in class controllers.ReverseHomeController cannot be applied to given types;[0m
+[0m[[0m[31merror[0m] [0m[0m  required: no arguments[0m
+[0m[[0m[31merror[0m] [0m[0m  found: int[0m
+[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
+[0m[[0m[31merror[0m] [0m[0m            return redirect(controllers.routes.HomeController.database(0));[0m

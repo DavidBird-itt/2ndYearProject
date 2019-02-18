@@ -52,11 +52,12 @@
                         <ul class="nav navbar-nav">
                             <li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                             <li @if(pagename == "Payment"){class="active"}><a href="@routes.HomeController.payment()">Payment</a></li>
-							<li @if(pagename == "CRUD"){class="active"}><a href="@routes.HomeController.CRUD()">CRUD</a></li>
+							<li @if(pagename == "Database"){class="active"}><a href="@routes.HomeController.database()">Database</a></li>
 							<li @if(pagename == "Login"){class="active"}><a href="@routes.LoginController.login()">Login</a></li>
                         </ul>
                     </div>
                 </nav>
         @content
-	</body>
+    </body>
+    <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
 </html>

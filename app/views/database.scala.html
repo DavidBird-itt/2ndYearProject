@@ -1,0 +1,50 @@
+@(houses: List[models.Houses])
+
+@main("Database") {
+    <h1>The Database</h1>
+
+    <!-- Displays the flash message -->
+    @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+            @flash.get("success")
+        </div>
+    }
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <!--Header-->
+            <tr>
+                <th>ID</th>
+                <th>Address</th>
+                <th>Postcode</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Populating the database-->
+            <tr>
+                @for(i<-houses) {        
+                    <td>@i.getId</td>
+                    <td>@i.getAddress</td>
+                    <td>@i.getPostcode</td>
+                    <td>@i.getNumBeds</td>
+                    <td>@i.getNumBaths</td>
+                    <td>&euro; @("%.2f".format(i.getPrice))</td>
+                    <td>
+                        <a href="@routes.HomeController.deleteHouse(i.getId)" class="button-xs btn-danger" onclick="return confirmDel();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+            </tr>
+        }
+        </tbody>
+    </table>         
+
+    <p>
+        <a href="@routes.HomeController.addHouse()">
+            <button class="btn btn-primary">Add a House</button>
+        </a>
+    </p>
+    
+}

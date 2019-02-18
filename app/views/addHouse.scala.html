@@ -1,0 +1,28 @@
+@(houseForm: Form[models.Houses])
+
+@import helper._ 
+
+@main("Add House") {
+    <p class="lead">Add a new item</p>
+
+    @form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+
+        <!-- Uses helper methods to take the values from the form and add it to the database -->
+        <!-- No need to get the id because it's auto generated -->
+        @inputText(houseForm("address"), '_label -> "Address", 'class -> "form-control")
+        @inputText(houseForm("postcode"), '_label -> "Postcode", 'class -> "form-control")
+        @inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")
+        @inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")
+        @inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")
+    
+    
+        <div class="actions">
+            <input type="submit" value="Add house" class="btn btn-primary">
+            <a href="@routes.HomeController.database()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

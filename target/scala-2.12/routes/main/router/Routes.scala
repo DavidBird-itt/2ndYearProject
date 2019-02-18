@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/temp/PlayReminder/conf/routes
-// @DATE:Sun Feb 17 15:05:28 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Mon Feb 18 17:06:40 GMT 2019
 
 package router
 
@@ -57,10 +57,11 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """loginSubmit""", """controllers.LoginController.loginSubmit"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """onsale""", """controllers.HomeController.onsale"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """about""", """controllers.HomeController.about"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """payment""", """controllers.HomeController.payment"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """CRUD""", """controllers.HomeController.CRUD"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """database""", """controllers.HomeController.database"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouse""", """controllers.HomeController.addHouse"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouseSubmit""", """controllers.HomeController.addHouseSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteHouse(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -176,47 +177,11 @@ class Routes(
     )
   )
 
-  // @LINE:21
-  private[this] lazy val controllers_HomeController_onsale6_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("onsale")))
-  )
-  private[this] lazy val controllers_HomeController_onsale6_invoker = createInvoker(
-    HomeController_1.onsale,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "onsale",
-      Nil,
-      "GET",
-      this.prefix + """onsale""",
-      """GET from HomeController""",
-      Seq()
-    )
-  )
-
-  // @LINE:23
-  private[this] lazy val controllers_HomeController_about7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("about")))
-  )
-  private[this] lazy val controllers_HomeController_about7_invoker = createInvoker(
-    HomeController_1.about,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "about",
-      Nil,
-      "GET",
-      this.prefix + """about""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:25
-  private[this] lazy val controllers_HomeController_payment8_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_HomeController_payment6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("payment")))
   )
-  private[this] lazy val controllers_HomeController_payment8_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_payment6_invoker = createInvoker(
     HomeController_1.payment,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -230,19 +195,73 @@ class Routes(
     )
   )
 
-  // @LINE:27
-  private[this] lazy val controllers_HomeController_CRUD9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("CRUD")))
+  // @LINE:24
+  private[this] lazy val controllers_HomeController_database7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("database")))
   )
-  private[this] lazy val controllers_HomeController_CRUD9_invoker = createInvoker(
-    HomeController_1.CRUD,
+  private[this] lazy val controllers_HomeController_database7_invoker = createInvoker(
+    HomeController_1.database,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "CRUD",
+      "database",
       Nil,
       "GET",
-      this.prefix + """CRUD""",
+      this.prefix + """database""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:26
+  private[this] lazy val controllers_HomeController_addHouse8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addHouse")))
+  )
+  private[this] lazy val controllers_HomeController_addHouse8_invoker = createInvoker(
+    HomeController_1.addHouse,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addHouse",
+      Nil,
+      "GET",
+      this.prefix + """addHouse""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:28
+  private[this] lazy val controllers_HomeController_addHouseSubmit9_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addHouseSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_addHouseSubmit9_invoker = createInvoker(
+    HomeController_1.addHouseSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addHouseSubmit",
+      Nil,
+      "POST",
+      this.prefix + """addHouseSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:30
+  private[this] lazy val controllers_HomeController_deleteHouse10_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteHouse/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_HomeController_deleteHouse10_invoker = createInvoker(
+    HomeController_1.deleteHouse(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "deleteHouse",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """deleteHouse/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -287,28 +306,34 @@ class Routes(
         controllers_LoginController_loginSubmit5_invoker.call(LoginController_4.loginSubmit)
       }
   
-    // @LINE:21
-    case controllers_HomeController_onsale6_route(params@_) =>
+    // @LINE:22
+    case controllers_HomeController_payment6_route(params@_) =>
       call { 
-        controllers_HomeController_onsale6_invoker.call(HomeController_1.onsale)
+        controllers_HomeController_payment6_invoker.call(HomeController_1.payment)
       }
   
-    // @LINE:23
-    case controllers_HomeController_about7_route(params@_) =>
+    // @LINE:24
+    case controllers_HomeController_database7_route(params@_) =>
       call { 
-        controllers_HomeController_about7_invoker.call(HomeController_1.about)
+        controllers_HomeController_database7_invoker.call(HomeController_1.database)
       }
   
-    // @LINE:25
-    case controllers_HomeController_payment8_route(params@_) =>
+    // @LINE:26
+    case controllers_HomeController_addHouse8_route(params@_) =>
       call { 
-        controllers_HomeController_payment8_invoker.call(HomeController_1.payment)
+        controllers_HomeController_addHouse8_invoker.call(HomeController_1.addHouse)
       }
   
-    // @LINE:27
-    case controllers_HomeController_CRUD9_route(params@_) =>
+    // @LINE:28
+    case controllers_HomeController_addHouseSubmit9_route(params@_) =>
       call { 
-        controllers_HomeController_CRUD9_invoker.call(HomeController_1.CRUD)
+        controllers_HomeController_addHouseSubmit9_invoker.call(HomeController_1.addHouseSubmit)
+      }
+  
+    // @LINE:30
+    case controllers_HomeController_deleteHouse10_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_deleteHouse10_invoker.call(HomeController_1.deleteHouse(id))
       }
   }
 }
