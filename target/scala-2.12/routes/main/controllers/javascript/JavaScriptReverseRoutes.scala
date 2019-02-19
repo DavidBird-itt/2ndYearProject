@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Feb 18 17:06:40 GMT 2019
+// @DATE:Mon Feb 18 17:34:14 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -85,6 +85,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "payment"})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def updateHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateHouse",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateHouse/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

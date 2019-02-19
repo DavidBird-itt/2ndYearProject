@@ -59,10 +59,14 @@ public class HomeController extends Controller {
             //Puts the form into the houses constructor
             Houses newHouse = newHouseForm.get();
 
+            if(newHouse.getId() == null){
             //Saves to the database
             newHouse.save();
+            } else {
+                newHouse.update();
+            }
 
-            flash("success", "House " + newHouse.getAddress() + " was added.");
+            flash("success", "House " + newHouse.getAddress() + " was added/updated.");
 
             //Brings them back to the initial page and shows the update
             return redirect(controllers.routes.HomeController.database());
@@ -76,5 +80,22 @@ public class HomeController extends Controller {
         //Flash message showing result
         flash("success", "House has been deleted.");
         return redirect(controllers.routes.HomeController.database());
+    }
+
+    public Result updateHouse(Long id) {
+        Houses i;
+        Form<Houses> houseForm;
+
+        try{
+            //Find by id
+            i = Houses.find.byId(id);
+
+            //Show the form so they can update it
+            houseForm = formFactory.form(Houses.class).fill(i);
+        } catch (Exception ex) {
+            return badRequest("error");
+        }
+
+        return ok(addHouse.render(houseForm));
     }
 }
