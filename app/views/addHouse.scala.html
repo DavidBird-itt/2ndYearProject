@@ -1,8 +1,8 @@
-@(houseForm: Form[models.Houses])
+@(houseForm: Form[models.Houses], user: models.users.User)
 
 @import helper._ 
 
-@main("Add House") {
+@main("Add House", user) {
     <p class="lead">Add a new item</p>
 
     @form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form") {

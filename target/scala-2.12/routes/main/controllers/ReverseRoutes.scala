@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Feb 18 17:34:14 GMT 2019
+// @DATE:Tue Feb 19 14:34:31 GMT 2019
 
 import play.api.mvc.Call
 
@@ -118,6 +118,12 @@ package controllers {
     def loginSubmit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "loginSubmit")
+    }
+  
+    // @LINE:34
+    def logout(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
     // @LINE:16

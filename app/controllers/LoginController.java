@@ -24,7 +24,7 @@ public class LoginController extends Controller {
 
     public Result login() {
         Form<Login> loginForm = formFactory.form(Login.class);
-        return ok(login.render(loginForm));
+        return ok(login.render(loginForm, User.getUserById(session().get("email"))));
     }
 
     public Result loginSubmit() {
@@ -41,5 +41,13 @@ public class LoginController extends Controller {
 
             return redirect(controllers.routes.HomeController.index());
         }
+    }
+
+    public Result logout() {
+        //Clears the login session
+        session().clear();
+        flash("success", "You have been logged out");
+
+        return redirect(routes.LoginController.login());
     }
 }

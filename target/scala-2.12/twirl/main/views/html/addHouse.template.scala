@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[models.Houses],play.twirl.api.HtmlFormat.Appendable] {
+object addHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.Houses],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(houseForm: Form[models.Houses]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(houseForm: Form[models.Houses], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -33,7 +33,7 @@ object addHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.H
 
 Seq[Any](format.raw/*2.1*/("""
 """),format.raw/*4.1*/("""
-"""),_display_(/*5.2*/main("Add House")/*5.19*/ {_display_(Seq[Any](format.raw/*5.21*/("""
+"""),_display_(/*5.2*/main("Add House", user)/*5.25*/ {_display_(Seq[Any](format.raw/*5.27*/("""
     """),format.raw/*6.5*/("""<p class="lead">Add a new item</p>
 
     """),_display_(/*8.6*/form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form")/*8.101*/ {_display_(Seq[Any](format.raw/*8.103*/("""
@@ -62,9 +62,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(houseForm:Form[models.Houses]): play.twirl.api.HtmlFormat.Appendable = apply(houseForm)
+  def render(houseForm:Form[models.Houses],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(houseForm,user)
 
-  def f:((Form[models.Houses]) => play.twirl.api.HtmlFormat.Appendable) = (houseForm) => apply(houseForm)
+  def f:((Form[models.Houses],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (houseForm,user) => apply(houseForm,user)
 
   def ref: this.type = this
 
@@ -73,10 +73,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 18 17:34:59 GMT 2019
+                  DATE: Tue Feb 19 15:50:18 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/addHouse.scala.html
-                  HASH: 1cbdae0d7f3705261e90a8f8208e1bce600b9803
-                  MATRIX: 964->1|1069->36|1113->34|1140->53|1167->55|1192->72|1231->74|1262->79|1328->120|1432->215|1472->217|1508->254|1545->264|1558->268|1589->278|1626->288|1818->453|1918->532|1955->542|2057->623|2094->633|2195->713|2232->723|2335->805|2372->815|2468->890|2510->905|2593->967|2634->981|2781->1101|2796->1107|2843->1133|2991->1251
+                  HASH: 23d8e05a9f501117d70b1f9dc719964997bc9378
+                  MATRIX: 982->1|1112->61|1156->59|1183->78|1210->80|1241->103|1280->105|1311->110|1377->151|1481->246|1521->248|1557->285|1594->295|1607->299|1638->309|1675->319|1867->484|1967->563|2004->573|2106->654|2143->664|2244->744|2281->754|2384->836|2421->846|2517->921|2559->936|2642->998|2683->1012|2830->1132|2845->1138|2892->1164|3040->1282
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|43->12|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|51->20|53->22|55->24|55->24|55->24|59->28
                   -- GENERATED --
               */

@@ -27,6 +27,8 @@ GET     /addHouse                   controllers.HomeController.addHouse
 
 POST    /addHouseSubmit             controllers.HomeController.addHouseSubmit
 
-GET     /deleteHouse/:id             controllers.HomeController.deleteHouse(id: Long)
+GET     /deleteHouse/:id            controllers.HomeController.deleteHouse(id: Long)
 
-GET     /updateHouse/:id             controllers.HomeController.updateHouse(id: Long)
+GET     /updateHouse/:id            controllers.HomeController.updateHouse(id: Long)
+
+GET     /logout                     controllers.LoginController.logout

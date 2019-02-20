@@ -1,6 +1,6 @@
-@(houses: List[models.Houses])
+@(houses: List[models.Houses], user: models.users.User)
 
-@main("Database") {
+@main("Database", user) {
     <h1>The Database</h1>
 
     <!-- Displays the flash message -->

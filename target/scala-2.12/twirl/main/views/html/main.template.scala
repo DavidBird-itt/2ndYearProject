@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {
+object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,models.users.User,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(pagename: String)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(pagename: String, user: models.users.User)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -84,21 +84,26 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                             <li """),_display_(/*53.34*/if(pagename== "Home")/*53.55*/{_display_(Seq[Any](format.raw/*53.56*/("""class="active"""")))}),format.raw/*53.71*/("""><a href=""""),_display_(/*53.82*/routes/*53.88*/.HomeController.index()),format.raw/*53.111*/("""">Home</a></li>
                             <li """),_display_(/*54.34*/if(pagename == "Payment")/*54.59*/{_display_(Seq[Any](format.raw/*54.60*/("""class="active"""")))}),format.raw/*54.75*/("""><a href=""""),_display_(/*54.86*/routes/*54.92*/.HomeController.payment()),format.raw/*54.117*/("""">Payment</a></li>
 							<li """),_display_(/*55.13*/if(pagename == "Database")/*55.39*/{_display_(Seq[Any](format.raw/*55.40*/("""class="active"""")))}),format.raw/*55.55*/("""><a href=""""),_display_(/*55.66*/routes/*55.72*/.HomeController.database()),format.raw/*55.98*/("""">Database</a></li>
-							<li """),_display_(/*56.13*/if(pagename == "Login")/*56.36*/{_display_(Seq[Any](format.raw/*56.37*/("""class="active"""")))}),format.raw/*56.52*/("""><a href=""""),_display_(/*56.63*/routes/*56.69*/.LoginController.login()),format.raw/*56.93*/("""">Login</a></li>
-                        </ul>
+							<li """),_display_(/*56.13*/if(pagename == "Login")/*56.36*/{_display_(Seq[Any](format.raw/*56.37*/("""class="active"""")))}),format.raw/*56.52*/(""">
+								"""),_display_(/*57.10*/if(user != null)/*57.26*/ {_display_(Seq[Any](format.raw/*57.28*/("""
+									"""),format.raw/*58.10*/("""<a href=""""),_display_(/*58.20*/routes/*58.26*/.LoginController.logout()),format.raw/*58.51*/("""">Log Out</a></li>
+								""")))}/*59.11*/else/*59.16*/{_display_(Seq[Any](format.raw/*59.17*/("""
+									"""),format.raw/*60.10*/("""<a href=""""),_display_(/*60.20*/routes/*60.26*/.LoginController.login()),format.raw/*60.50*/("""">Log In</a>
+								""")))}),format.raw/*61.10*/("""
+                        """),format.raw/*62.25*/("""</ul>
                     </div>
                 </nav>
-        """),_display_(/*60.10*/content),format.raw/*60.17*/("""
-    """),format.raw/*61.5*/("""</body>
-    <script src=""""),_display_(/*62.19*/routes/*62.25*/.Assets.versioned("javascripts/main.js")),format.raw/*62.65*/(""""></script>
+        """),_display_(/*65.10*/content),format.raw/*65.17*/("""
+    """),format.raw/*66.5*/("""</body>
+    <script src=""""),_display_(/*67.19*/routes/*67.25*/.Assets.versioned("javascripts/main.js")),format.raw/*67.65*/(""""></script>
 </html>"""))
       }
     }
   }
 
-  def render(pagename:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(pagename)(content)
+  def render(pagename:String,user:models.users.User,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(pagename,user)(content)
 
-  def f:((String) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (pagename) => (content) => apply(pagename)(content)
+  def f:((String,models.users.User) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (pagename,user) => (content) => apply(pagename,user)(content)
 
   def ref: this.type = this
 
@@ -107,11 +112,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 18 17:06:04 GMT 2019
+                  DATE: Tue Feb 19 14:36:50 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/main.scala.html
-                  HASH: b536d8306f2f4262a87544bbe74c0813a83bced7
-                  MATRIX: 952->1|1079->35|1150->80|1178->88|1318->200|1347->201|1379->206|1499->299|1527->300|1558->304|1598->316|1627->317|1659->322|1760->396|1788->397|1819->401|1863->417|1892->418|1924->423|2000->472|2028->473|2059->477|2114->504|2143->505|2175->510|2245->553|2273->554|2304->558|2352->578|2381->579|2413->584|2456->600|2484->601|2515->605|2550->612|2579->613|2611->618|2799->779|2827->780|2857->783|3333->1232|3348->1238|3392->1261|3552->1394|3582->1415|3621->1416|3667->1431|3705->1442|3720->1448|3765->1471|3841->1520|3875->1545|3914->1546|3960->1561|3998->1572|4013->1578|4060->1603|4118->1634|4153->1660|4192->1661|4238->1676|4276->1687|4291->1693|4338->1719|4397->1751|4429->1774|4468->1775|4514->1790|4552->1801|4567->1807|4612->1831|4745->1937|4773->1944|4805->1949|4858->1975|4873->1981|4934->2021
-                  LINES: 28->1|33->2|36->5|36->5|41->10|41->10|42->11|46->15|46->15|47->16|47->16|47->16|48->17|51->20|51->20|52->21|52->21|52->21|53->22|56->25|56->25|57->26|57->26|57->26|58->27|60->29|60->29|61->30|61->30|61->30|62->31|63->32|63->32|64->33|64->33|64->33|65->34|72->41|72->41|73->42|81->50|81->50|81->50|84->53|84->53|84->53|84->53|84->53|84->53|84->53|85->54|85->54|85->54|85->54|85->54|85->54|85->54|86->55|86->55|86->55|86->55|86->55|86->55|86->55|87->56|87->56|87->56|87->56|87->56|87->56|87->56|91->60|91->60|92->61|93->62|93->62|93->62
+                  HASH: 5a9bbee27fa2456ee826010f256d342186e9ffb8
+                  MATRIX: 970->1|1122->60|1193->105|1221->113|1361->225|1390->226|1422->231|1542->324|1570->325|1601->329|1641->341|1670->342|1702->347|1803->421|1831->422|1862->426|1906->442|1935->443|1967->448|2043->497|2071->498|2102->502|2157->529|2186->530|2218->535|2288->578|2316->579|2347->583|2395->603|2424->604|2456->609|2499->625|2527->626|2558->630|2593->637|2622->638|2654->643|2842->804|2870->805|2900->808|3376->1257|3391->1263|3435->1286|3595->1419|3625->1440|3664->1441|3710->1456|3748->1467|3763->1473|3808->1496|3884->1545|3918->1570|3957->1571|4003->1586|4041->1597|4056->1603|4103->1628|4161->1659|4196->1685|4235->1686|4281->1701|4319->1712|4334->1718|4381->1744|4440->1776|4472->1799|4511->1800|4557->1815|4595->1826|4620->1842|4660->1844|4698->1854|4735->1864|4750->1870|4796->1895|4843->1924|4856->1929|4895->1930|4933->1940|4970->1950|4985->1956|5030->1980|5083->2002|5136->2027|5228->2092|5256->2099|5288->2104|5341->2130|5356->2136|5417->2176
+                  LINES: 28->1|33->2|36->5|36->5|41->10|41->10|42->11|46->15|46->15|47->16|47->16|47->16|48->17|51->20|51->20|52->21|52->21|52->21|53->22|56->25|56->25|57->26|57->26|57->26|58->27|60->29|60->29|61->30|61->30|61->30|62->31|63->32|63->32|64->33|64->33|64->33|65->34|72->41|72->41|73->42|81->50|81->50|81->50|84->53|84->53|84->53|84->53|84->53|84->53|84->53|85->54|85->54|85->54|85->54|85->54|85->54|85->54|86->55|86->55|86->55|86->55|86->55|86->55|86->55|87->56|87->56|87->56|87->56|88->57|88->57|88->57|89->58|89->58|89->58|89->58|90->59|90->59|90->59|91->60|91->60|91->60|91->60|92->61|93->62|96->65|96->65|97->66|98->67|98->67|98->67
                   -- GENERATED --
               */
           

@@ -22,16 +22,16 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[models.Houses],play.twirl.api.HtmlFormat.Appendable] {
+object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[models.Houses],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(houses: List[models.Houses]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(houses: List[models.Houses], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
 Seq[Any](format.raw/*2.1*/("""
-"""),_display_(/*3.2*/main("Database")/*3.18*/ {_display_(Seq[Any](format.raw/*3.20*/("""
+"""),_display_(/*3.2*/main("Database", user)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
     """),format.raw/*4.5*/("""<h1>The Database</h1>
 
     <!-- Displays the flash message -->
@@ -91,9 +91,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(houses:List[models.Houses]): play.twirl.api.HtmlFormat.Appendable = apply(houses)
+  def render(houses:List[models.Houses],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(houses,user)
 
-  def f:((List[models.Houses]) => play.twirl.api.HtmlFormat.Appendable) = (houses) => apply(houses)
+  def f:((List[models.Houses],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (houses,user) => apply(houses,user)
 
   def ref: this.type = this
 
@@ -102,10 +102,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 18 17:35:24 GMT 2019
+                  DATE: Tue Feb 19 14:36:14 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/database.scala.html
-                  HASH: 75e4d455f361f2932a4169ed9ccb563250e0bba6
-                  MATRIX: 964->1|1087->31|1114->33|1138->49|1177->51|1208->56|1301->124|1341->156|1380->158|1415->167|1488->214|1501->219|1536->234|1572->243|1614->255|1646->260|2120->707|2150->721|2190->723|2247->752|2279->757|2289->758|2316->764|2374->795|2384->796|2416->807|2474->838|2484->839|2517->851|2575->882|2585->883|2617->894|2675->925|2685->926|2718->938|2783->976|2831->1003|2966->1111|2981->1117|3038->1153|3323->1411|3338->1417|3395->1453|3647->1674|3683->1683|3768->1741|3783->1747|3830->1773
+                  HASH: 3903bc721598e8c7c8854f4a87f2d419f15340ea
+                  MATRIX: 982->1|1130->56|1157->58|1187->80|1226->82|1257->87|1350->155|1390->187|1429->189|1464->198|1537->245|1550->250|1585->265|1621->274|1663->286|1695->291|2169->738|2199->752|2239->754|2296->783|2328->788|2338->789|2365->795|2423->826|2433->827|2465->838|2523->869|2533->870|2566->882|2624->913|2634->914|2666->925|2724->956|2734->957|2767->969|2832->1007|2880->1034|3015->1142|3030->1148|3087->1184|3372->1442|3387->1448|3444->1484|3696->1705|3732->1714|3817->1772|3832->1778|3879->1804
                   LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|43->12|58->27|58->27|58->27|59->28|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|64->33|67->36|67->36|67->36|74->43|74->43|74->43|79->48|80->49|84->53|84->53|84->53
                   -- GENERATED --
               */

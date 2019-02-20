@@ -22,17 +22,17 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[models.users.Login],play.twirl.api.HtmlFormat.Appendable] {
+object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Login],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(loginForm: Form[models.users.Login]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(loginForm: Form[models.users.Login], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*2.2*/import helper._
 
 
 Seq[Any](format.raw/*3.1*/("""
-"""),_display_(/*4.2*/main("Login")/*4.15*/ {_display_(Seq[Any](format.raw/*4.17*/("""
+"""),_display_(/*4.2*/main("Login", user)/*4.21*/ {_display_(Seq[Any](format.raw/*4.23*/("""
     """),format.raw/*5.5*/("""<h3>Sign in</h3>
     <!-- Display errors -->
     """),_display_(/*7.6*/if(loginForm.hasGlobalErrors)/*7.35*/ {_display_(Seq[Any](format.raw/*7.37*/("""
@@ -66,9 +66,9 @@ Seq[Any](format.raw/*3.1*/("""
     }
   }
 
-  def render(loginForm:Form[models.users.Login]): play.twirl.api.HtmlFormat.Appendable = apply(loginForm)
+  def render(loginForm:Form[models.users.Login],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(loginForm,user)
 
-  def f:((Form[models.users.Login]) => play.twirl.api.HtmlFormat.Appendable) = (loginForm) => apply(loginForm)
+  def f:((Form[models.users.Login],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (loginForm,user) => apply(loginForm,user)
 
   def ref: this.type = this
 
@@ -77,10 +77,10 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 18 13:46:27 GMT 2019
+                  DATE: Tue Feb 19 15:32:00 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/login.scala.html
-                  HASH: 16c0d939643217da6cd532e26174815a955e35d7
-                  MATRIX: 966->1|1076->40|1120->57|1147->59|1168->72|1207->74|1238->79|1313->129|1350->158|1389->160|1424->169|1495->214|1542->246|1581->248|1626->265|1685->293|1721->302|1761->312|1794->318|1861->359|1876->365|1949->429|1989->431|2026->468|2063->478|2076->482|2107->492|2144->502|2209->540|2346->656|2382->665|2462->718|2605->840|2641->849|2806->984|2835->1002
+                  HASH: 177b870b66cc32328e51c5754ea1b0975c0f38bf
+                  MATRIX: 984->1|1119->65|1163->82|1190->84|1217->103|1256->105|1287->110|1362->160|1399->189|1438->191|1473->200|1544->245|1591->277|1630->279|1675->296|1734->324|1770->333|1810->343|1843->349|1910->390|1925->396|1998->460|2038->462|2075->499|2112->509|2125->513|2156->523|2193->533|2258->571|2395->687|2431->696|2511->749|2654->871|2690->880|2855->1015|2884->1033
                   LINES: 28->1|31->2|34->3|35->4|35->4|35->4|36->5|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|43->12|44->13|46->15|47->16|47->16|47->16|47->16|48->17|49->18|49->18|49->18|51->20|52->21|53->22|54->23|56->25|57->26|58->27|63->32|63->32
                   -- GENERATED --
               */

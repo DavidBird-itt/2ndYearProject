@@ -37,3 +37,5 @@ h2-browser
 run
 git status
 exit
+run
+exit

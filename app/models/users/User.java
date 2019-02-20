@@ -22,7 +22,6 @@ public class User {
 
     //Default cons
     public User() {
-
     }
 
     //Overloaded
@@ -78,4 +77,14 @@ public class User {
     public static User authenticate(String email, String password) {
         return find.query().where().eq("email", email).eq("password", password).findUnique();
     }
+
+    //For the dynamic login, log out
+    public static User getUserById(String id) {
+        if (id == null) {
+            return null;
+        } else {
+            return find.query().where().eq("email", id).findUnique();
+        }
+    } 
+
 }

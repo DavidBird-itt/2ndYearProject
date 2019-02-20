@@ -30,24 +30,28 @@ public class HomeController extends Controller {
     }
     
     public Result index() {
-        return ok(index.render());
+        return ok(index.render(User.getUserById(session().get("email"))));
     }
 
-
     public Result payment() {
-        return ok(payment.render());
+        return ok(payment.render(User.getUserById(session().get("email"))));
     }
 
     public Result database() {
         List<Houses> houseList = Houses.findAll();
-        return ok(database.render(houseList));
+        return ok(database.render(houseList, User.getUserById(session().get("email"))));
     }
 
+    //Adds security so user must be logged in
+    @Security.Authenticated(Secured.class)
     public Result addHouse() {
         Form<Houses> houseForm = formFactory.form(Houses.class);
-        return ok(addHouse.render(houseForm));
+        return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
     }
 
+    //Interacts directly with the database so the @Transactional is added
+    @Security.Authenticated(Secured.class)
+    @Transactional
     public Result addHouseSubmit() {
         Form<Houses> newHouseForm = formFactory.form(Houses.class).bindFromRequest();
 
@@ -74,6 +78,8 @@ public class HomeController extends Controller {
 
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
     public Result deleteHouse(Long id) {
         Houses.find.ref(id).delete();
 
