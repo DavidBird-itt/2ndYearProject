@@ -13,7 +13,7 @@ public class Secured extends Security.Authenticator {
 
     //If the user enters a location that they need to be logged into to reach
     //they are redirected to the login page
-    @Override 
+
     public Result onUnathorized(Context ctx) {
         return redirect(controllers.routes.LoginController.login());
     }

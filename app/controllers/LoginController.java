@@ -31,7 +31,7 @@ public class LoginController extends Controller {
         Form<Login> loginForm = formFactory.form(Login.class).bindFromRequest();
 
         if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
+            return badRequest(login.render(loginForm, User.getUserById(session().get("email"))));
         } else {
             //Clear sessions
             session().clear();

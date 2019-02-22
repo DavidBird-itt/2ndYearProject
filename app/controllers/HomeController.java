@@ -58,7 +58,7 @@ public class HomeController extends Controller {
         //Error handling
         if (newHouseForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addHouse.render(newHouseForm));
+            return badRequest(addHouse.render(newHouseForm, User.getUserById(session().get("email"))));
         } else {
             //Puts the form into the houses constructor
             Houses newHouse = newHouseForm.get();
@@ -102,6 +102,6 @@ public class HomeController extends Controller {
             return badRequest("error");
         }
 
-        return ok(addHouse.render(houseForm));
+        return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
     }
 }

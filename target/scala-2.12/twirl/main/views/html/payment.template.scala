@@ -22,16 +22,16 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object payment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+object payment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*1.2*/main("Payment")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
-		"""),format.raw/*2.3*/("""<div class="container-fluid">
+Seq[Any](_display_(/*2.2*/main("Payment", user)/*2.23*/{_display_(Seq[Any](format.raw/*2.24*/("""
+		"""),format.raw/*3.3*/("""<div class="container-fluid">
 			<div class="col-sm-3">
 				<div id="search-form">
 					<span class="title">Search Properties</span>
@@ -108,9 +108,9 @@ Seq[Any](_display_(/*1.2*/main("Payment")/*1.17*/{_display_(Seq[Any](format.raw/
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
 
   def ref: this.type = this
 
@@ -119,11 +119,11 @@ Seq[Any](_display_(/*1.2*/main("Payment")/*1.17*/{_display_(Seq[Any](format.raw/
 
               /*
                   -- GENERATED --
-                  DATE: Sun Feb 17 11:10:51 GMT 2019
-                  SOURCE: /home/wdd/temp/PlayReminder/app/views/payment.scala.html
-                  HASH: 94eea19552b624d9fcf2ba6be87be55cdb90b010
-                  MATRIX: 1032->1|1055->16|1093->17|1122->20
-                  LINES: 33->1|33->1|33->1|34->2
+                  DATE: Fri Feb 22 09:02:29 GMT 2019
+                  SOURCE: /home/wdd/play/PlayReminder/app/views/payment.scala.html
+                  HASH: 3038db28e2d13332184f08492f261eb7756506f1
+                  MATRIX: 961->1|1080->28|1109->49|1147->50|1176->53
+                  LINES: 28->1|33->2|33->2|33->2|34->3
                   -- GENERATED --
               */
           
