@@ -17,6 +17,11 @@ GET     /login                      controllers.LoginController.login
 
 GET     /loginSubmit                controllers.LoginController.loginSubmit
 
+GET     /logout                     controllers.LoginController.logout
+
+GET     /createAccount              controllers.LoginController.createAccount
+POST    /createAccountSubmit        controllers.LoginController.createAccountSubmit
+
 #GET from HomeController
 
 GET     /payment                    controllers.HomeController.payment
@@ -24,11 +29,7 @@ GET     /payment                    controllers.HomeController.payment
 GET     /database                   controllers.HomeController.database
 
 GET     /addHouse                   controllers.HomeController.addHouse
-
 POST    /addHouseSubmit             controllers.HomeController.addHouseSubmit
-
 GET     /deleteHouse/:id            controllers.HomeController.deleteHouse(id: Long)
-
 GET     /updateHouse/:id            controllers.HomeController.updateHouse(id: Long)
 
-GET     /logout                     controllers.LoginController.logout

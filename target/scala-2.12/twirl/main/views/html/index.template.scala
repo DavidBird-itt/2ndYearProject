@@ -30,9 +30,8 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
-"""),_display_(/*3.2*/main("Home", user)/*3.20*/{_display_(Seq[Any](format.raw/*3.21*/("""
-		"""),format.raw/*4.3*/("""<div class="container-fluid">
+Seq[Any](_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.raw/*2.21*/("""
+		"""),format.raw/*3.3*/("""<div class="container-fluid">
 			<div class="col-sm-3">
 				<div id="search-form">
 					<span class="title">Search Properties</span>
@@ -106,11 +105,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Feb 22 09:02:29 GMT 2019
+                  DATE: Mon Feb 25 18:34:02 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/index.scala.html
-                  HASH: 15c1b65eaa83b1294df2748633db77c6113637cf
-                  MATRIX: 959->1|1078->27|1105->29|1131->47|1169->48|1198->51
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4
+                  HASH: 5e6cd2515f2b7c6b3b19e101d67e40144553ef3d
+                  MATRIX: 959->1|1078->28|1104->46|1142->47|1171->50
+                  LINES: 28->1|33->2|33->2|33->2|34->3
                   -- GENERATED --
               */
           

@@ -50,4 +50,28 @@ public class LoginController extends Controller {
 
         return redirect(routes.LoginController.login());
     }
+
+    public Result createAccount() {
+        Form<User> userForm = formFactory.form(User.class);
+        return ok(createAccount.render(userForm, User.getUserById(session().get("email"))));
+    }
+
+    public Result createAccountSubmit() {
+        Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
+
+        //Check for errors
+        if (newUserForm.hasErrors()) {
+            return badRequest(createAccount.render(newUserForm, User.getUserById(session().get("email"))));
+
+        } else {
+            //extract the form and then save to the DB
+            User newUser = newUserForm.get();
+            
+            //Show it worked
+            flash("success", "User added.");
+
+            return redirect(controllers.routes.LoginController.login());
+
+        }
+    }
 }

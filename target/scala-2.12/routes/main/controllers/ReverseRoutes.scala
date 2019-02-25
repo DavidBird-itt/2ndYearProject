@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Feb 19 14:34:31 GMT 2019
+// @DATE:Mon Feb 25 19:23:57 GMT 2019
 
 import play.api.mvc.Call
 
@@ -48,37 +48,37 @@ package controllers {
     }
 
   
-    // @LINE:24
+    // @LINE:29
     def database(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "database")
     }
   
-    // @LINE:28
+    // @LINE:32
     def addHouseSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addHouseSubmit")
     }
   
-    // @LINE:22
+    // @LINE:27
     def payment(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "payment")
     }
   
-    // @LINE:32
+    // @LINE:34
     def updateHouse(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:30
+    // @LINE:33
     def deleteHouse(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:26
+    // @LINE:31
     def addHouse(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addHouse")
@@ -114,13 +114,25 @@ package controllers {
     }
 
   
+    // @LINE:23
+    def createAccountSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "createAccountSubmit")
+    }
+  
+    // @LINE:22
+    def createAccount(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "createAccount")
+    }
+  
     // @LINE:18
     def loginSubmit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "loginSubmit")
     }
   
-    // @LINE:34
+    // @LINE:20
     def logout(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "logout")

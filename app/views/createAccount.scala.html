@@ -1,0 +1,26 @@
+@(createForm: Form[models.users.User], user: models.users.User)
+
+@import helper._
+
+@main("Create Account", user) {
+    <p class="lead">Create Account</p>
+
+    @form(action=routes.LoginController.createAccount, 'class -> "form-horizontal", 'role -> "form") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+
+        <!-- Uses helper methods to take the values from the form and add it to the database -->
+        <!-- No need to get the id because it's auto generated -->
+        @inputText(createForm("email"), '_label -> "Email", 'class -> "form-control")
+        @inputText(createForm("name"), '_label -> "Name", 'class -> "form-control")
+        @inputText(createForm("password"), '_label -> "Password", 'class -> "form-control")
+        @inputText(createForm("role"), '_label -> "Role", 'class -> "form-control")
+        
+        <div class="actions">
+            <input type="submit" value="Create Account" class="btn btn-primary">
+            <a href="@routes.LoginController.login()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

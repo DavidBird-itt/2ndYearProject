@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Feb 19 14:34:31 GMT 2019
+// @DATE:Mon Feb 25 19:23:57 GMT 2019
 
 package router
 
@@ -57,13 +57,15 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.LoginController.login"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """loginSubmit""", """controllers.LoginController.loginSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createAccount""", """controllers.LoginController.createAccount"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createAccountSubmit""", """controllers.LoginController.createAccountSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """payment""", """controllers.HomeController.payment"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """database""", """controllers.HomeController.database"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouse""", """controllers.HomeController.addHouse"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouseSubmit""", """controllers.HomeController.addHouseSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteHouse(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateHouse(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -179,11 +181,65 @@ class Routes(
     )
   )
 
+  // @LINE:20
+  private[this] lazy val controllers_LoginController_logout6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
+  )
+  private[this] lazy val controllers_LoginController_logout6_invoker = createInvoker(
+    LoginController_4.logout,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.LoginController",
+      "logout",
+      Nil,
+      "GET",
+      this.prefix + """logout""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:22
-  private[this] lazy val controllers_HomeController_payment6_route = Route("GET",
+  private[this] lazy val controllers_LoginController_createAccount7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createAccount")))
+  )
+  private[this] lazy val controllers_LoginController_createAccount7_invoker = createInvoker(
+    LoginController_4.createAccount,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.LoginController",
+      "createAccount",
+      Nil,
+      "GET",
+      this.prefix + """createAccount""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:23
+  private[this] lazy val controllers_LoginController_createAccountSubmit8_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createAccountSubmit")))
+  )
+  private[this] lazy val controllers_LoginController_createAccountSubmit8_invoker = createInvoker(
+    LoginController_4.createAccountSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.LoginController",
+      "createAccountSubmit",
+      Nil,
+      "POST",
+      this.prefix + """createAccountSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:27
+  private[this] lazy val controllers_HomeController_payment9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("payment")))
   )
-  private[this] lazy val controllers_HomeController_payment6_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_payment9_invoker = createInvoker(
     HomeController_1.payment,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -197,11 +253,11 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_HomeController_database7_route = Route("GET",
+  // @LINE:29
+  private[this] lazy val controllers_HomeController_database10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("database")))
   )
-  private[this] lazy val controllers_HomeController_database7_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_database10_invoker = createInvoker(
     HomeController_1.database,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -215,11 +271,11 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_HomeController_addHouse8_route = Route("GET",
+  // @LINE:31
+  private[this] lazy val controllers_HomeController_addHouse11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addHouse")))
   )
-  private[this] lazy val controllers_HomeController_addHouse8_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addHouse11_invoker = createInvoker(
     HomeController_1.addHouse,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -233,11 +289,11 @@ class Routes(
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_HomeController_addHouseSubmit9_route = Route("POST",
+  // @LINE:32
+  private[this] lazy val controllers_HomeController_addHouseSubmit12_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addHouseSubmit")))
   )
-  private[this] lazy val controllers_HomeController_addHouseSubmit9_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_addHouseSubmit12_invoker = createInvoker(
     HomeController_1.addHouseSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -251,11 +307,11 @@ class Routes(
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_HomeController_deleteHouse10_route = Route("GET",
+  // @LINE:33
+  private[this] lazy val controllers_HomeController_deleteHouse13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteHouse/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_deleteHouse10_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_deleteHouse13_invoker = createInvoker(
     HomeController_1.deleteHouse(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -269,11 +325,11 @@ class Routes(
     )
   )
 
-  // @LINE:32
-  private[this] lazy val controllers_HomeController_updateHouse11_route = Route("GET",
+  // @LINE:34
+  private[this] lazy val controllers_HomeController_updateHouse14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateHouse/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_HomeController_updateHouse11_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_updateHouse14_invoker = createInvoker(
     HomeController_1.updateHouse(fakeValue[Long]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -282,24 +338,6 @@ class Routes(
       Seq(classOf[Long]),
       "GET",
       this.prefix + """updateHouse/""" + "$" + """id<[^/]+>""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:34
-  private[this] lazy val controllers_LoginController_logout12_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
-  )
-  private[this] lazy val controllers_LoginController_logout12_invoker = createInvoker(
-    LoginController_4.logout,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.LoginController",
-      "logout",
-      Nil,
-      "GET",
-      this.prefix + """logout""",
       """""",
       Seq()
     )
@@ -344,46 +382,58 @@ class Routes(
         controllers_LoginController_loginSubmit5_invoker.call(LoginController_4.loginSubmit)
       }
   
+    // @LINE:20
+    case controllers_LoginController_logout6_route(params@_) =>
+      call { 
+        controllers_LoginController_logout6_invoker.call(LoginController_4.logout)
+      }
+  
     // @LINE:22
-    case controllers_HomeController_payment6_route(params@_) =>
+    case controllers_LoginController_createAccount7_route(params@_) =>
       call { 
-        controllers_HomeController_payment6_invoker.call(HomeController_1.payment)
+        controllers_LoginController_createAccount7_invoker.call(LoginController_4.createAccount)
       }
   
-    // @LINE:24
-    case controllers_HomeController_database7_route(params@_) =>
+    // @LINE:23
+    case controllers_LoginController_createAccountSubmit8_route(params@_) =>
       call { 
-        controllers_HomeController_database7_invoker.call(HomeController_1.database)
+        controllers_LoginController_createAccountSubmit8_invoker.call(LoginController_4.createAccountSubmit)
       }
   
-    // @LINE:26
-    case controllers_HomeController_addHouse8_route(params@_) =>
+    // @LINE:27
+    case controllers_HomeController_payment9_route(params@_) =>
       call { 
-        controllers_HomeController_addHouse8_invoker.call(HomeController_1.addHouse)
+        controllers_HomeController_payment9_invoker.call(HomeController_1.payment)
       }
   
-    // @LINE:28
-    case controllers_HomeController_addHouseSubmit9_route(params@_) =>
+    // @LINE:29
+    case controllers_HomeController_database10_route(params@_) =>
       call { 
-        controllers_HomeController_addHouseSubmit9_invoker.call(HomeController_1.addHouseSubmit)
+        controllers_HomeController_database10_invoker.call(HomeController_1.database)
       }
   
-    // @LINE:30
-    case controllers_HomeController_deleteHouse10_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_HomeController_deleteHouse10_invoker.call(HomeController_1.deleteHouse(id))
+    // @LINE:31
+    case controllers_HomeController_addHouse11_route(params@_) =>
+      call { 
+        controllers_HomeController_addHouse11_invoker.call(HomeController_1.addHouse)
       }
   
     // @LINE:32
-    case controllers_HomeController_updateHouse11_route(params@_) =>
+    case controllers_HomeController_addHouseSubmit12_route(params@_) =>
+      call { 
+        controllers_HomeController_addHouseSubmit12_invoker.call(HomeController_1.addHouseSubmit)
+      }
+  
+    // @LINE:33
+    case controllers_HomeController_deleteHouse13_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_HomeController_updateHouse11_invoker.call(HomeController_1.updateHouse(id))
+        controllers_HomeController_deleteHouse13_invoker.call(HomeController_1.deleteHouse(id))
       }
   
     // @LINE:34
-    case controllers_LoginController_logout12_route(params@_) =>
-      call { 
-        controllers_LoginController_logout12_invoker.call(LoginController_4.logout)
+    case controllers_HomeController_updateHouse14_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_HomeController_updateHouse14_invoker.call(HomeController_1.updateHouse(id))
       }
   }
 }

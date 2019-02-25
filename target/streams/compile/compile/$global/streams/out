@@ -1,2 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/Secured.java:16:1: method does not override or implement a method from a supertype[0m
-[0m[[0m[31merror[0m] [0m[0m    @Override [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/LoginController.java:70:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method save()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newUser of type models.users.User[0m
+[0m[[0m[31merror[0m] [0m[0m            newUser.save();[0m

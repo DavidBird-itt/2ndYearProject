@@ -62,10 +62,10 @@ public class HomeController extends Controller {
         } else {
             //Puts the form into the houses constructor
             Houses newHouse = newHouseForm.get();
-
+            
             if(newHouse.getId() == null){
-            //Saves to the database
-            newHouse.save();
+                //Saves to the database
+                newHouse.save();
             } else {
                 newHouse.update();
             }

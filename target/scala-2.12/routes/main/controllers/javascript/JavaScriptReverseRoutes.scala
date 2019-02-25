@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Feb 19 14:34:31 GMT 2019
+// @DATE:Mon Feb 25 19:23:57 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,7 +59,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:29
     def database: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.database",
       """
@@ -69,7 +69,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:32
     def addHouseSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addHouseSubmit",
       """
@@ -79,7 +79,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:27
     def payment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.payment",
       """
@@ -89,7 +89,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:34
     def updateHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateHouse",
       """
@@ -99,7 +99,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:33
     def deleteHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteHouse",
       """
@@ -109,7 +109,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:31
     def addHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addHouse",
       """
@@ -159,6 +159,26 @@ package controllers.javascript {
     }
 
   
+    // @LINE:23
+    def createAccountSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.LoginController.createAccountSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccountSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:22
+    def createAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.LoginController.createAccount",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccount"})
+        }
+      """
+    )
+  
     // @LINE:18
     def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.loginSubmit",
@@ -169,7 +189,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:20
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.logout",
       """
