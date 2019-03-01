@@ -6,70 +6,69 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-public class LandLord extends Models {
+
+@Entity
+public class LandLord extends Model   {
 
     @Id
     private Long id;
     @Constraints.Required
     private String fname;
+
     @Constraints.Required
     private String lname;
+
     @Constraints.Required
-    private Long numOfProperties;
+    private int numOfProperties;
+
     @Constraints.Required
-    private Long rentAmount;
+    private double rentAmount;
+
     @Constraints.Required
     private String email;
-    @Constraints.Required
-    private String role;
 
     public LandLord() {
 
     }
 
-    public LandLord(Long id, String fname, String lname, Long numOfProperties, Long rentAmount,String email, String role) {
+    public LandLord(Long id, String fname, String lname, int numOfProperties, double rentAmount,String email) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.numOfProperties = numOfProperties;
         this.rentAmount = rentAmount;
         this.email = email;
-        this.role = role;
     }
 
-    public Long getId() {
+    public Long getId(Long id) {
         return id;
     }
 
-    public String fname() {
+    public String fname(String fname) {
         return fname;
     }
 
-    public String lname() {
+    public String lname(String lname) {
         return lname;
     }
 
-    public Long numOfProperties() {
+    public int numOfProperties(int numOfProperties) {
         return numOfProperties;
     }
 
-    public Long rentAmount() {
+    public double rentAmount(double rentAmount) {
         return rentAmount;
     }
 
-    public String email() {
+    public String email(String email) {
         return email;
-    }
-
-    public String role() {
-        return role;
     }
 
     public Long setId(Long id) {
         this.id = id;
     }
 
-    public String fname(String fname) {
+    void fname(String fname) {
         this.fname = fname;
     }
 
@@ -77,39 +76,15 @@ public class LandLord extends Models {
         this.lname = lname;
     }
 
-    public Long numOfProperties(Long numOfProperties) {
+    public int numOfProperties(int numOfProperties) {
         this.numOfProperties = numOfProperties;
     }
 
-    public Long rentAmount(Long rentAmount) {
+    public double rentAmount(double rentAmount) {
         this.rentAmount = rentAmount;
     }
 
     public String email(String email) {
         this.email = email;
     }
-
-    public String role(String role) {
-        this.role = role;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

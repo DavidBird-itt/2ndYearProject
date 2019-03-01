@@ -38,7 +38,7 @@ public class User {
         return this.email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail() {
         this.email = email;
     }
 
@@ -46,7 +46,7 @@ public class User {
         return this.role;
     }
 
-    public void setRole(String role) {
+    public void setRole() {
         this.role = role;
     }
 
@@ -54,7 +54,7 @@ public class User {
         return this.name;
     }
 
-    public void setName(String name) {
+    public void setName() {
         this.name = name;
     }
 
@@ -62,7 +62,7 @@ public class User {
         return this.password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword() {
         this.password = password;
     }
 
