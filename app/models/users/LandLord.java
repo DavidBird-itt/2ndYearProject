@@ -44,47 +44,47 @@ public class LandLord extends Model   {
         return id;
     }
 
-    public String fname(String fname) {
+    public String getFname(String fname) {
         return fname;
     }
 
-    public String lname(String lname) {
+    public String getLname(String lname) {
         return lname;
     }
 
-    public int numOfProperties(int numOfProperties) {
+    public int getNumOfProperties(int numOfProperties) {
         return numOfProperties;
     }
 
-    public double rentAmount(double rentAmount) {
+    public double getRentAmount(double rentAmount) {
         return rentAmount;
     }
 
-    public String email(String email) {
+    public String getEmail(String email) {
         return email;
     }
 
-    public Long setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    void fname(String fname) {
+    public void setFname(String fname) {
         this.fname = fname;
     }
 
-    public String lname(String lname) {
+    public void setLname(String lname) {
         this.lname = lname;
     }
 
-    public int numOfProperties(int numOfProperties) {
+    public void setNumOfProperties(int numOfProperties) {
         this.numOfProperties = numOfProperties;
     }
 
-    public double rentAmount(double rentAmount) {
+    public void setRentAmount(double rentAmount) {
         this.rentAmount = rentAmount;
     }
 
-    public String email(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }
