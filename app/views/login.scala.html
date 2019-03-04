@@ -11,6 +11,12 @@
             }
         </p>
     }
+    @*Display error message form flash, if it is set*@
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-success">
+            @flash.get("error")
+        </div>
+    }
 
     <!-- Displaying the form itself -->
     @helper.form(action = controllers.routes.LoginController.loginSubmit()) {

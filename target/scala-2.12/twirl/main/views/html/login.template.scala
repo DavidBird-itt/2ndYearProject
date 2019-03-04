@@ -42,30 +42,36 @@ Seq[Any](format.raw/*3.1*/("""
             """)))}),format.raw/*11.14*/("""
         """),format.raw/*12.9*/("""</p>
     """)))}),format.raw/*13.6*/("""
+    """),format.raw/*14.55*/("""
+    """),_display_(/*15.6*/if(flash.containsKey("error"))/*15.36*/ {_display_(Seq[Any](format.raw/*15.38*/("""
+        """),format.raw/*16.9*/("""<div class="alert alert-success">
+            """),_display_(/*17.14*/flash/*17.19*/.get("error")),format.raw/*17.32*/("""
+        """),format.raw/*18.9*/("""</div>
+    """)))}),format.raw/*19.6*/("""
 
-    """),format.raw/*15.5*/("""<!-- Displaying the form itself -->
-    """),_display_(/*16.6*/helper/*16.12*/.form(action = controllers.routes.LoginController.loginSubmit())/*16.76*/ {_display_(Seq[Any](format.raw/*16.78*/("""
-        """),format.raw/*17.37*/("""
-        """),_display_(/*18.10*/CSRF/*18.14*/.formField),format.raw/*18.24*/("""
+    """),format.raw/*21.5*/("""<!-- Displaying the form itself -->
+    """),_display_(/*22.6*/helper/*22.12*/.form(action = controllers.routes.LoginController.loginSubmit())/*22.76*/ {_display_(Seq[Any](format.raw/*22.78*/("""
+        """),format.raw/*23.37*/("""
+        """),_display_(/*24.10*/CSRF/*24.14*/.formField),format.raw/*24.24*/("""
 
-        """),format.raw/*20.9*/("""<div class="form-group">
-            """),_display_(/*21.14*/inputText(loginForm("email"), '_label -> "",
-            'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*22.72*/("""
-        """),format.raw/*23.9*/("""</div>
+        """),format.raw/*26.9*/("""<div class="form-group">
+            """),_display_(/*27.14*/inputText(loginForm("email"), '_label -> "",
+            'class -> "form-control input-xs", 'placeholder -> "Email")),format.raw/*28.72*/("""
+        """),format.raw/*29.9*/("""</div>
         <div class="form-group">
-            """),_display_(/*25.14*/inputPassword(loginForm("password"), '_label -> "",
-            'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*26.75*/("""
-        """),format.raw/*27.9*/("""</div>
+            """),_display_(/*31.14*/inputPassword(loginForm("password"), '_label -> "",
+            'class -> "form-control input-xs", 'placeholder -> "Password")),format.raw/*32.75*/("""
+        """),format.raw/*33.9*/("""</div>
 
         <div class="form-group">
             <input type="submit" value="Sign In" class="btn btn primary">
         </div>
 
-    """)))}),format.raw/*33.6*/(""" """),format.raw/*33.24*/("""
+    """)))}),format.raw/*39.6*/(""" """),format.raw/*39.24*/("""
 
 
-    """),format.raw/*36.5*/("""<p>
-        <a href=""""),_display_(/*37.19*/routes/*37.25*/.LoginController.createAccount()),format.raw/*37.57*/("""">
+    """),format.raw/*42.5*/("""<p>
+        <a href=""""),_display_(/*43.19*/routes/*43.25*/.LoginController.createAccount()),format.raw/*43.57*/("""">
             <button class="btn btn-primary">Create Account</button>
         </a>
     </p>
@@ -85,11 +91,11 @@ Seq[Any](format.raw/*3.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 02 17:41:30 GMT 2019
+                  DATE: Mon Mar 04 11:02:12 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/login.scala.html
-                  HASH: 40bc0451e4485a75fc7451e87af7ebadca4b0236
-                  MATRIX: 984->1|1119->65|1163->82|1190->84|1217->103|1256->105|1287->110|1362->160|1399->189|1438->191|1473->200|1544->245|1591->277|1630->279|1675->296|1734->324|1770->333|1810->343|1843->349|1910->390|1925->396|1998->460|2038->462|2075->499|2112->509|2125->513|2156->523|2193->533|2258->571|2395->687|2431->696|2511->749|2658->875|2694->884|2860->1020|2889->1038|2923->1045|2972->1067|2987->1073|3040->1105
-                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|36->5|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|43->12|44->13|46->15|47->16|47->16|47->16|47->16|48->17|49->18|49->18|49->18|51->20|52->21|53->22|54->23|56->25|57->26|58->27|64->33|64->33|67->36|68->37|68->37|68->37
+                  HASH: b8e2ae815ffb9e9cec6e64908ea5e34d012eb786
+                  MATRIX: 984->1|1119->65|1163->82|1190->84|1217->103|1256->105|1287->110|1362->160|1399->189|1438->191|1473->200|1544->245|1591->277|1630->279|1675->296|1734->324|1770->333|1810->343|1843->398|1875->404|1914->434|1954->436|1990->445|2064->492|2078->497|2112->510|2148->519|2190->531|2223->537|2290->578|2305->584|2378->648|2418->650|2455->687|2492->697|2505->701|2536->711|2573->721|2638->759|2775->875|2811->884|2891->937|3038->1063|3074->1072|3240->1208|3269->1226|3303->1233|3352->1255|3367->1261|3420->1293
+                  LINES: 28->1|31->2|34->3|35->4|35->4|35->4|36->5|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|43->12|44->13|45->14|46->15|46->15|46->15|47->16|48->17|48->17|48->17|49->18|50->19|52->21|53->22|53->22|53->22|53->22|54->23|55->24|55->24|55->24|57->26|58->27|59->28|60->29|62->31|63->32|64->33|70->39|70->39|73->42|74->43|74->43|74->43
                   -- GENERATED --
               */
           

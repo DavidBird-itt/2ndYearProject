@@ -80,6 +80,7 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @Transactional
+    @With(AuthAdmin.class)
     public Result deleteHouse(Long id) {
         Houses.find.ref(id).delete();
 
