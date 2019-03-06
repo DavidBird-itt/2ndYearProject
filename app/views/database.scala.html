@@ -32,28 +32,34 @@
                     <td>@i.getNumBeds</td>
                     <td>@i.getNumBaths</td>
                     <td>&euro; @("%.2f".format(i.getPrice))</td>
+
+                    @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
                     <!-- Update button -->
                     <td>
                         <a href="@routes.HomeController.updateHouse(i.getId)" class="button-xs btn-danger">
                             <span class="glyphicon-pencil"><</span>
                         </a>
                     </td>
+                }
 
+                @if((user != null) && ("admin".equals(user.getRole()))) {
                     <!-- Delete button -->
                     <td>
                         <a href="@routes.HomeController.deleteHouse(i.getId)" class="button-xs btn-danger" onclick="return confirmDel();">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
+                }
             </tr>
         }
         </tbody>
     </table>         
 
+    @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
     <p>
         <a href="@routes.HomeController.addHouse()">
             <button class="btn btn-primary">Add a House</button>
         </a>
     </p>
-    
+    }
 }

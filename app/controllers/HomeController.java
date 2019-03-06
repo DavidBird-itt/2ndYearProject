@@ -89,6 +89,9 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.database());
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
     public Result updateHouse(Long id) {
         Houses i;
         Form<Houses> houseForm;

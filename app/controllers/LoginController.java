@@ -66,7 +66,7 @@ public class LoginController extends Controller {
         } else {
             //extract the form and then save to the DB
             User newUser = newUserForm.get();
-            
+        //    newUser.save();
             //Show it worked
             flash("success", "User added.");
 
