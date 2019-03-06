@@ -44,6 +44,7 @@ public class HomeController extends Controller {
 
     //Adds security so user must be logged in
     @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     public Result addHouse() {
         Form<Houses> houseForm = formFactory.form(Houses.class);
         return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
