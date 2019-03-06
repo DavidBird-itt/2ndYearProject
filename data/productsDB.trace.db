@@ -70,3 +70,9 @@ insert into houses (id,address,postcode,numBeds,numBaths,price) values ( 1,'123 
 2019-03-02 17:45:34 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "LANDLORD" not found; SQL statement:
 insert into LandLord (id,fname,lname,numOfProperties,rentAmount,email) values (1, 'Karl', 'Blair', 4, 1250, 'landlord123@adk.com') [42102-197]
+2019-03-06 11:28:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LANDLORD" not found; SQL statement:
+insert into LandLord (id,fname,lname,numOfProperties,rentAmount,email) values (1, 'Karl', 'Blair', 4, 1250, 'landlord123@adk.com') [42102-197]
+2019-03-06 11:39:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LANDLORD" not found; SQL statement:
+insert into LandLord (id,fname,lname,numOfProperties,rentAmount,email) values (1, 'Karl', 'Blair', 4, 1250, 'landlord123@adk.com') [42102-197]
