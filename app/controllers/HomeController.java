@@ -117,4 +117,9 @@ public class HomeController extends Controller {
 
         return ok(LandLord.render(userList,User.getUserById(session().get("email"))));
     }
+
+    public Result addLandLord() {
+        Form<LandLord> landLordForm = formFactory.form(LandLord.class);
+        return ok(addLandLord.render(landLordForm, User.getUserById(session().get("email"))));
+    }
 }

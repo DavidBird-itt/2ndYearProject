@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/main.scala.html:60:92: value usersLandLord is not a member of controllers.ReverseHomeController[0m
-[0m[[0m[31merror[0m] [0m[0m									<li @if(pagename == "LandLords") {class="active"}><a href="@routes.HomeController.usersLandLord()">View LandLords</a></li>[0m
-[0m[[0m[31merror[0m] [0m[0m									                                                                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/landlord.scala.html:1:1: identifier expected but $XMLSTART$< found.[0m
+[0m[[0m[31merror[0m] [0m[0m@(users: List[models.users.LandLord] user: models.Users.User)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/landlord.scala.html:64:2: ']' expected but eof found.[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
