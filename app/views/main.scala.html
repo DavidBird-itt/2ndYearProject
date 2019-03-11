@@ -56,7 +56,8 @@
                             <li @if(pagename == "Payment"){class="active"}><a href="@routes.HomeController.payment()">Payment</a></li>
 							<li @if(pagename == "Database"){class="active"}><a href="@routes.HomeController.database()">Database</a></li>
 							<li @if(pagename == "Login"){class="active"}>
-								@if(user != null) {
+								@if((user != null) && ("LandLord".equals(user.getRole()))) {
+									<li @if(pagename == "LandLords") {class="active"}><a href="@routes.HomeController.usersLandLord()">View LandLords</a></li>
 									<a href="@routes.LoginController.logout()">Log Out</a></li>
 								} else {
 									<a href="@routes.LoginController.login()">Log In</a>

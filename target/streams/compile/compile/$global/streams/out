@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/Property.java:59:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable price[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.Property[0m
-[0m[[0m[31merror[0m] [0m[0m        return price;[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/Property.java:63:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol: variable price[0m
-[0m[[0m[31merror[0m] [0m[0m        this.price = price;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/main.scala.html:60:92: value usersLandLord is not a member of controllers.ReverseHomeController[0m
+[0m[[0m[31merror[0m] [0m[0m									<li @if(pagename == "LandLords") {class="active"}><a href="@routes.HomeController.usersLandLord()">View LandLords</a></li>[0m
+[0m[[0m[31merror[0m] [0m[0m									                                                                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -109,4 +109,12 @@ public class HomeController extends Controller {
 
         return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
     }
+
+    public Result usersLandLords() {
+        List<LandLord> userList = null;
+
+        userList = LandLord.findAll();
+
+        return ok(LandLord.render(userList,User.getUserById(session().get("email"))));
+    }
 }

@@ -7,7 +7,16 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
-public class User {
+
+@Table(name = "User")
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+@DiscriminatorColumn(name = "type")
+
+@DiscriminatorValue("u")
+
+public class User extends Model {
     @Id
     public String email;
 
@@ -68,10 +77,6 @@ public class User {
 
     //Finders
     public static final Finder<Long, User> find = new Finder<>(User.class);
-
-    public static final List<User> findAll() {
-        return User.find.all();
-    }
 
     //Identification
     public static User authenticate(String email, String password) {
