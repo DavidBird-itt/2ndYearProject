@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/landlord.scala.html:1:1: identifier expected but $XMLSTART$< found.[0m
-[0m[[0m[31merror[0m] [0m[0m@(users: List[models.users.LandLord] user: models.Users.User)[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/views/landlord.scala.html:64:2: ']' expected but eof found.[0m
-[0m[[0m[31merror[0m] [0m[0m}[0m
-[0m[[0m[31merror[0m] [0m[0m ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/users/Landlord.java:24:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class LandLord[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Landlord[0m
+[0m[[0m[31merror[0m] [0m[0m    public static final Finder<Long, Landlord> find = new Finder<>(LandLord.class);[0m

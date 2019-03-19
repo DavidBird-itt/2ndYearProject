@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/PlayReminder/conf/routes
-// @DATE:Mon Mar 11 13:05:10 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Tue Mar 19 15:47:45 GMT 2019
 
 import play.api.mvc.Call
 
@@ -54,6 +54,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "database")
     }
   
+    // @LINE:37
+    def addLandlord(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addLandlord")
+    }
+  
     // @LINE:32
     def addHouseSubmit(): Call = {
       
@@ -66,6 +72,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "payment")
     }
   
+    // @LINE:38
+    def addLandlordSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addLandlordSubmit")
+    }
+  
     // @LINE:34
     def updateHouse(id:Long): Call = {
       
@@ -76,6 +88,12 @@ package controllers {
     def deleteHouse(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:36
+    def landlord(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "landlord")
     }
   
     // @LINE:31

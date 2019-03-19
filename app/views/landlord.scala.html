@@ -1,5 +1,5 @@
-@(users: List[models.users.LandLord] user: models.Users.User)
-@main("LandLord",user) {
+@(landList: List[models.users.Landlord], user: models.users.User)
+@main("Landlord",user) {
     <h1>Current LandLords</h1>
 
     <!-- Displays the flash message -->
@@ -26,30 +26,18 @@
                 <!-- Product row(s) -->
 
                 <!-- Loop for creating rows from the users data -->
-                @for(u<-users) {
+                @for(u<-landList) {
                     <tr>
                         <td>@u.getEmail</td>
                         <td>@u.getRole</td>
-                        <td>@u.getName</td>
+                        <td>@u.getFName</td>
                         <td>@u.getPassword</td>
-
-                    <td>
-                        <a href="@routes.HomeController.updateAdmin(u.getEmail)" class="button-xs btn-danger">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </a>
-                    </td>
-
-                <td>
-						<a href="@routes.HomeController.deleteAdmin(u.getEmail)" class="button-xs btn-danger" onclick="return confirmDel();">
-								<span class="glyphicon glyphicon-trash"></span>
-						</a>
-                    </td>
-                </tr>    
+                    </tr>  
             }
             </tbody>
         </table>
         <p>
-            <a href="@routes.HomeController.addLandLord()">
+            <a href="@routes.HomeController.addLandlord()">
                     <button class="btn btn-primary">Add a new Administrator</button>
             </a>
         </p>

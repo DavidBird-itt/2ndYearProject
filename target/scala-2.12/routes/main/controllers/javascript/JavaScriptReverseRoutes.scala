@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/PlayReminder/conf/routes
-// @DATE:Mon Mar 11 13:05:10 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Tue Mar 19 15:47:45 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -69,6 +69,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:37
+    def addLandlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addLandlord",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addLandlord"})
+        }
+      """
+    )
+  
     // @LINE:32
     def addHouseSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addHouseSubmit",
@@ -89,6 +99,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:38
+    def addLandlordSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addLandlordSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addLandlordSubmit"})
+        }
+      """
+    )
+  
     // @LINE:34
     def updateHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateHouse",
@@ -105,6 +125,16 @@ package controllers.javascript {
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteHouse/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:36
+    def landlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.landlord",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "landlord"})
         }
       """
     )

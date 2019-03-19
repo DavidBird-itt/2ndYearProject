@@ -110,16 +110,41 @@ public class HomeController extends Controller {
         return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
     }
 
-    public Result usersLandLords() {
-        List<LandLord> userList = null;
+    public Result landlord() {
+        List<Landlord> userList = null;
 
-        userList = LandLord.findAll();
+        userList = Landlord.findAll();
 
-        return ok(LandLord.render(userList,User.getUserById(session().get("email"))));
+        return ok(landlord.render(userList,User.getUserById(session().get("email"))));
     }
 
-    public Result addLandLord() {
-        Form<LandLord> landLordForm = formFactory.form(LandLord.class);
-        return ok(addLandLord.render(landLordForm, User.getUserById(session().get("email"))));
+    public Result addLandlord() {
+        Form<Landlord> lForm = formFactory.form(Landlord.class);
+        return ok(addLandlord.render(lForm, User.getUserById(session().get("email"))));
+    }
+
+    public Result addLandlordSubmit() {
+        Form<Landlord> newLandlordForm = formFactory.form(Landlord.class).bindFromRequest();
+
+        //Error handling
+        if (newLandlordForm.hasErrors()) {
+            //Finds the error and gives the user a new form to fill out
+            return badRequest(addLandlord.render(newLandlordForm, User.getUserById(session().get("email"))));
+        } else {
+            //Puts the form into the houses constructor
+            Landlord newLandlord = newLandlordForm.get();
+            
+            if(newLandlord.getUserById(newLandlord.getEmail()) == null){
+                //Saves to the database
+                newLandlord.save();
+            } else {
+                newLandlord.update();
+            }
+
+            flash("success", "Landlord " + newLandlord.getFName() + " was added/updated.");
+
+            //Brings them back to the initial page and shows the update
+            return redirect(controllers.routes.HomeController.landlord());
+        }
     }
 }

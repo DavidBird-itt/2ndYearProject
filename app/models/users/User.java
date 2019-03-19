@@ -24,7 +24,10 @@ public class User extends Model {
     public String role;
 
     @Constraints.Required
-    public String name;
+    public String fname;
+
+    @Constraints.Required
+    public String lname;
 
     @Constraints.Required
     public String password;
@@ -34,10 +37,11 @@ public class User extends Model {
     }
 
     //Overloaded
-    public User(String email, String role, String name, String password) {
+    public User(String email, String role, String fname, String lname,String password) {
         this.email = email;
+        this.fname = fname;
+        this.lname = lname;
         this.role = role;
-        this.name = name;
         this.password = password;
 
     }
@@ -59,12 +63,20 @@ public class User extends Model {
         this.role = role;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFName() {
+        return this.fname;
     }
 
-    public void setName() {
-        this.name = name;
+    public void setFName(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLName() {
+        return this.lname;
+    }
+
+    public void setLName(String lname) {
+        this.lname = lname;
     }
 
     public String getPassword() {

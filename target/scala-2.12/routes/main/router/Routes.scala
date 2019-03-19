@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/PlayReminder/conf/routes
-// @DATE:Mon Mar 11 13:05:10 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Tue Mar 19 15:47:45 GMT 2019
 
 package router
 
@@ -66,6 +66,9 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouseSubmit""", """controllers.HomeController.addHouseSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteHouse(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateHouse(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """landlord""", """controllers.HomeController.landlord"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addLandlord""", """controllers.HomeController.addLandlord"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addLandlordSubmit""", """controllers.HomeController.addLandlordSubmit"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -343,6 +346,60 @@ class Routes(
     )
   )
 
+  // @LINE:36
+  private[this] lazy val controllers_HomeController_landlord15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("landlord")))
+  )
+  private[this] lazy val controllers_HomeController_landlord15_invoker = createInvoker(
+    HomeController_1.landlord,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "landlord",
+      Nil,
+      "GET",
+      this.prefix + """landlord""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:37
+  private[this] lazy val controllers_HomeController_addLandlord16_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addLandlord")))
+  )
+  private[this] lazy val controllers_HomeController_addLandlord16_invoker = createInvoker(
+    HomeController_1.addLandlord,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addLandlord",
+      Nil,
+      "GET",
+      this.prefix + """addLandlord""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:38
+  private[this] lazy val controllers_HomeController_addLandlordSubmit17_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addLandlordSubmit")))
+  )
+  private[this] lazy val controllers_HomeController_addLandlordSubmit17_invoker = createInvoker(
+    HomeController_1.addLandlordSubmit,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "addLandlordSubmit",
+      Nil,
+      "POST",
+      this.prefix + """addLandlordSubmit""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -434,6 +491,24 @@ class Routes(
     case controllers_HomeController_updateHouse14_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_HomeController_updateHouse14_invoker.call(HomeController_1.updateHouse(id))
+      }
+  
+    // @LINE:36
+    case controllers_HomeController_landlord15_route(params@_) =>
+      call { 
+        controllers_HomeController_landlord15_invoker.call(HomeController_1.landlord)
+      }
+  
+    // @LINE:37
+    case controllers_HomeController_addLandlord16_route(params@_) =>
+      call { 
+        controllers_HomeController_addLandlord16_invoker.call(HomeController_1.addLandlord)
+      }
+  
+    // @LINE:38
+    case controllers_HomeController_addLandlordSubmit17_route(params@_) =>
+      call { 
+        controllers_HomeController_addLandlordSubmit17_invoker.call(HomeController_1.addLandlordSubmit)
       }
   }
 }

@@ -20,16 +20,6 @@ create table houses (
   constraint pk_houses primary key (id)
 );
 
-create table land_lord (
-  id                            bigint auto_increment not null,
-  fname                         varchar(255),
-  lname                         varchar(255),
-  num_of_properties             integer not null,
-  rent_amount                   double not null,
-  email                         varchar(255),
-  constraint pk_land_lord primary key (id)
-);
-
 create table property (
   id                            bigint auto_increment not null,
   type                          varchar(255),
@@ -41,9 +31,11 @@ create table property (
 );
 
 create table user (
+  type                          varchar(31) not null,
   email                         varchar(255) not null,
   role                          varchar(255),
-  name                          varchar(255),
+  fname                         varchar(255),
+  lname                         varchar(255),
   password                      varchar(255),
   constraint pk_user primary key (email)
 );
@@ -54,8 +46,6 @@ create table user (
 drop table if exists apartment;
 
 drop table if exists houses;
-
-drop table if exists land_lord;
 
 drop table if exists property;
 

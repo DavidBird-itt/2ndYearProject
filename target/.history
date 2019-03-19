@@ -48,3 +48,10 @@ exit
 run
 exit
 run
+clean
+compile
+run
+exit
+rub
+run
+exit
