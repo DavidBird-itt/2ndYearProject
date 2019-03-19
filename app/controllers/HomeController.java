@@ -147,4 +147,33 @@ public class HomeController extends Controller {
             return redirect(controllers.routes.HomeController.landlord());
         }
     }
+
+    public Result updateLandlord(String email) {
+        Landlord l;
+        Form<Landlord> lForm;
+    
+        try {
+            // Find the item by id
+            l = Landlord.find.getUserById(id);
+    
+            // Populate the form object with data from the item found in the database
+            lForm = formFactory.form(Landlord.class).fill(i);
+        } catch (Exception ex) {
+            return badRequest("error");
+        }
+    
+        // Display the "add item" page, to allow the user to update the item
+        return ok(addLandlord.render(lForm,User.getUserById(session().get("email"))));
+        
+
+    }
+
+    public Result deleteLandlord(String email) {
+        Landlord l = Landlord.getUserById(email);
+        l.delete();
+
+        flash("success", "Landlord has been updated");
+        return redirect(controllers.routes.HomeController.landlord());
+        
+    }
 }

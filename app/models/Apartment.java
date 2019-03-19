@@ -15,6 +15,11 @@ public class Apartment extends Model {
     @Constraints.Required
     private int floor;
 
+    public Apartment() {
+
+    }
+
+
 
     //Getters and Setters
     public Long getId() {

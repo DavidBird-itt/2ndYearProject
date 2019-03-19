@@ -55,3 +55,6 @@ exit
 rub
 run
 exit
+run
+git add *
+exit
