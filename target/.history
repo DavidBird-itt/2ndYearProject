@@ -58,3 +58,5 @@ exit
 run
 git add *
 exit
+run
+exit

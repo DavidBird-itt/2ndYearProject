@@ -1,10 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:157:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable id[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            l = Landlord.find.getUserById(id);[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:160:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable i[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m            lForm = formFactory.form(Landlord.class).fill(i);[0m
 [0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:172:1: incompatible types: models.users.User cannot be converted to models.users.Landlord[0m
 [0m[[0m[31merror[0m] [0m[0m        Landlord l = Landlord.getUserById(email);[0m

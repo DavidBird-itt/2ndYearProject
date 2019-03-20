@@ -154,10 +154,10 @@ public class HomeController extends Controller {
     
         try {
             // Find the item by id
-            l = Landlord.find.getUserById(id);
+            l = (Landlord)User.getUserById(email);
     
             // Populate the form object with data from the item found in the database
-            lForm = formFactory.form(Landlord.class).fill(i);
+            lForm = formFactory.form(Landlord.class).fill(l);
         } catch (Exception ex) {
             return badRequest("error");
         }
@@ -169,7 +169,7 @@ public class HomeController extends Controller {
     }
 
     public Result deleteLandlord(String email) {
-        Landlord l = Landlord.getUserById(email);
+        Landlord l = (Landlord) User.getUserById(email);
         l.delete();
 
         flash("success", "Landlord has been updated");
