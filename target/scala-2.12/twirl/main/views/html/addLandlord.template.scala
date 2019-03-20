@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addLandlord extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Landlord],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object addLandlord extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[models.users.Landlord],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(lForm: Form[models.users.Landlord], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(lForm: Form[models.users.Landlord], user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -36,34 +36,38 @@ Seq[Any](format.raw/*2.1*/("""
 """),_display_(/*5.2*/main("Add a Landlord", user)/*5.30*/ {_display_(Seq[Any](format.raw/*5.32*/("""
     """),format.raw/*6.5*/("""<p class="lead">Add a new Landlord</p>
 
-    """),_display_(/*8.6*/form(action=routes.HomeController.addLandlordSubmit, 'class -> "form-horizontal", 'role -> "form")/*8.104*/ {_display_(Seq[Any](format.raw/*8.106*/("""
-        """),format.raw/*9.37*/("""
-        """),_display_(/*10.10*/CSRF/*10.14*/.formField),format.raw/*10.24*/("""
+    """),_display_(/*8.6*/form(action=routes.HomeController.addLandlordSubmit, 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data")/*9.58*/ {_display_(Seq[Any](format.raw/*9.60*/("""
+        """),format.raw/*10.37*/("""
+        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
 
-        """),format.raw/*12.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
+        """),format.raw/*13.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
-        """),_display_(/*14.10*/inputText(lForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*14.81*/("""
-        """),_display_(/*15.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*15.86*/("""
-        """),_display_(/*16.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*16.85*/("""
-        """),_display_(/*17.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*17.87*/("""
+        """),_display_(/*15.10*/inputText(lForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*15.81*/("""
+        """),_display_(/*16.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*16.86*/("""
+        """),_display_(/*17.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*17.85*/("""
+        """),_display_(/*18.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*18.87*/("""
+
+        """),format.raw/*20.9*/("""<label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
     
-        """),_display_(/*19.10*/inputText(lForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*19.68*/("""
+        """),_display_(/*23.10*/inputText(lForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*23.68*/("""
     
-        """),format.raw/*21.9*/("""<div class="actions">
+        """),format.raw/*25.9*/("""<div class="actions">
             <input type="submit" value="Add house" class="btn btn-primary">
-            <a href=""""),_display_(/*23.23*/routes/*23.29*/.HomeController.database()),format.raw/*23.55*/("""">
+            <a href=""""),_display_(/*27.23*/routes/*27.29*/.HomeController.database()),format.raw/*27.55*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*27.6*/("""
+    """)))}),format.raw/*31.6*/("""
 """)))}))
       }
     }
   }
 
-  def render(lForm:Form[models.users.Landlord],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(lForm,user)
+  def render(lForm:Form[models.users.Landlord],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(lForm,user,env)
 
-  def f:((Form[models.users.Landlord],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (lForm,user) => apply(lForm,user)
+  def f:((Form[models.users.Landlord],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (lForm,user,env) => apply(lForm,user,env)
 
   def ref: this.type = this
 
@@ -72,11 +76,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Mar 19 10:36:42 GMT 2019
-                  SOURCE: /home/wdd/play/PlayReminder/app/views/addLandlord.scala.html
-                  HASH: ccc70b2060b4c2b70a75bbfccb0ea8a17db25990
-                  MATRIX: 993->1|1127->65|1171->63|1198->82|1225->84|1261->112|1300->114|1331->119|1401->164|1508->262|1548->264|1584->301|1621->311|1634->315|1665->325|1702->335|1894->500|1986->571|2023->581|2120->657|2157->667|2253->742|2290->752|2388->829|2430->844|2509->902|2550->916|2697->1036|2712->1042|2759->1068|2907->1186
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|43->12|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|50->19|50->19|52->21|54->23|54->23|54->23|58->27
+                  DATE: Wed Mar 20 16:28:42 GMT 2019
+                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/addLandlord.scala.html
+                  HASH: ea632a8f457bd8d49cf24c5f291a0c7eda5e1db5
+                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2128->666|2225->742|2262->752|2358->827|2395->837|2493->914|2530->924|2670->1037|2749->1095|2790->1109|2937->1229|2952->1235|2999->1261|3147->1379
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|54->23|54->23|56->25|58->27|58->27|58->27|62->31
                   -- GENERATED --
               */
           

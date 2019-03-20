@@ -15,6 +15,15 @@ import models.users.*;
 
 import views.html.*;
 
+import play.mvc.Http.*;
+import play.mvc.Http.MultipartFormData.FilePart;
+import java.io.File;
+
+import java.io.IOException;
+import java.awt.image.*;
+import javax.imageio.*;
+import org.imgscalr.*;
+
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
@@ -24,9 +33,12 @@ public class HomeController extends Controller {
     //Allows the user to make a class off a form
     public FormFactory formFactory;
 
+    private Environment e;
+
     @Inject
-    public HomeController(FormFactory f) {
+    public HomeController(FormFactory f, Environment env) {
         this.formFactory = f;
+        this.e = env;
     }
     
     public Result index() {
@@ -39,7 +51,8 @@ public class HomeController extends Controller {
 
     public Result database() {
         List<Houses> houseList = Houses.findAll();
-        return ok(database.render(houseList, User.getUserById(session().get("email"))));
+        List<Landlord> landlordList = Landlord.findAll();
+        return ok(database.render(houseList, User.getUserById(session().get("email")), e));
     }
 
     //Adds security so user must be logged in
@@ -47,7 +60,7 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result addHouse() {
         Form<Houses> houseForm = formFactory.form(Houses.class);
-        return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
+        return ok(addHouse.render(houseForm, User.getUserById(session().get("email")), e));
     }
 
     //Interacts directly with the database so the @Transactional is added
@@ -59,7 +72,7 @@ public class HomeController extends Controller {
         //Error handling
         if (newHouseForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addHouse.render(newHouseForm, User.getUserById(session().get("email"))));
+            return badRequest(addHouse.render(newHouseForm, User.getUserById(session().get("email")), e));
         } else {
             //Puts the form into the houses constructor
             Houses newHouse = newHouseForm.get();
@@ -71,7 +84,13 @@ public class HomeController extends Controller {
                 newHouse.update();
             }
 
-            flash("success", "House " + newHouse.getAddress() + " was added/updated.");
+            MultipartFormData<File> data = request().body().asMultipartFormData();
+
+            FilePart<File> image = data.getFile("upload");
+
+            String saveImageMessage = saveFile(newHouse.getId(), image);
+
+            flash("success", "House " + newHouse.getId() + " was added/updated" + saveImageMessage);
 
             //Brings them back to the initial page and shows the update
             return redirect(controllers.routes.HomeController.database());
@@ -107,7 +126,7 @@ public class HomeController extends Controller {
             return badRequest("error");
         }
 
-        return ok(addHouse.render(houseForm, User.getUserById(session().get("email"))));
+        return ok(addHouse.render(houseForm, User.getUserById(session().get("email")), e));
     }
 
     public Result landlord() {
@@ -115,12 +134,12 @@ public class HomeController extends Controller {
 
         userList = Landlord.findAll();
 
-        return ok(landlord.render(userList,User.getUserById(session().get("email"))));
+        return ok(landlord.render(userList,User.getUserById(session().get("email")), e));
     }
 
     public Result addLandlord() {
         Form<Landlord> lForm = formFactory.form(Landlord.class);
-        return ok(addLandlord.render(lForm, User.getUserById(session().get("email"))));
+        return ok(addLandlord.render(lForm, User.getUserById(session().get("email")), e));
     }
 
     public Result addLandlordSubmit() {
@@ -129,7 +148,7 @@ public class HomeController extends Controller {
         //Error handling
         if (newLandlordForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addLandlord.render(newLandlordForm, User.getUserById(session().get("email"))));
+            return badRequest(addLandlord.render(newLandlordForm, User.getUserById(session().get("email")), e));
         } else {
             //Puts the form into the houses constructor
             Landlord newLandlord = newLandlordForm.get();
@@ -163,7 +182,7 @@ public class HomeController extends Controller {
         }
     
         // Display the "add item" page, to allow the user to update the item
-        return ok(addLandlord.render(lForm,User.getUserById(session().get("email"))));
+        return ok(addLandlord.render(lForm,User.getUserById(session().get("email")), e));
         
 
     }
@@ -175,5 +194,54 @@ public class HomeController extends Controller {
         flash("success", "Landlord has been updated");
         return redirect(controllers.routes.HomeController.landlord());
         
+    }
+
+    public String saveFile(Long id, FilePart < File > uploaded) {
+        if (uploaded != null) {
+            String mimeType = uploaded.getContentType();
+
+            if (mimeType.startsWith("image/")) {
+                String fileName = uploaded.getFilename();
+
+                String extension = "";
+                int i = fileName.lastIndexOf('.');
+
+                if (i >= 0) {
+                    extension = fileName.substring(i + 1);
+                }
+
+                File file = uploaded.getFile();
+
+                File dir = new File("public/images/projectImages");
+
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+
+                File newFile = new File("public/images/projectImages/", id + "." + extension);
+
+                if (file.renameTo(newFile)) {
+                    try {
+                        BufferedImage img = ImageIO.read(newFile);
+                        BufferedImage scaledImg = Scalr.resize(img, 90);
+
+                        if (ImageIO.write(scaledImg, extension, new File("public/images/projectImages/", id + "testImageThumb.jpg"))) {
+                            return "/ file uploaded and thumbnail created.";
+                        } else {
+                            return "/ file uploaded but thumbnail creation failed.";
+                        }
+
+                    } catch (IOException e) {
+                        return "/ file uploaded but thumbnail creation failed.";
+                    }
+
+                } else {
+                    return "/ file upload failed.";
+                }
+            }
+        }
+        return "/ no image file.";
+
+
     }
 }

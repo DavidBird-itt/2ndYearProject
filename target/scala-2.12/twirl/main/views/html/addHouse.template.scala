@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.Houses],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object addHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[models.Houses],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(houseForm: Form[models.Houses], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(houseForm: Form[models.Houses], user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -36,35 +36,39 @@ Seq[Any](format.raw/*2.1*/("""
 """),_display_(/*5.2*/main("Add House", user)/*5.25*/ {_display_(Seq[Any](format.raw/*5.27*/("""
     """),format.raw/*6.5*/("""<p class="lead">Add a new item</p>
 
-    """),_display_(/*8.6*/form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form")/*8.101*/ {_display_(Seq[Any](format.raw/*8.103*/("""
-        """),format.raw/*9.37*/("""
-        """),_display_(/*10.10*/CSRF/*10.14*/.formField),format.raw/*10.24*/("""
+    """),_display_(/*8.6*/form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data")/*9.58*/ {_display_(Seq[Any](format.raw/*9.60*/("""
+        """),format.raw/*10.37*/("""
+        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
 
-        """),format.raw/*12.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
+        """),format.raw/*13.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
-        """),_display_(/*14.10*/inputText(houseForm("address"), '_label -> "Address", 'class -> "form-control")),format.raw/*14.89*/("""
-        """),_display_(/*15.10*/inputText(houseForm("postcode"), '_label -> "Postcode", 'class -> "form-control")),format.raw/*15.91*/("""
-        """),_display_(/*16.10*/inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")),format.raw/*16.90*/("""
-        """),_display_(/*17.10*/inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")),format.raw/*17.92*/("""
-        """),_display_(/*18.10*/inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*18.85*/("""
+        """),_display_(/*15.10*/inputText(houseForm("address"), '_label -> "Address", 'class -> "form-control")),format.raw/*15.89*/("""
+        """),_display_(/*16.10*/inputText(houseForm("postcode"), '_label -> "Postcode", 'class -> "form-control")),format.raw/*16.91*/("""
+        """),_display_(/*17.10*/inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")),format.raw/*17.90*/("""
+        """),_display_(/*18.10*/inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")),format.raw/*18.92*/("""
+        """),_display_(/*19.10*/inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*19.85*/("""
+
+        """),format.raw/*21.9*/("""<label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
     
-        """),_display_(/*20.10*/inputText(houseForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*20.72*/("""
+        """),_display_(/*24.10*/inputText(houseForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*24.72*/("""
     
-        """),format.raw/*22.9*/("""<div class="actions">
+        """),format.raw/*26.9*/("""<div class="actions">
             <input type="submit" value="Add house" class="btn btn-primary">
-            <a href=""""),_display_(/*24.23*/routes/*24.29*/.HomeController.database()),format.raw/*24.55*/("""">
+            <a href=""""),_display_(/*28.23*/routes/*28.29*/.HomeController.database()),format.raw/*28.55*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*28.6*/("""
+    """)))}),format.raw/*32.6*/("""
 """)))}))
       }
     }
   }
 
-  def render(houseForm:Form[models.Houses],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(houseForm,user)
+  def render(houseForm:Form[models.Houses],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(houseForm,user,env)
 
-  def f:((Form[models.Houses],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (houseForm,user) => apply(houseForm,user)
+  def f:((Form[models.Houses],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (houseForm,user,env) => apply(houseForm,user,env)
 
   def ref: this.type = this
 
@@ -73,11 +77,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Mar 19 10:20:59 GMT 2019
-                  SOURCE: /home/wdd/play/PlayReminder/app/views/addHouse.scala.html
-                  HASH: 23d8e05a9f501117d70b1f9dc719964997bc9378
-                  MATRIX: 982->1|1112->61|1156->59|1183->78|1210->80|1241->103|1280->105|1311->110|1377->151|1481->246|1521->248|1557->285|1594->295|1607->299|1638->309|1675->319|1867->484|1967->563|2004->573|2106->654|2143->664|2244->744|2281->754|2384->836|2421->846|2517->921|2559->936|2642->998|2683->1012|2830->1132|2845->1138|2892->1164|3040->1282
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|43->12|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|51->20|53->22|55->24|55->24|55->24|59->28
+                  DATE: Wed Mar 20 16:28:42 GMT 2019
+                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/addHouse.scala.html
+                  HASH: bd390dfcc8b5ff22235203b54727db5bf76f1a4a
+                  MATRIX: 1003->1|1160->88|1204->86|1231->105|1258->107|1289->130|1328->132|1359->137|1425->178|1586->331|1625->333|1662->370|1699->380|1712->384|1743->394|1780->404|1972->569|2072->648|2109->658|2211->739|2248->749|2349->829|2386->839|2489->921|2526->931|2622->1006|2659->1016|2799->1129|2882->1191|2923->1205|3070->1325|3085->1331|3132->1357|3280->1475
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|52->21|55->24|55->24|57->26|59->28|59->28|59->28|63->32
                   -- GENERATED --
               */
           

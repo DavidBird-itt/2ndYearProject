@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[models.Houses],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[List[models.Houses],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(houses: List[models.Houses], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(houses: List[models.Houses], user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -45,6 +45,7 @@ Seq[Any](format.raw/*2.1*/("""
         <thead>
             <!--Header-->
             <tr>
+                <th>Image</th>
                 <th>ID</th>
                 <th>Bedrooms</th>
                 <th>Bathrooms</th>
@@ -54,49 +55,56 @@ Seq[Any](format.raw/*2.1*/("""
         <tbody>
             <!--Populating the database-->
             <tr>
-                """),_display_(/*26.18*/for(i<-houses) yield /*26.32*/ {_display_(Seq[Any](format.raw/*26.34*/("""        
-                    """),format.raw/*27.21*/("""<td>"""),_display_(/*27.26*/i/*27.27*/.getId),format.raw/*27.33*/("""</td>
-                    <td>"""),_display_(/*28.26*/i/*28.27*/.getNumBeds),format.raw/*28.38*/("""</td>
-                    <td>"""),_display_(/*29.26*/i/*29.27*/.getNumBaths),format.raw/*29.39*/("""</td>
-                    <td>&euro; """),_display_(/*30.33*/("%.2f".format(i.getPrice))),format.raw/*30.60*/("""</td>
+                """),_display_(/*27.18*/for(i<-houses) yield /*27.32*/ {_display_(Seq[Any](format.raw/*27.34*/("""
+                    
+                        """),_display_(/*29.26*/if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined)/*29.107*/ {_display_(Seq[Any](format.raw/*29.109*/("""
+                        """),format.raw/*30.25*/("""<td><img src="/assets/images/projectImages"""),_display_(/*30.68*/(i.getId + " thumb.jpg")),format.raw/*30.92*/("""" /></td>
+                        """)))}/*31.27*/else/*31.32*/{_display_(Seq[Any](format.raw/*31.33*/("""
+                        """),format.raw/*32.25*/("""<td><img src="/assets/images/projectImages/noImage.jpg" /></td>
+                        """)))}),format.raw/*33.26*/("""
 
-                    """),_display_(/*32.22*/if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole())))/*32.113*/ {_display_(Seq[Any](format.raw/*32.115*/("""
-                    """),format.raw/*33.21*/("""<!-- Update button -->
+                    """),format.raw/*35.21*/("""<td>"""),_display_(/*35.26*/i/*35.27*/.getId),format.raw/*35.33*/("""</td>
+                    <td>"""),_display_(/*36.26*/i/*36.27*/.getNumBeds),format.raw/*36.38*/("""</td>
+                    <td>"""),_display_(/*37.26*/i/*37.27*/.getNumBaths),format.raw/*37.39*/("""</td>
+                    <td>&euro; """),_display_(/*38.33*/("%.2f".format(i.getPrice))),format.raw/*38.60*/("""</td>
+
+                    """),_display_(/*40.22*/if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole())))/*40.113*/ {_display_(Seq[Any](format.raw/*40.115*/("""
+                    """),format.raw/*41.21*/("""<!-- Update button -->
                     <td>
-                        <a href=""""),_display_(/*35.35*/routes/*35.41*/.HomeController.updateHouse(i.getId)),format.raw/*35.77*/("""" class="button-xs btn-danger">
+                        <a href=""""),_display_(/*43.35*/routes/*43.41*/.HomeController.updateHouse(i.getId)),format.raw/*43.77*/("""" class="button-xs btn-danger">
                             <span class="glyphicon-pencil"><</span>
                         </a>
                     </td>
-                """)))}),format.raw/*39.18*/("""
+                """)))}),format.raw/*47.18*/("""
 
-                """),_display_(/*41.18*/if((user != null) && ("admin".equals(user.getRole())))/*41.72*/ {_display_(Seq[Any](format.raw/*41.74*/("""
-                    """),format.raw/*42.21*/("""<!-- Delete button -->
+                """),_display_(/*49.18*/if((user != null) && ("admin".equals(user.getRole())))/*49.72*/ {_display_(Seq[Any](format.raw/*49.74*/("""
+                    """),format.raw/*50.21*/("""<!-- Delete button -->
                     <td>
-                        <a href=""""),_display_(/*44.35*/routes/*44.41*/.HomeController.deleteHouse(i.getId)),format.raw/*44.77*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
+                        <a href=""""),_display_(/*52.35*/routes/*52.41*/.HomeController.deleteHouse(i.getId)),format.raw/*52.77*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
-                """)))}),format.raw/*48.18*/("""
-            """),format.raw/*49.13*/("""</tr>
-        """)))}),format.raw/*50.10*/("""
-        """),format.raw/*51.9*/("""</tbody>
+                """)))}),format.raw/*56.18*/("""
+            """),format.raw/*57.13*/("""</tr>
+        """)))}),format.raw/*58.10*/("""
+        """),format.raw/*59.9*/("""</tbody>
     </table>         
 
-    """),_display_(/*54.6*/if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole())))/*54.97*/ {_display_(Seq[Any](format.raw/*54.99*/("""
-    """),format.raw/*55.5*/("""<p>
-        <a href=""""),_display_(/*56.19*/routes/*56.25*/.HomeController.addHouse()),format.raw/*56.51*/("""">
+    """),_display_(/*62.6*/if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole())))/*62.97*/ {_display_(Seq[Any](format.raw/*62.99*/("""
+    """),format.raw/*63.5*/("""<p>
+        <a href=""""),_display_(/*64.19*/routes/*64.25*/.HomeController.addHouse()),format.raw/*64.51*/("""">
             <button class="btn btn-primary">Add a House</button>
         </a>
     </p>
-    """)))}),format.raw/*60.6*/("""
+    """)))}),format.raw/*68.6*/("""
 """)))}))
       }
     }
   }
 
-  def render(houses:List[models.Houses],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(houses,user)
+  def render(houses:List[models.Houses],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(houses,user,env)
 
-  def f:((List[models.Houses],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (houses,user) => apply(houses,user)
+  def f:((List[models.Houses],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (houses,user,env) => apply(houses,user,env)
 
   def ref: this.type = this
 
@@ -105,11 +113,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 20 11:51:55 GMT 2019
-                  SOURCE: /home/wdd/play/PlayReminder/app/views/database.scala.html
-                  HASH: 4205a1f8ece2368144433fd0b758c89445969798
-                  MATRIX: 982->1|1130->56|1157->58|1187->80|1226->82|1257->87|1350->155|1390->187|1429->189|1464->198|1537->245|1550->250|1585->265|1621->274|1663->286|1700->296|2107->676|2137->690|2177->692|2234->721|2266->726|2276->727|2303->733|2361->764|2371->765|2403->776|2461->807|2471->808|2504->820|2569->858|2617->885|2672->913|2773->1004|2814->1006|2863->1027|2972->1109|2987->1115|3044->1151|3247->1323|3293->1342|3356->1396|3396->1398|3445->1419|3554->1501|3569->1507|3626->1543|3868->1754|3909->1767|3955->1782|3991->1791|4054->1828|4154->1919|4194->1921|4226->1926|4275->1948|4290->1954|4337->1980|4462->2075
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|57->26|57->26|57->26|58->27|58->27|58->27|58->27|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|63->32|63->32|63->32|64->33|66->35|66->35|66->35|70->39|72->41|72->41|72->41|73->42|75->44|75->44|75->44|79->48|80->49|81->50|82->51|85->54|85->54|85->54|86->55|87->56|87->56|87->56|91->60
+                  DATE: Wed Mar 20 16:44:00 GMT 2019
+                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/database.scala.html
+                  HASH: 248a3de259a612ee472bcec58cf7ec4e93fd7c61
+                  MATRIX: 1003->1|1178->83|1205->85|1235->107|1274->109|1305->114|1398->182|1438->214|1477->216|1512->225|1585->272|1598->277|1633->292|1669->301|1711->313|1748->323|2186->734|2216->748|2256->750|2330->797|2421->878|2462->880|2515->905|2585->948|2630->972|2684->1008|2697->1013|2736->1014|2789->1039|2909->1128|2959->1150|2991->1155|3001->1156|3028->1162|3086->1193|3096->1194|3128->1205|3186->1236|3196->1237|3229->1249|3294->1287|3342->1314|3397->1342|3498->1433|3539->1435|3588->1456|3697->1538|3712->1544|3769->1580|3972->1752|4018->1771|4081->1825|4121->1827|4170->1848|4279->1930|4294->1936|4351->1972|4593->2183|4634->2196|4680->2211|4716->2220|4779->2257|4879->2348|4919->2350|4951->2355|5000->2377|5015->2383|5062->2409|5187->2504
+                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|58->27|58->27|58->27|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|64->33|66->35|66->35|66->35|66->35|67->36|67->36|67->36|68->37|68->37|68->37|69->38|69->38|71->40|71->40|71->40|72->41|74->43|74->43|74->43|78->47|80->49|80->49|80->49|81->50|83->52|83->52|83->52|87->56|88->57|89->58|90->59|93->62|93->62|93->62|94->63|95->64|95->64|95->64|99->68
                   -- GENERATED --
               */
           

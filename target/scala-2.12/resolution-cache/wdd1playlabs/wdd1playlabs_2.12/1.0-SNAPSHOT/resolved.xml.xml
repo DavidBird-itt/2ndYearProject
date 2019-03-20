@@ -4,7 +4,7 @@
 		module="wdd1playlabs_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190319102058"
+		publication="20190320163741"
 	>
 		<description>
 		WDD1PlayLabs
@@ -57,5 +57,6 @@
 		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="org.imgscalr" name="imgscalr-lib" rev="4.2" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

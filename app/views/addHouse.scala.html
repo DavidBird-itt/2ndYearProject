@@ -1,11 +1,12 @@
-@(houseForm: Form[models.Houses], user: models.users.User)
+@(houseForm: Form[models.Houses], user: models.users.User, env: play.api.Environment)
 
 @import helper._ 
 
 @main("Add House", user) {
     <p class="lead">Add a new item</p>
 
-    @form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addHouseSubmit, 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data") {
         @* CSRF attack Prevention *@
         @CSRF.formField
 
@@ -16,6 +17,9 @@
         @inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")
         @inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")
         @inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")
+
+        <label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
     
         @inputText(houseForm("id"), '_label -> "", 'hidden -> "hidden")
     
