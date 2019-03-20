@@ -202,3 +202,9 @@ insert into user (email,role,fname,lname,password) values ( 'admin@adk.com', 'Al
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-03-20 09:48:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "HOUSES" not found; SQL statement:
+insert into houses (id,address,postcode,num_beds,num_baths,price) values ( 1,'123 Sommerville','Dublin 24',4, 3, 400.00) [42102-197]
+2019-03-20 09:54:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "HOUSES" not found; SQL statement:
+insert into houses (id,address,postcode,num_beds,num_baths,price) values ( 1,'123 Sommerville','Dublin 24',4, 3, 400.00) [42102-197]

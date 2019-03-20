@@ -7,11 +7,9 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
-public class Apartment extends Model {
+public class Apartment extends Property {
     @Id
     private Long id;
-    @Constraints.Required
-    private String type;
     @Constraints.Required
     private int floor;
 
@@ -19,7 +17,11 @@ public class Apartment extends Model {
 
     }
 
-
+    //Overloaded Cons
+    public Apartment(Long id,  int numBeds, int numBaths, double price, int floor) {
+        super(id, numBeds, numBaths, price);
+        this.floor = floor;
+    }
 
     //Getters and Setters
     public Long getId() {
@@ -30,13 +32,6 @@ public class Apartment extends Model {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getFloor() {
         return floor;
@@ -44,5 +39,12 @@ public class Apartment extends Model {
 
     public void setFloor(int floor) {
         this.floor = floor;
+    }
+
+    //Finders
+    public static final Finder<Long, Apartment> find = new Finder<>(Apartment.class);
+
+    public static final List<Apartment> findAll() {
+        return Apartment.find.all();
     }
 }

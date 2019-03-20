@@ -7,20 +7,35 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
+
+@Table(name = "Property")
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+@DiscriminatorColumn(name = "type")
+
+@DiscriminatorValue("p")
+
 public class Property extends Model { 
     @Id
     private Long id;
-    @Constraints.Required
-    private String type;
     @Constraints.Required
     private int numBeds;
     @Constraints.Required
     private int numBaths;
     @Constraints.Required
     private double price;
-    @Constraints.Required
-    private String EirCode;
 
+    public Property(){
+
+    }
+
+    public Property(Long id, int numBeds, int numBaths, double price) {
+        this.id = id;
+        this.numBeds = numBeds;
+        this.numBaths = numBaths;
+        this.price = price;
+    }
 
     //Getters and setters
     public Long getId() {
@@ -29,14 +44,6 @@ public class Property extends Model {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getNumBeds() {
@@ -63,11 +70,4 @@ public class Property extends Model {
         this.price = price;
     }
 
-    public String getEirCode() {
-        return EirCode;
-    }
-
-    public void setEirCode(String EirCode) {
-        this.EirCode = EirCode;
-    }
 }

@@ -6,25 +6,16 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+@Table(name="User")
+// the user type of this class is "admin"
+@DiscriminatorValue("h")
+
 @Entity
-public class Houses extends Model {
-    @Id
-    private Long id;
-
+public class Houses extends Property {
     @Constraints.Required
-    private String address;
-
+    private double gardenSize;
     @Constraints.Required
-    private String postcode;
-
-    @Constraints.Required
-    private int numBeds;
-
-    @Constraints.Required
-    private int numBaths;
-
-    @Constraints.Required
-    private double price;
+    private boolean garage;
 
     //Default Cons
     public Houses() {
@@ -32,63 +23,14 @@ public class Houses extends Model {
     }
 
     //Overloaded Cons
-    public Houses(Long id, String address, String postcode, int numBeds, int numBaths, double price) {
-        this.id = id;
-        this.address = address;
-        this.postcode = postcode;
-        this.numBeds = numBeds;
-        this.numBaths = numBaths;
-        this.price = price;
+    public Houses(Long id,  int numBeds, int numBaths, double price, double gardenSize, boolean garage) {
+        super(id, numBeds, numBaths, price);
+        this.gardenSize = gardenSize;
+        this.garage = garage;
     }
 
-    //Getters and setters
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id =id;
-    }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public int getNumBeds() {
-        return numBeds;
-    }
-
-    public void setNumBeds(int numBeds) {
-        this.numBeds = numBeds;
-    }
-
-    public int getNumBaths() {
-        return numBaths;
-    }
-
-    public void setNumBahts(int numBaths) {
-        this.numBaths = numBaths;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     //Finders
     public static final Finder<Long, Houses> find = new Finder<>(Houses.class);

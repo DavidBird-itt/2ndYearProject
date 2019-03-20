@@ -3,30 +3,15 @@
 
 # --- !Ups
 
-create table apartment (
-  id                            bigint auto_increment not null,
-  type                          varchar(255),
-  floor                         integer not null,
-  constraint pk_apartment primary key (id)
-);
-
-create table houses (
-  id                            bigint auto_increment not null,
-  address                       varchar(255),
-  postcode                      varchar(255),
-  num_beds                      integer not null,
-  num_baths                     integer not null,
-  price                         double not null,
-  constraint pk_houses primary key (id)
-);
-
 create table property (
+  type                          varchar(31) not null,
   id                            bigint auto_increment not null,
-  type                          varchar(255),
   num_beds                      integer not null,
   num_baths                     integer not null,
   price                         double not null,
-  eir_code                      varchar(255),
+  garden_size                   double not null,
+  garage                        boolean default false not null,
+  floor                         integer not null,
   constraint pk_property primary key (id)
 );
 
@@ -42,10 +27,6 @@ create table user (
 
 
 # --- !Downs
-
-drop table if exists apartment;
-
-drop table if exists houses;
 
 drop table if exists property;
 
