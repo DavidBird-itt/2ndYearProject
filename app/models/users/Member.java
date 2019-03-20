@@ -10,7 +10,7 @@ import play.data.validation.*;
 
 @Table(name="User")
 // the user type of this class is "admin"
-@DiscriminatorValue("a")
+@DiscriminatorValue("m")
 @Entity
 public class Member extends User {
 

@@ -15,8 +15,6 @@
             <!--Header-->
             <tr>
                 <th>ID</th>
-                <th>Address</th>
-                <th>Postcode</th>
                 <th>Bedrooms</th>
                 <th>Bathrooms</th>
                 <th>Price</th>
@@ -27,8 +25,6 @@
             <tr>
                 @for(i<-houses) {        
                     <td>@i.getId</td>
-                    <td>@i.getAddress</td>
-                    <td>@i.getPostcode</td>
                     <td>@i.getNumBeds</td>
                     <td>@i.getNumBaths</td>
                     <td>&euro; @("%.2f".format(i.getPrice))</td>

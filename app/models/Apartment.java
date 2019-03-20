@@ -6,11 +6,15 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+@Table(name="Property")
+// the user type of this class is "admin"
+@DiscriminatorValue("a")
+
 @Entity
 public class Apartment extends Property {
     @Id
     private Long id;
-    @Constraints.Required
+   
     private int floor;
 
     public Apartment() {

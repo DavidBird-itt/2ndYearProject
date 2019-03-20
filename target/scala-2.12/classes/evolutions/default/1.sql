@@ -1,5 +1,3 @@
-# --- Created by Ebean DDL
-# To stop Ebean DDL generation, remove this comment and start using Evolutions
 
 # --- !Ups
 
@@ -9,9 +7,9 @@ create table property (
   num_beds                      integer not null,
   num_baths                     integer not null,
   price                         double not null,
-  garden_size                   double not null,
-  garage                        boolean default false not null,
-  floor                         integer not null,
+  garden_size                   double,
+  garage                        boolean default false,
+  floor                         integer,
   constraint pk_property primary key (id)
 );
 
