@@ -43,11 +43,11 @@ Seq[Any](format.raw/*2.1*/("""
 
         """),format.raw/*13.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
-        """),_display_(/*15.10*/inputText(houseForm("address"), '_label -> "Address", 'class -> "form-control")),format.raw/*15.89*/("""
-        """),_display_(/*16.10*/inputText(houseForm("postcode"), '_label -> "Postcode", 'class -> "form-control")),format.raw/*16.91*/("""
-        """),_display_(/*17.10*/inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")),format.raw/*17.90*/("""
-        """),_display_(/*18.10*/inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")),format.raw/*18.92*/("""
-        """),_display_(/*19.10*/inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*19.85*/("""
+        """),_display_(/*15.10*/inputText(houseForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")),format.raw/*15.90*/("""
+        """),_display_(/*16.10*/inputText(houseForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")),format.raw/*16.92*/("""
+        """),_display_(/*17.10*/inputText(houseForm("price"), '_label -> "Price", 'class -> "form-control")),format.raw/*17.85*/("""
+        """),_display_(/*18.10*/inputText(houseForm("gardenSize"), '_label -> "Garden Size", 'class -> "form-control")),format.raw/*18.96*/("""
+        """),_display_(/*19.10*/inputText(houseForm("garage"), '_label -> "Garage", 'class -> "form-control")),format.raw/*19.87*/("""
 
         """),format.raw/*21.9*/("""<label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
@@ -77,10 +77,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Mar 20 16:28:42 GMT 2019
-                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/addHouse.scala.html
-                  HASH: bd390dfcc8b5ff22235203b54727db5bf76f1a4a
-                  MATRIX: 1003->1|1160->88|1204->86|1231->105|1258->107|1289->130|1328->132|1359->137|1425->178|1586->331|1625->333|1662->370|1699->380|1712->384|1743->394|1780->404|1972->569|2072->648|2109->658|2211->739|2248->749|2349->829|2386->839|2489->921|2526->931|2622->1006|2659->1016|2799->1129|2882->1191|2923->1205|3070->1325|3085->1331|3132->1357|3280->1475
+                  DATE: Wed Mar 20 20:54:13 GMT 2019
+                  SOURCE: /home/wdd/play/PlayReminder/app/views/addHouse.scala.html
+                  HASH: 5ed72a43599168f7ca94ccad39480897d99a14f5
+                  MATRIX: 1003->1|1160->88|1204->86|1231->105|1258->107|1289->130|1328->132|1359->137|1425->178|1586->331|1625->333|1662->370|1699->380|1712->384|1743->394|1780->404|1972->569|2073->649|2110->659|2213->741|2250->751|2346->826|2383->836|2490->922|2527->932|2625->1009|2662->1019|2802->1132|2885->1194|2926->1208|3073->1328|3088->1334|3135->1360|3283->1478
                   LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|52->21|55->24|55->24|57->26|59->28|59->28|59->28|63->32
                   -- GENERATED --
               */

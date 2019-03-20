@@ -29,7 +29,22 @@ public class Houses extends Property {
     }
 
 
+    //Getters and Setters
+    public double getGardenSize() {
+        return this.gardenSize;
+    }
 
+    public void setGardenSize(double gardenSize) {
+        this.gardenSize = gardenSize;
+    }
+
+    public boolean getGarage() {
+        return garage;
+    }
+
+    public void setGarage(boolean garage){
+        this.garage = garage;
+    }
 
     //Finders
     public static final Finder<Long, Houses> find = new Finder<>(Houses.class);

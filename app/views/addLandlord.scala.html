@@ -20,11 +20,10 @@
         <label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     
-        @inputText(lForm("id"), '_label -> "", 'hidden -> "hidden")
-    
+        @inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")
         <div class="actions">
-            <input type="submit" value="Add house" class="btn btn-primary">
-            <a href="@routes.HomeController.database()">
+            <input type="submit" value="Add Landlord" class="btn btn-primary">
+            <a href="@routes.HomeController.landlord()">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>

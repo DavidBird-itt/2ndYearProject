@@ -63,19 +63,19 @@ public class User extends Model {
         this.role = role;
     }
 
-    public String getFName() {
+    public String getFname() {
         return this.fname;
     }
 
-    public void setFName(String fname) {
+    public void setFname(String fname) {
         this.fname = fname;
     }
 
-    public String getLName() {
+    public String getLname() {
         return this.lname;
     }
 
-    public void setLName(String lname) {
+    public void setLname(String lname) {
         this.lname = lname;
     }
 

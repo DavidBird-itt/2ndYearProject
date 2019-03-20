@@ -19,8 +19,6 @@ GET     /loginSubmit                controllers.LoginController.loginSubmit
 
 GET     /logout                     controllers.LoginController.logout
 
-GET     /createAccount              controllers.LoginController.createAccount
-POST    /createAccountSubmit        controllers.LoginController.createAccountSubmit
 
 #GET from HomeController
 
@@ -36,3 +34,12 @@ GET     /updateHouse/:id            controllers.HomeController.updateHouse(id: L
 GET     /landlord                   controllers.HomeController.landlord
 GET     /addLandlord                controllers.HomeController.addLandlord
 POST    /addLandlordSubmit          controllers.HomeController.addLandlordSubmit
+GET     /updateLandlord/:id         controllers.HomeController.updateLandlord(id: String)
+GET     /deleteLandlord/:id         controllers.HomeController.deleteLandlord(id: String)
+
+GET     /createAccount              controllers.HomeController.createAccount
+GET     /addMember                  controllers.HomeController.addMember
+POST    /addMemberSubmit            controllers.HomeController.addMemberSubmit
+GET     /updateMember/:id           controllers.HomeController.updateMember(id: String)
+GET     /deleteMember/:id           controllers.HomeController.deleteMember(id: String)
+

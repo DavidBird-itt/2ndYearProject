@@ -196,6 +196,70 @@ public class HomeController extends Controller {
         
     }
 
+    public Result createAccount() {
+        Form<Member> mForm = formFactory.form(Member.class);
+        return ok(createAccount.render(mForm, User.getUserById(session().get("email"))));
+    }
+
+    public Result addMember() {
+        Form<Member> mForm = formFactory.form(Member.class);
+        return ok(createAccount.render(mForm, User.getUserById(session().get("email"))));
+    }
+
+    public Result addMemberSubmit() {
+        Form<Member> newMemberForm = formFactory.form(Member.class).bindFromRequest();
+
+        //Error handling
+        if (newMemberForm.hasErrors()) {
+            //Finds the error and gives the user a new form to fill out
+            return badRequest(createAccount.render(newMemberForm, User.getUserById(session().get("email"))));
+        } else {
+            //Puts the form into the houses constructor
+            Member newMember = newMemberForm.get();
+            
+            if(newMember.getUserById(newMember.getEmail()) == null){
+                //Saves to the database
+                newMember.save();
+            } else {
+                newMember.update();
+            }
+
+            flash("success", "Member " + newMember.getFName() + " was added/updated.");
+
+            //Brings them back to the initial page and shows the update
+            return redirect(controllers.routes.LoginController.login());
+        }
+    }
+
+    public Result updateMember(String email) {
+        Member m;
+        Form<Member> mForm;
+    
+        try {
+            // Find the item by id
+            m = (Member)User.getUserById(email);
+    
+            // Populate the form object with data from the item found in the database
+            mForm = formFactory.form(Member.class).fill(m);
+        } catch (Exception ex) {
+            return badRequest("error");
+        }
+    
+        // Display the "add item" page, to allow the user to update the item
+        return ok(createAccount.render(mForm,User.getUserById(session().get("email"))));
+        
+
+    }
+
+    public Result deleteMember(String email) {
+        Member m = (Member) User.getUserById(email);
+        m.delete();
+
+        flash("success", "Member has been deleted");
+        return redirect(controllers.routes.LoginController.login());
+        
+    }
+
     public String saveFile(Long id, FilePart < File > uploaded) {
         if (uploaded != null) {
             String mimeType = uploaded.getContentType();

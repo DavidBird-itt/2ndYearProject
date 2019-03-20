@@ -18,8 +18,8 @@ public class Member extends User {
 
     }
 
-    public Member(String email, String fname, String lname, String role, String password) {
-        super(email, fname, lname, role,password);
+    public Member(String email, String role, String fname, String lname, String password) {
+        super(email, role, fname, lname,password);
     }
 
     public static final Finder<Long, Member> find = new Finder<>(Member.class);

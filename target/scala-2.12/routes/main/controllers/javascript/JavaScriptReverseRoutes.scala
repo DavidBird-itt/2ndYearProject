@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/PlayReminder/conf/routes
-// @DATE:Wed Mar 20 16:06:24 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Wed Mar 20 20:14:59 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,7 +59,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:29
+    // @LINE:27
     def database: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.database",
       """
@@ -69,7 +69,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:37
+    // @LINE:40
+    def createAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.createAccount",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccount"})
+        }
+      """
+    )
+  
+    // @LINE:35
     def addLandlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addLandlord",
       """
@@ -79,7 +89,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:30
     def addHouseSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addHouseSubmit",
       """
@@ -89,7 +99,37 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:42
+    def addMemberSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addMemberSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addMemberSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:38
+    def deleteLandlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteLandlord",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteLandlord/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def updateLandlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateLandlord",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateLandlord/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:25
     def payment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.payment",
       """
@@ -99,7 +139,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:36
     def addLandlordSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addLandlordSubmit",
       """
@@ -109,7 +149,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:44
+    def deleteMember: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteMember",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteMember/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:32
     def updateHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateHouse",
       """
@@ -119,7 +169,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:43
+    def updateMember: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateMember",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateMember/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:31
     def deleteHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteHouse",
       """
@@ -129,7 +189,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:34
     def landlord: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.landlord",
       """
@@ -139,7 +199,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:31
+    // @LINE:41
+    def addMember: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addMember",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addMember"})
+        }
+      """
+    )
+  
+    // @LINE:29
     def addHouse: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addHouse",
       """
@@ -188,26 +258,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:23
-    def createAccountSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.LoginController.createAccountSubmit",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccountSubmit"})
-        }
-      """
-    )
-  
-    // @LINE:22
-    def createAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.LoginController.createAccount",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "createAccount"})
-        }
-      """
-    )
   
     // @LINE:18
     def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
