@@ -160,7 +160,7 @@ public class HomeController extends Controller {
                 newLandlord.update();
             }
 
-            flash("success", "Landlord " + newLandlord.getFName() + " was added/updated.");
+            flash("success", "Landlord " + newLandlord.getFname() + " was added/updated.");
 
             //Brings them back to the initial page and shows the update
             return redirect(controllers.routes.HomeController.landlord());
@@ -224,7 +224,7 @@ public class HomeController extends Controller {
                 newMember.update();
             }
 
-            flash("success", "Member " + newMember.getFName() + " was added/updated.");
+            flash("success", "Member " + newMember.getFname() + " was added/updated.");
 
             //Brings them back to the initial page and shows the update
             return redirect(controllers.routes.LoginController.login());

@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:40:28: value getGardenSize is not a member of models.Houses[0m
-[0m[[0m[31merror[0m] [0m[0m                    <td>@i.getGardenSize</td>[0m
-[0m[[0m[31merror[0m] [0m[0m                           ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/controllers/HomeController.java:227:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method getFName()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable newMember of type models.users.Member[0m
+[0m[[0m[31merror[0m] [0m[0m            flash("success", "Member " + newMember.getFName() + " was added/updated.");[0m
