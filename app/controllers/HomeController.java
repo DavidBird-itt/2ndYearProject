@@ -295,7 +295,7 @@ public class HomeController extends Controller {
                         BufferedImage img = ImageIO.read(newFile);
                         BufferedImage scaledImg = Scalr.resize(img, 90);
 
-                        if (ImageIO.write(scaledImg, extension, new File("public/images/projectImages/", id + "testImageThumb.jpg"))) {
+                        if (ImageIO.write(scaledImg, extension, new File("public/images/projectImages/", id + "thumb.jpg"))) {
                             return "/ file uploaded and thumbnail created.";
                         } else {
                             return "/ file uploaded but thumbnail creation failed.";

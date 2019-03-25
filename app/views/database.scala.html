@@ -1,5 +1,5 @@
 @(houses: List[models.Houses], user: models.users.User, env: play.api.Environment)
-
+<head>
 @main("Database", user) {
     <h1>The Database</h1>
 
@@ -9,35 +9,40 @@
             @flash.get("success")
         </div>
     }
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     
+    </head>
     <table class="table table-bordered table-hover table-condensed">
         <thead>
             <!--Header-->
             <tr>
-                <th>Image</th>
+                <th><i class="fas fa-images"></i></th>
                 <th>ID</th>
-                <th>Bedrooms</th>
-                <th>Bathrooms</th>
-                <th>Price</th>
-                <th>Garden Size</th>
+                <th><i class="fas fa-bed"></i></th>
+                <th><i class="fas fa-restroom"></i></th>
+                <th><i class="fas fa-euro-sign"></i></th>
+                <th><i class="fa fa-leaf"></i></th>
+                <th><i class="fas fa-car"></i></th>
             </tr>
         </thead>
         <tbody>
             <!--Populating the database-->
             <tr>
                 @for(i<-houses) {
-                    
-                        @if(env.resource("public/images/workerImages/" + i.getId + "thumb.jpg").isDefined) {
-                        <td><img src="/assets/images/projectImages@(i.getId + " thumb.jpg")" /></td>
-                        } else {
-                        <td><img src="/assets/images/projectImages/noImage.jpg" /></td>
-                        }
+                    @if(env.resource("public/images/projectImages/" + i.getId + "thumb.jpg").isDefined) {
+                    <td><img src="/assets/images/projectImages/@(i.getId + "thumb.jpg")"/></td>
+                    } else {
+                    <td><img src="/assets/images/projectImages/noImage.jpg"/></td>
+                    }
 
                     <td>@i.getId</td>
                     <td>@i.getNumBeds</td>
                     <td>@i.getNumBaths</td>
                     <td>&euro; @("%.2f".format(i.getPrice))</td>
                     <td>@i.getGardenSize</td>
+                    <td>@i.getGarage</td>
 
                     @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
                     <!-- Update button -->
