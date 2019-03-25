@@ -17,6 +17,10 @@ public class Apartment extends Property {
    
     private int floor;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="AID")
+    private Address address;
+    
     public Apartment() {
 
     }

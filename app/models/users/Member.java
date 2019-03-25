@@ -7,12 +7,16 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.rent.*;
 
 @Table(name="User")
 // the user type of this class is "admin"
 @DiscriminatorValue("m")
 @Entity
 public class Member extends User {
+
+    @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+    private RentDue rentDue;
 
     public Member(){
 
@@ -26,5 +30,14 @@ public class Member extends User {
 			    
     public static final List<Member> findAll() {
        return Member.find.all();
+    }
+
+    //Mapped Getters and setters
+    public RentDue getRentDue() {
+        return rentDue;
+    }
+
+    public void setRentDue(RentDue rentDue) {
+        this.rentDue = rentDue;
     }
 }

@@ -34,45 +34,47 @@ Seq[Any](_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.r
 		"""),format.raw/*3.3*/("""<div class="container-fluid">
 			<div class="col-sm-3">
 				<div id="search-form">
-					<span class="title">Search Properties</span>
-					
-					Area<br>
-					<select>
-						<option value="dublin1">Dublin 1</option>
-						<option value="dublin2">Dublin 2</option>
-						<option value="dublin3">Dublin 3</option>
-						<option value="dublin4">Dublin 4</option>
-						<option value="dublin5">Dublin 5</option>
-						<option value="dublin6">Dublin 6</option>
-						<option value="dublin7">Dublin 7</option>
-						<option value="dublin8">Dublin 8</option>
-						<option value="dublin9">Dublin 9</option>
-						<option value="dublin10">Dublin 10</option>
-						<option value="dublin11">Dublin 11</option>
-						<option value="dublin12">Dublin 12</option>
-						<option value="dublin13">Dublin 13</option>
-						<option value="dublin14">Dublin 14</option>
-						<option value="dublin15">Dublin 15</option>
-						<option value="dublin16">Dublin 16</option>
-						<option value="dublin17">Dublin 17</option>
-						<option value="dublin18">Dublin 18</option>
-						<option value="dublin19">Dublin 19</option>
-						<option value="dublin20">Dublin 20</option>
-						<option value="dublin21">Dublin 21</option>
-						<option value="dublin22">Dublin 22</option>
-						<option value="dublin23">Dublin 23</option>
-						<option value="dublin24">Dublin 24</option>
-					</select>
-					<br><br>
-					Minimum Price<br>
-					€ <input type="text" placeholder="Enter minimum price here" />
-					
-					<br><br>
-					Maximum Price<br>
-					€ <input type="text" placeholder="Enter minimum price here" />
-					
-					<br><br>
-					<input type="submit" />
+					<form action=""""),_display_(/*6.21*/routes/*6.27*/.HomeController.searchDB()),format.raw/*6.53*/("""" method="get">
+						<span class="title">Search Properties</span>
+
+						<!--Area<br>
+						<select>
+							<option value="dublin1">Dublin 1</option>
+							<option value="dublin2">Dublin 2</option>
+							<option value="dublin3">Dublin 3</option>
+							<option value="dublin4">Dublin 4</option>
+							<option value="dublin5">Dublin 5</option>
+							<option value="dublin6">Dublin 6</option>
+							<option value="dublin7">Dublin 7</option>
+							<option value="dublin8">Dublin 8</option>
+							<option value="dublin9">Dublin 9</option>
+							<option value="dublin10">Dublin 10</option>
+							<option value="dublin11">Dublin 11</option>
+							<option value="dublin12">Dublin 12</option>
+							<option value="dublin13">Dublin 13</option>
+							<option value="dublin14">Dublin 14</option>
+							<option value="dublin15">Dublin 15</option>
+							<option value="dublin16">Dublin 16</option>
+							<option value="dublin17">Dublin 17</option>
+							<option value="dublin18">Dublin 18</option>
+							<option value="dublin19">Dublin 19</option>
+							<option value="dublin20">Dublin 20</option>
+							<option value="dublin21">Dublin 21</option>
+							<option value="dublin22">Dublin 22</option>
+							<option value="dublin23">Dublin 23</option>
+							<option value="dublin24">Dublin 24</option>
+						</select>
+						<br><br>-->
+						Minimum Price<br>
+						€ <input type="number" placeholder="Enter minimum price" name="min" />
+
+						<br><br>
+						Maximum Price<br>
+						€ <input type="number" placeholder="Enter maximum price" name="max" />
+
+						<br><br>
+						<input type="submit" />
+					</form>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -105,11 +107,11 @@ Seq[Any](_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.r
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 21 12:59:03 GMT 2019
-                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/index.scala.html
-                  HASH: 5e6cd2515f2b7c6b3b19e101d67e40144553ef3d
-                  MATRIX: 959->1|1078->28|1104->46|1142->47|1171->50
-                  LINES: 28->1|33->2|33->2|33->2|34->3
+                  DATE: Mon Mar 25 16:45:20 GMT 2019
+                  SOURCE: /home/wdd/play/PlayReminder/app/views/index.scala.html
+                  HASH: 35e28b284c66898d45aca402a0cb2b79c99688bc
+                  MATRIX: 959->1|1078->28|1104->46|1142->47|1171->50|1300->153|1314->159|1360->185
+                  LINES: 28->1|33->2|33->2|33->2|34->3|37->6|37->6|37->6
                   -- GENERATED --
               */
           

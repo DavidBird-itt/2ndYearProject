@@ -6,6 +6,9 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.users.*;
+import models.rent.*;
+
 @Entity
 
 @Table(name = "Property")
@@ -25,6 +28,9 @@ public class Property extends Model {
     private int numBaths;
     @Constraints.Required
     private double price;
+
+    @OneToOne(mappedBy="property", cascade = CascadeType.ALL)
+    private Fees fees;
 
     public Property(){
 
@@ -70,4 +76,14 @@ public class Property extends Model {
         this.price = price;
     }
 
+    //Mapping getters and setters
+    public Fees getFees() {
+        return fees;
+    }
+
+    public void setFees(Fees Fees) {
+        this.fees = fees;
+    }
+
+    
 }

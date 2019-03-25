@@ -51,7 +51,6 @@ public class HomeController extends Controller {
 
     public Result database() {
         List<Houses> houseList = Houses.findAll();
-        List<Landlord> landlordList = Landlord.findAll();
         return ok(database.render(houseList, User.getUserById(session().get("email")), e));
     }
 
@@ -258,6 +257,13 @@ public class HomeController extends Controller {
         flash("success", "Member has been deleted");
         return redirect(controllers.routes.LoginController.login());
         
+    }
+
+    public Result searchDB(int min, int max) {
+        // perhaps checks vals are not zero
+
+        List<Houses> searchList = Houses.findRange(min, max);
+        return ok(searchQuery.render(searchList, User.getUserById(session().get("email")), e));
     }
 
     public String saveFile(Long id, FilePart < File > uploaded) {

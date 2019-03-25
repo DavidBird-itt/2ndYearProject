@@ -26,6 +26,8 @@ GET     /payment                    controllers.HomeController.payment
 
 GET     /database                   controllers.HomeController.database
 
+GET     /searchQuery      			controllers.HomeController.searchDB(min: Integer ?= 0, max: Integer ?= 0)
+
 GET     /addHouse                   controllers.HomeController.addHouse
 POST    /addHouseSubmit             controllers.HomeController.addHouseSubmit
 GET     /deleteHouse/:id            controllers.HomeController.deleteHouse(id: Long)
@@ -43,3 +45,5 @@ POST    /addMemberSubmit            controllers.HomeController.addMemberSubmit
 GET     /updateMember/:id           controllers.HomeController.updateMember(id: String)
 GET     /deleteMember/:id           controllers.HomeController.deleteMember(id: String)
 
+#GET from RentCrtl
+GET     /viewRent                   controllers.RentCtrl.viewRent()

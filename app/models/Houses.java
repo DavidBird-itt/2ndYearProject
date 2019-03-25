@@ -16,6 +16,11 @@ public class Houses extends Property {
     private double gardenSize;
     private boolean garage;
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="AID")
+    private Address address;
+
     //Default Cons
     public Houses() {
 
@@ -52,5 +57,21 @@ public class Houses extends Property {
     public static final List<Houses> findAll() {
         return Houses.find.all();
     }
+
+    public static final List<Houses> findRange(int min, int max) {
+        List<Houses> resList = Houses.find.all();
+        Iterator<Houses> i = resList.iterator();
+
+        while (i.hasNext()) {
+            Houses house = i.next();
+            double hp = house.getPrice();
+
+            if(hp < min || hp > max)
+                i.remove();
+        }
+
+        return resList;
+    }
+
 
 }
