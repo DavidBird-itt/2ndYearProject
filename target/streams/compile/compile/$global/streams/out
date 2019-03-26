@@ -1,2 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/rent/RentDue.java:61:1: package Rent does not exist[0m
-[0m[[0m[31merror[0m] [0m[0m        return Rent.find.all();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:36:41: value fksdjl is not a member of object controllers.routes[0m
+[0m[[0m[31merror[0m] [0m[0m                    <td<a href="@routes.fksdjl.fdsf"><img src="/assets/images/projectImages/@(i.getId + "thumb.jpg")"/></td>[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

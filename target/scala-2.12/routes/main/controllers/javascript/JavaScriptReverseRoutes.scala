@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/Desktop/PlayReminder/conf/routes
-// @DATE:Mon Mar 25 17:00:45 GMT 2019
+// @SOURCE:/home/wdd/play/PlayReminder/conf/routes
+// @DATE:Mon Mar 25 21:37:03 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 

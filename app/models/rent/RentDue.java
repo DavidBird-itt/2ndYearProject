@@ -63,4 +63,6 @@ public class RentDue extends Model {
     public static List<RentDue> findAll() {
         return RentDue.find.all();
     }
+
+    
 }
