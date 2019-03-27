@@ -118,7 +118,9 @@
 
     <table class="table table-bordered table-hover table-condensed">
         <tbody>
+        <h4>Apartments</h4>
             @for(i<-aList) {
+                <tr>
                     @if(env.resource("public/images/projectImages/" + i.getId + "thumb.jpg").isDefined) {
                     <td><img src="/assets/images/projectImages/@(i.getId + "thumb.jpg")"/></td>
                     } else {
@@ -127,9 +129,11 @@
                     <td><i class= "fas fa-bed"></i> @i.getNumBeds</td>
                     <td><i class= "fas fa-toilet"></i> @i.getNumBaths</td>
                     <td>&euro; @("%.2f".format(i.getPrice))</td>
+                </tr>
+            }
         </tbody>
     </table>        
-
+            
     @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
     <p>
         <a href="@routes.HomeController.addHouse()">
@@ -137,5 +141,5 @@
         </a>
     </p>
     }
-}
+
 }
