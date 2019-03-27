@@ -19,6 +19,7 @@ import models.rent.*;
 
 @DiscriminatorValue("p")
 
+
 public class Property extends Model { 
     @Id
     private Long id;
@@ -29,8 +30,13 @@ public class Property extends Model {
     @Constraints.Required
     private double price;
 
+    @ManyToOne
+    private Landlord landlord;
+
     @OneToOne(mappedBy="property", cascade = CascadeType.ALL)
     private Fees fees;
+
+
 
     public Property(){
 
@@ -85,5 +91,14 @@ public class Property extends Model {
         this.fees = fees;
     }
 
+    public Landlord getLandlord() {
+        return landlord;
+    }
+
+    public void setLandlord(Landlord landlord) {
+        this.landlord = landlord;
+    }
+
+    
     
 }

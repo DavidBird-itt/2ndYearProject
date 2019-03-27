@@ -33,4 +33,6 @@ public class RentCtrl extends Controller {
         List<RentDue> rentList = RentDue.findAll();
         return ok(viewRent.render(rentList, (Member)User.getUserById(session().get("email"))));
     }
+
+   
 }

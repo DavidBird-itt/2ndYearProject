@@ -6,6 +6,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.users.*;
+
 @Table(name="Property")
 // the user type of this class is "admin"
 @DiscriminatorValue("a")
@@ -14,13 +16,13 @@ import play.data.validation.*;
 public class Apartment extends Property {
     @Id
     private Long id;
-   
+
     private int floor;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="AID")
     private Address address;
-    
+
     public Apartment() {
 
     }
@@ -48,6 +50,7 @@ public class Apartment extends Property {
     public void setFloor(int floor) {
         this.floor = floor;
     }
+
 
     //Finders
     public static final Finder<Long, Apartment> find = new Finder<>(Apartment.class);

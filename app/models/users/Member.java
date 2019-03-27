@@ -8,6 +8,7 @@ import play.data.format.*;
 import play.data.validation.*;
 
 import models.rent.*;
+import models.*;
 
 @Table(name="User")
 // the user type of this class is "admin"
@@ -17,6 +18,8 @@ public class Member extends User {
 
     @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
     private RentDue rentDue;
+
+
 
     public Member(){
 
@@ -40,4 +43,6 @@ public class Member extends User {
     public void setRentDue(RentDue rentDue) {
         this.rentDue = rentDue;
     }
+
+
 }
