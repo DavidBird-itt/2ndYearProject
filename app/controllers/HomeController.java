@@ -51,7 +51,8 @@ public class HomeController extends Controller {
 
     public Result database() {
         List<Houses> houseList = Houses.findAll();
-        return ok(database.render(houseList, User.getUserById(session().get("email")), e));
+        List<Apartment> aList = Apartment.findAll();
+        return ok(database.render(houseList, aList, User.getUserById(session().get("email")), e));
     }
 
     //Adds security so user must be logged in

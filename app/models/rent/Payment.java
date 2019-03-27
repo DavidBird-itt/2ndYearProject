@@ -17,10 +17,12 @@ public class Payment extends Model {
 
     @Id
     private Long id;
+    @Constraints.Required
     private double amtPaid;
+    @Constraints.Required
     private Date datePaid;
 
-    
+
     
     // Default constructor
     public  Payment() {

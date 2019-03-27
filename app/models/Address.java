@@ -23,8 +23,6 @@ public class Address extends Model {
     @Constraints.Required
     private String postCode;
 
-
-
     public Address(){
 
     }
