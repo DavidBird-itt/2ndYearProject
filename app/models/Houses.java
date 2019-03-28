@@ -54,6 +54,13 @@ public class Houses extends Property {
         this.garage = garage;
     }
 
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address a) {
+        this.address = a;
+    }
 
 
 

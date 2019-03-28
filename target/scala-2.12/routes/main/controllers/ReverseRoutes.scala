@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Mar 25 21:37:03 GMT 2019
+// @DATE:Thu Mar 28 12:41:31 GMT 2019
 
 import play.api.mvc.Call
 
@@ -37,6 +37,12 @@ package controllers {
     def viewRent(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewRent")
+    }
+  
+    // @LINE:50
+    def setupRent(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "setupRent" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
     }
   
   }

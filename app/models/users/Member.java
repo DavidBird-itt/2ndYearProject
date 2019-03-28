@@ -19,7 +19,8 @@ public class Member extends User {
     @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
     private RentDue rentDue;
 
-
+    @ManyToOne
+    private Property property;
 
     public Member(){
 
@@ -44,5 +45,12 @@ public class Member extends User {
         this.rentDue = rentDue;
     }
 
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property p) {
+        this.property = p;
+    }
 
 }

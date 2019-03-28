@@ -19,6 +19,7 @@ public class Landlord extends User {
     @OneToMany(mappedBy = "landlord", cascade = CascadeType.PERSIST)
     private List<Property> property;
 
+
     public Landlord(){
 
     }
@@ -40,4 +41,5 @@ public class Landlord extends User {
     public void setProperty(List<Property> property) {
         this.property = property;
     }
+
 }

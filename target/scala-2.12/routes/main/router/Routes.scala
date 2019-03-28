@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Mar 25 21:37:03 GMT 2019
+// @DATE:Thu Mar 28 12:41:31 GMT 2019
 
 package router
 
@@ -80,6 +80,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateMember/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateMember(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteMember/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteMember(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewRent""", """controllers.RentCtrl.viewRent()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """setupRent""", """controllers.RentCtrl.setupRent(id:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -537,6 +538,24 @@ class Routes(
     )
   )
 
+  // @LINE:50
+  private[this] lazy val controllers_RentCtrl_setupRent25_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("setupRent")))
+  )
+  private[this] lazy val controllers_RentCtrl_setupRent25_invoker = createInvoker(
+    RentCtrl_3.setupRent(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.RentCtrl",
+      "setupRent",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """setupRent""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -688,6 +707,12 @@ class Routes(
     case controllers_RentCtrl_viewRent24_route(params@_) =>
       call { 
         controllers_RentCtrl_viewRent24_invoker.call(RentCtrl_3.viewRent())
+      }
+  
+    // @LINE:50
+    case controllers_RentCtrl_setupRent25_route(params@_) =>
+      call(params.fromQuery[String]("id", None)) { (id) =>
+        controllers_RentCtrl_setupRent25_invoker.call(RentCtrl_3.setupRent(id))
       }
   }
 }

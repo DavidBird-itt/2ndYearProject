@@ -37,6 +37,7 @@ create table property (
   num_baths                     integer not null,
   price                         double not null,
   landlord_email                varchar(255),
+  member_email                  varchar(255),
   garden_size                   double,
   garage                        boolean default false,
   aid                           bigint,
@@ -60,6 +61,7 @@ create table user (
   fname                         varchar(255),
   lname                         varchar(255),
   password                      varchar(255),
+  property_id                   bigint,
   constraint pk_user primary key (email)
 );
 
@@ -68,9 +70,15 @@ alter table fees add constraint fk_fees_property_id foreign key (property_id) re
 alter table property add constraint fk_property_landlord_email foreign key (landlord_email) references user (email) on delete restrict on update restrict;
 create index ix_property_landlord_email on property (landlord_email);
 
+alter table property add constraint fk_property_member_email foreign key (member_email) references user (email) on delete restrict on update restrict;
+create index ix_property_member_email on property (member_email);
+
 alter table property add constraint fk_property_aid foreign key (aid) references address (id) on delete restrict on update restrict;
 
 alter table rent_due add constraint fk_rent_due_member_email foreign key (member_email) references user (email) on delete restrict on update restrict;
+
+alter table user add constraint fk_user_property_id foreign key (property_id) references property (id) on delete restrict on update restrict;
+create index ix_user_property_id on user (property_id);
 
 
 # --- !Downs
@@ -80,9 +88,15 @@ alter table fees drop constraint if exists fk_fees_property_id;
 alter table property drop constraint if exists fk_property_landlord_email;
 drop index if exists ix_property_landlord_email;
 
+alter table property drop constraint if exists fk_property_member_email;
+drop index if exists ix_property_member_email;
+
 alter table property drop constraint if exists fk_property_aid;
 
 alter table rent_due drop constraint if exists fk_rent_due_member_email;
+
+alter table user drop constraint if exists fk_user_property_id;
+drop index if exists ix_user_property_id;
 
 drop table if exists address;
 

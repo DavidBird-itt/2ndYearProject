@@ -47,3 +47,4 @@ GET     /deleteMember/:id           controllers.HomeController.deleteMember(id: 
 
 #GET from RentCrtl
 GET     /viewRent                   controllers.RentCtrl.viewRent()
+GET     /setupRent                  controllers.RentCtrl.setupRent(id: String)

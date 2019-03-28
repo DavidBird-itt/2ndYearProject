@@ -51,6 +51,14 @@ public class Apartment extends Property {
         this.floor = floor;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(){
+        
+    }
+
 
     //Finders
     public static final Finder<Long, Apartment> find = new Finder<>(Apartment.class);

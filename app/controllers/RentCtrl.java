@@ -19,13 +19,13 @@ import views.html.*;
 @Security.Authenticated(Secured.class)
 @With(CheckIfMember.class)
 public class RentCtrl extends Controller {
-    private FormFactory FormFactory;
+    private FormFactory formFactory;
     private Environment env;
 
     @Inject
     public RentCtrl(Environment e, FormFactory f) {
         this.env = e;
-        this.FormFactory = f;
+        this.formFactory = f;
     }
 
     @Transactional
@@ -34,5 +34,25 @@ public class RentCtrl extends Controller {
         return ok(viewRent.render(rentList, (Member)User.getUserById(session().get("email"))));
     }
 
-   
+    @Transactional
+    public Result setupRent(String email) {
+        Form<Member> memberForm;
+        Form<RentDue> rentForm = formFactory.form(RentDue.class);
+        Form<Property> propertyForm = formFactory.form(Property.class);
+
+        Form<Houses> houseForm;
+
+        try{
+            //Find by id
+            Member m = (Member) User.getUserById(email);
+            m.update();
+
+            memberForm = formFactory.form(Member.class).fill(m);
+        } catch (Exception e) {
+            return badRequest("error");
+        }
+
+        return ok(setupRent.render(memberForm, rentForm, propertyForm, User.getUserById(session().get("email"))));
+
+    }
 }

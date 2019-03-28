@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Mar 25 21:37:03 GMT 2019
+// @DATE:Thu Mar 28 12:41:31 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -45,6 +45,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "viewRent"})
+        }
+      """
+    )
+  
+    // @LINE:50
+    def setupRent: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.RentCtrl.setupRent",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "setupRent" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("id", id0)])})
         }
       """
     )
