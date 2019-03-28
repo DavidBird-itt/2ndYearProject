@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Thu Mar 28 12:41:31 GMT 2019
+// @DATE:Thu Mar 28 16:32:52 GMT 2019
 
 import play.api.mvc.Call
 

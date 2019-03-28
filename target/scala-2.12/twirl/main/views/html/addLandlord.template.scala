@@ -48,17 +48,18 @@ Seq[Any](format.raw/*2.1*/("""
         """),_display_(/*17.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*17.85*/("""
         """),_display_(/*18.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*18.87*/("""
 
-        """),format.raw/*20.9*/("""<label> Image Upload </label>
+        """),_display_(/*20.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*20.99*/("""
+
+        """),format.raw/*22.9*/("""<label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     
-        """),_display_(/*23.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*23.99*/("""
-        """),format.raw/*24.9*/("""<div class="actions">
+        <div class="actions">
             <input type="submit" value="Add Landlord" class="btn btn-primary">
-            <a href=""""),_display_(/*26.23*/routes/*26.29*/.HomeController.landlord()),format.raw/*26.55*/("""">
+            <a href=""""),_display_(/*27.23*/routes/*27.29*/.HomeController.landlord()),format.raw/*27.55*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*30.6*/("""
+    """)))}),format.raw/*31.6*/("""
 """)))}))
       }
     }
@@ -75,11 +76,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 25 21:37:05 GMT 2019
+                  DATE: Thu Mar 28 16:32:54 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/addLandlord.scala.html
-                  HASH: 33894837cd8976db8077ac39ed08881e0363928f
-                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2128->666|2225->742|2262->752|2358->827|2395->837|2493->914|2530->924|2670->1037|2780->1126|2816->1135|2966->1258|2981->1264|3028->1290|3176->1408
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|54->23|54->23|55->24|57->26|57->26|57->26|61->30
+                  HASH: 1e4115920dc4d9abe1d1eb7ffc6a4466d5e93141
+                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2128->666|2225->742|2262->752|2358->827|2395->837|2493->914|2531->925|2641->1014|2678->1024|2940->1259|2955->1265|3002->1291|3150->1409
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|51->20|53->22|58->27|58->27|58->27|62->31
                   -- GENERATED --
               */
           

@@ -48,7 +48,7 @@ Seq[Any](_display_(/*2.2*/main("RentDue",user)/*2.22*/ {_display_(Seq[Any](forma
 
               /*
                   -- GENERATED --
-                  DATE: Mon Mar 25 21:37:05 GMT 2019
+                  DATE: Thu Mar 28 16:32:54 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/viewRent.scala.html
                   HASH: 1b9dbab0d89140bf3d7431f87507b651a74e94c4
                   MATRIX: 988->1|1143->64|1171->84|1210->86|1237->87

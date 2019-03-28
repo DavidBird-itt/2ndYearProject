@@ -5,7 +5,7 @@
 @main("Create Account", user) {
     <p class="lead">Create Account</p>
 
-    @form(action=routes.HomeController.addMemberSubmit, 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addMemberSubmit(), 'class -> "form-horizontal", 'role -> "form") {
         @* CSRF attack Prevention *@
         @CSRF.formField
 
