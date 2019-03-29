@@ -1,15 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/controllers/ShoppingCtrl.java:57:1: incompatible types: models.shopping.OrderItem cannot be converted to models.Property[0m
-[0m[[0m[31merror[0m] [0m[0m        user.getBasket().addOrderItem(Property);[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/models/shopping/Basket.java:75:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method getItem()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable oi of type models.shopping.OrderItem[0m
-[0m[[0m[31merror[0m] [0m[0m            if (oi.getItem().getId() == item.getId()) {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/models/shopping/Basket.java:75:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable item[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.shopping.Basket[0m
-[0m[[0m[31merror[0m] [0m[0m            if (oi.getItem().getId() == item.getId()) {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/models/shopping/Basket.java:83:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/temp/PlayReminder/app/models/shopping/Basket.java:83:1: cannot find symbol[0m
 [0m[[0m[31merror[0m] [0m[0m  symbol:   variable item[0m
 [0m[[0m[31merror[0m] [0m[0m  location: class models.shopping.Basket[0m
 [0m[[0m[31merror[0m] [0m[0m            OrderItem newItem = new OrderItem(item);[0m
-[0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m

@@ -108,6 +108,13 @@ public class Property extends Model {
         this.member = member;
     }
 
+    //Finders
+    public static final Finder<Long, Property> findp = new Finder<>(Property.class);
+    
+    public static final List<Property> findAllp() {
+        return Property.findp.all();
+    }
+
     
     
 }

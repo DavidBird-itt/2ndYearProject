@@ -64,7 +64,7 @@ public class Basket extends Model {
 
     // Add item for sale to basket
     // Either update existing order item or ad a new one.
-    public void addOrderItem(Property prop) {
+    public void addProperty(Property prop) {
         
         boolean itemFound = false;
         // Check if product already in this basket
@@ -72,7 +72,7 @@ public class Basket extends Model {
         // Find orderitem with this product
         // if found increment quantity
         for (OrderItem oi : basketItems) {
-            if (oi.getItem().getId() == item.getId()) {
+            if (oi.getProperty().getId() == prop.getId()) {
                 oi.increaseQty();
                 itemFound = true;
                 break;
@@ -80,9 +80,9 @@ public class Basket extends Model {
         }
         if (itemFound == false) {
             // Add orderItem to list
-            OrderItem newItem = new OrderItem(item);
+            OrderItem newProp = new OrderItem(prop);
             // Add to items
-            basketItems.add(newItem);
+            basketItems.add(newProp);
         }
     }
 

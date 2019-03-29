@@ -1,9 +1,9 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/evolutions,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/evolutions/default,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/evolutions/default/3.sql,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/evolutions/default/3.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/evolutions/default/2.sql,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/evolutions/default/1.sql,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/evolutions/default/1.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/application.conf,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/logback.xml,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/Desktop/PlayReminder/conf/routes,/home/wdd/Desktop/PlayReminder/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/evolutions,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/evolutions/default,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/evolutions/default/3.sql,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/evolutions/default/3.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/evolutions/default/2.sql,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/evolutions/default/2.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/evolutions/default/1.sql,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/application.conf,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/logback.xml,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/wdd/temp/PlayReminder/conf/routes,/home/wdd/temp/PlayReminder/target/scala-2.12/classes/routes)[0m

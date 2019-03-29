@@ -41,24 +41,24 @@ public class ShoppingCtrl extends Controller {
     public Result addToBasket(Long id) {
 
         // Find the item on sale
-        OrderItem Property = OrderItem.find.byId(id);
+        Property property = Property.findp.byId(id);
         
         // Get basket for logged in customer
-        Member user = (Member)User.getUserById(session().get("email"));
+        Member member = (Member)User.getUserById(session().get("email"));
         
         // Check if item in basket
-        if (user.getBasket() == null) {
+        if (member.getBasket() == null) {
             // If no basket, create one
-            user.setBasket(new Basket());
-            user.getBasket().setMember(user);
-            user.update();
+            member.setBasket(new Basket());
+            member.getBasket().setMember(member);
+            member.update();
         }
         // Add product to the basket and save
-        user.getBasket().addOrderItem(Property);
-        user.update();
+        member.getBasket().addProperty(property);
+        member.update();
         
         // Show the basket contents     
-        return ok(basket.render(user));
+        return ok(basket.render(member));
     }
 
     @Transactional
