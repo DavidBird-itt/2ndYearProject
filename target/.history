@@ -87,3 +87,10 @@ run
 h2-browser
 run
 exit
+run
+exit
+run
+clean
+compile
+run
+exit

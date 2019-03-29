@@ -9,6 +9,7 @@ import play.data.validation.*;
 
 import models.rent.*;
 import models.*;
+import models.shopping.*;
 
 @Table(name="User")
 // the user type of this class is "admin"
@@ -21,6 +22,12 @@ public class Member extends User {
 
     @ManyToOne
     private Property property;
+
+    @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
+    private Basket basket;
+
+    @OneToMany(mappedBy="member", cascade = CascadeType.ALL)
+    private List<ShopOrder> orders;
 
     public Member(){
 
@@ -52,5 +59,21 @@ public class Member extends User {
     public void setProperty(Property p) {
         this.property = p;
     }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    public List<ShopOrder> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<ShopOrder> orders) {
+        this.orders = orders;
+}
 
 }

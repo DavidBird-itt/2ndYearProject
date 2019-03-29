@@ -23,8 +23,8 @@ public class Landlord extends User {
     public Landlord(){
 
     }
-    public Landlord(String email, String fname, String lname, String role, String password) {
-        super(email, fname, lname, role,password);
+    public Landlord(String email, String role, String fname, String lname, String password) {
+        super(email, role, fname, lname,password);
     }
 
     public static final Finder<Long, Landlord> find = new Finder<>(Landlord.class);

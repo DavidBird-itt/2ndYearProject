@@ -60,13 +60,13 @@
                             <li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                             <li @if(pagename == "Payment"){class="active"}><a href="@routes.HomeController.payment()">Payment</a></li>
 							<li @if(pagename == "Database"){class="active"}><a href="@routes.HomeController.database()">Database</a></li>
-							<li @if(pagename == "Login"){class="active"}>
-							@if((user != null) && ("LandLord".equals(user.getRole()))) {
+							@if((user != null) && ("admin".equals(user.getRole()))) {
 								<li @if(pagename == "Landlords") {class="active"}><a href="@routes.HomeController.landlord()">View Landlords</a></li>
 							}
 							@if((user != null) && ("Member".equals(user.getRole()))) {
 								<li @if(pagename == "RentDue") {class="active"}><a href="@routes.RentCtrl.viewRent()">Rent Due</a></li>	
 							}
+							<li @if(pagename == "Login"){class="active"}>
 							@if(user != null){
 								<a href="@routes.LoginController.logout()">Log Out</a></li>
 							} else {

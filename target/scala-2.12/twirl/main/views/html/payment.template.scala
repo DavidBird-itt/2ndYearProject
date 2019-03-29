@@ -119,7 +119,7 @@ Seq[Any](_display_(/*2.2*/main("Payment", user)/*2.23*/{_display_(Seq[Any](forma
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 28 16:32:53 GMT 2019
+                  DATE: Fri Mar 29 11:23:59 GMT 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/payment.scala.html
                   HASH: 3038db28e2d13332184f08492f261eb7756506f1
                   MATRIX: 961->1|1080->28|1109->49|1147->50|1176->53
