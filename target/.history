@@ -94,3 +94,8 @@ clean
 compile
 run
 exit
+run
+exit
+clean
+compile
+run

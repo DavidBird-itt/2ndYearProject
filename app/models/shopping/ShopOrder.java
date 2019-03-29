@@ -68,4 +68,14 @@ public class ShopOrder extends Model {
         this.member = member;
     }
 
+    public double getOrderTotal() {
+
+        double total = 0;
+
+        for (OrderItem i: items) {
+            total += i.getItemTotal();
+        }
+        return total;
+    }
+
 }

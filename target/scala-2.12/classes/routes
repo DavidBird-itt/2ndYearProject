@@ -48,3 +48,10 @@ GET     /deleteMember/:id           controllers.HomeController.deleteMember(id: 
 #GET from RentCrtl
 GET     /viewRent                   controllers.RentCtrl.viewRent()
 GET     /setupRent                  controllers.RentCtrl.setupRent(id: String)
+
+GET     /showBasket                 controllers.ShoppingCtrl.showBasket()
+GET     /addToBasket/:id            controllers.ShoppingCtrl.addToBasket(id: Long)
+GET     /removeOne/:itemId          controllers.ShoppingCtrl.removeOne(itemId: Long)
+GET     /emptyBasket                controllers.ShoppingCtrl.emptyBasket()
+GET     /placeOrder                 controllers.ShoppingCtrl.placeOrder()
+GET     /viewOrder/:id              controllers.ShoppingCtrl.viewOrder(id: Long)
