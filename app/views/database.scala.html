@@ -62,7 +62,7 @@
                         </a>
                     </td>
                 }
-                @if((user != null) && ("customer".equals(user.getRole()))) {
+                @if((user != null) && ("admin".equals(user.getRole())) || "customer".equals(user.getRole())) {
                     <td><a href="@routes.ShoppingCtrl.addToBasket(i.getId)" class="btn btn-default btn-xs">
                         <span class="glyphicon glyphicon-shopping-cart"></span></a></td>
               }

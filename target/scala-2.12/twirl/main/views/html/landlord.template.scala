@@ -58,25 +58,45 @@ Seq[Any](_display_(/*2.2*/main("Landlord",user)/*2.23*/ {_display_(Seq[Any](form
             <!-- Product row(s) -->
 
             <!-- Loop for creating rows from the users data -->
-            """),_display_(/*30.14*/for(u<-landList) yield /*30.30*/ {_display_(Seq[Any](format.raw/*30.32*/(""" """),format.raw/*30.33*/("""<tr>
+            """),_display_(/*30.14*/for(u<-landList) yield /*30.30*/ {_display_(Seq[Any](format.raw/*30.32*/(""" 
+                """),format.raw/*31.17*/("""<tr>
 
-                """),_display_(/*32.18*/if(env.resource("public/images/workerImages/" + u.getEmail + "thumb.jpg").isDefined)/*32.102*/ {_display_(Seq[Any](format.raw/*32.104*/("""
-                """),format.raw/*33.17*/("""<td><img src="/assets/images/projectImages"""),_display_(/*33.60*/(u.getEmail + " thumb.jpg")),format.raw/*33.87*/("""" /></td>
-                """)))}/*34.19*/else/*34.24*/{_display_(Seq[Any](format.raw/*34.25*/("""
-                """),format.raw/*35.17*/("""<td><img src="/assets/images/projectImages/noImage.jpg" /></td>
-                """)))}),format.raw/*36.18*/("""
+                    """),_display_(/*33.22*/if(env.resource("public/images/projectImages/" + u.getEmail + "thumb.jpg").isDefined)/*33.107*/ {_display_(Seq[Any](format.raw/*33.109*/("""
+                    """),format.raw/*34.21*/("""<td><img src="/assets/images/projectImages/"""),_display_(/*34.65*/(u.getEmail + "thumb.jpg")),format.raw/*34.91*/(""""/></td>
+                    """)))}/*35.23*/else/*35.28*/{_display_(Seq[Any](format.raw/*35.29*/("""
+                    """),format.raw/*36.21*/("""<td><img src="/assets/images/projectImages/noImage.jpg"/></td>
+                    """)))}),format.raw/*37.22*/("""
 
-                """),format.raw/*38.17*/("""<td>"""),_display_(/*38.22*/u/*38.23*/.getEmail),format.raw/*38.32*/("""</td>
-                <td>"""),_display_(/*39.22*/u/*39.23*/.getRole),format.raw/*39.31*/("""</td>
-                <td>"""),_display_(/*40.22*/u/*40.23*/.getFname),format.raw/*40.32*/("""</td>
-                <td>"""),_display_(/*41.22*/u/*41.23*/.getPassword),format.raw/*41.35*/("""</td>
-                </tr>
-                """)))}),format.raw/*43.18*/("""
-        """),format.raw/*44.9*/("""</tbody>
+                """),format.raw/*39.17*/("""<td>"""),_display_(/*39.22*/u/*39.23*/.getEmail),format.raw/*39.32*/("""</td>
+                <td>"""),_display_(/*40.22*/u/*40.23*/.getRole),format.raw/*40.31*/("""</td>
+                <td>"""),_display_(/*41.22*/u/*41.23*/.getFname),format.raw/*41.32*/("""</td>
+                <td>"""),_display_(/*42.22*/u/*42.23*/.getPassword),format.raw/*42.35*/("""</td>
+
+                """),_display_(/*44.18*/if((user != null) && ("admin".equals(user.getRole())))/*44.72*/ {_display_(Seq[Any](format.raw/*44.74*/("""
+                    """),format.raw/*45.21*/("""<!-- Delete button -->
+                    <td>
+                        <a href=""""),_display_(/*47.35*/routes/*47.41*/.HomeController.deleteLandlord(u.getEmail)),format.raw/*47.83*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                """)))}),format.raw/*51.18*/("""
+
+                """),_display_(/*53.18*/if((user != null) && ("admin".equals(user.getRole())))/*53.72*/ {_display_(Seq[Any](format.raw/*53.74*/("""
+                    """),format.raw/*54.21*/("""<!-- Update button -->
+                    <td>
+                        <a href=""""),_display_(/*56.35*/routes/*56.41*/.HomeController.updateLandlord(u.getEmail)),format.raw/*56.83*/("""" class="button-xs btn-danger">
+                            <span class="glyphicon-pencil"><</span>
+                        </a>
+                    </td>
+                """)))}),format.raw/*60.18*/("""
+
+                """),format.raw/*62.17*/("""</tr>
+                """)))}),format.raw/*63.18*/("""
+        """),format.raw/*64.9*/("""</tbody>
     </table>
     <p>
-        <a href=""""),_display_(/*47.19*/routes/*47.25*/.HomeController.addLandlord()),format.raw/*47.54*/("""">
-            <button class="btn btn-primary">Add a new Administrator</button>
+        <a href=""""),_display_(/*67.19*/routes/*67.25*/.HomeController.addLandlord()),format.raw/*67.54*/("""">
+            <button class="btn btn-primary">Add a new Landlord</button>
         </a>
     </p>
 </div>
@@ -103,11 +123,11 @@ Seq[Any](_display_(/*2.2*/main("Landlord",user)/*2.23*/ {_display_(Seq[Any](form
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 29 19:19:07 GMT 2019
-                  SOURCE: /home/wdd/temp/PlayReminder/app/views/landlord.scala.html
-                  HASH: e83284353b2ddfb0eb9a184e03cbcd9923f03321
-                  MATRIX: 1011->1|1196->94|1225->115|1264->117|1291->118|1381->183|1421->215|1460->217|1487->218|1551->257|1564->262|1599->277|1626->278|1664->286|1693->288|2266->834|2298->850|2338->852|2367->853|2417->876|2511->960|2552->962|2597->979|2667->1022|2715->1049|2761->1077|2774->1082|2813->1083|2858->1100|2970->1181|3016->1199|3048->1204|3058->1205|3088->1214|3142->1241|3152->1242|3181->1250|3235->1277|3245->1278|3275->1287|3329->1314|3339->1315|3372->1327|3448->1372|3484->1381|3559->1429|3574->1435|3624->1464
-                  LINES: 28->1|33->2|33->2|33->2|34->3|37->6|37->6|37->6|38->7|39->8|39->8|39->8|40->9|41->10|43->12|61->30|61->30|61->30|61->30|63->32|63->32|63->32|64->33|64->33|64->33|65->34|65->34|65->34|66->35|67->36|69->38|69->38|69->38|69->38|70->39|70->39|70->39|71->40|71->40|71->40|72->41|72->41|72->41|74->43|75->44|78->47|78->47|78->47
+                  DATE: Sun Mar 31 20:51:33 IST 2019
+                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/landlord.scala.html
+                  HASH: 3273c617695397422b55165f915d18fbc882a56d
+                  MATRIX: 1011->1|1196->94|1225->115|1264->117|1291->118|1381->183|1421->215|1460->217|1487->218|1551->257|1564->262|1599->277|1626->278|1664->286|1693->288|2266->834|2298->850|2338->852|2384->870|2438->897|2533->982|2574->984|2623->1005|2694->1049|2741->1075|2790->1106|2803->1111|2842->1112|2891->1133|3006->1217|3052->1235|3084->1240|3094->1241|3124->1250|3178->1277|3188->1278|3217->1286|3271->1313|3281->1314|3311->1323|3365->1350|3375->1351|3408->1363|3459->1387|3522->1441|3562->1443|3611->1464|3720->1546|3735->1552|3798->1594|4040->1805|4086->1824|4149->1878|4189->1880|4238->1901|4347->1983|4362->1989|4425->2031|4628->2203|4674->2221|4728->2244|4764->2253|4839->2301|4854->2307|4904->2336
+                  LINES: 28->1|33->2|33->2|33->2|34->3|37->6|37->6|37->6|38->7|39->8|39->8|39->8|40->9|41->10|43->12|61->30|61->30|61->30|62->31|64->33|64->33|64->33|65->34|65->34|65->34|66->35|66->35|66->35|67->36|68->37|70->39|70->39|70->39|70->39|71->40|71->40|71->40|72->41|72->41|72->41|73->42|73->42|73->42|75->44|75->44|75->44|76->45|78->47|78->47|78->47|82->51|84->53|84->53|84->53|85->54|87->56|87->56|87->56|91->60|93->62|94->63|95->64|98->67|98->67|98->67
                   -- GENERATED --
               */
           

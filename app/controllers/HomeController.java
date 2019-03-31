@@ -167,6 +167,9 @@ public class HomeController extends Controller {
         }
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
     public Result updateLandlord(String email) {
         Landlord l;
         Form<Landlord> lForm;
@@ -187,6 +190,9 @@ public class HomeController extends Controller {
 
     }
 
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
     public Result deleteLandlord(String email) {
         Landlord l = (Landlord) User.getUserById(email);
         l.delete();
@@ -315,4 +321,53 @@ public class HomeController extends Controller {
 
 
     }
+
+    // public String saveFileLandlord(String email, FilePart < File > uploaded) {
+    //     if (uploaded != null) {
+    //         String mimeType = uploaded.getContentType();
+
+    //         if (mimeType.startsWith("image/")) {
+    //             String fileName = uploaded.getFilename();
+
+    //             String extension = "";
+    //             int i = fileName.lastIndexOf('.');
+
+    //             if (i >= 0) {
+    //                 extension = fileName.substring(i + 1);
+    //             }
+
+    //             File file = uploaded.getFile();
+
+    //             File dir = new File("public/images/projectImages");
+
+    //             if (!dir.exists()) {
+    //                 dir.mkdirs();
+    //             }
+
+    //             File newFile = new File("public/images/projectImages/", email + "." + extension);
+
+    //             if (file.renameTo(newFile)) {
+    //                 try {
+    //                     BufferedImage img = ImageIO.read(newFile);
+    //                     BufferedImage scaledImg = Scalr.resize(img, 90);
+
+    //                     if (ImageIO.write(scaledImg, extension, new File("public/images/projectImages/", email + "thumb.jpg"))) {
+    //                         return "/ file uploaded and thumbnail created.";
+    //                     } else {
+    //                         return "/ file uploaded but thumbnail creation failed.";
+    //                     }
+
+    //                 } catch (IOException e) {
+    //                     return "/ file uploaded but thumbnail creation failed.";
+    //                 }
+
+    //             } else {
+    //                 return "/ file upload failed.";
+    //             }
+    //         }
+    //     }
+    //     return "/ no image file.";
+
+
+    // }
 }
