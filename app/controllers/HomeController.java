@@ -202,12 +202,16 @@ public class HomeController extends Controller {
         return ok(addApartment.render(apartForm, User.getUserById(session().get("email")), e));
     }
 
-    public Result landlord() {
-        List<Landlord> userList = null;
+    public Result viewUsers() {
+        List<Landlord> lList = null;
+        List<Admin> aList = null;
+        List<Member> mList = null;
 
-        userList = Landlord.findAll();
+        aList = Admin.findAll();
+        lList = Landlord.findAll();
+        mList = Member.findAll();
 
-        return ok(landlord.render(userList,User.getUserById(session().get("email")), e));
+        return ok(viewUsers.render(lList,aList,mList,User.getUserById(session().get("email")), e));
     }
 
     public Result addLandlord() {
@@ -236,7 +240,7 @@ public class HomeController extends Controller {
             flash("success", "Landlord " + newLandlord.getFname() + " was added/updated.");
 
             //Brings them back to the initial page and shows the update
-            return redirect(controllers.routes.HomeController.landlord());
+            return redirect(controllers.routes.HomeController.viewUsers());
         }
     }
 
@@ -254,7 +258,7 @@ public class HomeController extends Controller {
             // Populate the form object with data from the item found in the database
             lForm = formFactory.form(Landlord.class).fill(l);
         } catch (Exception ex) {
-            return badRequest("error");
+            return badRequest("error " + ex.getMessage());
         }
     
         // Display the "add item" page, to allow the user to update the item
@@ -270,8 +274,70 @@ public class HomeController extends Controller {
         Landlord l = (Landlord) User.getUserById(email);
         l.delete();
 
-        flash("success", "Landlord has been updated");
-        return redirect(controllers.routes.HomeController.landlord());
+        flash("success", "Landlord has been deleted");
+        return redirect(controllers.routes.HomeController.viewUsers());
+    }
+
+    public Result addAdmin() {
+        Form<Admin> aForm = formFactory.form(Admin.class);
+        return ok(addAdmin.render(aForm, User.getUserById(session().get("email")), e));
+    }
+
+    public Result addAdminSubmit() {
+        Form<Admin> newAdminForm = formFactory.form(Admin.class).bindFromRequest();
+
+        //Error handling
+        if (newAdminForm.hasErrors()) {
+            //Finds the error and gives the user a new form to fill out
+            return badRequest(addAdmin.render(newAdminForm, User.getUserById(session().get("email")), e));
+        } else {
+            //Puts the form into the houses constructor
+            Admin newAdmin = newAdminForm.get();
+            
+            if(newAdmin.getUserById(newAdmin.getEmail()) == null){
+                //Saves to the database
+                newAdmin.save();
+            } else {
+                newAdmin.update();
+            }
+
+            flash("success", "Admin " + newAdmin.getFname() + " was added/updated.");
+
+            //Brings them back to the initial page and shows the update
+            return redirect(controllers.routes.HomeController.viewUsers());
+        }
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result updateAdmin(String email) {
+        Admin a;
+        Form<Admin> aForm;
+    
+        try {
+            // Find the item by id
+            a = (Admin)User.getUserById(email);
+    
+            // Populate the form object with data from the item found in the database
+            aForm = formFactory.form(Admin.class).fill(a);
+        } catch (Exception ex) {
+            return badRequest("error");
+        }
+    
+        // Display the "add item" page, to allow the user to update the item
+        return ok(addAdmin.render(aForm,User.getUserById(session().get("email")), e));
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result deleteAdmin(String email) {
+        Admin a = (Admin) User.getUserById(email);
+        a.delete();
+
+        flash("success", "Admin has been updated");
+        return redirect(controllers.routes.HomeController.viewUsers());
         
     }
 

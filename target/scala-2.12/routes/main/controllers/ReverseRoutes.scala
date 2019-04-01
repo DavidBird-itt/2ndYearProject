@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Mon Apr 01 11:16:45 IST 2019
+// @DATE:Mon Apr 01 13:00:43 IST 2019
 
 import play.api.mvc.Call
 
@@ -26,20 +26,20 @@ package controllers {
   
   }
 
-  // @LINE:57
+  // @LINE:62
   class ReverseRentCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:57
+    // @LINE:62
     def viewRent(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewRent")
     }
   
-    // @LINE:58
+    // @LINE:63
     def setupRent(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "setupRent" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
@@ -123,16 +123,40 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addApartment")
     }
   
+    // @LINE:56
+    def addAdmin(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "addAdmin")
+    }
+  
+    // @LINE:44
+    def viewUsers(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "viewUsers")
+    }
+  
     // @LINE:28
     def payment(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "payment")
     }
   
+    // @LINE:58
+    def updateAdmin(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "updateAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
     // @LINE:46
     def addLandlordSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addLandlordSubmit")
+    }
+  
+    // @LINE:59
+    def deleteAdmin(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "deleteAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:54
@@ -177,12 +201,6 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "deleteHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:44
-    def landlord(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "landlord")
-    }
-  
     // @LINE:41
     def deleteApartment(id:Long): Call = {
       
@@ -211,6 +229,12 @@ package controllers {
     def index(): Call = {
       
       Call("GET", _prefix)
+    }
+  
+    // @LINE:57
+    def addAdminSubmit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "addAdminSubmit")
     }
   
   }
@@ -257,44 +281,44 @@ package controllers {
   
   }
 
-  // @LINE:60
+  // @LINE:65
   class ReverseShoppingCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:61
+    // @LINE:66
     def addToBasket(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:65
+    // @LINE:70
     def viewOrder(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:64
+    // @LINE:69
     def placeOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
     }
   
-    // @LINE:62
+    // @LINE:67
     def removeOne(itemId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "removeOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
-    // @LINE:60
+    // @LINE:65
     def showBasket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "showBasket")
     }
   
-    // @LINE:63
+    // @LINE:68
     def emptyBasket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")

@@ -41,7 +41,7 @@ POST    /addApartmentSubmit             controllers.HomeController.addApartmentS
 GET     /deleteApartment/:id            controllers.HomeController.deleteApartment(id: Long)
 GET     /updateApartment/:id            controllers.HomeController.updateApartment(id: Long)
 
-GET     /landlord                   controllers.HomeController.landlord
+GET     /viewUsers                   controllers.HomeController.viewUsers
 GET     /addLandlord                controllers.HomeController.addLandlord
 POST    /addLandlordSubmit          controllers.HomeController.addLandlordSubmit
 GET     /updateLandlord/:id         controllers.HomeController.updateLandlord(id: String)
@@ -52,6 +52,11 @@ GET     /addMember                  controllers.HomeController.addMember
 POST    /addMemberSubmit            controllers.HomeController.addMemberSubmit
 GET     /updateMember/:id           controllers.HomeController.updateMember(id: String)
 GET     /deleteMember/:id           controllers.HomeController.deleteMember(id: String)
+
+GET     /addAdmin                   controllers.HomeController.addAdmin
+POST    /addAdminSubmit            controllers.HomeController.addAdminSubmit
+GET     /updateAdmin/:id           controllers.HomeController.updateAdmin(id: String)
+GET     /deleteAdmin/:id           controllers.HomeController.deleteAdmin(id: String)
 
 #GET from RentCrtl
 GET     /viewRent                   controllers.RentCtrl.viewRent()

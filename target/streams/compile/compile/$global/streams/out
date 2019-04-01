@@ -1,7 +1,3 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:58:81: not found: value house[0m
-[0m[[0m[31merror[0m] [0m[0m                                <a href="@routes.HomeController.updateApartment(house.getId)"><i class="fas fa-edit"></i></a>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:60:81: not found: value house[0m
-[0m[[0m[31merror[0m] [0m[0m                                <a href="@routes.HomeController.deleteApartment(house.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:214:1: incompatible types: java.util.List<models.users.Member> cannot be converted to java.util.List<models.users.Admin>[0m
+[0m[[0m[31merror[0m] [0m[0m        return ok(viewUsers.render(lList,aList,mList,User.getUserById(session().get("email")), e));[0m
+[0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m

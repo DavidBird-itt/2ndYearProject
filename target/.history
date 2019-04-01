@@ -107,3 +107,9 @@ run
 exit
 run
 exit
+run
+clean
+compile
+sbt
+run
+exit
