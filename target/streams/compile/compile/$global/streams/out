@@ -1,36 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: ')' expected[0m
-[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: <identifier> expected[0m
-[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ')' expected[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: <identifier> expected[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:126:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m        } else {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:126:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m        } else {[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:127:1: illegal start of type[0m
-[0m[[0m[31merror[0m] [0m[0m            return "/assets/images/projectImages/noImage.jpg";[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:127:1: <identifier> expected[0m
-[0m[[0m[31merror[0m] [0m[0m            return "/assets/images/projectImages/noImage.jpg";[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:134:1: class, interface, or enum expected[0m
-[0m[[0m[31merror[0m] [0m[0m    }[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:137:1: class, interface, or enum expected[0m
-[0m[[0m[31merror[0m] [0m[0m    public static final Finder<Long, Property> findp = new Finder<>(Property.class);[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:137:1: <identifier> expected[0m
-[0m[[0m[31merror[0m] [0m[0m    public static final Finder<Long, Property> findp = new Finder<>(Property.class);[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:58:81: not found: value house[0m
+[0m[[0m[31merror[0m] [0m[0m                                <a href="@routes.HomeController.updateApartment(house.getId)"><i class="fas fa-edit"></i></a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/database.scala.html:60:81: not found: value house[0m
+[0m[[0m[31merror[0m] [0m[0m                                <a href="@routes.HomeController.deleteApartment(house.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

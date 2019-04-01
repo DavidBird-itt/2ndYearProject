@@ -129,6 +129,79 @@ public class HomeController extends Controller {
         return ok(addHouse.render(houseForm, User.getUserById(session().get("email")), e));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    public Result addApartment() {
+        Form<Apartment> apartForm = formFactory.form(Apartment.class);
+        return ok(addApartment.render(apartForm, User.getUserById(session().get("email")), e));
+    }
+
+    //Interacts directly with the database so the @Transactional is added
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    public Result addApartmentSubmit() {
+        Form<Apartment> newApartForm = formFactory.form(Apartment.class).bindFromRequest();
+
+        //Error handling
+        if (newApartForm.hasErrors()) {
+            //Finds the error and gives the user a new form to fill out
+            return badRequest(addApartment.render(newApartForm, User.getUserById(session().get("email")), e));
+        } else {
+            //Puts the form into the houses constructor
+            Apartment newApart = newApartForm.get();
+            
+            if(newApart.getId() == null){
+                //Saves to the database
+                newApart.save();
+            } else {
+                newApart.update();
+            }
+
+            MultipartFormData<File> data = request().body().asMultipartFormData();
+
+            FilePart<File> image = data.getFile("upload");
+
+            String saveImageMessage = saveFile(newApart.getId(), image);
+
+            flash("success", "Apartment " + newApart.getId() + " was added/updated" + saveImageMessage);
+
+            //Brings them back to the initial page and shows the update
+            return redirect(controllers.routes.HomeController.database());
+        }
+
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result deleteApartment(Long id) {
+        Apartment.find.ref(id).delete();
+
+        //Flash message showing result
+        flash("success", "Apartment has been deleted.");
+        return redirect(controllers.routes.HomeController.database());
+    }
+
+    @Security.Authenticated(Secured.class)
+    @Transactional
+    @With(AuthAdmin.class)
+    public Result updateApartment(Long id) {
+        Apartment a;
+        Form<Apartment> apartForm;
+
+        try{
+            //Find by id
+            a = Apartment.find.byId(id);
+
+            //Show the form so they can update it
+            apartForm = formFactory.form(Apartment.class).fill(a);
+        } catch (Exception ex) {
+            return badRequest("error");
+        }
+
+        return ok(addApartment.render(apartForm, User.getUserById(session().get("email")), e));
+    }
+
     public Result landlord() {
         List<Landlord> userList = null;
 

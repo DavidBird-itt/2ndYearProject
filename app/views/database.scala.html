@@ -4,7 +4,7 @@
         Houses
         @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
             <a href="@routes.HomeController.addHouse()">
-                <span style="font-size:9px">(Add New House)</span>
+                <span style="font-size:20px">(Add New House)</span>
             </a>
         }
     </h1>
@@ -29,9 +29,9 @@
                             }
                             @if((user != null) && ("admin".equals(user.getRole()))) {
                                 &nbsp;
-                                <a href="@routes.HomeController.updateHouse(house.getId)">Edit</a>
+                                <a href="@routes.HomeController.updateHouse(house.getId)"><i class="fas fa-edit"></i></a>
                                 &nbsp;
-                                <a href="@routes.HomeController.deleteHouse(house.getId)" onclick="return confirmDel();">Delete</a>
+                                <a href="@routes.HomeController.deleteHouse(house.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
                             }
                         </td>
                     </a>
@@ -40,7 +40,13 @@
         </table>
     </div>
     <br>
-    <h1>Apartments</h1>
+    <h1>Apartments
+        @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
+            <a href="@routes.HomeController.addApartment()">
+                <span style="font-size:20px">(Add New Apartment)</span>
+            </a>
+        }
+    </h1>
     <br>
     <div id="database-list">
         <table style="width:100%">
@@ -53,11 +59,16 @@
                         <td class="desc">
                             <i class="fas fa-bed"></i> @apartment.getNumBeds&nbsp;
                             <i class="fas fa-toilet"></i> @apartment.getNumBaths&nbsp;
+                            @if((user != null) && ("admin".equals(user.getRole()))) {
+                                &nbsp;
+                                <a href="@routes.HomeController.updateApartment(apartment.getId)"><i class="fas fa-edit"></i></a>
+                                &nbsp;
+                                <a href="@routes.HomeController.deleteApartment(apartment.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
+                            }
                         </td>
                     </a>
                 </tr>
             }
         </table>
     </div>
-    <br>
-}
+    <br>}

@@ -36,6 +36,11 @@ POST    /addHouseSubmit             controllers.HomeController.addHouseSubmit
 GET     /deleteHouse/:id            controllers.HomeController.deleteHouse(id: Long)
 GET     /updateHouse/:id            controllers.HomeController.updateHouse(id: Long)
 
+GET     /addApartment               controllers.HomeController.addApartment
+POST    /addApartmentSubmit             controllers.HomeController.addApartmentSubmit
+GET     /deleteApartment/:id            controllers.HomeController.deleteApartment(id: Long)
+GET     /updateApartment/:id            controllers.HomeController.updateApartment(id: Long)
+
 GET     /landlord                   controllers.HomeController.landlord
 GET     /addLandlord                controllers.HomeController.addLandlord
 POST    /addLandlordSubmit          controllers.HomeController.addLandlordSubmit
