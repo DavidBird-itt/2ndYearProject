@@ -1,4 +1,36 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/controllers/HomeController.java:347:1: bad operand type java.lang.String for unary operator '+++'[0m
-[0m[[0m[31merror[0m] [0m[0m                File newFile = new File("public/images/landlordImages/", email, + "." + extension);[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/Desktop/PlayReminder/app/controllers/HomeController.java:354:1: bad operand type java.lang.String for unary operator '+++'[0m
-[0m[[0m[31merror[0m] [0m[0m                        if (ImageIO.write(scaledImg, extension, new File("public/images/landlordImages/", email, + "thumb.jpg"))) {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: ')' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: <identifier> expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:121:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public String getThumbnailPath(Boolean thumb = false) { // Use this instead of putting it into the view files[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ')' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: <identifier> expected[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:124:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        if(new File(path).exists()) { [0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:126:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m        } else {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:126:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m        } else {[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:127:1: illegal start of type[0m
+[0m[[0m[31merror[0m] [0m[0m            return "/assets/images/projectImages/noImage.jpg";[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:127:1: <identifier> expected[0m
+[0m[[0m[31merror[0m] [0m[0m            return "/assets/images/projectImages/noImage.jpg";[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:134:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:137:1: class, interface, or enum expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public static final Finder<Long, Property> findp = new Finder<>(Property.class);[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/college2/PlayReminder/app/models/Property.java:137:1: <identifier> expected[0m
+[0m[[0m[31merror[0m] [0m[0m    public static final Finder<Long, Property> findp = new Finder<>(Property.class);[0m

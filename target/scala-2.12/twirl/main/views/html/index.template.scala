@@ -66,11 +66,11 @@ Seq[Any](_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.r
 						</select>
 						<br><br>-->
 						Minimum Price<br>
-						€ <input type="number" placeholder="Enter minimum price" name="min" />
+						€ <input type="number" placeholder="Enter minimum price" name="min" min="0" max="1000000000" required/>
 
 						<br><br>
 						Maximum Price<br>
-						€ <input type="number" placeholder="Enter maximum price" name="max" />
+						€ <input type="number" placeholder="Enter maximum price" name="max" min="0" max="1000000000" required/>
 
 						<br><br>
 						<input type="submit" />
@@ -107,9 +107,9 @@ Seq[Any](_display_(/*2.2*/main("Home", user)/*2.20*/{_display_(Seq[Any](format.r
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 31 11:01:55 IST 2019
-                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/index.scala.html
-                  HASH: 35e28b284c66898d45aca402a0cb2b79c99688bc
+                  DATE: Sun Mar 31 22:36:33 CEST 2019
+                  SOURCE: /home/wdd/college2/PlayReminder/app/views/index.scala.html
+                  HASH: e8c982b4d88365d29797e06881531cd5100dae5c
                   MATRIX: 959->1|1078->28|1104->46|1142->47|1171->50|1300->153|1314->159|1360->185
                   LINES: 28->1|33->2|33->2|33->2|34->3|37->6|37->6|37->6
                   -- GENERATED --

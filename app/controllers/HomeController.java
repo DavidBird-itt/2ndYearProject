@@ -267,10 +267,34 @@ public class HomeController extends Controller {
     }
 
     public Result searchDB(int min, int max) {
-        // perhaps checks vals are not zero
+        // perhaps checks vals are not zero (now done via html)
 
         List<Houses> searchList = Houses.findRange(min, max);
         return ok(searchQuery.render(searchList, User.getUserById(session().get("email")), e));
+    }
+
+    public Result viewHouse(Long id) {
+        if(id > 0) { // check valid before trying to query db
+            Houses house = Houses.findById(id);
+
+            if(house != null) { // does it exist in db
+                System.out.println(house.getId());
+                return ok(viewHouse.render(house, User.getUserById(session().get("email"))));
+            }
+        }
+        return notFound(); // not found, spit out error
+    }
+
+    public Result viewApartment(Long id) {
+        if(id > 0) { // check valid before trying to query db
+            Apartment apartment = Apartment.findById(id);
+
+            if(apartment != null) { // does it exist in db
+                System.out.println(apartment.getId());
+                return ok(viewApartment.render(apartment, User.getUserById(session().get("email"))));
+            }
+        }
+        return notFound(); // not found, spit out error
     }
 
     public String saveFile(Long id, FilePart < File > uploaded) {
@@ -301,6 +325,8 @@ public class HomeController extends Controller {
                     try {
                         BufferedImage img = ImageIO.read(newFile);
                         BufferedImage scaledImg = Scalr.resize(img, 90);
+
+                        ImageIO.write(img, extension, new File("public/images/projectImages/", id + "full.jpg")); // full copy
 
                         if (ImageIO.write(scaledImg, extension, new File("public/images/projectImages/", id + "thumb.jpg"))) {
                             return "/ file uploaded and thumbnail created.";

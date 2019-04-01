@@ -62,10 +62,20 @@ public class Houses extends Property {
         this.address = a;
     }
 
+    public int getDepositValue() {
+        int depositValue = (int)getPrice();
 
+        depositValue = (int)(depositValue / 1000); // Simple way to get a "deposit" number
+
+        return depositValue;
+    }
 
     //Finders
     public static final Finder<Long, Houses> find = new Finder<>(Houses.class);
+
+    public static final Houses findById(Long id) {
+        return Houses.find.byId(id);
+    }
 
     public static final List<Houses> findAll() {
         return Houses.find.all();
@@ -85,8 +95,4 @@ public class Houses extends Property {
 
         return resList;
     }
-
-
-
-
 }

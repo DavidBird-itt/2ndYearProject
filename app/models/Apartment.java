@@ -55,13 +55,16 @@ public class Apartment extends Property {
         return address;
     }
 
-    public void setAddress(){
-        
+    public void setAddress(){ // why is this type 'Address' ?
     }
 
+    // Finders
 
-    //Finders
     public static final Finder<Long, Apartment> find = new Finder<>(Apartment.class);
+
+    public static final Apartment findById(Long id) {
+        return Apartment.find.byId(id);
+    }
 
     public static final List<Apartment> findAll() {
         return Apartment.find.all();

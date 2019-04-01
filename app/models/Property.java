@@ -5,9 +5,11 @@ import javax.persistence.*;
 import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
+import java.text.NumberFormat;
 
 import models.users.*;
 import models.rent.*;
+import java.io.File;
 
 @Entity
 
@@ -106,6 +108,34 @@ public class Property extends Model {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public String getDisplayValue(double val) {
+        return NumberFormat.getNumberInstance(Locale.US).format(val);
+    }
+
+    public int convertStripeNum(double val) {
+        return (int)val * 100;
+    }
+
+    public String getImagePath() { // Use this instead of putting it into the view files
+        String path = String.format("public/images/projectImages/%dfull.jpg", getId());
+
+        if(new File(path).exists()) { 
+            return String.format("/assets/images/projectImages/%dfull.jpg", id);
+        } else {
+            return "/assets/images/projectImages/noImage.jpg";
+        }
+    }
+
+    public String getThumbnailPath() { // Use this instead of putting it into the view files
+        String path = String.format("public/images/projectImages/%dthumb.jpg", getId());
+
+        if(new File(path).exists()) { 
+            return String.format("/assets/images/projectImages/%dthumb.jpg", id);
+        } else {
+            return "/assets/images/projectImages/noImageThumb.jpg";
+        }
     }
 
     //Finders

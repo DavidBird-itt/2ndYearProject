@@ -7,7 +7,7 @@
     @if(loginForm.hasGlobalErrors) {
         <p class="alert alert-warning">
             @for(e <- loginForm.globalErrors) {
-                e.message<br/>
+                @e.message<br/>
             }
         </p>
     }

@@ -1,0 +1,32 @@
+@(apartment: models.Apartment, user: models.users.User)
+@main("View Property", user) {
+	<div id="house-desc">
+		<img class="house-thumbnail" src="@apartment.getImagePath" />
+		<div id="description">Apartment</div>
+		<table>
+			<tr>
+				<th>
+					<span class="icon"><i class="fas fa-bed"></i> Bedrooms</span>
+					@apartment.getNumBeds
+				</th>
+				<th>
+					<span class="icon"><i class="fas fa-toilet"></i> Bathrooms</span>
+					@apartment.getNumBaths
+				</th>
+			</tr>
+		</table>
+		<div id="price">
+			<div id="title">Price Per Month</div>
+			&euro;@apartment.getDisplayValue(apartment.getPrice)
+			<br><br>
+			<script
+			  src="https://checkout.stripe.com/checkout.js"
+			  class="stripe-button"
+			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+			  data-name="Deposit"
+			  data-description="Deposit (&euro;@apartment.getPrice)"
+			  data-amount="@apartment.convertStripeNum(apartment.getPrice)"
+			</script>
+		</div>
+	</div>
+}

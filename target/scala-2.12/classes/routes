@@ -22,6 +22,9 @@ GET     /logout                     controllers.LoginController.logout
 
 #GET from HomeController
 
+GET     /house/:id      			controllers.HomeController.viewHouse(id: Long)
+GET     /apartment/:id      		controllers.HomeController.viewApartment(id: Long)
+
 GET     /payment                    controllers.HomeController.payment
 
 GET     /database                   controllers.HomeController.database

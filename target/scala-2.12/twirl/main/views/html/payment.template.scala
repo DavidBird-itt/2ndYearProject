@@ -119,8 +119,8 @@ Seq[Any](_display_(/*2.2*/main("Payment", user)/*2.23*/{_display_(Seq[Any](forma
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 31 11:01:55 IST 2019
-                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/payment.scala.html
+                  DATE: Sun Mar 31 22:24:12 CEST 2019
+                  SOURCE: /home/wdd/college2/PlayReminder/app/views/payment.scala.html
                   HASH: 3038db28e2d13332184f08492f261eb7756506f1
                   MATRIX: 961->1|1080->28|1109->49|1147->50|1176->53
                   LINES: 28->1|33->2|33->2|33->2|34->3
