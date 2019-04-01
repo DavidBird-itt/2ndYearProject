@@ -19,7 +19,6 @@ public class Landlord extends User {
     @OneToMany(mappedBy = "landlord", cascade = CascadeType.PERSIST)
     private List<Property> property;
 
-
     public Landlord(){
 
     }

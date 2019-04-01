@@ -35,9 +35,6 @@ public class Property extends Model {
     @ManyToOne
     private Landlord landlord;
 
-    @ManyToOne
-    private Member member;
-
     @OneToOne(mappedBy="property", cascade = CascadeType.ALL)
     private Fees fees;
 
@@ -100,14 +97,6 @@ public class Property extends Model {
 
     public void setLandlord(Landlord landlord) {
         this.landlord = landlord;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     public String getDisplayValue(double val) {

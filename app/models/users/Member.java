@@ -16,12 +16,8 @@ import models.shopping.*;
 @DiscriminatorValue("m")
 @Entity
 public class Member extends User {
-
     @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
     private RentDue rentDue;
-
-    @ManyToOne
-    private Property property;
 
     @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
     private Basket basket;
@@ -50,14 +46,6 @@ public class Member extends User {
 
     public void setRentDue(RentDue rentDue) {
         this.rentDue = rentDue;
-    }
-
-    public Property getProperty() {
-        return property;
-    }
-
-    public void setProperty(Property p) {
-        this.property = p;
     }
 
     public Basket getBasket() {
