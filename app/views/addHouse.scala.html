@@ -1,4 +1,4 @@
-@(houseForm: Form[models.Houses], user: models.users.User, env: play.api.Environment)
+@(houseForm: Form[models.Houses], aForm: Form[models.Address], user: models.users.User, env: play.api.Environment)
 
 @import helper._ 
 
@@ -18,6 +18,11 @@
         @inputText(houseForm("gardenSize"), '_label -> "Garden Size", 'class -> "form-control")
         @inputText(houseForm("garage"), '_label -> "Garage", 'class -> "form-control")
 
+        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+        @inputText(aForm("postCode"), '_label -> "PostCode", 'class -> "form-control")
+        
         <label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     

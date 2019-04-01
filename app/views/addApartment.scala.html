@@ -1,4 +1,4 @@
-@(aForm: Form[models.Apartment], user: models.users.User, env: play.api.Environment)
+@(apartForm: Form[models.Apartment], aForm: Form[models.Address], user: models.users.User, env: play.api.Environment)
 
 @import helper._ 
 
@@ -12,11 +12,16 @@
 
         <!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
-        @inputText(aForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")
-        @inputText(aForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")
-        @inputText(aForm("price"), '_label -> "Price", 'class -> "form-control")
-        @inputText(aForm("floor"), '_label -> "Floor", 'class -> "form-control")
+        @inputText(apartForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")
+        @inputText(apartForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")
+        @inputText(apartForm("price"), '_label -> "Price", 'class -> "form-control")
+        @inputText(apartForm("floor"), '_label -> "Floor", 'class -> "form-control")
 
+        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+        @inputText(aForm("postCode"), '_label -> "PostCode", 'class -> "form-control")
+        
         <label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     

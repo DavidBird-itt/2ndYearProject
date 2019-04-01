@@ -1,7 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/users/Member.java:52:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   variable property[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class models.users.Member[0m
-[0m[[0m[31merror[0m] [0m[0m        return property;[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/users/Member.java:56:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol: variable property[0m
-[0m[[0m[31merror[0m] [0m[0m        this.property = p;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:220:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable a[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m                a = i.getAddress();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/HomeController.java:221:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable a[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m                aForm  = formFactory.form(Address.class).fill(a);[0m

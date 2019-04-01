@@ -60,7 +60,9 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result addHouse() {
         Form<Houses> houseForm = formFactory.form(Houses.class);
-        return ok(addHouse.render(houseForm, User.getUserById(session().get("email")), e));
+        Form<Address> aForm = formFactory.form(Address.class);
+
+        return ok(addHouse.render(houseForm, aForm, User.getUserById(session().get("email")), e));
     }
 
     //Interacts directly with the database so the @Transactional is added
@@ -68,14 +70,18 @@ public class HomeController extends Controller {
     @Transactional
     public Result addHouseSubmit() {
         Form<Houses> newHouseForm = formFactory.form(Houses.class).bindFromRequest();
-
+        Form<Address> newAddressForm = formFactory.form(Address.class).bindFromRequest();
+        
         //Error handling
         if (newHouseForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addHouse.render(newHouseForm, User.getUserById(session().get("email")), e));
+            return badRequest(addHouse.render(newHouseForm, newAddressForm, User.getUserById(session().get("email")), e));
         } else {
             //Puts the form into the houses constructor
             Houses newHouse = newHouseForm.get();
+            //Applies mapping to the form
+            Address address = newAddressForm.get();
+            newHouse.setAddress(address);
             
             if(newHouse.getId() == null){
                 //Saves to the database
@@ -114,26 +120,39 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     public Result updateHouse(Long id) {
         Houses i;
+        Address a;
         Form<Houses> houseForm;
+        Form<Address> aForm;
 
         try{
             //Find by id
             i = Houses.find.byId(id);
+            i.update();
+
+            if(i.getAddress() != null){
+                a = i.getAddress();
+                aForm  = formFactory.form(Address.class).fill(a);
+            } else {
+                aForm = formFactory.form(Address.class);
+            }
 
             //Show the form so they can update it
             houseForm = formFactory.form(Houses.class).fill(i);
+            
+
         } catch (Exception ex) {
             return badRequest("error");
         }
 
-        return ok(addHouse.render(houseForm, User.getUserById(session().get("email")), e));
+        return ok(addHouse.render(houseForm, aForm, User.getUserById(session().get("email")), e));
     }
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     public Result addApartment() {
         Form<Apartment> apartForm = formFactory.form(Apartment.class);
-        return ok(addApartment.render(apartForm, User.getUserById(session().get("email")), e));
+        Form<Address> aForm = formFactory.form(Address.class);
+        return ok(addApartment.render(apartForm, aForm, User.getUserById(session().get("email")), e));
     }
 
     //Interacts directly with the database so the @Transactional is added
@@ -141,11 +160,12 @@ public class HomeController extends Controller {
     @Transactional
     public Result addApartmentSubmit() {
         Form<Apartment> newApartForm = formFactory.form(Apartment.class).bindFromRequest();
+        Form<Address> newAddressForm = formFactory.form(Address.class).bindFromRequest();
 
         //Error handling
         if (newApartForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addApartment.render(newApartForm, User.getUserById(session().get("email")), e));
+            return badRequest(addApartment.render(newApartForm, newAddressForm, User.getUserById(session().get("email")), e));
         } else {
             //Puts the form into the houses constructor
             Apartment newApart = newApartForm.get();
@@ -186,20 +206,30 @@ public class HomeController extends Controller {
     @Transactional
     @With(AuthAdmin.class)
     public Result updateApartment(Long id) {
-        Apartment a;
+        Apartment i;
+        Address address;
+
         Form<Apartment> apartForm;
+        Form<Address> aForm;
 
         try{
             //Find by id
-            a = Apartment.find.byId(id);
+            i = Apartment.find.byId(id);
+
+            if(i.getAddress() != null){
+                address = i.getAddress();
+                aForm  = formFactory.form(Address.class).fill(address);
+            } else {
+                aForm = formFactory.form(Address.class);
+            }
 
             //Show the form so they can update it
-            apartForm = formFactory.form(Apartment.class).fill(a);
+            apartForm = formFactory.form(Apartment.class).fill(i);
         } catch (Exception ex) {
             return badRequest("error");
         }
 
-        return ok(addApartment.render(apartForm, User.getUserById(session().get("email")), e));
+        return ok(addApartment.render(apartForm, aForm, User.getUserById(session().get("email")), e));
     }
 
     public Result viewUsers() {
