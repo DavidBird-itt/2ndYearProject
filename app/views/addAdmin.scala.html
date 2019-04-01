@@ -1,0 +1,32 @@
+@(aForm: Form[models.users.Admin], user: models.users.User, env: play.api.Environment)
+
+@import helper._ 
+
+@main("Add an Admin", user) {
+    <p class="lead">Add a new Landlord</p>
+
+    @form(action=routes.HomeController.addAdminSubmit, 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+
+        <!-- Uses helper methods to take the values from the form and add it to the database -->
+        <!-- No need to get the id because it's auto generated -->
+        @inputText(aForm("email"), '_label -> "Email", 'class -> "form-control")
+        @inputText(aForm("fname"), '_label -> "First Name", 'class -> "form-control")
+        @inputText(aForm("lname"), '_label -> "Last Name", 'class -> "form-control")
+        @inputText(aForm("password"), '_label -> "Password", 'class -> "form-control")
+
+        @inputText(aForm("role").copy(value=Some("admin")), '_label -> "", 'hidden -> "hidden")
+
+        <label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+    
+        <div class="actions">
+            <input type="submit" value="Add Admin" class="btn btn-primary">
+            <a href="@routes.HomeController.viewUsers()">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}
