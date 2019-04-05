@@ -16,13 +16,9 @@ import models.users.*;
 @Entity
 public class Houses extends Property {
     
-    private double gardenSize;
+    private int gardenSize;
     private boolean garage;
 
-    
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="AID")
-    private Address address;
 
     //Default Cons
     public Houses() {
@@ -30,19 +26,19 @@ public class Houses extends Property {
     }
 
     //Overloaded Cons
-    public Houses(Long id,  int numBeds, int numBaths, double price, double gardenSize, boolean garage) {
-        super(id, numBeds, numBaths, price);
+    public Houses(Long id,  int numBeds, int numBaths, double price, boolean sold, int gardenSize, boolean garage) {
+        super(id, numBeds, numBaths, price, sold);
         this.gardenSize = gardenSize;
         this.garage = garage;
     }
 
 
     //Getters and Setters
-    public double getGardenSize() {
+    public int getGardenSize() {
         return this.gardenSize;
     }
 
-    public void setGardenSize(double gardenSize) {
+    public void setGardenSize(int gardenSize) {
         this.gardenSize = gardenSize;
     }
 
@@ -54,18 +50,11 @@ public class Houses extends Property {
         this.garage = garage;
     }
 
-    public Address getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(Address a) {
-        this.address = a;
-    }
 
     public int getDepositValue() {
         int depositValue = (int)getPrice();
 
-        depositValue = (int)(depositValue / 1000); // Simple way to get a "deposit" number
+        depositValue = (int)(depositValue / 50); // Simple way to get a "deposit" number
 
         return depositValue;
     }

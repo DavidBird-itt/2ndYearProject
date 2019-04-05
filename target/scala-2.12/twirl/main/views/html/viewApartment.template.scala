@@ -48,17 +48,19 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 		</table>
 		<div id="price">
 			<div id="title">Price Per Month</div>
-			&euro;"""),_display_(/*20.11*/apartment/*20.20*/.getDisplayValue(apartment.getPrice)),format.raw/*20.56*/("""
-			"""),format.raw/*21.4*/("""<br><br>
-			<script
+			&euro;"""),_display_(/*20.11*/apartment/*20.20*/.getDisplayValue(apartment.getPrice)),format.raw/*20.56*/("""<p>(deposit: <strong>€"""),_display_(/*20.79*/apartment/*20.88*/.getDepositValue),format.raw/*20.104*/("""</strong>)</p>
+			<br><br>
+			"""),_display_(/*22.5*/if((user !=null) &&("member".equals(user.getRole())))/*22.58*/{_display_(Seq[Any](format.raw/*22.59*/("""
+			"""),format.raw/*23.4*/("""<script
 			  src="https://checkout.stripe.com/checkout.js"
 			  class="stripe-button"
 			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
 			  data-name="Deposit"
-			  data-description="Deposit (&euro;"""),_display_(/*27.40*/apartment/*27.49*/.getPrice),format.raw/*27.58*/(""")"
-			  data-amount=""""),_display_(/*28.20*/apartment/*28.29*/.convertStripeNum(apartment.getPrice)),format.raw/*28.66*/(""""
+			  data-description="Deposit (&euro;"""),_display_(/*28.40*/apartment/*28.49*/.getPrice),format.raw/*28.58*/(""")"
+			  data-amount=""""),_display_(/*29.20*/apartment/*29.29*/.convertStripeNum(apartment.getPrice)),format.raw/*29.66*/(""""
 			</script>
-		</div>
+			""")))}),format.raw/*31.5*/("""
+		"""),format.raw/*32.3*/("""</div>
 	</div>
 """)))}))
       }
@@ -76,11 +78,11 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 01 12:54:22 IST 2019
+                  DATE: Tue Apr 02 12:01:47 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/viewApartment.scala.html
-                  HASH: 1407c909004465da1dba6a7ad3b3517c75aef3d4
-                  MATRIX: 984->1|1132->57|1167->84|1206->86|1234->88|1319->147|1336->156|1369->169|1540->314|1558->323|1590->334|1622->339|1740->431|1758->440|1791->452|1823->457|1946->553|1964->562|2021->598|2052->602|2290->813|2308->822|2338->831|2387->853|2405->862|2463->899
-                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|51->20|51->20|51->20|52->21|58->27|58->27|58->27|59->28|59->28|59->28
+                  HASH: d543c9d74dd36eef7aeba2f2c7fc9c45afd931a0
+                  MATRIX: 984->1|1132->57|1167->84|1206->86|1234->88|1319->147|1336->156|1369->169|1540->314|1558->323|1590->334|1622->339|1740->431|1758->440|1791->452|1823->457|1946->553|1964->562|2021->598|2071->621|2089->630|2127->646|2184->677|2246->730|2285->731|2316->735|2542->934|2560->943|2590->952|2639->974|2657->983|2715->1020|2764->1039|2794->1042
+                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|51->20|51->20|51->20|51->20|51->20|51->20|53->22|53->22|53->22|54->23|59->28|59->28|59->28|60->29|60->29|60->29|62->31|63->32
                   -- GENERATED --
               */
           

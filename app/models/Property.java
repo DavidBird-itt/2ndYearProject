@@ -31,9 +31,15 @@ public class Property extends Model {
     private int numBaths;
     @Constraints.Required
     private double price;
+    @Constraints.Required
+    private boolean sold;
 
     @ManyToOne
     private Landlord landlord;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="AID")
+    private Address address;
 
     @OneToOne(mappedBy="property", cascade = CascadeType.ALL)
     private Fees fees;
@@ -42,11 +48,12 @@ public class Property extends Model {
 
     }
 
-    public Property(Long id, int numBeds, int numBaths, double price) {
+    public Property(Long id, int numBeds, int numBaths, double price, boolean sold) {
         this.id = id;
         this.numBeds = numBeds;
         this.numBaths = numBaths;
         this.price = price;
+        this.sold = sold;
     }
 
     //Getters and setters
@@ -82,6 +89,19 @@ public class Property extends Model {
         this.price = price;
     }
 
+    public boolean getSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
+
+    //Sold Method
+    public void sellProperty() {
+        this.sold = true;
+    }
+
     //Mapping getters and setters
     public Fees getFees() {
         return fees;
@@ -99,6 +119,15 @@ public class Property extends Model {
         this.landlord = landlord;
     }
 
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address a) {
+        this.address = a;
+    }
+
+    //Methods
     public String getDisplayValue(double val) {
         return NumberFormat.getNumberInstance(Locale.US).format(val);
     }

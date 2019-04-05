@@ -1,4 +1,7 @@
 
+# --- Created by Ebean DDL
+# To stop Ebean DDL generation, remove this comment and start using Evolutions
+
 # --- !Ups
 
 create table address (
@@ -53,10 +56,11 @@ create table property (
   num_beds                      integer not null,
   num_baths                     integer not null,
   price                         double not null,
+  sold                          boolean default false not null,
   landlord_email                varchar(255),
-  garden_size                   double,
-  garage                        boolean default false,
   aid                           bigint,
+  garden_size                   integer,
+  garage                        boolean default false,
   floor                         integer,
   constraint uq_property_aid unique (aid),
   constraint pk_property primary key (id)

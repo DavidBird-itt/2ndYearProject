@@ -19,17 +19,15 @@ public class Apartment extends Property {
 
     private int floor;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="AID")
-    private Address address;
+
 
     public Apartment() {
 
     }
 
     //Overloaded Cons
-    public Apartment(Long id,  int numBeds, int numBaths, double price, int floor) {
-        super(id, numBeds, numBaths, price);
+    public Apartment(Long id,  int numBeds, int numBaths, double price, int floor, boolean sold) {
+        super(id, numBeds, numBaths, price, sold);
         this.floor = floor;
     }
 
@@ -51,13 +49,6 @@ public class Apartment extends Property {
         this.floor = floor;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(){ // why is this type 'Address' ?
-    }
-
     // Finders
 
     public static final Finder<Long, Apartment> find = new Finder<>(Apartment.class);
@@ -68,5 +59,14 @@ public class Apartment extends Property {
 
     public static final List<Apartment> findAll() {
         return Apartment.find.all();
+    }
+
+    //Method
+    public int getDepositValue() {
+        int depositValue = (int)getPrice();
+
+        depositValue = (int)(depositValue* 3); // Simple way to get a "deposit" number
+
+        return depositValue;
     }
 }

@@ -17,8 +17,9 @@
 		</table>
 		<div id="price">
 			<div id="title">Price Per Month</div>
-			&euro;@apartment.getDisplayValue(apartment.getPrice)
+			&euro;@apartment.getDisplayValue(apartment.getPrice)<p>(deposit: <strong>€@apartment.getDepositValue</strong>)</p>
 			<br><br>
+			@if((user !=null) &&("member".equals(user.getRole()))){
 			<script
 			  src="https://checkout.stripe.com/checkout.js"
 			  class="stripe-button"
@@ -27,6 +28,7 @@
 			  data-description="Deposit (&euro;@apartment.getPrice)"
 			  data-amount="@apartment.convertStripeNum(apartment.getPrice)"
 			</script>
+			}
 		</div>
 	</div>
 }

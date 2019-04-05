@@ -17,7 +17,7 @@
 			<tr>
 				<th>
 					<span class="icon"><i class="fas fa-leaf"></i> Garden Size</span>
-					@house.getGardenSize
+					@house.getGardenSize m²
 				</th>
 				<th>
 					<span class="icon"><i class="fas fa-car"></i> Garage</span>
@@ -31,8 +31,9 @@
 		</table>
 		<div id="price">
 			<div id="title">Price</div>
-			&euro;@house.getDisplayValue(house.getPrice)<p>(deposit: <strong>$@house.getDepositValue</strong>)</p>
+			&euro;@house.getDisplayValue(house.getPrice)<p>(deposit: <strong>€@house.getDepositValue</strong>)</p>
 			<br>
+			@if((user !=null) &&("member".equals(user.getRole()))){
 			<script
 			  src="https://checkout.stripe.com/checkout.js"
 			  class="stripe-button"
@@ -41,6 +42,7 @@
 			  data-description="Deposit (&euro;@house.getDepositValue)"
 			  data-amount="@house.convertStripeNum(house.getDepositValue)"
 			</script>
+			}
 		</div>
 	</div>
 }
