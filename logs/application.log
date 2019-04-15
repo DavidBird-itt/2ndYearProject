@@ -1,17 +1,17 @@
-2019-04-15 16:33:22,833 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-10 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-04-15 16:33:22,852 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
-2019-04-15 16:33:25,532 [WARN] from io.ebeaninternal.server.deploy.parse.DeployCreateProperties in play-dev-mode-akka.actor.default-dispatcher-10 - Huh??? property models.Apartment.id being defined twice but replaced property was not transient? This is not expected?
-2019-04-15 16:33:25,600 [WARN] from io.ebeaninternal.server.deploy.BeanDescriptorManager in play-dev-mode-akka.actor.default-dispatcher-10 - Bean [models.rent.RentDue] has no unique id set
-2019-04-15 16:33:26,790 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - ApplicationTimer demo: Starting application at 2019-04-15T15:33:26.782Z
-2019-04-15 16:33:28,018 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-10 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-04-15 16:33:28,837 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-04-15 16:42:31,701 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-5 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-04-15 16:42:31,724 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2019-04-15 16:42:34,551 [WARN] from io.ebeaninternal.server.deploy.parse.DeployCreateProperties in play-dev-mode-akka.actor.default-dispatcher-5 - Huh??? property models.Apartment.id being defined twice but replaced property was not transient? This is not expected?
+2019-04-15 16:42:34,655 [WARN] from io.ebeaninternal.server.deploy.BeanDescriptorManager in play-dev-mode-akka.actor.default-dispatcher-5 - Bean [models.rent.RentDue] has no unique id set
+2019-04-15 16:42:35,440 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Starting application at 2019-04-15T15:42:35.439Z
+2019-04-15 16:42:36,315 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-5 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-04-15 16:42:37,013 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-5 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2019-04-15 16:33:28,867 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev)
-2019-04-15 16:34:05,866 [INFO] from play.core.server.AkkaHttpServer in pool-6-thread-1 - Stopping server...
-2019-04-15 16:34:06,041 [INFO] from application in application-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Stopping application at 2019-04-15T15:34:06.041Z after 40s.
-2019-04-15 16:34:06,050 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2019-04-15 16:42:37,038 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-5 - Application started (Dev)
+2019-04-15 16:43:45,297 [INFO] from play.core.server.AkkaHttpServer in pool-5-thread-5 - Stopping server...
+2019-04-15 16:43:45,451 [INFO] from application in application-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Stopping application at 2019-04-15T15:43:45.450Z after 70s.
+2019-04-15 16:43:45,457 [INFO] from application in application-akka.actor.default-dispatcher-12 - Shutting down connection pool.

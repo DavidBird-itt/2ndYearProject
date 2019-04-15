@@ -56,6 +56,10 @@ public class ShoppingCtrl extends Controller {
         // Add product to the basket and save
         member.getBasket().addProperty(property);
         member.update();
+
+        property.getSold();
+        member.update();
+
         
         // Show the basket contents     
         return ok(basket.render(member));

@@ -27,7 +27,18 @@
                             } else {
                                 No
                             }
+                            <i class="fas fa-leaf"></i>@house.getSold&nbsp;
                             @if((user != null) && ("admin".equals(user.getRole()))) {
+                                &nbsp;
+                                @if(house.getSold == true) {
+                                    <td><a href="@routes.ShoppingCtrl.addToBasket(house.getId)"
+                                        class="btn btn-default btn-xs"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    </td>
+                                } else {
+                                    <td><img src="/assets/images/sold.jpg"/></td>
+                                }
+                                
                                 &nbsp;
                                 <a href="@routes.HomeController.updateHouse(house.getId)"><i class="fas fa-edit"></i></a>
                                 &nbsp;
@@ -71,4 +82,5 @@
             }
         </table>
     </div>
-    <br>}
+    <br>
+}
