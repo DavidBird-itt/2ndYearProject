@@ -18,6 +18,16 @@
         @inputText(houseForm("gardenSize"), '_label -> "Garden Size", 'class -> "form-control")
         @inputText(houseForm("garage"), '_label -> "Garage", 'class -> "form-control")
 
+        
+        @select(
+            houseForm("landlord.email"),
+            options(users.Landlord.options),
+            '_label -> "Landlord", '_default -> "-- Choose a landlord --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )
+        
+        
+        
         @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
         @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
         @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")

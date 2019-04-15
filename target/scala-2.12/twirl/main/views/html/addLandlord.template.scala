@@ -44,22 +44,24 @@ Seq[Any](format.raw/*2.1*/("""
         """),format.raw/*13.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
         """),_display_(/*15.10*/inputText(lForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*15.81*/("""
-        """),_display_(/*16.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*16.86*/("""
-        """),_display_(/*17.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*17.85*/("""
-        """),_display_(/*18.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*18.87*/("""
 
-        """),_display_(/*20.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*20.99*/("""
+        
+        """),_display_(/*18.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*18.86*/("""
+        """),_display_(/*19.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*19.85*/("""
+        """),_display_(/*20.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*20.87*/("""
 
-        """),format.raw/*22.9*/("""<label> Image Upload </label>
+        """),_display_(/*22.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*22.99*/("""
+
+        """),format.raw/*24.9*/("""<label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     
         <div class="actions">
             <input type="submit" value="Add Landlord" class="btn btn-primary">
-            <a href=""""),_display_(/*27.23*/routes/*27.29*/.HomeController.viewUsers()),format.raw/*27.56*/("""">
+            <a href=""""),_display_(/*29.23*/routes/*29.29*/.HomeController.viewUsers()),format.raw/*29.56*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*31.6*/("""
+    """)))}),format.raw/*33.6*/("""
 """)))}))
       }
     }
@@ -76,11 +78,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 01 13:04:02 IST 2019
+                  DATE: Sun Apr 14 15:07:55 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/addLandlord.scala.html
-                  HASH: f329e46a19dcb1ea2e08d91502a2a6475f964191
-                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2128->666|2225->742|2262->752|2358->827|2395->837|2493->914|2531->925|2641->1014|2678->1024|2940->1259|2955->1265|3003->1292|3151->1410
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|51->20|51->20|53->22|58->27|58->27|58->27|62->31
+                  HASH: c5fc71cbdc46369558b9837f21bbbb2ab347f8c6
+                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2138->676|2235->752|2272->762|2368->837|2405->847|2503->924|2541->935|2651->1024|2688->1034|2950->1269|2965->1275|3013->1302|3161->1420
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|49->18|49->18|50->19|50->19|51->20|51->20|53->22|53->22|55->24|60->29|60->29|60->29|64->33
                   -- GENERATED --
               */
           

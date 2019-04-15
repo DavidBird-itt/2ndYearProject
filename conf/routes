@@ -25,8 +25,6 @@ GET     /logout                     controllers.LoginController.logout
 GET     /house/:id      			controllers.HomeController.viewHouse(id: Long)
 GET     /apartment/:id      		controllers.HomeController.viewApartment(id: Long)
 
-GET     /payment                    controllers.HomeController.payment
-
 GET     /database                   controllers.HomeController.database
 
 GET     /searchQuery      			controllers.HomeController.searchDB(min: Integer ?= 0, max: Integer ?= 0)
@@ -57,10 +55,6 @@ GET     /addAdmin                   controllers.HomeController.addAdmin
 POST    /addAdminSubmit            controllers.HomeController.addAdminSubmit
 GET     /updateAdmin/:id           controllers.HomeController.updateAdmin(id: String)
 GET     /deleteAdmin/:id           controllers.HomeController.deleteAdmin(id: String)
-
-#GET from RentCrtl
-GET     /viewRent                   controllers.RentCtrl.viewRent()
-GET     /setupRent                  controllers.RentCtrl.setupRent(id: String)
 
 GET     /showBasket                 controllers.ShoppingCtrl.showBasket()
 GET     /addToBasket/:id            controllers.ShoppingCtrl.addToBasket(id: Long)

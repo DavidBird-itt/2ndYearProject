@@ -45,10 +45,6 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
 
-    public Result payment() {
-        return ok(payment.render(User.getUserById(session().get("email"))));
-    }
-
     public Result database() {
         List<Houses> houseList = Houses.findAll();
         List<Apartment> aList = Apartment.findAll();
@@ -71,7 +67,7 @@ public class HomeController extends Controller {
     public Result addHouseSubmit() {
         Form<Houses> newHouseForm = formFactory.form(Houses.class).bindFromRequest();
         Form<Address> newAddressForm = formFactory.form(Address.class).bindFromRequest();
-        
+
         //Error handling
         if (newHouseForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
@@ -82,6 +78,8 @@ public class HomeController extends Controller {
             //Applies mapping to the form
             Address address = newAddressForm.get();
             newHouse.setAddress(address);
+
+            
             
             if(newHouse.getId() == null){
                 //Saves to the database

@@ -26,8 +26,8 @@ public class Houses extends Property {
     }
 
     //Overloaded Cons
-    public Houses(Long id,  int numBeds, int numBaths, double price, boolean sold, int gardenSize, boolean garage) {
-        super(id, numBeds, numBaths, price, sold);
+    public Houses(Long id,  int numBeds, int numBaths, double price, Landlord landlord, Address address, int gardenSize, boolean garage) {
+        super(id, numBeds, numBaths, price, landlord, address);
         this.gardenSize = gardenSize;
         this.garage = garage;
     }

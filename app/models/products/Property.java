@@ -48,12 +48,13 @@ public class Property extends Model {
 
     }
 
-    public Property(Long id, int numBeds, int numBaths, double price, boolean sold) {
+    public Property(Long id, int numBeds, int numBaths, double price, Landlord l, Address a) {
         this.id = id;
         this.numBeds = numBeds;
         this.numBaths = numBaths;
         this.price = price;
-        this.sold = sold;
+        this.landlord = l;
+        this.address = a;
     }
 
     //Getters and setters

@@ -49,23 +49,33 @@ Seq[Any](format.raw/*2.1*/("""
         """),_display_(/*18.10*/inputText(houseForm("gardenSize"), '_label -> "Garden Size", 'class -> "form-control")),format.raw/*18.96*/("""
         """),_display_(/*19.10*/inputText(houseForm("garage"), '_label -> "Garage", 'class -> "form-control")),format.raw/*19.87*/("""
 
-        """),_display_(/*21.10*/inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")),format.raw/*21.86*/("""
-        """),_display_(/*22.10*/inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")),format.raw/*22.86*/("""
-        """),_display_(/*23.10*/inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")),format.raw/*23.79*/("""
-        """),_display_(/*24.10*/inputText(aForm("postCode"), '_label -> "PostCode", 'class -> "form-control")),format.raw/*24.87*/("""
         
-        """),format.raw/*26.9*/("""<label> Image Upload </label>
+        """),_display_(/*22.10*/select(
+            houseForm("landlord.email"),
+            options(users.Landlord.options),
+            '_label -> "Landlord", '_default -> "-- Choose a landlord --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )),format.raw/*27.10*/("""
+        
+        
+        
+        """),_display_(/*31.10*/inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")),format.raw/*31.86*/("""
+        """),_display_(/*32.10*/inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")),format.raw/*32.86*/("""
+        """),_display_(/*33.10*/inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")),format.raw/*33.79*/("""
+        """),_display_(/*34.10*/inputText(aForm("postCode"), '_label -> "PostCode", 'class -> "form-control")),format.raw/*34.87*/("""
+        
+        """),format.raw/*36.9*/("""<label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     
-        """),_display_(/*29.10*/inputText(houseForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*29.72*/("""
+        """),_display_(/*39.10*/inputText(houseForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*39.72*/("""
     
-        """),format.raw/*31.9*/("""<div class="actions">
+        """),format.raw/*41.9*/("""<div class="actions">
             <input type="submit" value="Add house" class="btn btn-primary">
-            <a href=""""),_display_(/*33.23*/routes/*33.29*/.HomeController.database()),format.raw/*33.55*/("""">
+            <a href=""""),_display_(/*43.23*/routes/*43.29*/.HomeController.database()),format.raw/*43.55*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*37.6*/("""
+    """)))}),format.raw/*47.6*/("""
 """)))}))
       }
     }
@@ -82,11 +92,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 01 21:34:46 IST 2019
+                  DATE: Mon Apr 15 16:02:52 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/addHouse.scala.html
-                  HASH: 42318de12912e3022fea3ebb4a41633da48501ca
-                  MATRIX: 1024->1|1210->117|1254->115|1281->134|1308->136|1339->159|1378->161|1409->166|1475->207|1636->360|1675->362|1712->399|1749->409|1762->413|1793->423|1830->433|2022->598|2123->678|2160->688|2263->770|2300->780|2396->855|2433->865|2540->951|2577->961|2675->1038|2713->1049|2810->1125|2847->1135|2944->1211|2981->1221|3071->1290|3108->1300|3206->1377|3251->1395|3391->1508|3474->1570|3515->1584|3662->1704|3677->1710|3724->1736|3872->1854
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|52->21|52->21|53->22|53->22|54->23|54->23|55->24|55->24|57->26|60->29|60->29|62->31|64->33|64->33|64->33|68->37
+                  HASH: 9e33577e10d756f055b10161865e651d9092b9fc
+                  MATRIX: 1024->1|1210->117|1254->115|1281->134|1308->136|1339->159|1378->161|1409->166|1475->207|1636->360|1675->362|1712->399|1749->409|1762->413|1793->423|1830->433|2022->598|2123->678|2160->688|2263->770|2300->780|2396->855|2433->865|2540->951|2577->961|2675->1038|2722->1058|2986->1301|3050->1338|3147->1414|3184->1424|3281->1500|3318->1510|3408->1579|3445->1589|3543->1666|3588->1684|3728->1797|3811->1859|3852->1873|3999->1993|4014->1999|4061->2025|4209->2143
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|53->22|58->27|62->31|62->31|63->32|63->32|64->33|64->33|65->34|65->34|67->36|70->39|70->39|72->41|74->43|74->43|74->43|78->47
                   -- GENERATED --
               */
           

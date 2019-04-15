@@ -22,8 +22,10 @@ public class Landlord extends User {
     public Landlord(){
 
     }
-    public Landlord(String email, String role, String fname, String lname, String password) {
+
+    public Landlord(String email, String role, String fname, String lname, String password, List<Property> property) {
         super(email, role, fname, lname,password);
+        this.property = property;
     }
 
     public static final Finder<Long, Landlord> find = new Finder<>(Landlord.class);
@@ -41,4 +43,13 @@ public class Landlord extends User {
         this.property = property;
     }
 
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap();
+     
+        // Get all the categories from the database and add them to the options hash map
+        for (Landlord l: Landlord.findAll()) {
+           options.put(l.getEmail(), l.getFname());
+        }
+        return options;
+     }
 }

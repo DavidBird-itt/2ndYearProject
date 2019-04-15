@@ -1,11 +1,9 @@
 # --- Sample dataset
 
 # --- !Ups
-
 delete from property;
-delete from address; 
 
-insert into property (type,id,num_beds,num_baths,price,garden_size,garage) values ('h',1,4, 3, 400000.00, 132, true);
+insert into property (type,id,num_beds,num_baths,price,landlord_email,garden_size,garage) values ('h',1,4, 3, 400000.00, 'landlord@adk.com', 132, true);
 insert into property (type,id,num_beds,num_baths,price,garden_size,garage) values ( 'h',2,2, 2, 300000.00, 134, true);
 insert into property (type,id,num_beds,num_baths,price,garden_size,garage) values ( 'h',3,6, 4, 100000.00, 164, true);
 insert into property (type,id,num_beds,num_baths,price,garden_size,garage) values ( 'h',4,2, 1, 400000.00, 100, false);
@@ -19,6 +17,3 @@ insert into property (type,id,num_beds,num_baths,price,floor) values ('a', 10,3,
 insert into property (type,id,num_beds,num_baths,price,floor) values ('a', 11,1,1,800,1);
 insert into property (type,id,num_beds,num_baths,price,floor) values ('a', 12,2,1,1600,4);
 
-
-
-insert into address (id, street1, street2, town, post_code) values (1, '12 Cornwood', 'Springfield', 'Tallaht', 'D24X23');
