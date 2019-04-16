@@ -1,2 +1,7 @@
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/users/Landlord.java: /home/wdd/play/PlayReminder/app/models/users/Landlord.java uses unchecked or unsafe operations.[0m
-[0m[[0m[0minfo[0m] [0m[0m/home/wdd/play/PlayReminder/app/models/users/Landlord.java: Recompile with -Xlint:unchecked for details.[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addApartment.scala.html:28:24: not found: value houseForm[0m
+[0m[[0m[31merror[0m] [0m[0m            @inputText(houseForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")[0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addApartment.scala.html:28:57: not found: value value[0m
+[0m[[0m[31merror[0m] [0m[0m            @inputText(houseForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")[0m
+[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

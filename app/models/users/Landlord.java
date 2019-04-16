@@ -8,7 +8,8 @@ import play.data.format.*;
 import play.data.validation.*;
 
 import models.rent.*;
-import models.*;
+import models.products.*;
+
 
 @Table(name="User")
 // the user type of this class is "admin"

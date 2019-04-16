@@ -7,7 +7,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 import java.util.Date;
-import models.*;
+
+import models.products.*;
 import models.users.*;
 
 // ShopOrder entity managed by Ebean

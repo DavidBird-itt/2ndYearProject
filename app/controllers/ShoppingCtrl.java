@@ -10,7 +10,7 @@ import play.api.Environment;
 
 // Import models
 import models.users.*;
-import models.*;
+import models.products.*;
 import models.shopping.*;
 import models.users.*;
 import models.shopping.OrderItem;

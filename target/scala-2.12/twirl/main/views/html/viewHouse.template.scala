@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object viewHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.Houses,models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object viewHouse extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.products.Houses,models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(house: models.Houses, user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(house: models.products.Houses, user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -81,9 +81,9 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
     }
   }
 
-  def render(house:models.Houses,user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(house,user)
+  def render(house:models.products.Houses,user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(house,user)
 
-  def f:((models.Houses,models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (house,user) => apply(house,user)
+  def f:((models.products.Houses,models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (house,user) => apply(house,user)
 
   def ref: this.type = this
 
@@ -92,10 +92,10 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 14 14:34:45 IST 2019
+                  DATE: Tue Apr 16 15:44:13 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/viewHouse.scala.html
-                  HASH: 4fc0fb4c55805d513b8ddc99167183ac0a19f3f3
-                  MATRIX: 977->1|1118->50|1153->77|1192->79|1220->81|1305->140|1318->145|1351->158|1518->299|1532->304|1564->315|1596->320|1714->412|1728->417|1761->429|1793->434|1928->543|1942->548|1977->562|2006->563|2125->656|2153->675|2193->677|2227->684|2255->695|2268->700|2307->701|2341->708|2380->717|2412->722|2525->808|2539->813|2592->845|2642->868|2656->873|2693->889|2746->916|2808->969|2847->970|2878->974|3104->1173|3118->1178|3155->1194|3204->1216|3218->1221|3279->1261|3328->1280|3358->1283
+                  HASH: 65193bd4482cb991f0ca388f7802b47be7336536
+                  MATRIX: 986->1|1136->59|1171->86|1210->88|1238->90|1323->149|1336->154|1369->167|1536->308|1550->313|1582->324|1614->329|1732->421|1746->426|1779->438|1811->443|1946->552|1960->557|1995->571|2024->572|2143->665|2171->684|2211->686|2245->693|2273->704|2286->709|2325->710|2359->717|2398->726|2430->731|2543->817|2557->822|2610->854|2660->877|2674->882|2711->898|2764->925|2826->978|2865->979|2896->983|3122->1182|3136->1187|3173->1203|3222->1225|3236->1230|3297->1270|3346->1289|3376->1292
                   LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|51->20|51->20|51->20|51->20|55->24|55->24|55->24|56->25|57->26|57->26|57->26|58->27|59->28|60->29|65->34|65->34|65->34|65->34|65->34|65->34|67->36|67->36|67->36|68->37|73->42|73->42|73->42|74->43|74->43|74->43|76->45|77->46
                   -- GENERATED --
               */

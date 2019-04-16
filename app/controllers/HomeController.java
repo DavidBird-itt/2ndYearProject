@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 
-import models.*;
+import models.products.*;
 import models.users.*;
 
 import views.html.*;

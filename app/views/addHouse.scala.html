@@ -1,4 +1,4 @@
-@(houseForm: Form[models.Houses], aForm: Form[models.Address], user: models.users.User, env: play.api.Environment)
+@(houseForm: Form[models.products.Houses], aForm: Form[models.products.Address], user: models.users.User, env: play.api.Environment)
 
 @import helper._ 
 
@@ -18,15 +18,16 @@
         @inputText(houseForm("gardenSize"), '_label -> "Garden Size", 'class -> "form-control")
         @inputText(houseForm("garage"), '_label -> "Garage", 'class -> "form-control")
 
-        
-        @select(
-            houseForm("landlord.email"),
-            options(users.Landlord.options),
-            '_label -> "Landlord", '_default -> "-- Choose a landlord --",
-            '_showConstraints -> false, 'class -> "form-control"
-        )
-        
-        
+        @if((user != null) && ("admin".equals(user.getRole()))){
+            @select(
+                houseForm("landlord.email"),
+                options(users.Landlord.options),
+                '_label -> "Landlord", '_default -> "-- Choose a landlord --",
+                '_showConstraints -> false, 'class -> "form-control"
+            )
+        } else {
+            @inputText(houseForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")
+        }
         
         @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
         @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")

@@ -13,7 +13,7 @@ public class AuthAdmin extends Action.Simple {
         //If the user is logged in check if it is an admin
         if (id != null) {
             User u = User.getUserById(id);
-            if ("admin".equals(u.getRole())) {
+            if ("admin".equals(u.getRole()) || "landlord".equals(u.getRole())) {
                 // Call this method to intercept the action
                 return delegate.call(ctx);
             }

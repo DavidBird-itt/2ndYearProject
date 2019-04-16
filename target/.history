@@ -156,3 +156,11 @@ run
 exit
 run
 exit
+clean
+compile
+run
+h2-browser
+run
+exit
+run
+exit

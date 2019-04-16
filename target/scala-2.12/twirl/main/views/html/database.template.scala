@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[List[models.Houses],List[models.Apartment],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
+object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[List[models.products.Houses],List[models.products.Apartment],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(houses: List[models.Houses], apartments: List[models.Apartment],  user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(houses: List[models.products.Houses], apartments: List[models.products.Apartment],  user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -33,7 +33,7 @@ object database extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.H
 Seq[Any](_display_(/*2.2*/main("Database", user)/*2.24*/ {_display_(Seq[Any](format.raw/*2.26*/("""
     """),format.raw/*3.5*/("""<h1>
         Houses
-        """),_display_(/*5.10*/if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole())))/*5.101*/ {_display_(Seq[Any](format.raw/*5.103*/("""
+        """),_display_(/*5.10*/if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole()))))/*5.105*/ {_display_(Seq[Any](format.raw/*5.107*/("""
             """),format.raw/*6.13*/("""<a href=""""),_display_(/*6.23*/routes/*6.29*/.HomeController.addHouse()),format.raw/*6.55*/("""">
                 <span style="font-size:20px">(Add New House)</span>
             </a>
@@ -69,7 +69,7 @@ Seq[Any](_display_(/*2.2*/main("Database", user)/*2.24*/ {_display_(Seq[Any](for
                                 """)))}/*38.35*/else/*38.40*/{_display_(Seq[Any](format.raw/*38.41*/("""
                                     """),format.raw/*39.37*/("""<td><img src="/assets/images/sold.jpg"/></td>
                                 """)))}),format.raw/*40.34*/("""
-                                
+
                                 """),format.raw/*42.33*/("""&nbsp;
                                 <a href=""""),_display_(/*43.43*/routes/*43.49*/.HomeController.updateHouse(house.getId)),format.raw/*43.89*/(""""><i class="fas fa-edit"></i></a>
                                 &nbsp;
@@ -119,9 +119,9 @@ Seq[Any](_display_(/*2.2*/main("Database", user)/*2.24*/ {_display_(Seq[Any](for
     }
   }
 
-  def render(houses:List[models.Houses],apartments:List[models.Apartment],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(houses,apartments,user,env)
+  def render(houses:List[models.products.Houses],apartments:List[models.products.Apartment],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(houses,apartments,user,env)
 
-  def f:((List[models.Houses],List[models.Apartment],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (houses,apartments,user,env) => apply(houses,apartments,user,env)
+  def f:((List[models.products.Houses],List[models.products.Apartment],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (houses,apartments,user,env) => apply(houses,apartments,user,env)
 
   def ref: this.type = this
 
@@ -130,10 +130,10 @@ Seq[Any](_display_(/*2.2*/main("Database", user)/*2.24*/ {_display_(Seq[Any](for
 
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 15 16:42:04 IST 2019
+                  DATE: Tue Apr 16 15:44:13 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/database.scala.html
-                  HASH: f9ebd12dbf8e1dc3e50e0ff36cc4449abf8365af
-                  MATRIX: 1026->1|1238->121|1268->143|1307->145|1338->150|1393->179|1493->270|1533->272|1573->285|1609->295|1623->301|1669->327|1796->424|1828->429|1947->521|1981->539|2021->541|2066->558|2157->622|2172->628|2231->666|2312->720|2326->725|2364->742|2413->764|2427->769|2481->801|2530->822|2661->926|2675->931|2707->942|2800->1008|2814->1013|2847->1025|2938->1089|2952->1094|2987->1108|3016->1109|3142->1208|3170->1227|3210->1229|3271->1262|3323->1296|3336->1301|3375->1302|3436->1335|3499->1367|3556->1396|3611->1424|3625->1429|3654->1437|3717->1473|3780->1527|3820->1529|3881->1562|3948->1602|3982->1627|4022->1629|4087->1666|4128->1680|4143->1686|4202->1724|4469->1973|4482->1978|4521->1979|4586->2016|4696->2095|4790->2161|4866->2210|4881->2216|4942->2256|5084->2371|5099->2377|5160->2417|5286->2512|5339->2537|5436->2603|5472->2612|5556->2669|5657->2760|5698->2762|5739->2775|5776->2785|5791->2791|5842->2821|5974->2922|6006->2927|6125->3019|6167->3045|6207->3047|6252->3064|6343->3128|6358->3134|6425->3180|6506->3234|6524->3243|6562->3260|6615->3286|6633->3295|6691->3331|6721->3332|6882->3466|6900->3475|6932->3486|7025->3552|7043->3561|7076->3573|7139->3609|7202->3663|7242->3665|7303->3698|7379->3747|7394->3753|7463->3801|7605->3916|7620->3922|7689->3970|7815->4065|7868->4090|7965->4156|8001->4165
+                  HASH: 1ce205383abcb078940775393c0ebd1a28fcc1f6
+                  MATRIX: 1044->1|1274->139|1304->161|1343->163|1374->168|1429->197|1533->292|1573->294|1613->307|1649->317|1663->323|1709->349|1836->446|1868->451|1987->543|2021->561|2061->563|2106->580|2197->644|2212->650|2271->688|2352->742|2366->747|2404->764|2453->786|2467->791|2521->823|2570->844|2701->948|2715->953|2747->964|2840->1030|2854->1035|2887->1047|2978->1111|2992->1116|3027->1130|3056->1131|3182->1230|3210->1249|3250->1251|3311->1284|3363->1318|3376->1323|3415->1324|3476->1357|3539->1389|3596->1418|3651->1446|3665->1451|3694->1459|3757->1495|3820->1549|3860->1551|3921->1584|3988->1624|4022->1649|4062->1651|4127->1688|4168->1702|4183->1708|4242->1746|4509->1995|4522->2000|4561->2001|4626->2038|4736->2117|4798->2151|4874->2200|4889->2206|4950->2246|5092->2361|5107->2367|5168->2407|5294->2502|5347->2527|5444->2593|5480->2602|5564->2659|5665->2750|5706->2752|5747->2765|5784->2775|5799->2781|5850->2811|5982->2912|6014->2917|6133->3009|6175->3035|6215->3037|6260->3054|6351->3118|6366->3124|6433->3170|6514->3224|6532->3233|6570->3250|6623->3276|6641->3285|6699->3321|6729->3322|6890->3456|6908->3465|6940->3476|7033->3542|7051->3551|7084->3563|7147->3599|7210->3653|7250->3655|7311->3688|7387->3737|7402->3743|7471->3791|7613->3906|7628->3912|7697->3960|7823->4055|7876->4080|7973->4146|8009->4155
                   LINES: 28->1|33->2|33->2|33->2|34->3|36->5|36->5|36->5|37->6|37->6|37->6|37->6|40->9|41->10|45->14|45->14|45->14|46->15|48->17|48->17|48->17|49->18|49->18|49->18|49->18|49->18|49->18|50->19|52->21|52->21|52->21|53->22|53->22|53->22|54->23|54->23|54->23|54->23|56->25|56->25|56->25|57->26|58->27|58->27|58->27|59->28|60->29|61->30|61->30|61->30|61->30|62->31|62->31|62->31|63->32|64->33|64->33|64->33|65->34|65->34|65->34|65->34|69->38|69->38|69->38|70->39|71->40|73->42|74->43|74->43|74->43|76->45|76->45|76->45|77->46|78->47|81->50|82->51|86->55|86->55|86->55|87->56|87->56|87->56|87->56|90->59|91->60|95->64|95->64|95->64|96->65|98->67|98->67|98->67|99->68|99->68|99->68|99->68|99->68|99->68|99->68|102->71|102->71|102->71|103->72|103->72|103->72|104->73|104->73|104->73|105->74|106->75|106->75|106->75|108->77|108->77|108->77|109->78|110->79|113->82|114->83
                   -- GENERATED --
               */

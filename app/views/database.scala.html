@@ -1,8 +1,8 @@
-@(houses: List[models.Houses], apartments: List[models.Apartment],  user: models.users.User, env: play.api.Environment)
+@(houses: List[models.products.Houses], apartments: List[models.products.Apartment],  user: models.users.User, env: play.api.Environment)
 @main("Database", user) {
     <h1>
         Houses
-        @if((user != null) && ("admin".equals(user.getRole()) || "landlord".equals(user.getRole()))) {
+        @if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole())))) {
             <a href="@routes.HomeController.addHouse()">
                 <span style="font-size:20px">(Add New House)</span>
             </a>
@@ -38,7 +38,7 @@
                                 } else {
                                     <td><img src="/assets/images/sold.jpg"/></td>
                                 }
-                                
+
                                 &nbsp;
                                 <a href="@routes.HomeController.updateHouse(house.getId)"><i class="fas fa-edit"></i></a>
                                 &nbsp;

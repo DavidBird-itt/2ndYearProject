@@ -7,7 +7,7 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import models.*;
+import models.products.*;
 import models.users.*;
 
 
