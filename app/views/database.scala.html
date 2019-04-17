@@ -27,10 +27,10 @@
                             } else {
                                 No
                             }
-                            <i class="fas fa-leaf"></i>@house.getSold&nbsp;
+                            <i class="fas fa-leaf"></i>@house.getStock&nbsp;
                             @if((user != null) && ("admin".equals(user.getRole()))) {
                                 &nbsp;
-                                @if(house.getSold == true) {
+                                @if(house.getStock == 0) {
                                     <td><a href="@routes.ShoppingCtrl.addToBasket(house.getId)"
                                         class="btn btn-default btn-xs"><span
                                         class="glyphicon glyphicon-shopping-cart"></span></a>

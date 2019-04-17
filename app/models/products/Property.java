@@ -31,8 +31,8 @@ public class Property extends Model {
     private int numBaths;
     @Constraints.Required
     private double price;
-    @Constraints.Required
-    private boolean sold;
+    @Constraints.Min(0)
+    private int stock;
 
     @ManyToOne
     private Landlord landlord;
@@ -55,6 +55,7 @@ public class Property extends Model {
         this.price = price;
         this.landlord = l;
         this.address = a;
+        this.stock = 1;
     }
 
     //Getters and setters
@@ -90,17 +91,17 @@ public class Property extends Model {
         this.price = price;
     }
 
-    public boolean getSold() {
-        return sold;
+    public int getStock() {
+        return stock;
     }
 
-    public void setSold(boolean sold) {
-        this.sold = sold;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     //Sold Method
     public void sellProperty() {
-        this.sold = true;
+        this.stock = 0;
     }
 
     //Mapping getters and setters

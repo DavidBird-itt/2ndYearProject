@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Apr 16 15:10:09 IST 2019
+// @DATE:Tue Apr 16 16:57:00 IST 2019
 
 import play.api.mvc.Call
 
@@ -54,97 +54,103 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "database")
     }
   
-    // @LINE:48
+    // @LINE:50
     def createAccount(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "createAccount")
     }
   
-    // @LINE:43
+    // @LINE:45
     def addLandlord(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addLandlord")
     }
   
-    // @LINE:33
+    // @LINE:35
     def addHouseSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addHouseSubmit")
     }
   
-    // @LINE:50
+    // @LINE:52
     def addMemberSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addMemberSubmit")
     }
   
-    // @LINE:40
+    // @LINE:42
     def updateApartment(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateApartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:46
+    // @LINE:48
     def deleteLandlord(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteLandlord/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:45
+    // @LINE:30
+    def landlordProfile(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "landlordProfile")
+    }
+  
+    // @LINE:47
     def updateLandlord(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateLandlord/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:37
+    // @LINE:39
     def addApartment(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addApartment")
     }
   
-    // @LINE:54
+    // @LINE:56
     def addAdmin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addAdmin")
     }
   
-    // @LINE:42
+    // @LINE:44
     def viewUsers(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewUsers")
     }
   
-    // @LINE:56
+    // @LINE:58
     def updateAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:44
+    // @LINE:46
     def addLandlordSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addLandlordSubmit")
     }
   
-    // @LINE:57
+    // @LINE:59
     def deleteAdmin(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteAdmin/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:52
+    // @LINE:54
     def deleteMember(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteMember/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:35
+    // @LINE:37
     def updateHouse(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:51
+    // @LINE:53
     def updateMember(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateMember/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
@@ -156,37 +162,37 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "house/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:30
+    // @LINE:32
     def searchDB(min:Integer = 0, max:Integer = 0): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "searchQuery" + play.core.routing.queryString(List(if(min == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Integer]].unbind("min", min)), if(max == 0) None else Some(implicitly[play.api.mvc.QueryStringBindable[Integer]].unbind("max", max)))))
     }
   
-    // @LINE:38
+    // @LINE:40
     def addApartmentSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addApartmentSubmit")
     }
   
-    // @LINE:34
+    // @LINE:36
     def deleteHouse(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteHouse/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:39
+    // @LINE:41
     def deleteApartment(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteApartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:49
+    // @LINE:51
     def addMember(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addMember")
     }
   
-    // @LINE:32
+    // @LINE:34
     def addHouse(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addHouse")
@@ -204,7 +210,13 @@ package controllers {
       Call("GET", _prefix)
     }
   
-    // @LINE:55
+    // @LINE:29
+    def contact(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "contact")
+    }
+  
+    // @LINE:57
     def addAdminSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addAdminSubmit")
@@ -254,44 +266,44 @@ package controllers {
   
   }
 
-  // @LINE:59
+  // @LINE:61
   class ReverseShoppingCtrl(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:60
+    // @LINE:62
     def addToBasket(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addToBasket/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:64
+    // @LINE:66
     def viewOrder(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "viewOrder/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:63
+    // @LINE:65
     def placeOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "placeOrder")
     }
   
-    // @LINE:61
+    // @LINE:63
     def removeOne(itemId:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "removeOne/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("itemId", itemId)))
     }
   
-    // @LINE:59
+    // @LINE:61
     def showBasket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "showBasket")
     }
   
-    // @LINE:62
+    // @LINE:64
     def emptyBasket(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "emptyBasket")

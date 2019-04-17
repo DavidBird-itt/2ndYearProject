@@ -57,7 +57,7 @@ public class ShoppingCtrl extends Controller {
         member.getBasket().addProperty(property);
         member.update();
 
-        property.getSold();
+        property.getStock();
         member.update();
 
         

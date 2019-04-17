@@ -51,6 +51,15 @@ public class HomeController extends Controller {
         return ok(database.render(houseList, aList, User.getUserById(session().get("email")), e));
     }
 
+    public Result contact() {
+        List<Landlord> landlordList = Landlord.findAll();
+        return ok(contact.render(landlordList, User.getUserById(session().get("email")), e));
+    }
+
+    public Result landlordProfile() {
+        return ok(landlordProfile.render(User.getUserById(session().get("email"))));
+    }
+
     //Adds security so user must be logged in
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)

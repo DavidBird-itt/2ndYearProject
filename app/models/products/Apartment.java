@@ -26,7 +26,7 @@ public class Apartment extends Property {
     }
 
     //Overloaded Cons
-    public Apartment(Long id,  int numBeds, int numBaths, double price, Landlord landlord, Address address, int floor) {
+     public Apartment(Long id,  int numBeds, int numBaths, double price, Landlord landlord, Address address, int floor) {
         super(id, numBeds, numBaths, price, landlord, address);
         this.floor = floor;
     }

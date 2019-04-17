@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addApartment.scala.html:28:24: not found: value houseForm[0m
-[0m[[0m[31merror[0m] [0m[0m            @inputText(houseForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")[0m
-[0m[[0m[31merror[0m] [0m[0m                       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addApartment.scala.html:28:57: not found: value value[0m
-[0m[[0m[31merror[0m] [0m[0m            @inputText(houseForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")[0m
-[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/ShoppingCtrl.java:60:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method getSold()[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable property of type models.products.Property[0m
+[0m[[0m[31merror[0m] [0m[0m        property.getSold();[0m

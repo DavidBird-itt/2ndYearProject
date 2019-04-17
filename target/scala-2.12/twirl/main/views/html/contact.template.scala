@@ -31,7 +31,37 @@ object contact extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Ht
 
 
 Seq[Any](_display_(/*2.2*/main("Contact", user)/*2.23*/ {_display_(Seq[Any](format.raw/*2.25*/("""
+    """),format.raw/*3.5*/("""<div class="container">
+        <form>
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+      
+          <label for="country">County</label>
+          <select id="country" name="country">
+            <option value="australia">Dublin</option>
+            <option value="canada">Wicklow</option>
+            <option value="usa">Kildare</option>
+          </select>
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <div class="actions">
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <a href=""""),_display_(/*27.23*/routes/*27.29*/.HomeController.index()),format.raw/*27.52*/("""">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+
+        </form>
+      </div>
 """)))}))
       }
     }
@@ -48,11 +78,11 @@ Seq[Any](_display_(/*2.2*/main("Contact", user)/*2.23*/ {_display_(Seq[Any](form
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 16 15:50:18 IST 2019
+                  DATE: Tue Apr 16 16:34:38 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/contact.scala.html
-                  HASH: 6959af416023ff72d83bcf20bb61c6fb1a3c0c63
-                  MATRIX: 1010->1|1196->95|1225->116|1264->118
-                  LINES: 28->1|33->2|33->2|33->2
+                  HASH: 28c61a51f04cb744c9b1f12690c33fb74cbcc10c
+                  MATRIX: 1010->1|1196->95|1225->116|1264->118|1295->123|2343->1144|2358->1150|2402->1173
+                  LINES: 28->1|33->2|33->2|33->2|34->3|58->27|58->27|58->27
                   -- GENERATED --
               */
           

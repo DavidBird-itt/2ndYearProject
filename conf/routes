@@ -26,6 +26,8 @@ GET     /house/:id      			controllers.HomeController.viewHouse(id: Long)
 GET     /apartment/:id      		controllers.HomeController.viewApartment(id: Long)
 
 GET     /database                   controllers.HomeController.database
+GET     /contact                    controllers.HomeController.contact
+GET     /landlordProfile                    controllers.HomeController.landlordProfile
 
 GET     /searchQuery      			controllers.HomeController.searchDB(min: Integer ?= 0, max: Integer ?= 0)
 
