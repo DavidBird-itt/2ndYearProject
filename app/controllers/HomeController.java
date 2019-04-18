@@ -56,8 +56,13 @@ public class HomeController extends Controller {
         return ok(contact.render(landlordList, User.getUserById(session().get("email")), e));
     }
 
-    public Result landlordProfile() {
-        return ok(landlordProfile.render(User.getUserById(session().get("email"))));
+    public Result landlordProfile(String email) {
+        if(email != null){
+            Landlord l = (Landlord) User.getUserById(email);
+            List<Houses>  houseList = Houses.findAll();
+            return ok(landlordProfile.render(l, houseList, User.getUserById(session().get("email"))));
+        }
+        return notFound();
     }
 
     //Adds security so user must be logged in

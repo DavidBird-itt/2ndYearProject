@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/ShoppingCtrl.java:60:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   method getSold()[0m
-[0m[[0m[31merror[0m] [0m[0m  location: variable property of type models.products.Property[0m
-[0m[[0m[31merror[0m] [0m[0m        property.getSold();[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/landlordProfile.scala.html:52:19: not found: value houses[0m
+[0m[[0m[31merror[0m] [0m[0m      @for(house<-houses) {[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

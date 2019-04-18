@@ -1,33 +1,92 @@
-@(user: models.users.User)
+@(landlord: models.users.Landlord, hList: List[models.products.Houses], user: models.users.User )
 @main("Profile", user) {
-    <h1>Profile</h1>
-                <div class="container">    
-                  <div class="row">
-                      <div class="panel panel-default">
-                      <div class="panel-heading">  <h4 >User Profile</h4></div>
-                       <div class="panel-body">
-                      <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                       <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
-                     
-                 
-                      </div>
-                      <div class="col-md-8 col-xs-12 col-sm-6 col-sm-8" >
-                          <div class="container" >
-                            <h2>John Doe</h2>
-                            <p>an   <b> Employee</b></p>
-                          
-                           
-                          </div>
-                           <hr>
-                          <ul class="container details" >
-                            <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>i.rudberg</p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>somerandom</p></li>
-                          </ul>
-                          <hr>
-                          <div class="col-sm-5 col-xs-6 tital " >Date Of Joining: 15 Jun 2016</div>
-                      </div>
-                </div>
-            </div>
-            </div>
-            </div>
+
+<div id ="profile">
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>User Profile</h4>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+          <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+            id="profile-image1" class="img-circle img-responsive">
+
+
+        </div>
+        <div class="col-md-8 col-xs-4">
+          <div class="container">
+            <h2>@landlord.getFname() @landlord.getLname()</h2>
+            <p>an <b> Employee</b></p>
+
+
+          </div>
+          <hr>
+          <ul class="container details">
+            
+            <li>
+              <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>@landlord.getEmail()</p>
+            </li>
+          </ul>
+          <hr>
+          <div class="col-sm-5 col-xs-6 tital ">Date Of Joining: 15 Jun 2016</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<h1>
+  Houses
+  @if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole())))) {
+      <a href="@routes.HomeController.addHouse()">
+          <span style="font-size:20px">(Add New House)</span>
+      </a>
+  }
+</h1>
+<br>
+<div id="database-list">
+  <table style="width:100%">
+      @for(house<-hList) {
+        @if(house.getLandlord() == landlord){
+          <tr>
+              <td>
+                  <a href="@routes.HomeController.viewHouse(house.getId)" class="listing">
+                  <img src="@house.getThumbnailPath" /> House for &euro;@house.getDisplayValue(house.getPrice)
+              </td>
+                  <td class="desc">
+                      <i class="fas fa-bed"></i> @house.getNumBeds&nbsp;
+                      <i class="fas fa-toilet"></i> @house.getNumBaths&nbsp;
+                      <i class="fas fa-leaf"></i> @house.getGardenSize m²&nbsp;
+                      <i class="fas fa-car"></i>&nbsp;
+                      @if(house.getGarage) {
+                          Yes
+                      } else {
+                          No
+                      }
+                      <i class="fas fa-leaf"></i>@house.getStock&nbsp;
+                      @if((user != null) && ("admin".equals(user.getRole()))) {
+                          &nbsp;
+                          @if(house.getStock == 0) {
+                              <td><a href="@routes.ShoppingCtrl.addToBasket(house.getId)"
+                                  class="btn btn-default btn-xs"><span
+                                  class="glyphicon glyphicon-shopping-cart"></span></a>
+                              </td>
+                          } else {
+                              <td><img src="/assets/images/sold.jpg"/></td>
+                          }
+
+                          &nbsp;
+                          <a href="@routes.HomeController.updateHouse(house.getId)"><i class="fas fa-edit"></i></a>
+                          &nbsp;
+                          <a href="@routes.HomeController.deleteHouse(house.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
+                      }
+                  </td>
+              </a>
+          </tr>
+      }
+  </table>
+}
 }

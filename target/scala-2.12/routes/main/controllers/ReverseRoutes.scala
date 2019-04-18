@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Apr 16 16:57:00 IST 2019
+// @DATE:Wed Apr 17 18:21:05 IST 2019
 
 import play.api.mvc.Call
 
@@ -88,12 +88,6 @@ package controllers {
     def deleteLandlord(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteLandlord/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
-    }
-  
-    // @LINE:30
-    def landlordProfile(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "landlordProfile")
     }
   
     // @LINE:47
@@ -184,6 +178,12 @@ package controllers {
     def deleteApartment(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteApartment/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:30
+    def landlordProfile(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "landlordProfile/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:51

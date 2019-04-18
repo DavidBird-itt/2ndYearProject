@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Apr 16 16:57:00 IST 2019
+// @DATE:Wed Apr 17 18:21:05 IST 2019
 
 package router
 
@@ -66,7 +66,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """apartment/""" + "$" + """id<[^/]+>""", """controllers.HomeController.viewApartment(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """database""", """controllers.HomeController.database"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """contact""", """controllers.HomeController.contact"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """landlordProfile""", """controllers.HomeController.landlordProfile"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """landlordProfile/""" + "$" + """id<[^/]+>""", """controllers.HomeController.landlordProfile(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """searchQuery""", """controllers.HomeController.searchDB(min:Integer ?= 0, max:Integer ?= 0)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouse""", """controllers.HomeController.addHouse"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addHouseSubmit""", """controllers.HomeController.addHouseSubmit"""),
@@ -303,17 +303,17 @@ class Routes(
 
   // @LINE:30
   private[this] lazy val controllers_HomeController_landlordProfile11_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("landlordProfile")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("landlordProfile/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_HomeController_landlordProfile11_invoker = createInvoker(
-    HomeController_1.landlordProfile,
+    HomeController_1.landlordProfile(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
       "landlordProfile",
-      Nil,
+      Seq(classOf[String]),
       "GET",
-      this.prefix + """landlordProfile""",
+      this.prefix + """landlordProfile/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -912,8 +912,8 @@ class Routes(
   
     // @LINE:30
     case controllers_HomeController_landlordProfile11_route(params@_) =>
-      call { 
-        controllers_HomeController_landlordProfile11_invoker.call(HomeController_1.landlordProfile)
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_HomeController_landlordProfile11_invoker.call(HomeController_1.landlordProfile(id))
       }
   
     // @LINE:32

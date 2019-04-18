@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Apr 16 16:57:00 IST 2019
+// @DATE:Wed Apr 17 18:21:05 IST 2019
 
 package controllers;
 
