@@ -45,10 +45,10 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
 
-    public Result database() {
+    public Result properties() {
         List<Houses> houseList = Houses.findAll();
         List<Apartment> aList = Apartment.findAll();
-        return ok(database.render(houseList, aList, User.getUserById(session().get("email")), e));
+        return ok(properties.render(houseList, aList, User.getUserById(session().get("email")), e));
     }
 
     public Result contact() {
@@ -60,7 +60,7 @@ public class HomeController extends Controller {
         if(email != null){
             Landlord l = (Landlord) User.getUserById(email);
             List<Houses>  houseList = Houses.findAll();
-            return ok(landlordProfile.render(l, houseList, User.getUserById(session().get("email"))));
+            return ok(landlordProfile.render(l, houseList, User.getUserById(session().get("email")), e));
         }
         return notFound();
     }
@@ -111,7 +111,7 @@ public class HomeController extends Controller {
             flash("success", "House " + newHouse.getId() + " was added/updated" + saveImageMessage);
 
             //Brings them back to the initial page and shows the update
-            return redirect(controllers.routes.HomeController.database());
+            return redirect(controllers.routes.HomeController.properties());
         }
 
     }
@@ -124,7 +124,7 @@ public class HomeController extends Controller {
 
         //Flash message showing result
         flash("success", "House has been deleted.");
-        return redirect(controllers.routes.HomeController.database());
+        return redirect(controllers.routes.HomeController.properties());
     }
 
     @Security.Authenticated(Secured.class)
@@ -198,7 +198,7 @@ public class HomeController extends Controller {
             flash("success", "Apartment " + newApart.getId() + " was added/updated" + saveImageMessage);
 
             //Brings them back to the initial page and shows the update
-            return redirect(controllers.routes.HomeController.database());
+            return redirect(controllers.routes.HomeController.properties());
         }
 
     }
@@ -211,7 +211,7 @@ public class HomeController extends Controller {
 
         //Flash message showing result
         flash("success", "Apartment has been deleted.");
-        return redirect(controllers.routes.HomeController.database());
+        return redirect(controllers.routes.HomeController.properties());
     }
 
     @Security.Authenticated(Secured.class)

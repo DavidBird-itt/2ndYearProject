@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Wed Apr 17 18:21:05 IST 2019
+// @DATE:Fri Apr 19 16:26:09 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,16 +59,6 @@ package controllers.javascript {
     }
 
   
-    // @LINE:28
-    def database: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.database",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "database"})
-        }
-      """
-    )
-  
     // @LINE:50
     def createAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.createAccount",
@@ -125,6 +115,16 @@ package controllers.javascript {
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deleteLandlord/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:28
+    def properties: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.properties",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "properties"})
         }
       """
     )

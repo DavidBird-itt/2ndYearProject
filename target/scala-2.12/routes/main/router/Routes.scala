@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Wed Apr 17 18:21:05 IST 2019
+// @DATE:Fri Apr 19 16:26:09 IST 2019
 
 package router
 
@@ -64,7 +64,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.LoginController.logout"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """house/""" + "$" + """id<[^/]+>""", """controllers.HomeController.viewHouse(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """apartment/""" + "$" + """id<[^/]+>""", """controllers.HomeController.viewApartment(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """database""", """controllers.HomeController.database"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """properties""", """controllers.HomeController.properties"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """contact""", """controllers.HomeController.contact"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """landlordProfile/""" + "$" + """id<[^/]+>""", """controllers.HomeController.landlordProfile(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """searchQuery""", """controllers.HomeController.searchDB(min:Integer ?= 0, max:Integer ?= 0)"""),
@@ -266,18 +266,18 @@ class Routes(
   )
 
   // @LINE:28
-  private[this] lazy val controllers_HomeController_database9_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("database")))
+  private[this] lazy val controllers_HomeController_properties9_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("properties")))
   )
-  private[this] lazy val controllers_HomeController_database9_invoker = createInvoker(
-    HomeController_1.database,
+  private[this] lazy val controllers_HomeController_properties9_invoker = createInvoker(
+    HomeController_1.properties,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "database",
+      "properties",
       Nil,
       "GET",
-      this.prefix + """database""",
+      this.prefix + """properties""",
       """""",
       Seq()
     )
@@ -899,9 +899,9 @@ class Routes(
       }
   
     // @LINE:28
-    case controllers_HomeController_database9_route(params@_) =>
+    case controllers_HomeController_properties9_route(params@_) =>
       call { 
-        controllers_HomeController_database9_invoker.call(HomeController_1.database)
+        controllers_HomeController_properties9_invoker.call(HomeController_1.properties)
       }
   
     // @LINE:29

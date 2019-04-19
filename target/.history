@@ -171,3 +171,11 @@ h2-browser
 exit
 run
 exit
+run
+exit
+sbt
+run
+clean
+compile
+run
+exit

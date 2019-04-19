@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Wed Apr 17 18:21:05 IST 2019
+// @DATE:Fri Apr 19 16:26:09 IST 2019
 
 import play.api.mvc.Call
 
@@ -48,12 +48,6 @@ package controllers {
     }
 
   
-    // @LINE:28
-    def database(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "database")
-    }
-  
     // @LINE:50
     def createAccount(): Call = {
       
@@ -88,6 +82,12 @@ package controllers {
     def deleteLandlord(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "deleteLandlord/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:28
+    def properties(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "properties")
     }
   
     // @LINE:47

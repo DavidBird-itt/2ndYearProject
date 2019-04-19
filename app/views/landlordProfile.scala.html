@@ -1,4 +1,4 @@
-@(landlord: models.users.Landlord, hList: List[models.products.Houses], user: models.users.User )
+@(landlord: models.users.Landlord, hList: List[models.products.Houses], user: models.users.User, env: play.api.Environment)
 @main("Profile", user) {
 
 <div id ="profile">
@@ -6,19 +6,27 @@
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-heading">
+            @if((user != null) && (landlord == user)){
+            <a href="@routes.HomeController.updateLandlord(user.getEmail)"><i class="fas fa-edit"></i></a>
+            }
         <h4>User Profile</h4>
       </div>
       <div class="panel-body">
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-          <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-            id="profile-image1" class="img-circle img-responsive">
+                @if(env.resource("public/images/projectImages/" + landlord.getEmail + "thumb.jpg").isDefined) {
+                    <img src="/assets/images/projectImages/@(landlord.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive">
+                    } else {
+                        <img src="avatar.png" alt="Avatar" class="avatar"
+                        id="profile-image1" class="img-circle img-responsive">
+                    }
+          
 
 
         </div>
         <div class="col-md-8 col-xs-4">
           <div class="container">
             <h2>@landlord.getFname() @landlord.getLname()</h2>
-            <p>an <b> Employee</b></p>
+            <p><b>Landlord</b></p>
 
 
           </div>
@@ -67,7 +75,7 @@
                           No
                       }
                       <i class="fas fa-leaf"></i>@house.getStock&nbsp;
-                      @if((user != null) && ("admin".equals(user.getRole()))) {
+                      @if((user != null) && (landlord == user)) {
                           &nbsp;
                           @if(house.getStock == 0) {
                               <td><a href="@routes.ShoppingCtrl.addToBasket(house.getId)"

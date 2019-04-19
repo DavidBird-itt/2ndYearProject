@@ -27,10 +27,11 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
-				<li @if(pagename == "Database"){class="active"}><a href="@routes.HomeController.database()">House List</a></li>
+				<li @if(pagename == "Properties"){class="active"}><a href="@routes.HomeController.properties()">Properties</a></li>
 				@if((user != null) && ("admin".equals(user.getRole()))) {
 					<li @if(pagename == "Landlords") {class="active"}><a href="@routes.HomeController.viewUsers()">View Landlords</a></li>
 				}
+				<li @if(pagename == "Profile"){class="active"}><a href="@routes.HomeController.landlordProfile(user.getEmail())">Profile</a></li>
 				<li @if(pagename == "Login"){class="active"}>
 				@if(user != null){
 					<a href="@routes.LoginController.logout()">Log Out</a></li>

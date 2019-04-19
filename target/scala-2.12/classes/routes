@@ -25,7 +25,7 @@ GET     /logout                     controllers.LoginController.logout
 GET     /house/:id      			controllers.HomeController.viewHouse(id: Long)
 GET     /apartment/:id      		controllers.HomeController.viewApartment(id: Long)
 
-GET     /database                   controllers.HomeController.database
+GET     /properties                   controllers.HomeController.properties
 GET     /contact                    controllers.HomeController.contact
 GET     /landlordProfile/:id                    controllers.HomeController.landlordProfile(id: String)
 
