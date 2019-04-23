@@ -67,7 +67,15 @@ public class HomeController extends Controller {
         if(email != null){
             Landlord l = (Landlord) User.getUserById(email);
             List<Property>  pList = Property.findAll();
-            return ok(landlordProfile.render(l, pList, User.getUserById(session().get("email")), e));
+            return ok(landlordProfile.render(l,pList, User.getUserById(session().get("email")), e));
+        }
+        return notFound();
+    }
+
+    public Result memberProfile(String email) {
+        if(email != null) {
+            Member m = (Member) User.getUserById(email);
+            return ok(memberProfile.render(m,User.getUserById(session().get("email")), e));
         }
         return notFound();
     }

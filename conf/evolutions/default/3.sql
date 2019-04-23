@@ -3,6 +3,7 @@
 # --- !Ups
 delete from property;
 delete from style;
+delete from style_property;
 
 insert into style (id,name) values (1, 'Bungalow');
 insert into style (id,name) values (2, 'Cottage');

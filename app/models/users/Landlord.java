@@ -24,8 +24,8 @@ public class Landlord extends User {
 
     }
 
-    public Landlord(String email, String role, String fname, String lname, String password, List<Property> property) {
-        super(email, role, fname, lname,password);
+    public Landlord(String email, String role, String fname, String lname, String phone, Date dateJoined, String password, List<Property> property) {
+        super(email, role, fname, lname, phone, dateJoined, password);
         this.property = property;
     }
 

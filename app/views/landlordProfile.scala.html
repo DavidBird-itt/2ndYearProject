@@ -6,9 +6,9 @@
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-heading">
-            @if((user != null) && (landlord == user)){
+          @if((user != null) && (landlord == user)){
             <a href="@routes.HomeController.updateLandlord(user.getEmail)"><i class="fas fa-edit"></i></a>
-            }
+        }
         <h4>User Profile</h4>
       </div>
       <div class="panel-body">
@@ -16,8 +16,7 @@
                 @if(env.resource("public/images/projectImages/" + landlord.getEmail + "thumb.jpg").isDefined) {
                     <img src="/assets/images/projectImages/@(landlord.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive">
                     } else {
-                        <img src="avatar.png" alt="Avatar" class="avatar"
-                        id="profile-image1" class="img-circle img-responsive">
+                        <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
                     }
           
 

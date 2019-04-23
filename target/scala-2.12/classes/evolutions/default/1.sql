@@ -94,6 +94,8 @@ create table user (
   role                          varchar(255),
   fname                         varchar(255),
   lname                         varchar(255),
+  phone                         varchar(255),
+  date_joined                   date,
   password                      varchar(255),
   constraint pk_user primary key (email)
 );

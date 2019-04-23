@@ -31,14 +31,21 @@
 				@if((user != null) && ("admin".equals(user.getRole()))) {
 					<li @if(pagename == "Landlords") {class="active"}><a href="@routes.HomeController.viewUsers()">View Landlords</a></li>
 				}
-				
+
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+				@if((user != null) && ("member".equals(user.getRole()))) {
+					<li @if(pagename == "Member Proile"){class="active"}><a href="@routes.HomeController.memberProfile(user.getEmail())"><i class="fas fa-user"></i>Profile</a></li>
+				}
+				@if((user != null) && ("landlord".equals(user.getRole()))) {
+					<li @if(pagename == "Landlord Proile"){class="active"}><a href="@routes.HomeController.landlordProfile(user.getEmail())"><i class="fas fa-user"></i>Profile</a></li>
+				}
 				<li @if(pagename == "Login"){class="active"}>
 				@if(user != null){
 					<a href="@routes.LoginController.logout()">Logout</a></li>
-					<li @if(pagename == "Profile"){class="active"}><a href="@routes.HomeController.index()">Profile</a> </li>
 				} else {
-					<a href="@routes.LoginController.login()">Login</a>
-					
+					<a href="@routes.LoginController.login()">Login</a></li>
 				}
 					
 			</ul>
