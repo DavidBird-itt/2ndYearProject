@@ -41,7 +41,7 @@ public class ShoppingCtrl extends Controller {
     public Result addToBasket(Long id) {
 
         // Find the item on sale
-        Property property = Property.findp.byId(id);
+        Property property = Property.find.byId(id);
         
         // Get basket for logged in customer
         Member member = (Member)User.getUserById(session().get("email"));

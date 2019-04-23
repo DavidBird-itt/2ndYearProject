@@ -1,4 +1,3 @@
-
 # --- Created by Ebean DDL
 # To stop Ebean DDL generation, remove this comment and start using Evolutions
 
@@ -51,17 +50,13 @@ create table payment (
 );
 
 create table property (
-  type                          varchar(31) not null,
   id                            bigint auto_increment not null,
   num_beds                      integer not null,
   num_baths                     integer not null,
   price                         double not null,
-  stock                         int not null,
+  stock                         integer not null,
   landlord_email                varchar(255),
   aid                           bigint,
-  garden_size                   integer,
-  garage                        boolean default false,
-  floor                         integer,
   constraint uq_property_aid unique (aid),
   constraint pk_property primary key (id)
 );
@@ -79,6 +74,18 @@ create table shop_order (
   order_date                    timestamp,
   member_email                  varchar(255),
   constraint pk_shop_order primary key (id)
+);
+
+create table style (
+  id                            bigint auto_increment not null,
+  name                          varchar(255),
+  constraint pk_style primary key (id)
+);
+
+create table style_property (
+  style_id                      bigint not null,
+  property_id                   bigint not null,
+  constraint pk_style_property primary key (style_id,property_id)
 );
 
 create table user (
@@ -114,6 +121,12 @@ alter table rent_due add constraint fk_rent_due_member_email foreign key (member
 alter table shop_order add constraint fk_shop_order_member_email foreign key (member_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_member_email on shop_order (member_email);
 
+alter table style_property add constraint fk_style_property_style foreign key (style_id) references style (id) on delete restrict on update restrict;
+create index ix_style_property_style on style_property (style_id);
+
+alter table style_property add constraint fk_style_property_property foreign key (property_id) references property (id) on delete restrict on update restrict;
+create index ix_style_property_property on style_property (property_id);
+
 
 # --- !Downs
 
@@ -140,6 +153,12 @@ alter table rent_due drop constraint if exists fk_rent_due_member_email;
 alter table shop_order drop constraint if exists fk_shop_order_member_email;
 drop index if exists ix_shop_order_member_email;
 
+alter table style_property drop constraint if exists fk_style_property_style;
+drop index if exists ix_style_property_style;
+
+alter table style_property drop constraint if exists fk_style_property_property;
+drop index if exists ix_style_property_property;
+
 drop table if exists address;
 
 drop table if exists basket;
@@ -155,6 +174,10 @@ drop table if exists property;
 drop table if exists rent_due;
 
 drop table if exists shop_order;
+
+drop table if exists style;
+
+drop table if exists style_property;
 
 drop table if exists user;
 

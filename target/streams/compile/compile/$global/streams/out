@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/landlordProfile.scala.html:16:67: not found: value u[0m
-[0m[[0m[31merror[0m] [0m[0m                @if(env.resource("public/images/projectImages/" + u.getEmail + "thumb.jpg").isDefined) {[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/controllers/ShoppingCtrl.java:44:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable findp[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.products.Property[0m
+[0m[[0m[31merror[0m] [0m[0m        Property property = Property.findp.byId(id);[0m

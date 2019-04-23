@@ -8,20 +8,9 @@ import play.data.validation.*;
 import java.text.NumberFormat;
 
 import models.users.*;
-import models.rent.*;
 import java.io.File;
 
 @Entity
-
-@Table(name = "Property")
-
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-
-@DiscriminatorColumn(name = "type")
-
-@DiscriminatorValue("p")
-
-
 public class Property extends Model { 
     @Id
     private Long id;
@@ -41,8 +30,10 @@ public class Property extends Model {
     @JoinColumn(name="AID")
     private Address address;
 
-    @OneToOne(mappedBy="property", cascade = CascadeType.ALL)
-    private Fees fees;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "property")
+    private List<Style> styles;
+
+    private List<Long> styleSelect = new ArrayList<Long>();
 
     public Property(){
 
@@ -105,12 +96,20 @@ public class Property extends Model {
     }
 
     //Mapping getters and setters
-    public Fees getFees() {
-        return fees;
+    public List<Style> getStyles() {
+        return styles;
     }
 
-    public void setFees(Fees Fees) {
-        this.fees = fees;
+    public void setStyles(List<Style> styles){
+        this.styles = styles;
+    }
+
+    public List<Long> getStyleSelect() {
+        return styleSelect;
+    }
+
+    public void setStyleSelect(List<Long> styleSelect) {
+        this.styleSelect = styleSelect;
     }
 
     public Landlord getLandlord() {
@@ -128,6 +127,8 @@ public class Property extends Model {
     public void setAddress(Address a) {
         this.address = a;
     }
+
+
 
     //Methods
     public String getDisplayValue(double val) {
@@ -158,11 +159,41 @@ public class Property extends Model {
         }
     }
 
-    //Finders
-    public static final Finder<Long, Property> findp = new Finder<>(Property.class);
+    //Methods
+    public static final List<Property> findRange(int min, int max) {
+        List<Property> resList = Property.find.all();
+        Iterator<Property> i = resList.iterator();
+
+        while (i.hasNext()) {
+            Property property = i.next();
+            double hp = property.getPrice();
+
+            if(hp < min || hp > max)
+                i.remove();
+        }
+
+        return resList;
+    }
+
+        //Method
+        public int getDepositValue() {
+            int depositValue = (int)getPrice();
     
-    public static final List<Property> findAllp() {
-        return Property.findp.all();
+            depositValue = (int)(depositValue* 3); // Simple way to get a "deposit" number
+    
+            return depositValue;
+        }
+
+
+    //Finders
+    public static final Finder<Long, Property> find = new Finder<>(Property.class);
+    
+    public static final List<Property> findAll() {
+        return Property.find.all();
+    }
+
+    public static final Property findById(Long id) {
+        return Property.find.byId(id);
     }
 
     

@@ -22,24 +22,19 @@ GET     /logout                     controllers.LoginController.logout
 
 #GET from HomeController
 
-GET     /house/:id      			controllers.HomeController.viewHouse(id: Long)
+GET     /viewProperty/:id      			controllers.HomeController.viewProperty(id: Long)
 GET     /apartment/:id      		controllers.HomeController.viewApartment(id: Long)
 
-GET     /properties                   controllers.HomeController.properties
+GET     /properties/:style                   controllers.HomeController.properties(style: Long)
 GET     /contact                    controllers.HomeController.contact
 GET     /landlordProfile/:id                    controllers.HomeController.landlordProfile(id: String)
 
 GET     /searchQuery      			controllers.HomeController.searchDB(min: Integer ?= 0, max: Integer ?= 0)
 
-GET     /addHouse                   controllers.HomeController.addHouse
-POST    /addHouseSubmit             controllers.HomeController.addHouseSubmit
-GET     /deleteHouse/:id            controllers.HomeController.deleteHouse(id: Long)
-GET     /updateHouse/:id            controllers.HomeController.updateHouse(id: Long)
-
-GET     /addApartment               controllers.HomeController.addApartment
-POST    /addApartmentSubmit             controllers.HomeController.addApartmentSubmit
-GET     /deleteApartment/:id            controllers.HomeController.deleteApartment(id: Long)
-GET     /updateApartment/:id            controllers.HomeController.updateApartment(id: Long)
+GET     /addProperty                   controllers.HomeController.addProperty
+POST    /addPropertySubmit             controllers.HomeController.addPropertySubmit
+GET     /propertyHouse/:id            controllers.HomeController.deleteProperty(id: Long)
+GET     /propertyHouse/:id            controllers.HomeController.updateProperty(id: Long)
 
 GET     /viewUsers                   controllers.HomeController.viewUsers
 GET     /addLandlord                controllers.HomeController.addLandlord

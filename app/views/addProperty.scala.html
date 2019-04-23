@@ -1,0 +1,60 @@
+@(pForm: Form[models.products.Property], aForm: Form[models.products.Address], user: models.users.User, env: play.api.Environment)
+
+@import helper._ 
+
+@main("Add Property", user) {
+    <p class="lead">Add a new Property</p>
+
+    @form(action=routes.HomeController.addPropertySubmit, 'class -> "form-horizontal", 'role -> "form",
+    'method -> "POST", 'enctype -> "multipart/form-data") {
+        @* CSRF attack Prevention *@
+        @CSRF.formField
+
+        <!-- Uses helper methods to take the values from the form and add it to the database -->
+        <!-- No need to get the id because it's auto generated -->
+
+        <p><strong>Styles</strong></p>
+        @for((value, name) <- products.Style.options) {
+            <input type="checkbox" name="styleSelect[]" value="@value"  
+                @if(pForm("id").getValue.isPresent && pForm("id").getValue.get != "") { 
+                    @if(products.Style.inStyle(value.toLong, pForm("id").getValue.get.toLong)) {
+                        checked
+                    }
+                } 
+            /> @name </br>
+        }
+        </p>
+
+        @inputText(pForm("numBeds"), '_label -> "Bedrooms", 'class -> "form-control")
+        @inputText(pForm("numBaths"), '_label -> "Bathrooms", 'class -> "form-control")
+        @inputText(pForm("price"), '_label -> "Price", 'class -> "form-control")
+
+        @if((user != null) && ("admin".equals(user.getRole()))){
+            @select(
+                pForm("landlord.email"),
+                options(users.Landlord.options),
+                '_label -> "Landlord", '_default -> "-- Choose a landlord --",
+                '_showConstraints -> false, 'class -> "form-control"
+            )
+        } else {
+            @inputText(pForm("landlord.email").copy(value=Some(user.getEmail())), '_label -> "", 'hidden -> "hidden")
+        }
+        
+        @inputText(aForm("street1"), '_label -> "Street 1", 'class -> "form-control")
+        @inputText(aForm("street2"), '_label -> "Street 2", 'class -> "form-control")
+        @inputText(aForm("town"), '_label -> "Town", 'class -> "form-control")
+        @inputText(aForm("postCode"), '_label -> "PostCode", 'class -> "form-control")
+        
+        <label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+    
+        @inputText(pForm("id"), '_label -> "", 'hidden -> "hidden")
+    
+        <div class="actions">
+            <input type="submit" value="Add Property" class="btn btn-primary">
+            <a href="@routes.HomeController.properties(0)">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

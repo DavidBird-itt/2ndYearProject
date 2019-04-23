@@ -1,0 +1,35 @@
+@(property: models.products.Property, user: models.users.User)
+@main("View Property", user) {
+	<div id="house-desc">
+		<img class="house-thumbnail" src="@property.getImagePath" />
+		<div id="description">House</div>
+		<table>
+			<tr>
+				<th>
+					<span class="icon"><i class="fas fa-bed"></i> Bedrooms</span>
+					@property.getNumBeds
+				</th>
+				<th>
+					<span class="icon"><i class="fas fa-toilet"></i> Bathrooms</span>
+					@property.getNumBaths
+				</th>
+			</tr>
+		
+		</table>
+		<div id="price">
+			<div id="title">Price</div>
+			&euro;@property.getDisplayValue(property.getPrice)<p>(deposit: <strong>€@property.getDepositValue</strong>)</p>
+			<br>
+			@if((user !=null) &&("member".equals(user.getRole()))){
+			<script
+			  src="https://checkout.stripe.com/checkout.js"
+			  class="stripe-button"
+			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+			  data-name="Deposit"
+			  data-description="Deposit (&euro;@property.getDepositValue)"
+			  data-amount="@property.convertStripeNum(property.getDepositValue)"
+			</script>
+			}
+		</div>
+	</div>
+}

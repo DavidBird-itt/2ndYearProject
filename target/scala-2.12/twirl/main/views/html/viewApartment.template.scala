@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object viewApartment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.products.Apartment,models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object viewApartment extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[models.products.Property,models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(apartment: models.products.Apartment, user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(apartment: models.products.Property, user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -67,9 +67,9 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
     }
   }
 
-  def render(apartment:models.products.Apartment,user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(apartment,user)
+  def render(apartment:models.products.Property,user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(apartment,user)
 
-  def f:((models.products.Apartment,models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (apartment,user) => apply(apartment,user)
+  def f:((models.products.Property,models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (apartment,user) => apply(apartment,user)
 
   def ref: this.type = this
 
@@ -78,10 +78,10 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 19 16:26:10 IST 2019
+                  DATE: Tue Apr 23 00:10:52 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/viewApartment.scala.html
-                  HASH: a70898bd6696aa652613bbf242a505041cff8f1a
-                  MATRIX: 993->1|1150->66|1185->93|1224->95|1252->97|1337->156|1354->165|1387->178|1558->323|1576->332|1608->343|1640->348|1758->440|1776->449|1809->461|1841->466|1964->562|1982->571|2039->607|2089->630|2107->639|2145->655|2202->686|2264->739|2303->740|2334->744|2560->943|2578->952|2608->961|2657->983|2675->992|2733->1029|2782->1048|2812->1051
+                  HASH: 71384660cf8b1d0ee4f7c51c9655b7d8ca195327
+                  MATRIX: 992->1|1148->65|1183->92|1222->94|1250->96|1335->155|1352->164|1385->177|1556->322|1574->331|1606->342|1638->347|1756->439|1774->448|1807->460|1839->465|1962->561|1980->570|2037->606|2087->629|2105->638|2143->654|2200->685|2262->738|2301->739|2332->743|2558->942|2576->951|2606->960|2655->982|2673->991|2731->1028|2780->1047|2810->1050
                   LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|51->20|51->20|51->20|51->20|51->20|51->20|53->22|53->22|53->22|54->23|59->28|59->28|59->28|60->29|60->29|60->29|62->31|63->32
                   -- GENERATED --
               */

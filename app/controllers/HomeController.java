@@ -45,10 +45,17 @@ public class HomeController extends Controller {
         return ok(index.render(User.getUserById(session().get("email"))));
     }
 
-    public Result properties() {
-        List<Houses> houseList = Houses.findAll();
-        List<Apartment> aList = Apartment.findAll();
-        return ok(properties.render(houseList, aList, User.getUserById(session().get("email")), e));
+    public Result properties(Long style) {
+        List<Property> pList = null;
+        List<Style> sList = Style.findAll();
+        
+        if(style ==0){
+            pList = Property.findAll();
+        }else {
+            pList = Style.find.ref(style).getProperty();
+        }
+
+        return ok(properties.render(pList, sList, User.getUserById(session().get("email")), e));
     }
 
     public Result contact() {
@@ -59,8 +66,8 @@ public class HomeController extends Controller {
     public Result landlordProfile(String email) {
         if(email != null){
             Landlord l = (Landlord) User.getUserById(email);
-            List<Houses>  houseList = Houses.findAll();
-            return ok(landlordProfile.render(l, houseList, User.getUserById(session().get("email")), e));
+            List<Property>  pList = Property.findAll();
+            return ok(landlordProfile.render(l, pList, User.getUserById(session().get("email")), e));
         }
         return notFound();
     }
@@ -68,50 +75,54 @@ public class HomeController extends Controller {
     //Adds security so user must be logged in
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
-    public Result addHouse() {
-        Form<Houses> houseForm = formFactory.form(Houses.class);
+    public Result addProperty() {
+        Form<Property> pForm = formFactory.form(Property.class);
         Form<Address> aForm = formFactory.form(Address.class);
 
-        return ok(addHouse.render(houseForm, aForm, User.getUserById(session().get("email")), e));
+        return ok(addProperty.render(pForm, aForm, User.getUserById(session().get("email")), e));
     }
 
     //Interacts directly with the database so the @Transactional is added
     @Security.Authenticated(Secured.class)
     @Transactional
-    public Result addHouseSubmit() {
-        Form<Houses> newHouseForm = formFactory.form(Houses.class).bindFromRequest();
+    public Result addPropertySubmit() {
+        Form<Property> newPropForm = formFactory.form(Property.class).bindFromRequest();
         Form<Address> newAddressForm = formFactory.form(Address.class).bindFromRequest();
 
         //Error handling
-        if (newHouseForm.hasErrors()) {
+        if (newPropForm.hasErrors()) {
             //Finds the error and gives the user a new form to fill out
-            return badRequest(addHouse.render(newHouseForm, newAddressForm, User.getUserById(session().get("email")), e));
+            return badRequest(addProperty.render(newPropForm, newAddressForm, User.getUserById(session().get("email")), e));
         } else {
             //Puts the form into the houses constructor
-            Houses newHouse = newHouseForm.get();
+            Property newProp = newPropForm.get();
             //Applies mapping to the form
             Address address = newAddressForm.get();
-            newHouse.setAddress(address);
+            newProp.setAddress(address);
 
+            List<Style> newStyle = new ArrayList<Style>();
+            for (Long s : newProp.getStyleSelect()) {
+                newStyle.add(Style.find.byId(s));
+            }
+            newProp.setStyles(newStyle);
             
-            
-            if(newHouse.getId() == null){
+            if(newProp.getId() == null){
                 //Saves to the database
-                newHouse.save();
+                newProp.save();
             } else {
-                newHouse.update();
+                newProp.update();
             }
 
             MultipartFormData<File> data = request().body().asMultipartFormData();
 
             FilePart<File> image = data.getFile("upload");
 
-            String saveImageMessage = saveFile(newHouse.getId(), image);
+            String saveImageMessage = saveFile(newProp.getId(), image);
 
-            flash("success", "House " + newHouse.getId() + " was added/updated" + saveImageMessage);
+            flash("success", "Prop " + newProp.getId() + " was added/updated" + saveImageMessage);
 
             //Brings them back to the initial page and shows the update
-            return redirect(controllers.routes.HomeController.properties());
+            return redirect(controllers.routes.HomeController.properties(0));
         }
 
     }
@@ -119,130 +130,46 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @Transactional
     @With(AuthAdmin.class)
-    public Result deleteHouse(Long id) {
-        Houses.find.ref(id).delete();
+    public Result deleteProperty(Long id) {
+        Property.find.ref(id).delete();
 
         //Flash message showing result
-        flash("success", "House has been deleted.");
-        return redirect(controllers.routes.HomeController.properties());
+        flash("success", "Property has been deleted.");
+        return redirect(controllers.routes.HomeController.properties(0));
     }
 
     @Security.Authenticated(Secured.class)
     @Transactional
     @With(AuthAdmin.class)
-    public Result updateHouse(Long id) {
-        Houses i;
+    public Result updateProperty(Long id) {
+        Property p;
         Address a;
-        Form<Houses> houseForm;
+        Form<Property> pForm;
         Form<Address> aForm;
 
         try{
             //Find by id
-            i = Houses.find.byId(id);
-            i.update();
+            p = Property.find.byId(id);
+            p.update();
 
-            if(i.getAddress() != null){
-                a = i.getAddress();
+            if(p.getAddress() != null){
+                a = p.getAddress();
                 aForm  = formFactory.form(Address.class).fill(a);
             } else {
                 aForm = formFactory.form(Address.class);
             }
 
             //Show the form so they can update it
-            houseForm = formFactory.form(Houses.class).fill(i);
+            pForm = formFactory.form(Property.class).fill(p);
             
 
         } catch (Exception ex) {
             return badRequest("error");
         }
 
-        return ok(addHouse.render(houseForm, aForm, User.getUserById(session().get("email")), e));
+        return ok(addProperty.render(pForm, aForm, User.getUserById(session().get("email")), e));
     }
 
-    @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
-    public Result addApartment() {
-        Form<Apartment> apartForm = formFactory.form(Apartment.class);
-        Form<Address> aForm = formFactory.form(Address.class);
-        return ok(addApartment.render(apartForm, aForm, User.getUserById(session().get("email")), e));
-    }
-
-    //Interacts directly with the database so the @Transactional is added
-    @Security.Authenticated(Secured.class)
-    @Transactional
-    public Result addApartmentSubmit() {
-        Form<Apartment> newApartForm = formFactory.form(Apartment.class).bindFromRequest();
-        Form<Address> newAddressForm = formFactory.form(Address.class).bindFromRequest();
-
-        //Error handling
-        if (newApartForm.hasErrors()) {
-            //Finds the error and gives the user a new form to fill out
-            return badRequest(addApartment.render(newApartForm, newAddressForm, User.getUserById(session().get("email")), e));
-        } else {
-            //Puts the form into the houses constructor
-            Apartment newApart = newApartForm.get();
-            
-            if(newApart.getId() == null){
-                //Saves to the database
-                newApart.save();
-            } else {
-                newApart.update();
-            }
-
-            MultipartFormData<File> data = request().body().asMultipartFormData();
-
-            FilePart<File> image = data.getFile("upload");
-
-            String saveImageMessage = saveFile(newApart.getId(), image);
-
-            flash("success", "Apartment " + newApart.getId() + " was added/updated" + saveImageMessage);
-
-            //Brings them back to the initial page and shows the update
-            return redirect(controllers.routes.HomeController.properties());
-        }
-
-    }
-
-    @Security.Authenticated(Secured.class)
-    @Transactional
-    @With(AuthAdmin.class)
-    public Result deleteApartment(Long id) {
-        Apartment.find.ref(id).delete();
-
-        //Flash message showing result
-        flash("success", "Apartment has been deleted.");
-        return redirect(controllers.routes.HomeController.properties());
-    }
-
-    @Security.Authenticated(Secured.class)
-    @Transactional
-    @With(AuthAdmin.class)
-    public Result updateApartment(Long id) {
-        Apartment i;
-        Address address;
-
-        Form<Apartment> apartForm;
-        Form<Address> aForm;
-
-        try{
-            //Find by id
-            i = Apartment.find.byId(id);
-
-            if(i.getAddress() != null){
-                address = i.getAddress();
-                aForm  = formFactory.form(Address.class).fill(address);
-            } else {
-                aForm = formFactory.form(Address.class);
-            }
-
-            //Show the form so they can update it
-            apartForm = formFactory.form(Apartment.class).fill(i);
-        } catch (Exception ex) {
-            return badRequest("error");
-        }
-
-        return ok(addApartment.render(apartForm, aForm, User.getUserById(session().get("email")), e));
-    }
 
     public Result viewUsers() {
         List<Landlord> lList = null;
@@ -450,17 +377,17 @@ public class HomeController extends Controller {
     public Result searchDB(int min, int max) {
         // perhaps checks vals are not zero (now done via html)
 
-        List<Houses> searchList = Houses.findRange(min, max);
+        List<Property> searchList = Property.findRange(min, max);
         return ok(searchQuery.render(searchList, User.getUserById(session().get("email")), e));
     }
 
-    public Result viewHouse(Long id) {
+    public Result viewProperty(Long id) {
         if(id > 0) { // check valid before trying to query db
-            Houses house = Houses.findById(id);
+            Property property = Property.findById(id);
 
-            if(house != null) { // does it exist in db
-                System.out.println(house.getId());
-                return ok(viewHouse.render(house, User.getUserById(session().get("email"))));
+            if(property != null) { // does it exist in db
+                System.out.println(property.getId());
+                return ok(viewProperty.render(property, User.getUserById(session().get("email"))));
             }
         }
         return notFound(); // not found, spit out error
@@ -468,7 +395,7 @@ public class HomeController extends Controller {
 
     public Result viewApartment(Long id) {
         if(id > 0) { // check valid before trying to query db
-            Apartment apartment = Apartment.findById(id);
+            Property apartment = Property.findById(id);
 
             if(apartment != null) { // does it exist in db
                 System.out.println(apartment.getId());
