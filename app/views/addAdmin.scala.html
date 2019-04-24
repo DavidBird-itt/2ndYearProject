@@ -13,8 +13,11 @@
         <!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
         @inputText(aForm("email"), '_label -> "Email", 'class -> "form-control")
+
         @inputText(aForm("fname"), '_label -> "First Name", 'class -> "form-control")
         @inputText(aForm("lname"), '_label -> "Last Name", 'class -> "form-control")
+        @inputText(aForm("phone"), '_label -> "Phone", 'class -> "form-control")
+        @inputDate(aForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")
         @inputText(aForm("password"), '_label -> "Password", 'class -> "form-control")
 
         @inputText(aForm("role").copy(value=Some("admin")), '_label -> "", 'hidden -> "hidden")

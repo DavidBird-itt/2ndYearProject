@@ -43,22 +43,27 @@ Seq[Any](format.raw/*2.1*/("""
         """),format.raw/*12.9*/("""<!-- Uses helper methods to take the values from the form and add it to the database -->
         <!-- No need to get the id because it's auto generated -->
         """),_display_(/*14.10*/inputText(mForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*14.81*/("""
-        """),_display_(/*15.10*/inputText(mForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*15.86*/("""
-        """),_display_(/*16.10*/inputText(mForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*16.85*/("""        
-        """),_display_(/*17.10*/inputText(mForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*17.87*/("""
 
-        """),_display_(/*19.10*/inputText(mForm("role").copy(value=Some("member")), '_label -> "", 'hidden -> "hidden")),format.raw/*19.97*/("""
-        """),_display_(/*20.10*/inputText(mForm("email"), '_label -> "", 'hidden -> "hidden")),format.raw/*20.71*/("""
+        """),_display_(/*16.10*/inputText(mForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*16.86*/("""
+        """),_display_(/*17.10*/inputText(mForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*17.85*/("""
+        """),_display_(/*18.10*/inputText(mForm("phone"), '_label -> "Phone", 'class -> "form-control")),format.raw/*18.81*/("""
+        """),_display_(/*19.10*/inputDate(mForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")),format.raw/*19.112*/("""        
+        """),_display_(/*20.10*/inputText(mForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*20.87*/("""
+
+        """),_display_(/*22.10*/inputText(mForm("role").copy(value=Some("member")), '_label -> "", 'hidden -> "hidden")),format.raw/*22.97*/("""
         
-        """),format.raw/*22.9*/("""<div class="actions">
+        """),format.raw/*24.9*/("""<label> Image Upload </label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+
+        <div class="actions">
             <input type="submit" value="Create Account" class="btn btn-primary">
-            <a href=""""),_display_(/*24.23*/routes/*24.29*/.LoginController.login()),format.raw/*24.53*/("""">
+            <a href=""""),_display_(/*29.23*/routes/*29.29*/.LoginController.login()),format.raw/*29.53*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
 
         
-    """)))}),format.raw/*30.6*/("""
+    """)))}),format.raw/*35.6*/("""
 """)))}))
       }
     }
@@ -75,11 +80,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 19 16:26:10 IST 2019
+                  DATE: Wed Apr 24 11:41:42 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/createAccount.scala.html
-                  HASH: 4c61f55c8179070750437de759097aaf35f239e3
-                  MATRIX: 993->1|1125->63|1169->61|1196->79|1223->81|1259->109|1298->111|1329->116|1395->157|1502->255|1542->257|1578->294|1615->304|1628->308|1659->318|1696->328|1888->493|1980->564|2017->574|2114->650|2151->660|2247->735|2292->753|2390->830|2428->841|2536->928|2573->938|2655->999|2700->1017|2852->1142|2867->1148|2912->1172|3070->1300
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|43->12|45->14|45->14|46->15|46->15|47->16|47->16|48->17|48->17|50->19|50->19|51->20|51->20|53->22|55->24|55->24|55->24|61->30
+                  HASH: a8d0ff3d941da2b1948e197cfef3a9f150aaf5fd
+                  MATRIX: 993->1|1125->63|1169->61|1196->79|1223->81|1259->109|1298->111|1329->116|1395->157|1502->255|1542->257|1578->294|1615->304|1628->308|1659->318|1696->328|1888->493|1980->564|2018->575|2115->651|2152->661|2248->736|2285->746|2377->817|2414->827|2538->929|2583->947|2681->1024|2719->1035|2827->1122|2872->1140|3132->1373|3147->1379|3192->1403|3350->1531
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|39->8|39->8|40->9|41->10|41->10|41->10|43->12|45->14|45->14|47->16|47->16|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|53->22|53->22|55->24|60->29|60->29|60->29|66->35
                   -- GENERATED --
               */
           

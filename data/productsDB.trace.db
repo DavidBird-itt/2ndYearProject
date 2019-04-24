@@ -1583,3 +1583,16 @@ insert into property (type,id,num_beds,num_baths,price) values ('h',1,4, 3, 4000
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-04-24 12:48:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+drop table user [42102-197]
+2019-04-24 12:48:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DROP TABLE PROPERTY
+DROP[*] TABLE STYLE
+DROP TABLE STYLE_PROPERTY "; SQL statement:
+drop table property
+drop table style
+drop table style_property [42000-197]
+2019-04-24 12:51:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+insert into user (type, email,role,fname,lname,phone,date_joined,password) values ( 'a','admin@adk.com', 'admin', 'Alice', 'Admin', '0876342343', '2018-01-20','password') [42102-197]

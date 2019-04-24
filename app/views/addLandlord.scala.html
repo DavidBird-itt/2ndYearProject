@@ -14,9 +14,10 @@
         <!-- No need to get the id because it's auto generated -->
         @inputText(lForm("email"), '_label -> "Email", 'class -> "form-control")
 
-        
         @inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")
         @inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")
+        @inputText(lForm("phone"), '_label -> "Phone", 'class -> "form-control")
+        @inputDate(lForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")
         @inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")
 
         @inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")

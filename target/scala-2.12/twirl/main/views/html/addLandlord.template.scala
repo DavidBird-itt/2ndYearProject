@@ -45,23 +45,24 @@ Seq[Any](format.raw/*2.1*/("""
         <!-- No need to get the id because it's auto generated -->
         """),_display_(/*15.10*/inputText(lForm("email"), '_label -> "Email", 'class -> "form-control")),format.raw/*15.81*/("""
 
-        
-        """),_display_(/*18.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*18.86*/("""
-        """),_display_(/*19.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*19.85*/("""
-        """),_display_(/*20.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*20.87*/("""
+        """),_display_(/*17.10*/inputText(lForm("fname"), '_label -> "First Name", 'class -> "form-control")),format.raw/*17.86*/("""
+        """),_display_(/*18.10*/inputText(lForm("lname"), '_label -> "Last Name", 'class -> "form-control")),format.raw/*18.85*/("""
+        """),_display_(/*19.10*/inputText(lForm("phone"), '_label -> "Phone", 'class -> "form-control")),format.raw/*19.81*/("""
+        """),_display_(/*20.10*/inputDate(lForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")),format.raw/*20.112*/("""
+        """),_display_(/*21.10*/inputText(lForm("password"), '_label -> "Password", 'class -> "form-control")),format.raw/*21.87*/("""
 
-        """),_display_(/*22.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*22.99*/("""
+        """),_display_(/*23.10*/inputText(lForm("role").copy(value=Some("landlord")), '_label -> "", 'hidden -> "hidden")),format.raw/*23.99*/("""
 
-        """),format.raw/*24.9*/("""<label> Image Upload </label>
+        """),format.raw/*25.9*/("""<label> Image Upload </label>
         <input class="btn-sm btn-default" type="file" name="upload">
     
         <div class="actions">
             <input type="submit" value="Add Landlord" class="btn btn-primary">
-            <a href=""""),_display_(/*29.23*/routes/*29.29*/.HomeController.viewUsers()),format.raw/*29.56*/("""">
+            <a href=""""),_display_(/*30.23*/routes/*30.29*/.HomeController.viewUsers()),format.raw/*30.56*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*33.6*/("""
+    """)))}),format.raw/*34.6*/("""
 """)))}))
       }
     }
@@ -78,11 +79,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 19 16:26:10 IST 2019
+                  DATE: Wed Apr 24 11:41:43 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/addLandlord.scala.html
-                  HASH: c5fc71cbdc46369558b9837f21bbbb2ab347f8c6
-                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2138->676|2235->752|2272->762|2368->837|2405->847|2503->924|2541->935|2651->1024|2688->1034|2950->1269|2965->1275|3013->1302|3161->1420
-                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|49->18|49->18|50->19|50->19|51->20|51->20|53->22|53->22|55->24|60->29|60->29|60->29|64->33
+                  HASH: c20345322cf205e8c1db61167f8cf27f149e4eb1
+                  MATRIX: 1014->1|1175->92|1219->90|1246->109|1273->111|1309->139|1348->141|1379->146|1449->191|1613->347|1652->349|1689->386|1726->396|1739->400|1770->410|1807->420|1999->585|2091->656|2129->667|2226->743|2263->753|2359->828|2396->838|2488->909|2525->919|2649->1021|2686->1031|2784->1108|2822->1119|2932->1208|2969->1218|3231->1453|3246->1459|3294->1486|3442->1604
+                  LINES: 28->1|31->3|34->2|35->4|36->5|36->5|36->5|37->6|39->8|40->9|40->9|41->10|42->11|42->11|42->11|44->13|46->15|46->15|48->17|48->17|49->18|49->18|50->19|50->19|51->20|51->20|52->21|52->21|54->23|54->23|56->25|61->30|61->30|61->30|65->34
                   -- GENERATED --
               */
           
