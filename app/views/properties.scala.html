@@ -1,62 +1,64 @@
-@(properties: List[models.products.Property], style:List[models.products.Style], user: models.users.User, env: play.api.Environment)
-@main("Properties", user) {
-    <h1>
-        Property
-        @if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole())))) {
-            <a href="@routes.HomeController.addProperty()">
-                <span style="font-size:20px">(Add New Property)</span>
-            </a>
-        }
-    </h1>
+@(property: List[models.products.Property], style: List[models.products.Style], user: models.users.User, env: play.api.Environment )
 
-    <div class="col-sm-3">
-		<h4>Styles</h4>
-	        <ul class="list-group">
-                    <a href = "@routes.HomeController.properties(0)" class="list-group-item">All Styles</a>
-		        @for(s<-style) {
-			        <a href = "@routes.HomeController.properties(s.getId())" class="list-group-item catheight">@s.getName
-                        <span class="badge">@s.getProperty.size</span> 
-                    </a>
-			    }
-            </ul>
-    </div>
+@main("Database", user) {
+    <h1>The Database</h1>
 
-    <div class = "col-sm-9">
-    <br>
-    <div id="database-list">
-        <table style="width:100%">
-            @for(property<-properties) {
-                <tr>
+    <!-- Displays the flash message -->
+    @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+            @flash.get("success")
+        </div>
+    }
+    
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <!--Header-->
+            <tr>
+                <th>ID</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Populating the database-->
+            <tr>
+                @for(i<-property) {        
+                    <td>@i.getId</td>
+                    <td>@i.getNumBeds</td>
+                    <td>@i.getNumBaths</td>
+                    <td>&euro; @("%.2f".format(i.getPrice))</td>
+                    <!-- Update button -->
                     <td>
-                        <a href="@routes.HomeController.viewProperty(property.getId)" class="listing">
-                        <img src="property.getThumbnailPath" /> House for &euro;@property.getDisplayValue(property.getPrice)
+                        <a href="@routes.HomeController.updateProperty(i.getId)" class="button-xs btn-danger">
+                            <span class="glyphicon-pencil"><</span>
+                        </a>
                     </td>
-                        <td class="desc">
-                            <i class="fas fa-bed"></i> @property.getNumBeds&nbsp;
-                            <i class="fas fa-toilet"></i> @property.getNumBaths&nbsp;
-                          
-                            <i class="fas fa-leaf"></i>@property.getStock&nbsp;
-                            @if((user != null) && ("admin".equals(user.getRole()))) {
-                                &nbsp;
-                                @if(property.getStock == 0) {
-                                    <td><a href="@routes.ShoppingCtrl.addToBasket(property.getId)"
-                                        class="btn btn-default btn-xs"><span
-                                        class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    </td>
-                                } else {
-                                    <td><img src="/assets/images/sold.jpg"/></td>
-                                }
 
-                                &nbsp;
-                                <a href="@routes.HomeController.updateProperty(property.getId)"><i class="fas fa-edit"></i></a>
-                                &nbsp;
-                                <a href="@routes.HomeController.deleteProperty(property.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
-                            }
+                    <!-- Delete button -->
+                    <td>
+                        <a href="@routes.HomeController.deleteProperty(i.getId)" class="button-xs btn-danger" onclick="return confirmDel();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+
+                    @if(i.getStock() == 1) {
+                        <td><a href="@routes.ShoppingCtrl.addToBasket(i.getId)"
+                                class="btn btn-default btn-xs"><span
+                                class="glyphicon glyphicon-shopping-cart"></span></a>
                         </td>
-                    </a>
-                </tr>
-            }
-        </table>
-    </div>
-</div>
+                            } else {
+                                <td><img src="/assets/images/sold.jpg"/></td>
+                            }
+
+            </tr>
+        }
+        </tbody>
+    </table>         
+
+    <p>
+        <a href="@routes.HomeController.addProperty()">
+            <button class="btn btn-primary">Add a House</button>
+        </a>
+    </p>
 }

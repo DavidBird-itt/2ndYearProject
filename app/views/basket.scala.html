@@ -3,8 +3,7 @@
 
 @import play.api.Play.current
 @import models.shopping._
-@import models.users.User
-@import models.users.Member
+@import models.products._
 
 @main("Shopping Basket", user) {
 
@@ -22,10 +21,9 @@
                 <thead>
                 <!-- The header row-->
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Item Price</th>
-                    <th>Total</th>
-                    <th>dec.</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
@@ -33,10 +31,8 @@
                         <!-- Start of For loop - For each p in products add a row -->
                         @for(i <- user.getBasket().getBasketItems()) {
                         <tr>
-                            <td>@i.getOrder.getId</td>
                             <td>&euro; @("%.2f".format(i.getPrice))</td>
-                            <td>&euro; @("%.2f".format(i.getItemTotal))</td>
-                            <td><a href="@routes.ShoppingCtrl.removeOne(i.getId)"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+
                         </tr>
                         }<!-- End of For loop -->
                   }

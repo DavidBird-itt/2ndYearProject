@@ -35,8 +35,8 @@ GET     /searchQuery      			controllers.HomeController.searchDB(min: Integer ?=
 
 GET     /addProperty                   controllers.HomeController.addProperty
 POST    /addPropertySubmit             controllers.HomeController.addPropertySubmit
-GET     /propertyHouse/:id            controllers.HomeController.deleteProperty(id: Long)
-GET     /propertyHouse/:id            controllers.HomeController.updateProperty(id: Long)
+GET     /deleteProperty/:id            controllers.HomeController.deleteProperty(id: Long)
+GET     /updateProperty/:id            controllers.HomeController.updateProperty(id: Long)
 
 GET     /viewUsers                   controllers.HomeController.viewUsers
 GET     /addLandlord                controllers.HomeController.addLandlord

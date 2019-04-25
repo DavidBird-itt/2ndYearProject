@@ -25,79 +25,81 @@ import play.core.j.PlayFormsMagicForJava._
 object properties extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(properties: List[models.products.Property], style:List[models.products.Style], user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(property: List[models.products.Property], style: List[models.products.Style], user: models.users.User, env: play.api.Environment ):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*2.2*/main("Properties", user)/*2.26*/ {_display_(Seq[Any](format.raw/*2.28*/("""
-    """),format.raw/*3.5*/("""<h1>
-        Property
-        """),_display_(/*5.10*/if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole()))))/*5.105*/ {_display_(Seq[Any](format.raw/*5.107*/("""
-            """),format.raw/*6.13*/("""<a href=""""),_display_(/*6.23*/routes/*6.29*/.HomeController.addProperty()),format.raw/*6.58*/("""">
-                <span style="font-size:20px">(Add New Property)</span>
-            </a>
-        """)))}),format.raw/*9.10*/("""
-    """),format.raw/*10.5*/("""</h1>
+Seq[Any](format.raw/*2.1*/("""
+"""),_display_(/*3.2*/main("Database", user)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
+    """),format.raw/*4.5*/("""<h1>The Database</h1>
 
-    <div class="col-sm-3">
-		<h4>Styles</h4>
-	        <ul class="list-group">
-                    <a href = """"),_display_(/*15.33*/routes/*15.39*/.HomeController.properties(0)),format.raw/*15.68*/("""" class="list-group-item">All Styles</a>
-		        """),_display_(/*16.12*/for(s<-style) yield /*16.25*/ {_display_(Seq[Any](format.raw/*16.27*/("""
-			        """),format.raw/*17.12*/("""<a href = """"),_display_(/*17.24*/routes/*17.30*/.HomeController.properties(s.getId())),format.raw/*17.67*/("""" class="list-group-item catheight">"""),_display_(/*17.104*/s/*17.105*/.getName),format.raw/*17.113*/("""
-                        """),format.raw/*18.25*/("""<span class="badge">"""),_display_(/*18.46*/s/*18.47*/.getProperty.size),format.raw/*18.64*/("""</span> 
-                    </a>
-			    """)))}),format.raw/*20.9*/("""
-            """),format.raw/*21.13*/("""</ul>
-    </div>
-
-    <div class = "col-sm-9">
-    <br>
-    <div id="database-list">
-        <table style="width:100%">
-            """),_display_(/*28.14*/for(property<-properties) yield /*28.39*/ {_display_(Seq[Any](format.raw/*28.41*/("""
-                """),format.raw/*29.17*/("""<tr>
+    <!-- Displays the flash message -->
+    """),_display_(/*7.6*/if(flash.containsKey("success"))/*7.38*/ {_display_(Seq[Any](format.raw/*7.40*/("""
+        """),format.raw/*8.9*/("""<div class="alert alert-success">
+            """),_display_(/*9.14*/flash/*9.19*/.get("success")),format.raw/*9.34*/("""
+        """),format.raw/*10.9*/("""</div>
+    """)))}),format.raw/*11.6*/("""
+    
+    """),format.raw/*13.5*/("""<table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <!--Header-->
+            <tr>
+                <th>ID</th>
+                <th>Bedrooms</th>
+                <th>Bathrooms</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Populating the database-->
+            <tr>
+                """),_display_(/*26.18*/for(i<-property) yield /*26.34*/ {_display_(Seq[Any](format.raw/*26.36*/("""        
+                    """),format.raw/*27.21*/("""<td>"""),_display_(/*27.26*/i/*27.27*/.getId),format.raw/*27.33*/("""</td>
+                    <td>"""),_display_(/*28.26*/i/*28.27*/.getNumBeds),format.raw/*28.38*/("""</td>
+                    <td>"""),_display_(/*29.26*/i/*29.27*/.getNumBaths),format.raw/*29.39*/("""</td>
+                    <td>&euro; """),_display_(/*30.33*/("%.2f".format(i.getPrice))),format.raw/*30.60*/("""</td>
+                    <!-- Update button -->
                     <td>
-                        <a href=""""),_display_(/*31.35*/routes/*31.41*/.HomeController.viewProperty(property.getId)),format.raw/*31.85*/("""" class="listing">
-                        <img src="property.getThumbnailPath" /> House for &euro;"""),_display_(/*32.82*/property/*32.90*/.getDisplayValue(property.getPrice)),format.raw/*32.125*/("""
-                    """),format.raw/*33.21*/("""</td>
-                        <td class="desc">
-                            <i class="fas fa-bed"></i> """),_display_(/*35.57*/property/*35.65*/.getNumBeds),format.raw/*35.76*/("""&nbsp;
-                            <i class="fas fa-toilet"></i> """),_display_(/*36.60*/property/*36.68*/.getNumBaths),format.raw/*36.80*/("""&nbsp;
-                          
-                            <i class="fas fa-leaf"></i>"""),_display_(/*38.57*/property/*38.65*/.getStock),format.raw/*38.74*/("""&nbsp;
-                            """),_display_(/*39.30*/if((user != null) && ("admin".equals(user.getRole())))/*39.84*/ {_display_(Seq[Any](format.raw/*39.86*/("""
-                                """),format.raw/*40.33*/("""&nbsp;
-                                """),_display_(/*41.34*/if(property.getStock == 0)/*41.60*/ {_display_(Seq[Any](format.raw/*41.62*/("""
-                                    """),format.raw/*42.37*/("""<td><a href=""""),_display_(/*42.51*/routes/*42.57*/.ShoppingCtrl.addToBasket(property.getId)),format.raw/*42.98*/(""""
-                                        class="btn btn-default btn-xs"><span
-                                        class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    </td>
-                                """)))}/*46.35*/else/*46.40*/{_display_(Seq[Any](format.raw/*46.41*/("""
-                                    """),format.raw/*47.37*/("""<td><img src="/assets/images/sold.jpg"/></td>
-                                """)))}),format.raw/*48.34*/("""
+                        <a href=""""),_display_(/*33.35*/routes/*33.41*/.HomeController.updateProperty(i.getId)),format.raw/*33.80*/("""" class="button-xs btn-danger">
+                            <span class="glyphicon-pencil"><</span>
+                        </a>
+                    </td>
 
-                                """),format.raw/*50.33*/("""&nbsp;
-                                <a href=""""),_display_(/*51.43*/routes/*51.49*/.HomeController.updateProperty(property.getId)),format.raw/*51.95*/(""""><i class="fas fa-edit"></i></a>
-                                &nbsp;
-                                <a href=""""),_display_(/*53.43*/routes/*53.49*/.HomeController.deleteProperty(property.getId)),format.raw/*53.95*/("""" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
-                            """)))}),format.raw/*54.30*/("""
-                        """),format.raw/*55.25*/("""</td>
-                    </a>
-                </tr>
-            """)))}),format.raw/*58.14*/("""
-        """),format.raw/*59.9*/("""</table>
-    </div>
-</div>
+                    <!-- Delete button -->
+                    <td>
+                        <a href=""""),_display_(/*40.35*/routes/*40.41*/.HomeController.deleteProperty(i.getId)),format.raw/*40.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+
+                    """),_display_(/*45.22*/if(i.getStock() == 1)/*45.43*/ {_display_(Seq[Any](format.raw/*45.45*/("""
+                        """),format.raw/*46.25*/("""<td><a href=""""),_display_(/*46.39*/routes/*46.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*46.79*/(""""
+                                class="btn btn-default btn-xs"><span
+                                class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </td>
+                            """)))}/*50.31*/else/*50.36*/{_display_(Seq[Any](format.raw/*50.37*/("""
+                                """),format.raw/*51.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
+                            """)))}),format.raw/*52.30*/("""
+
+            """),format.raw/*54.13*/("""</tr>
+        """)))}),format.raw/*55.10*/("""
+        """),format.raw/*56.9*/("""</tbody>
+    </table>         
+
+    <p>
+        <a href=""""),_display_(/*60.19*/routes/*60.25*/.HomeController.addProperty()),format.raw/*60.54*/("""">
+            <button class="btn btn-primary">Add a House</button>
+        </a>
+    </p>
 """)))}))
       }
     }
   }
 
-  def render(properties:List[models.products.Property],style:List[models.products.Style],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(properties,style,user,env)
+  def render(property:List[models.products.Property],style:List[models.products.Style],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(property,style,user,env)
 
-  def f:((List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (properties,style,user,env) => apply(properties,style,user,env)
+  def f:((List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (property,style,user,env) => apply(property,style,user,env)
 
   def ref: this.type = this
 
@@ -106,11 +108,11 @@ Seq[Any](_display_(/*2.2*/main("Properties", user)/*2.26*/ {_display_(Seq[Any](f
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 23 10:29:44 IST 2019
+                  DATE: Thu Apr 25 16:47:43 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/properties.scala.html
-                  HASH: 094e65d402379262b2ffce268fde0a0b87e13403
-                  MATRIX: 1044->1|1269->134|1301->158|1340->160|1371->165|1428->196|1532->291|1572->293|1612->306|1648->316|1662->322|1711->351|1841->451|1873->456|2017->573|2032->579|2082->608|2161->660|2190->673|2230->675|2270->687|2309->699|2324->705|2382->742|2447->779|2458->780|2488->788|2541->813|2589->834|2599->835|2637->852|2709->894|2750->907|2910->1040|2951->1065|2991->1067|3036->1084|3127->1148|3142->1154|3207->1198|3334->1298|3351->1306|3408->1341|3457->1362|3588->1466|3605->1474|3637->1485|3730->1551|3747->1559|3780->1571|3897->1661|3914->1669|3944->1678|4007->1714|4070->1768|4110->1770|4171->1803|4238->1843|4273->1869|4313->1871|4378->1908|4419->1922|4434->1928|4496->1969|4763->2218|4776->2223|4815->2224|4880->2261|4990->2340|5052->2374|5128->2423|5143->2429|5210->2475|5352->2590|5367->2596|5434->2642|5560->2737|5613->2762|5710->2828|5746->2837
-                  LINES: 28->1|33->2|33->2|33->2|34->3|36->5|36->5|36->5|37->6|37->6|37->6|37->6|40->9|41->10|46->15|46->15|46->15|47->16|47->16|47->16|48->17|48->17|48->17|48->17|48->17|48->17|48->17|49->18|49->18|49->18|49->18|51->20|52->21|59->28|59->28|59->28|60->29|62->31|62->31|62->31|63->32|63->32|63->32|64->33|66->35|66->35|66->35|67->36|67->36|67->36|69->38|69->38|69->38|70->39|70->39|70->39|71->40|72->41|72->41|72->41|73->42|73->42|73->42|73->42|77->46|77->46|77->46|78->47|79->48|81->50|82->51|82->51|82->51|84->53|84->53|84->53|85->54|86->55|89->58|90->59
+                  HASH: 007408d1e503efe229fdde45e8b0813e23d9cb19
+                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2246->753|2278->769|2318->771|2375->800|2407->805|2417->806|2444->812|2502->843|2512->844|2544->855|2602->886|2612->887|2645->899|2710->937|2758->964|2893->1072|2908->1078|2968->1117|3253->1375|3268->1381|3328->1420|3571->1636|3601->1657|3641->1659|3694->1684|3735->1698|3750->1704|3805->1738|4040->1955|4053->1960|4092->1961|4153->1994|4259->2069|4301->2083|4347->2098|4383->2107|4468->2165|4483->2171|4533->2200
+                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|57->26|57->26|57->26|58->27|58->27|58->27|58->27|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|64->33|64->33|64->33|71->40|71->40|71->40|76->45|76->45|76->45|77->46|77->46|77->46|77->46|81->50|81->50|81->50|82->51|83->52|85->54|86->55|87->56|91->60|91->60|91->60
                   -- GENERATED --
               */
           

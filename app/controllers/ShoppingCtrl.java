@@ -39,13 +39,12 @@ public class ShoppingCtrl extends Controller {
     // Add item to customer basket
     @Transactional
     public Result addToBasket(Long id) {
-
         // Find the item on sale
         Property property = Property.find.byId(id);
-        
+        System.out.println(1);
         // Get basket for logged in customer
         Member member = (Member)User.getUserById(session().get("email"));
-        
+        System.out.println(2);
         // Check if item in basket
         if (member.getBasket() == null) {
             // If no basket, create one
@@ -53,14 +52,17 @@ public class ShoppingCtrl extends Controller {
             member.getBasket().setMember(member);
             member.update();
         }
+        System.out.println(3);
         // Add product to the basket and save
         member.getBasket().addProperty(property);
         member.update();
 
+        System.out.println(4);
+
         property.getStock();
         member.update();
 
-        
+        System.out.println(5);
         // Show the basket contents     
         return ok(basket.render(member));
     }
@@ -98,12 +100,12 @@ public class ShoppingCtrl extends Controller {
             // Remove from basket
             i.setBasket(null);
             // update item
-            i.update();
+            i.update(); 
         }
         
         // Update the order
         order.update();
-        
+         
         // Clear and update the shopping basket
         m.getBasket().setBasketItems(null);
         m.getBasket().update();
@@ -114,6 +116,8 @@ public class ShoppingCtrl extends Controller {
 
     @Transactional
     public Result showBasket() {
+        System.out.println("This is what it prints" + (Member)User.getUserById(session().get("email")));
+
         return ok(basket.render((Member)User.getUserById(session().get("email"))));
     }
 

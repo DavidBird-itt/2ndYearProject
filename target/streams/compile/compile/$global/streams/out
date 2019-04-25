@@ -1,16 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addAdmin.scala.html:20:20: not found: value projectForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputDate(projectForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addLandlord.scala.html:19:20: not found: value aForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputText(aForm("phone"), '_label -> "Phone", 'class -> "form-control")[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/addLandlord.scala.html:20:20: not found: value projectForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputDate(projectForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/createAccount.scala.html:18:20: not found: value aForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputText(aForm("phone"), '_label -> "Phone", 'class -> "form-control")[0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/createAccount.scala.html:19:20: not found: value projectForm[0m
-[0m[[0m[31merror[0m] [0m[0m        @inputDate(projectForm("dateJoined"), args = 'size -> 10, '_label -> "Date Joined", 'class -> "form-control")        [0m
-[0m[[0m[31merror[0m] [0m[0m                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/play/PlayReminder/app/views/basket.scala.html:6:16: object product is not a member of package models[0m
+[0m[[0m[31merror[0m] [0m[0m@import models.product._[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

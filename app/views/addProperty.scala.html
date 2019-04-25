@@ -49,6 +49,7 @@
         <input class="btn-sm btn-default" type="file" name="upload">
     
         @inputText(pForm("id"), '_label -> "", 'hidden -> "hidden")
+        @inputText(pForm("stock").copy(value=Some("1")), '_label -> "", 'hidden -> "hidden")
     
         <div class="actions">
             <input type="submit" value="Add Property" class="btn btn-primary">

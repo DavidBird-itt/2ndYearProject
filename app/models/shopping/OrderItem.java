@@ -13,6 +13,12 @@ import models.users.*;
 // OrderItem entity managed by Ebean
 @Entity
 public class OrderItem extends Model {
+    @Id
+    private Long id;
+    
+    private int quantity;
+    private double price;
+
     @ManyToOne
     private ShopOrder order;
     
@@ -23,12 +29,6 @@ public class OrderItem extends Model {
     // Product not interested in this
     @ManyToOne
     private Property property;
-
-    @Id
-    private Long id;
-    
-    private int quantity;
-    private double price;
 
     // Default constructor
     public  OrderItem() {

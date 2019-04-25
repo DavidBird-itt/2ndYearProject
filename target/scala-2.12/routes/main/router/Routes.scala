@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/play/PlayReminder/conf/routes
-// @DATE:Tue Apr 23 17:24:47 IST 2019
+// @DATE:Thu Apr 25 16:36:05 IST 2019
 
 package router
 
@@ -71,8 +71,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """searchQuery""", """controllers.HomeController.searchDB(min:Integer ?= 0, max:Integer ?= 0)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addProperty""", """controllers.HomeController.addProperty"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addPropertySubmit""", """controllers.HomeController.addPropertySubmit"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """propertyHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteProperty(id:Long)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """propertyHouse/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProperty(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """deleteProperty/""" + "$" + """id<[^/]+>""", """controllers.HomeController.deleteProperty(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """updateProperty/""" + "$" + """id<[^/]+>""", """controllers.HomeController.updateProperty(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """viewUsers""", """controllers.HomeController.viewUsers"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addLandlord""", """controllers.HomeController.addLandlord"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addLandlordSubmit""", """controllers.HomeController.addLandlordSubmit"""),
@@ -390,7 +390,7 @@ class Routes(
 
   // @LINE:38
   private[this] lazy val controllers_HomeController_deleteProperty16_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("propertyHouse/"), DynamicPart("id", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("deleteProperty/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_HomeController_deleteProperty16_invoker = createInvoker(
     HomeController_1.deleteProperty(fakeValue[Long]),
@@ -400,7 +400,7 @@ class Routes(
       "deleteProperty",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """propertyHouse/""" + "$" + """id<[^/]+>""",
+      this.prefix + """deleteProperty/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )
@@ -408,7 +408,7 @@ class Routes(
 
   // @LINE:39
   private[this] lazy val controllers_HomeController_updateProperty17_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("propertyHouse/"), DynamicPart("id", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateProperty/"), DynamicPart("id", """[^/]+""",true)))
   )
   private[this] lazy val controllers_HomeController_updateProperty17_invoker = createInvoker(
     HomeController_1.updateProperty(fakeValue[Long]),
@@ -418,7 +418,7 @@ class Routes(
       "updateProperty",
       Seq(classOf[Long]),
       "GET",
-      this.prefix + """propertyHouse/""" + "$" + """id<[^/]+>""",
+      this.prefix + """updateProperty/""" + "$" + """id<[^/]+>""",
       """""",
       Seq()
     )

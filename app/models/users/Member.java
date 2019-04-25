@@ -7,8 +7,7 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
-import models.rent.*;
-import models.*;
+import models.products.*;
 import models.shopping.*;
 
 @Table(name="User")
@@ -16,8 +15,6 @@ import models.shopping.*;
 @DiscriminatorValue("m")
 @Entity
 public class Member extends User {
-    @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
-    private RentDue rentDue;
 
     @OneToOne(mappedBy="member", cascade = CascadeType.ALL)
     private Basket basket;
@@ -40,14 +37,6 @@ public class Member extends User {
     }
 
     //Mapped Getters and setters
-    public RentDue getRentDue() {
-        return rentDue;
-    }
-
-    public void setRentDue(RentDue rentDue) {
-        this.rentDue = rentDue;
-    }
-
     public Basket getBasket() {
         return basket;
     }

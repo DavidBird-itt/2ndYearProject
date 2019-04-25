@@ -30,66 +30,62 @@ object basket extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
       {
 /*4.2*/import play.api.Play.current
 /*5.2*/import models.shopping._
-/*6.2*/import models.users.User
-/*7.2*/import models.users.Member
+/*6.2*/import models.products._
 
 
 Seq[Any](format.raw/*2.1*/("""
 
-"""),format.raw/*8.1*/("""
-"""),_display_(/*9.2*/main("Shopping Basket", user)/*9.31*/ {_display_(Seq[Any](format.raw/*9.33*/("""
+"""),format.raw/*7.1*/("""
+"""),_display_(/*8.2*/main("Shopping Basket", user)/*8.31*/ {_display_(Seq[Any](format.raw/*8.33*/("""
 
 
-"""),format.raw/*12.1*/("""<div class="row">
+"""),format.raw/*11.1*/("""<div class="row">
 
 	<div class="col-md-12">
-		"""),_display_(/*15.4*/if(flash.containsKey("success"))/*15.36*/ {_display_(Seq[Any](format.raw/*15.38*/("""
-			  """),format.raw/*16.6*/("""<div class="alert alert-success">
-			      """),_display_(/*17.11*/flash/*17.16*/.get("success")),format.raw/*17.31*/("""
-			  """),format.raw/*18.6*/("""</div>
-		""")))}),format.raw/*19.4*/(""" 
+		"""),_display_(/*14.4*/if(flash.containsKey("success"))/*14.36*/ {_display_(Seq[Any](format.raw/*14.38*/("""
+			  """),format.raw/*15.6*/("""<div class="alert alert-success">
+			      """),_display_(/*16.11*/flash/*16.16*/.get("success")),format.raw/*16.31*/("""
+			  """),format.raw/*17.6*/("""</div>
+		""")))}),format.raw/*18.4*/(""" 
 
-        """),format.raw/*21.9*/("""<table class="table table-bordered table-hover table-condensed">
+        """),format.raw/*20.9*/("""<table class="table table-bordered table-hover table-condensed">
                 <thead>
                 <!-- The header row-->
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Item Price</th>
-                    <th>Total</th>
-                    <th>dec.</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
-                    """),_display_(/*32.22*/if(user.getBasket() != null)/*32.50*/ {_display_(Seq[Any](format.raw/*32.52*/("""
-                        """),format.raw/*33.25*/("""<!-- Start of For loop - For each p in products add a row -->
-                        """),_display_(/*34.26*/for(i <- user.getBasket().getBasketItems()) yield /*34.69*/ {_display_(Seq[Any](format.raw/*34.71*/("""
-                        """),format.raw/*35.25*/("""<tr>
-                            <td>"""),_display_(/*36.34*/i/*36.35*/.getOrder.getId),format.raw/*36.50*/("""</td>
-                            <td>&euro; """),_display_(/*37.41*/("%.2f".format(i.getPrice))),format.raw/*37.68*/("""</td>
-                            <td>&euro; """),_display_(/*38.41*/("%.2f".format(i.getItemTotal))),format.raw/*38.72*/("""</td>
-                            <td><a href=""""),_display_(/*39.43*/routes/*39.49*/.ShoppingCtrl.removeOne(i.getId)),format.raw/*39.81*/(""""><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+                    """),_display_(/*30.22*/if(user.getBasket() != null)/*30.50*/ {_display_(Seq[Any](format.raw/*30.52*/("""
+                        """),format.raw/*31.25*/("""<!-- Start of For loop - For each p in products add a row -->
+                        """),_display_(/*32.26*/for(i <- user.getBasket().getBasketItems()) yield /*32.69*/ {_display_(Seq[Any](format.raw/*32.71*/("""
+                        """),format.raw/*33.25*/("""<tr>
+                            <td>&euro; """),_display_(/*34.41*/("%.2f".format(i.getPrice))),format.raw/*34.68*/("""</td>
+
                         </tr>
-                        """)))}),format.raw/*41.26*/("""<!-- End of For loop -->
-                  """)))}),format.raw/*42.20*/("""
-                """),format.raw/*43.17*/("""</tbody>
+                        """)))}),format.raw/*37.26*/("""<!-- End of For loop -->
+                  """)))}),format.raw/*38.20*/("""
+                """),format.raw/*39.17*/("""</tbody>
             </table>
 
 		
         <div class="row">
             <div class="col-md-12">
-                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*49.69*/("%.2f".format(user.getBasket.getBasketTotal))),format.raw/*49.115*/("""</strong></p>
+                <p class="text-right"><strong>Basket Total: &euro; """),_display_(/*45.69*/("%.2f".format(user.getBasket.getBasketTotal))),format.raw/*45.115*/("""</strong></p>
             </div>  
         </div>
         <div class="row">
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*55.31*/routes/*55.37*/.ShoppingCtrl.emptyBasket()),format.raw/*55.64*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                    <a href=""""),_display_(/*51.31*/routes/*51.37*/.ShoppingCtrl.emptyBasket()),format.raw/*51.64*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
                     <span class="glyphicon glyphicon-trash"></span> Empty Basket</a>
                 </p>
             </div>  
             <div class="col-md-6">
                 <p class="text-right">
-                    <a href=""""),_display_(/*61.31*/routes/*61.37*/.ShoppingCtrl.placeOrder()),format.raw/*61.63*/("""" class="btn btn-success btn-sm">
+                    <a href=""""),_display_(/*57.31*/routes/*57.37*/.ShoppingCtrl.placeOrder()),format.raw/*57.63*/("""" class="btn btn-success btn-sm">
                     <span class="glyphicon glyphicon-euro"></span> Place Order</a>
                 </p>
             </div>  
@@ -99,10 +95,10 @@ Seq[Any](format.raw/*2.1*/("""
 
 <script>
 	// JavaScript function returns true if user clicks yes, otherwise, false
-	function confirmDel() """),format.raw/*71.24*/("""{"""),format.raw/*71.25*/("""
-		"""),format.raw/*72.3*/("""return confirm('Are you sure?');
-	"""),format.raw/*73.2*/("""}"""),format.raw/*73.3*/("""
-"""),format.raw/*74.1*/("""</script>
+	function confirmDel() """),format.raw/*67.24*/("""{"""),format.raw/*67.25*/("""
+		"""),format.raw/*68.3*/("""return confirm('Are you sure?');
+	"""),format.raw/*69.2*/("""}"""),format.raw/*69.3*/("""
+"""),format.raw/*70.1*/("""</script>
 """)))}))
       }
     }
@@ -119,11 +115,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 19 16:26:10 IST 2019
+                  DATE: Thu Apr 25 17:42:00 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/basket.scala.html
-                  HASH: 22334e83a4a6c318c78d5725198b66a04e7ab72c
-                  MATRIX: 962->1|1062->32|1098->62|1130->88|1162->114|1217->29|1245->141|1272->143|1309->172|1348->174|1378->177|1451->224|1492->256|1532->258|1565->264|1636->308|1650->313|1686->328|1719->334|1759->344|1797->355|2206->737|2243->765|2283->767|2336->792|2450->879|2509->922|2549->924|2602->949|2667->987|2677->988|2713->1003|2786->1049|2834->1076|2907->1122|2959->1153|3034->1201|3049->1207|3102->1239|3252->1358|3327->1402|3372->1419|3563->1583|3631->1629|3838->1809|3853->1815|3901->1842|4223->2137|4238->2143|4285->2169|4612->2468|4641->2469|4671->2472|4732->2506|4760->2507|4788->2508
-                  LINES: 28->1|31->4|32->5|33->6|34->7|37->2|39->8|40->9|40->9|40->9|43->12|46->15|46->15|46->15|47->16|48->17|48->17|48->17|49->18|50->19|52->21|63->32|63->32|63->32|64->33|65->34|65->34|65->34|66->35|67->36|67->36|67->36|68->37|68->37|69->38|69->38|70->39|70->39|70->39|72->41|73->42|74->43|80->49|80->49|86->55|86->55|86->55|92->61|92->61|92->61|102->71|102->71|103->72|104->73|104->73|105->74
+                  HASH: c8fe4e35066e8b06766b47c3dc9595e6efcbcfea
+                  MATRIX: 962->1|1062->32|1098->62|1130->88|1183->29|1211->113|1238->115|1275->144|1314->146|1344->149|1417->196|1458->228|1498->230|1531->236|1602->280|1616->285|1652->300|1685->306|1725->316|1763->327|2113->650|2150->678|2190->680|2243->705|2357->792|2416->835|2456->837|2509->862|2581->907|2629->934|2722->996|2797->1040|2842->1057|3033->1221|3101->1267|3308->1447|3323->1453|3371->1480|3693->1775|3708->1781|3755->1807|4082->2106|4111->2107|4141->2110|4202->2144|4230->2145|4258->2146
+                  LINES: 28->1|31->4|32->5|33->6|36->2|38->7|39->8|39->8|39->8|42->11|45->14|45->14|45->14|46->15|47->16|47->16|47->16|48->17|49->18|51->20|61->30|61->30|61->30|62->31|63->32|63->32|63->32|64->33|65->34|65->34|68->37|69->38|70->39|76->45|76->45|82->51|82->51|82->51|88->57|88->57|88->57|98->67|98->67|99->68|100->69|100->69|101->70
                   -- GENERATED --
               */
           

@@ -18,8 +18,6 @@
 </head>
 
 <body>
-
-
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -29,9 +27,8 @@
 				<li @if(pagename== "Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
 				<li @if(pagename == "Properties"){class="active"}><a href="@routes.HomeController.properties(0)">Properties</a></li>
 				@if((user != null) && ("admin".equals(user.getRole()))) {
-					<li @if(pagename == "Landlords") {class="active"}><a href="@routes.HomeController.viewUsers()">View Landlords</a></li>
+					<li @if(pagename == "Landlords") {class="active"}><a href="@routes.HomeController.viewUsers()">View Users</a></li>
 				}
-
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

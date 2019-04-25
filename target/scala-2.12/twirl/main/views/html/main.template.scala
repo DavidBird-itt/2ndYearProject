@@ -49,37 +49,34 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 </head>
 
 <body>
-
-
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href=""""),_display_(/*26.36*/routes/*26.42*/.HomeController.index()),format.raw/*26.65*/("""">ADK Houses</a>
+				<a class="navbar-brand" href=""""),_display_(/*24.36*/routes/*24.42*/.HomeController.index()),format.raw/*24.65*/("""">ADK Houses</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li """),_display_(/*29.10*/if(pagename== "Home")/*29.31*/{_display_(Seq[Any](format.raw/*29.32*/("""class="active"""")))}),format.raw/*29.47*/("""><a href=""""),_display_(/*29.58*/routes/*29.64*/.HomeController.index()),format.raw/*29.87*/("""">Home</a></li>
-				<li """),_display_(/*30.10*/if(pagename == "Properties")/*30.38*/{_display_(Seq[Any](format.raw/*30.39*/("""class="active"""")))}),format.raw/*30.54*/("""><a href=""""),_display_(/*30.65*/routes/*30.71*/.HomeController.properties(0)),format.raw/*30.100*/("""">Properties</a></li>
-				"""),_display_(/*31.6*/if((user != null) && ("admin".equals(user.getRole())))/*31.60*/ {_display_(Seq[Any](format.raw/*31.62*/("""
-					"""),format.raw/*32.6*/("""<li """),_display_(/*32.11*/if(pagename == "Landlords")/*32.38*/ {_display_(Seq[Any](format.raw/*32.40*/("""class="active"""")))}),format.raw/*32.55*/("""><a href=""""),_display_(/*32.66*/routes/*32.72*/.HomeController.viewUsers()),format.raw/*32.99*/("""">View Landlords</a></li>
-				""")))}),format.raw/*33.6*/("""
-
-				"""),format.raw/*35.5*/("""</ul>
+				<li """),_display_(/*27.10*/if(pagename== "Home")/*27.31*/{_display_(Seq[Any](format.raw/*27.32*/("""class="active"""")))}),format.raw/*27.47*/("""><a href=""""),_display_(/*27.58*/routes/*27.64*/.HomeController.index()),format.raw/*27.87*/("""">Home</a></li>
+				<li """),_display_(/*28.10*/if(pagename == "Properties")/*28.38*/{_display_(Seq[Any](format.raw/*28.39*/("""class="active"""")))}),format.raw/*28.54*/("""><a href=""""),_display_(/*28.65*/routes/*28.71*/.HomeController.properties(0)),format.raw/*28.100*/("""">Properties</a></li>
+				"""),_display_(/*29.6*/if((user != null) && ("admin".equals(user.getRole())))/*29.60*/ {_display_(Seq[Any](format.raw/*29.62*/("""
+					"""),format.raw/*30.6*/("""<li """),_display_(/*30.11*/if(pagename == "Landlords")/*30.38*/ {_display_(Seq[Any](format.raw/*30.40*/("""class="active"""")))}),format.raw/*30.55*/("""><a href=""""),_display_(/*30.66*/routes/*30.72*/.HomeController.viewUsers()),format.raw/*30.99*/("""">View Users</a></li>
+				""")))}),format.raw/*31.6*/("""
+				"""),format.raw/*32.5*/("""</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-				"""),_display_(/*38.6*/if((user != null) && ("member".equals(user.getRole())))/*38.61*/ {_display_(Seq[Any](format.raw/*38.63*/("""
-					"""),format.raw/*39.6*/("""<li """),_display_(/*39.11*/if(pagename == "Member Proile")/*39.42*/{_display_(Seq[Any](format.raw/*39.43*/("""class="active"""")))}),format.raw/*39.58*/("""><a href=""""),_display_(/*39.69*/routes/*39.75*/.HomeController.memberProfile(user.getEmail())),format.raw/*39.121*/(""""><i class="fas fa-user"></i>Profile</a></li>
+				"""),_display_(/*35.6*/if((user != null) && ("member".equals(user.getRole())))/*35.61*/ {_display_(Seq[Any](format.raw/*35.63*/("""
+					"""),format.raw/*36.6*/("""<li """),_display_(/*36.11*/if(pagename == "Member Proile")/*36.42*/{_display_(Seq[Any](format.raw/*36.43*/("""class="active"""")))}),format.raw/*36.58*/("""><a href=""""),_display_(/*36.69*/routes/*36.75*/.HomeController.memberProfile(user.getEmail())),format.raw/*36.121*/(""""><i class="fas fa-user"></i>Profile</a></li>
+				""")))}),format.raw/*37.6*/("""
+				"""),_display_(/*38.6*/if((user != null) && ("landlord".equals(user.getRole())))/*38.63*/ {_display_(Seq[Any](format.raw/*38.65*/("""
+					"""),format.raw/*39.6*/("""<li """),_display_(/*39.11*/if(pagename == "Landlord Proile")/*39.44*/{_display_(Seq[Any](format.raw/*39.45*/("""class="active"""")))}),format.raw/*39.60*/("""><a href=""""),_display_(/*39.71*/routes/*39.77*/.HomeController.landlordProfile(user.getEmail())),format.raw/*39.125*/(""""><i class="fas fa-user"></i>Profile</a></li>
 				""")))}),format.raw/*40.6*/("""
-				"""),_display_(/*41.6*/if((user != null) && ("landlord".equals(user.getRole())))/*41.63*/ {_display_(Seq[Any](format.raw/*41.65*/("""
-					"""),format.raw/*42.6*/("""<li """),_display_(/*42.11*/if(pagename == "Landlord Proile")/*42.44*/{_display_(Seq[Any](format.raw/*42.45*/("""class="active"""")))}),format.raw/*42.60*/("""><a href=""""),_display_(/*42.71*/routes/*42.77*/.HomeController.landlordProfile(user.getEmail())),format.raw/*42.125*/(""""><i class="fas fa-user"></i>Profile</a></li>
-				""")))}),format.raw/*43.6*/("""
-				"""),format.raw/*44.5*/("""<li """),_display_(/*44.10*/if(pagename == "Login")/*44.33*/{_display_(Seq[Any](format.raw/*44.34*/("""class="active"""")))}),format.raw/*44.49*/(""">
-				"""),_display_(/*45.6*/if(user != null)/*45.22*/{_display_(Seq[Any](format.raw/*45.23*/("""
-					"""),format.raw/*46.6*/("""<a href=""""),_display_(/*46.16*/routes/*46.22*/.LoginController.logout()),format.raw/*46.47*/("""">Logout</a></li>
-				""")))}/*47.7*/else/*47.12*/{_display_(Seq[Any](format.raw/*47.13*/("""
-					"""),format.raw/*48.6*/("""<a href=""""),_display_(/*48.16*/routes/*48.22*/.LoginController.login()),format.raw/*48.46*/("""">Login</a></li>
-				""")))}),format.raw/*49.6*/("""
+				"""),format.raw/*41.5*/("""<li """),_display_(/*41.10*/if(pagename == "Login")/*41.33*/{_display_(Seq[Any](format.raw/*41.34*/("""class="active"""")))}),format.raw/*41.49*/(""">
+				"""),_display_(/*42.6*/if(user != null)/*42.22*/{_display_(Seq[Any](format.raw/*42.23*/("""
+					"""),format.raw/*43.6*/("""<a href=""""),_display_(/*43.16*/routes/*43.22*/.LoginController.logout()),format.raw/*43.47*/("""">Logout</a></li>
+				""")))}/*44.7*/else/*44.12*/{_display_(Seq[Any](format.raw/*44.13*/("""
+					"""),format.raw/*45.6*/("""<a href=""""),_display_(/*45.16*/routes/*45.22*/.LoginController.login()),format.raw/*45.46*/("""">Login</a></li>
+				""")))}),format.raw/*46.6*/("""
 					
-			"""),format.raw/*51.4*/("""</ul>
+			"""),format.raw/*48.4*/("""</ul>
 		
 			
 			  
@@ -92,13 +89,13 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="midcol">
-					"""),_display_(/*64.7*/content),format.raw/*64.14*/("""
-				"""),format.raw/*65.5*/("""</div>
+					"""),_display_(/*61.7*/content),format.raw/*61.14*/("""
+				"""),format.raw/*62.5*/("""</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script src=""""),_display_(/*70.15*/routes/*70.21*/.Assets.versioned(" javascripts/main.js")),format.raw/*70.62*/(""""> </script> </html>"""))
+<script src=""""),_display_(/*67.15*/routes/*67.21*/.Assets.versioned(" javascripts/main.js")),format.raw/*67.62*/(""""> </script> </html>"""))
       }
     }
   }
@@ -114,11 +111,11 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 23 23:12:50 IST 2019
+                  DATE: Thu Apr 25 15:04:44 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/main.scala.html
-                  HASH: b9a11538782ffddf19d4143ab2c4ceae8e0f2066
-                  MATRIX: 970->1|1122->60|1191->103|1219->111|1855->720|1870->726|1932->767|2133->941|2148->947|2192->970|2286->1037|2316->1058|2355->1059|2401->1074|2439->1085|2454->1091|2498->1114|2550->1139|2587->1167|2626->1168|2672->1183|2710->1194|2725->1200|2776->1229|2829->1256|2892->1310|2932->1312|2965->1318|2997->1323|3033->1350|3073->1352|3119->1367|3157->1378|3172->1384|3220->1411|3281->1442|3314->1448|3397->1505|3461->1560|3501->1562|3534->1568|3566->1573|3606->1604|3645->1605|3691->1620|3729->1631|3744->1637|3812->1683|3893->1734|3925->1740|3991->1797|4031->1799|4064->1805|4096->1810|4138->1843|4177->1844|4223->1859|4261->1870|4276->1876|4346->1924|4427->1975|4459->1980|4491->1985|4523->2008|4562->2009|4608->2024|4641->2031|4666->2047|4705->2048|4738->2054|4775->2064|4790->2070|4836->2095|4877->2119|4890->2124|4929->2125|4962->2131|4999->2141|5014->2147|5059->2171|5111->2193|5148->2203|5325->2354|5353->2361|5385->2366|5468->2422|5483->2428|5545->2469
-                  LINES: 28->1|33->2|36->5|36->5|47->16|47->16|47->16|57->26|57->26|57->26|60->29|60->29|60->29|60->29|60->29|60->29|60->29|61->30|61->30|61->30|61->30|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|63->32|63->32|63->32|63->32|63->32|64->33|66->35|69->38|69->38|69->38|70->39|70->39|70->39|70->39|70->39|70->39|70->39|70->39|71->40|72->41|72->41|72->41|73->42|73->42|73->42|73->42|73->42|73->42|73->42|73->42|74->43|75->44|75->44|75->44|75->44|75->44|76->45|76->45|76->45|77->46|77->46|77->46|77->46|78->47|78->47|78->47|79->48|79->48|79->48|79->48|80->49|82->51|95->64|95->64|96->65|101->70|101->70|101->70
+                  HASH: 160836f0b6a5a5b5bd98ce9ddd5ba10102ec8eda
+                  MATRIX: 970->1|1122->60|1191->103|1219->111|1855->720|1870->726|1932->767|2131->939|2146->945|2190->968|2284->1035|2314->1056|2353->1057|2399->1072|2437->1083|2452->1089|2496->1112|2548->1137|2585->1165|2624->1166|2670->1181|2708->1192|2723->1198|2774->1227|2827->1254|2890->1308|2930->1310|2963->1316|2995->1321|3031->1348|3071->1350|3117->1365|3155->1376|3170->1382|3218->1409|3275->1436|3307->1441|3390->1498|3454->1553|3494->1555|3527->1561|3559->1566|3599->1597|3638->1598|3684->1613|3722->1624|3737->1630|3805->1676|3886->1727|3918->1733|3984->1790|4024->1792|4057->1798|4089->1803|4131->1836|4170->1837|4216->1852|4254->1863|4269->1869|4339->1917|4420->1968|4452->1973|4484->1978|4516->2001|4555->2002|4601->2017|4634->2024|4659->2040|4698->2041|4731->2047|4768->2057|4783->2063|4829->2088|4870->2112|4883->2117|4922->2118|4955->2124|4992->2134|5007->2140|5052->2164|5104->2186|5141->2196|5318->2347|5346->2354|5378->2359|5461->2415|5476->2421|5538->2462
+                  LINES: 28->1|33->2|36->5|36->5|47->16|47->16|47->16|55->24|55->24|55->24|58->27|58->27|58->27|58->27|58->27|58->27|58->27|59->28|59->28|59->28|59->28|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|61->30|61->30|61->30|61->30|61->30|61->30|62->31|63->32|66->35|66->35|66->35|67->36|67->36|67->36|67->36|67->36|67->36|67->36|67->36|68->37|69->38|69->38|69->38|70->39|70->39|70->39|70->39|70->39|70->39|70->39|70->39|71->40|72->41|72->41|72->41|72->41|72->41|73->42|73->42|73->42|74->43|74->43|74->43|74->43|75->44|75->44|75->44|76->45|76->45|76->45|76->45|77->46|79->48|92->61|92->61|93->62|98->67|98->67|98->67
                   -- GENERATED --
               */
           

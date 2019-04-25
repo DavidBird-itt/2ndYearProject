@@ -34,11 +34,11 @@ create table fees (
 
 create table order_item (
   id                            bigint auto_increment not null,
+  quantity                      integer not null,
+  price                         double not null,
   order_id                      bigint,
   basket_id                     bigint,
   property_id                   bigint,
-  quantity                      integer not null,
-  price                         double not null,
   constraint pk_order_item primary key (id)
 );
 
