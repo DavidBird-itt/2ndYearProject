@@ -15,7 +15,7 @@
 
         <p><strong>Styles</strong></p>
         @for((value, name) <- products.Style.options) {
-            <input type="checkbox" name="styleSelect[]" value="@value"  
+            <input type="checkbox" name="styleSelect[]" value="@value"
                 @if(pForm("id").getValue.isPresent && pForm("id").getValue.get != "") { 
                     @if(products.Style.inStyle(value.toLong, pForm("id").getValue.get.toLong)) {
                         checked

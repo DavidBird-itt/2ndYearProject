@@ -51,8 +51,9 @@ public class Member extends User {
 
     public void setOrders(List<ShopOrder> orders) {
         this.orders = orders;
-}
+    }
 
-
-
+    public int convertStripeNum(double val) {
+        return (int)val * 100;
+        }
 }

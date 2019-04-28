@@ -24,7 +24,7 @@ public class OrderItem extends Model {
     
     @ManyToOne
     private Basket basket;
-    
+
     // Unidirection mapping - Many order items can have one product
     // Product not interested in this
     @OneToOne
@@ -40,6 +40,9 @@ public class OrderItem extends Model {
         price = prop.getPrice();
     }
     
+    public int convertStripeNum(double val) {
+        return (int)val * 100;
+        }
     
     // Increment quantity
     public void increaseQty() {
