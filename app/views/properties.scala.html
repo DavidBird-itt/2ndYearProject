@@ -26,6 +26,7 @@
     <div id="database-list">
         <table style="width:100%">
             @for(property<-properties) {
+                @if(property.getStock() != 0){ 
                 <tr>
                     <td>
                         <a href="@routes.HomeController.viewProperty(property.getId)" class="listing">
@@ -56,6 +57,7 @@
                         </td>
                     </a>
                 </tr>
+            }
             }
         </table>
     </div>
