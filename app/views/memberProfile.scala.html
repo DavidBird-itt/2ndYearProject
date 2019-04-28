@@ -34,18 +34,19 @@
                   <div class="container">
                     <h2>@member.getFname() @member.getLname()</h2>
                     <p><b>Member</b></p>
-        
-        
                   </div>
                   <hr>
                   <ul class="container details">
                     
                     <li>
-                      <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>@member.getEmail()</p>
+                      <p><i class = "fas fa-envelope"></i> @member.getEmail()</p>
+                    </li>
+                    <li>
+                      <p><i class="fas fa-phone"></i> @member.getPhone()</p>
                     </li>
                   </ul>
                   <hr>
-                  <div class="col-sm-5 col-xs-6 tital ">Date Of Joining: 15 Jun 2016</div>
+                  <div class="col-sm-5 col-xs-6 tital ">Date Joined: @member.getDateJoined()</div>
                 </div>
               </div>
             </div>
@@ -88,7 +89,7 @@
             
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-right"><strong> Price to rent the house a month &euro; @("%.2f".format(member.getBasket.getBasketTotal()))</strong></p>
+                        <p class="text-right"><strong> Price of Rent &euro; @("%.2f".format(member.getBasket.getBasketTotal()))</strong></p>
                     </div>  
                 </div>
                 <div class="row">
@@ -99,10 +100,14 @@
                         </p>
                     </div>  
                     <div class="col-md-6">
-                        <p class="text-right">
-                            <a href="@routes.ShoppingCtrl.placeOrder()" class="btn btn-success btn-sm">
-                            <span class="glyphicon glyphicon-euro"></span> Place Order</a>
-                        </p>
+                      <script
+                      src="https://checkout.stripe.com/checkout.js"
+                      class="stripe-button"
+                      data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                      data-name="Deposit"
+                      data-description="Deposit (&euro;@member.getBasket.getBasketTotal())"
+                      data-amount="@member.convertStripeNum(member.getBasket.getBasketTotal())"
+                    </script>
                     </div>  
                 </div>
             </div>
