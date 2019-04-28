@@ -42,7 +42,8 @@ public class HomeController extends Controller {
     }
     
     public Result index() {
-        return ok(index.render(User.getUserById(session().get("email"))));
+        List<Property> recent = Property.findAll();
+        return ok(index.render(recent, User.getUserById(session().get("email"))));
     }
 
     public Result properties(Long style) {

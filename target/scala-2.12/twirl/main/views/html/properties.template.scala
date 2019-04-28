@@ -25,91 +25,78 @@ import play.core.j.PlayFormsMagicForJava._
 object properties extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template4[List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(property: List[models.products.Property], style: List[models.products.Style], user: models.users.User, env: play.api.Environment ):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(properties: List[models.products.Property], style:List[models.products.Style], user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
-"""),_display_(/*3.2*/main("Database", user)/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
-    """),format.raw/*4.5*/("""<h1>The Database</h1>
+Seq[Any](_display_(/*2.2*/main("Properties", user)/*2.26*/ {_display_(Seq[Any](format.raw/*2.28*/("""
+    """),format.raw/*3.5*/("""<h1>
+        Property
+        """),_display_(/*5.10*/if((user != null) && (("admin".equals(user.getRole())) || ("landlord".equals(user.getRole()))))/*5.105*/ {_display_(Seq[Any](format.raw/*5.107*/("""
+            """),format.raw/*6.13*/("""<a href=""""),_display_(/*6.23*/routes/*6.29*/.HomeController.addProperty()),format.raw/*6.58*/("""">
+                <span style="font-size:20px">(Add New Property)</span>
+            </a>
+        """)))}),format.raw/*9.10*/("""
+    """),format.raw/*10.5*/("""</h1>
 
-    <!-- Displays the flash message -->
-    """),_display_(/*7.6*/if(flash.containsKey("success"))/*7.38*/ {_display_(Seq[Any](format.raw/*7.40*/("""
-        """),format.raw/*8.9*/("""<div class="alert alert-success">
-            """),_display_(/*9.14*/flash/*9.19*/.get("success")),format.raw/*9.34*/("""
-        """),format.raw/*10.9*/("""</div>
-    """)))}),format.raw/*11.6*/("""
-    
-    """),format.raw/*13.5*/("""<table class="table table-bordered table-hover table-condensed">
-        <thead>
-            <!--Header-->
-            <tr>
-                <th>Image</th>
-                <th>ID</th>
-                <th>Bedrooms</th>
-                <th>Bathrooms</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--Populating the database-->
-            <tr>
-                """),_display_(/*27.18*/for(i<-property) yield /*27.34*/ {_display_(Seq[Any](format.raw/*27.36*/("""       
-                    """),_display_(/*28.22*/if(i.getStock != 0)/*28.41*/{_display_(Seq[Any](format.raw/*28.42*/("""
-                        """),format.raw/*29.25*/("""<tr>
-                            """),_display_(/*30.30*/if(env.resource("public/images/projectImages/" + i.getId + "thumb.jpg").isDefined)/*30.112*/ {_display_(Seq[Any](format.raw/*30.114*/("""
-                                """),format.raw/*31.33*/("""<td><img src="/assets/images/projectImages/"""),_display_(/*31.77*/(i.getId + "thumb.jpg")),format.raw/*31.100*/(""""/></td>
-                            """)))}/*32.31*/else/*32.36*/{_display_(Seq[Any](format.raw/*32.37*/("""
-                                """),format.raw/*33.33*/("""<td><img src="/assets/images/projectImages/noImage.jpg"/></td>
-                            """)))}),format.raw/*34.30*/("""
-                    """),format.raw/*35.21*/("""<td>"""),_display_(/*35.26*/i/*35.27*/.getId),format.raw/*35.33*/("""</td>
-                    <td>"""),_display_(/*36.26*/i/*36.27*/.getNumBeds),format.raw/*36.38*/("""</td>
-                    <td>"""),_display_(/*37.26*/i/*37.27*/.getNumBaths),format.raw/*37.39*/("""</td>
-                    <td>&euro; """),_display_(/*38.33*/("%.2f".format(i.getPrice))),format.raw/*38.60*/("""</td>
-                    <!-- Update button -->
+    <div class="col-sm-3">
+		<h4>Styles</h4>
+	        <ul class="list-group">
+                    <a href = """"),_display_(/*15.33*/routes/*15.39*/.HomeController.properties(0)),format.raw/*15.68*/("""" class="list-group-item">All Styles</a>
+		        """),_display_(/*16.12*/for(s<-style) yield /*16.25*/ {_display_(Seq[Any](format.raw/*16.27*/("""
+			        """),format.raw/*17.12*/("""<a href = """"),_display_(/*17.24*/routes/*17.30*/.HomeController.properties(s.getId())),format.raw/*17.67*/("""" class="list-group-item catheight">"""),_display_(/*17.104*/s/*17.105*/.getName),format.raw/*17.113*/("""
+                        """),format.raw/*18.25*/("""<span class="badge">"""),_display_(/*18.46*/s/*18.47*/.getProperty.size),format.raw/*18.64*/("""</span> 
+                    </a>
+			    """)))}),format.raw/*20.9*/("""
+            """),format.raw/*21.13*/("""</ul>
+    </div>
+
+    <div class = "col-sm-9">
+    <br>
+    <div id="database-list">
+        <table style="width:100%">
+            """),_display_(/*28.14*/for(property<-properties) yield /*28.39*/ {_display_(Seq[Any](format.raw/*28.41*/("""
+                """),format.raw/*29.17*/("""<tr>
                     <td>
-                        <a href=""""),_display_(/*41.35*/routes/*41.41*/.HomeController.updateProperty(i.getId)),format.raw/*41.80*/("""" class="button-xs btn-danger">
-                            <span class="glyphicon-pencil"><</span>
-                        </a>
-                    </td>
-
-                    <!-- Delete button -->
-                    <td>
-                        <a href=""""),_display_(/*48.35*/routes/*48.41*/.HomeController.deleteProperty(i.getId)),format.raw/*48.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </a>
-                    </td>
-
-                    """),_display_(/*53.22*/if(i.getStock() == 1)/*53.43*/ {_display_(Seq[Any](format.raw/*53.45*/("""
-                        """),format.raw/*54.25*/("""<td><a href=""""),_display_(/*54.39*/routes/*54.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*54.79*/(""""
-                                class="btn btn-default btn-xs"><span
-                                class="glyphicon glyphicon-shopping-cart"></span></a>
-                        </td>
-                            """)))}/*58.31*/else/*58.36*/{_display_(Seq[Any](format.raw/*58.37*/("""
-                                """),format.raw/*59.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
-                            """)))}),format.raw/*60.30*/("""
-                        """)))}),format.raw/*61.26*/("""
-                    """)))}),format.raw/*62.22*/(""" """),format.raw/*62.23*/("""<!--End of For loop-->
-
-            </tr>
-        
-        </tbody>
-    </table>         
-
-    <p>
-        <a href=""""),_display_(/*70.19*/routes/*70.25*/.HomeController.addProperty()),format.raw/*70.54*/("""">
-            <button class="btn btn-primary">Add a House</button>
-        </a>
-    </p>
+                        <a href=""""),_display_(/*31.35*/routes/*31.41*/.HomeController.viewProperty(property.getId)),format.raw/*31.85*/("""" class="listing">
+                        <img src=""""),_display_(/*32.36*/property/*32.44*/.getThumbnailPath()),format.raw/*32.63*/("""" /> House for &euro;"""),_display_(/*32.85*/property/*32.93*/.getDisplayValue(property.getPrice)),format.raw/*32.128*/("""
+                    """),format.raw/*33.21*/("""</td>
+                        <td class="desc">
+                            <i class="fas fa-bed"></i> """),_display_(/*35.57*/property/*35.65*/.getNumBeds),format.raw/*35.76*/("""&nbsp;
+                            <i class="fas fa-toilet"></i> """),_display_(/*36.60*/property/*36.68*/.getNumBaths),format.raw/*36.80*/("""&nbsp;
+                          
+                            <i class="fas fa-leaf"></i>"""),_display_(/*38.57*/property/*38.65*/.getStock),format.raw/*38.74*/("""&nbsp;
+                            """),_display_(/*39.30*/if((user != null) && ("member".equals(user.getRole())))/*39.85*/ {_display_(Seq[Any](format.raw/*39.87*/("""
+                                """),format.raw/*40.33*/("""&nbsp;
+                                """),_display_(/*41.34*/if(property.getStock == 1)/*41.60*/ {_display_(Seq[Any](format.raw/*41.62*/("""
+                                    """),format.raw/*42.37*/("""<td><a href=""""),_display_(/*42.51*/routes/*42.57*/.ShoppingCtrl.addToBasket(property.getId)),format.raw/*42.98*/(""""
+                                        class="btn btn-default btn-xs"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    </td>
+                                """)))}/*46.35*/else/*46.40*/{_display_(Seq[Any](format.raw/*46.41*/("""
+                                    """),format.raw/*47.37*/("""<td><img src="/assets/images/sold.jpg"/></td>
+                                """)))}),format.raw/*48.34*/("""
+                                """),format.raw/*49.33*/("""&nbsp;
+                                <a href=""""),_display_(/*50.43*/routes/*50.49*/.HomeController.updateProperty(property.getId)),format.raw/*50.95*/(""""><i class="fas fa-edit"></i></a>
+                                &nbsp;
+                                <a href=""""),_display_(/*52.43*/routes/*52.49*/.HomeController.deleteProperty(property.getId)),format.raw/*52.95*/("""" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
+                            """)))}),format.raw/*53.30*/("""
+                        """),format.raw/*54.25*/("""</td>
+                    </a>
+                </tr>
+            """)))}),format.raw/*57.14*/("""
+        """),format.raw/*58.9*/("""</table>
+    </div>
+</div>
 """)))}))
       }
     }
   }
 
-  def render(property:List[models.products.Property],style:List[models.products.Style],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(property,style,user,env)
+  def render(properties:List[models.products.Property],style:List[models.products.Style],user:models.users.User,env:play.api.Environment): play.twirl.api.HtmlFormat.Appendable = apply(properties,style,user,env)
 
-  def f:((List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (property,style,user,env) => apply(property,style,user,env)
+  def f:((List[models.products.Property],List[models.products.Style],models.users.User,play.api.Environment) => play.twirl.api.HtmlFormat.Appendable) = (properties,style,user,env) => apply(properties,style,user,env)
 
   def ref: this.type = this
 
@@ -118,11 +105,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 28 19:12:15 IST 2019
-                  SOURCE: /home/wdd/Desktop/PlayReminder/app/views/properties.scala.html
-                  HASH: b8cbe147feccf1de008a43d0850340b18adf7eec
-                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2277->784|2309->800|2349->802|2405->831|2433->850|2472->851|2525->876|2586->910|2678->992|2719->994|2780->1027|2851->1071|2896->1094|2953->1133|2966->1138|3005->1139|3066->1172|3189->1264|3238->1285|3270->1290|3280->1291|3307->1297|3365->1328|3375->1329|3407->1340|3465->1371|3475->1372|3508->1384|3573->1422|3621->1449|3756->1557|3771->1563|3831->1602|4116->1860|4131->1866|4191->1905|4434->2121|4464->2142|4504->2144|4557->2169|4598->2183|4613->2189|4668->2223|4903->2440|4916->2445|4955->2446|5016->2479|5122->2554|5179->2580|5232->2602|5261->2603|5405->2720|5420->2726|5470->2755
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|58->27|58->27|58->27|59->28|59->28|59->28|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|65->34|66->35|66->35|66->35|66->35|67->36|67->36|67->36|68->37|68->37|68->37|69->38|69->38|72->41|72->41|72->41|79->48|79->48|79->48|84->53|84->53|84->53|85->54|85->54|85->54|85->54|89->58|89->58|89->58|90->59|91->60|92->61|93->62|93->62|101->70|101->70|101->70
+                  DATE: Sun Apr 28 21:02:52 CEST 2019
+                  SOURCE: /home/wdd/collegeLastThisOneActually/PlayReminder/app/views/properties.scala.html
+                  HASH: 17f20ecf12ef26c36983ca841290b657cc579dac
+                  MATRIX: 1044->1|1269->134|1301->158|1340->160|1371->165|1428->196|1532->291|1572->293|1612->306|1648->316|1662->322|1711->351|1841->451|1873->456|2017->573|2032->579|2082->608|2161->660|2190->673|2230->675|2270->687|2309->699|2324->705|2382->742|2447->779|2458->780|2488->788|2541->813|2589->834|2599->835|2637->852|2709->894|2750->907|2910->1040|2951->1065|2991->1067|3036->1084|3127->1148|3142->1154|3207->1198|3288->1252|3305->1260|3345->1279|3394->1301|3411->1309|3468->1344|3517->1365|3648->1469|3665->1477|3697->1488|3790->1554|3807->1562|3840->1574|3957->1664|3974->1672|4004->1681|4067->1717|4131->1772|4171->1774|4232->1807|4299->1847|4334->1873|4374->1875|4439->1912|4480->1926|4495->1932|4557->1973|4824->2222|4837->2227|4876->2228|4941->2265|5051->2344|5112->2377|5188->2426|5203->2432|5270->2478|5412->2593|5427->2599|5494->2645|5620->2740|5673->2765|5770->2831|5806->2840
+                  LINES: 28->1|33->2|33->2|33->2|34->3|36->5|36->5|36->5|37->6|37->6|37->6|37->6|40->9|41->10|46->15|46->15|46->15|47->16|47->16|47->16|48->17|48->17|48->17|48->17|48->17|48->17|48->17|49->18|49->18|49->18|49->18|51->20|52->21|59->28|59->28|59->28|60->29|62->31|62->31|62->31|63->32|63->32|63->32|63->32|63->32|63->32|64->33|66->35|66->35|66->35|67->36|67->36|67->36|69->38|69->38|69->38|70->39|70->39|70->39|71->40|72->41|72->41|72->41|73->42|73->42|73->42|73->42|77->46|77->46|77->46|78->47|79->48|80->49|81->50|81->50|81->50|83->52|83->52|83->52|84->53|85->54|88->57|89->58
                   -- GENERATED --
               */
           

@@ -200,6 +200,19 @@ public class Property extends Model {
         return Property.find.byId(id);
     }
 
-    
+    public static final List<Property> findRecent() { // cant figure this out -adam
+        List<Property> resList = Property.find.all();
+        Iterator<Property> i = resList.iterator();
+        int cnt = 0;
+
+        while (i.hasNext()) {
+            cnt++;
+
+            if(cnt > 8)
+                i.remove();
+        }
+
+        return resList;
+    }
     
 }
