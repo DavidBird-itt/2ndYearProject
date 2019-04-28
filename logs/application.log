@@ -1,0 +1,17 @@
+2019-04-28 21:38:45,055 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-04-28 21:38:45,078 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
+2019-04-28 21:38:48,429 [WARN] from io.ebeaninternal.server.deploy.BeanDescriptorManager in play-dev-mode-akka.actor.default-dispatcher-6 - Bean [models.rent.RentDue] has no unique id set
+2019-04-28 21:38:49,430 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - ApplicationTimer demo: Starting application at 2019-04-28T20:38:49.428Z
+2019-04-28 21:38:50,714 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-6 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-04-28 21:38:51,658 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2019-04-28 21:38:51,704 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev)
+2019-04-28 21:39:24,992 [WARN] from application in application-akka.actor.default-dispatcher-6 - The "validate" method in class "models.users.Login" is deprecated since Play 2.6. To migrate to class-level constraints see https://www.playframework.com/documentation/2.6.x/Migration26#java-form-changes and https://www.playframework.com/documentation/2.6.x/JavaForms#Advanced-validation
+2019-04-28 21:42:05,842 [INFO] from play.core.server.AkkaHttpServer in pool-5-thread-2 - Stopping server...
+2019-04-28 21:42:06,119 [INFO] from application in application-akka.actor.default-dispatcher-46 - ApplicationTimer demo: Stopping application at 2019-04-28T20:42:06.119Z after 197s.
+2019-04-28 21:42:06,159 [INFO] from application in application-akka.actor.default-dispatcher-46 - Shutting down connection pool.
