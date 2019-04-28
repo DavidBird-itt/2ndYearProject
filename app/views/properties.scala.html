@@ -46,10 +46,12 @@
                                 } else {
                                     <td><img src="/assets/images/sold.jpg"/></td>
                                 }
+                            }
+                                @if((user != null) && ("admin".equals(user.getRole()))){
                                 &nbsp;
-                                <a href="@routes.HomeController.updateProperty(property.getId)"><i class="fas fa-edit"></i></a>
+                                <td><a href="@routes.HomeController.updateProperty(property.getId)"><i class="fas fa-edit"></i></a></td>
                                 &nbsp;
-                                <a href="@routes.HomeController.deleteProperty(property.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
+                                <td></td><a href="@routes.HomeController.deleteProperty(property.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a></td>
                             }
                         </td>
                     </a>
