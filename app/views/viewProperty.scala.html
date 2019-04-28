@@ -27,20 +27,16 @@
 					<p>This Property is being rented</p>
 					<p>Press button to Cancel this and add it back to the market</p>
 					<p>
-						<a href="@routes.HomeController.()">
-							<button class="btn btn-primary">Add a House</button>
+						<a href="@routes.HomeController.cancelRent(property.getId())">
+							<button class="btn btn-primary">Cancel Rent</button>
 						</a>
 					</p>
 				}
 			}
 			@if((user !=null) &&("member".equals(user.getRole()))){
-			<script src="https://checkout.stripe.com/checkout.js">
-			  class="stripe-button"
-			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-			  data-name="Deposit"
-			  data-description="Deposit (&euro;@property.getDepositValue)"
-			  data-amount="@property.convertStripeNum(property.getDepositValue)"
-			</script>
+				<a href="@routes.ShoppingCtrl.addToBasket(property.getId())">
+					<button class="btn btn-primary">Rent the House</button>
+				</a>
 			}
 		</div>
 	</div>

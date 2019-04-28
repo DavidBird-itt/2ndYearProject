@@ -21,10 +21,10 @@
               <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
                         @if(env.resource("public/images/projectImages/" + member.getEmail + "thumb.jpg").isDefined) {
-                            <td><img src="/assets/images/projectImages/@(member.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive"></td>
+                            <img src="/assets/images/projectImages/@(member.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive">
                             } else {
-                                <td><img src="/assets/images/productImages/avatar.png" alt="Avatar" class="avatar"
-                                id="profile-image1" class="img-circle img-responsive"></td>
+                                <img src="avatar.png" alt="Avatar" class="avatar"
+                                id="profile-image1" class="img-circle img-responsive">
                             }
                   
         
@@ -63,6 +63,7 @@
                 </div>
             } 
         
+          
             @if(member.getBasket() != null) {
                 <table class="table table-bordered table-hover table-condensed">
                         <thead>
@@ -77,6 +78,9 @@
                             @if(member.getBasket() != null) {
                                 <!-- Start of For loop - For each p in products add a row -->
                                 @for(i <- member.getBasket().getBasketItems()) {
+                                  @if(i.getProperty().getStock() == 1) {
+                                    @routes.ShoppingCtrl.emptyBasket()
+                                  }
                                 <tr>
                                     <td>&euro; @("%.2f".format(i.getProperty.getPrice))</td>
         

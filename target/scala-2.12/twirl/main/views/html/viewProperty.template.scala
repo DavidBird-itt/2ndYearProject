@@ -58,22 +58,18 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 					"""),format.raw/*27.6*/("""<p>This Property is being rented</p>
 					<p>Press button to Cancel this and add it back to the market</p>
 					<p>
-						<a href=""""),_display_(/*30.17*/routes/*30.23*/.HomeController),format.raw/*30.38*/(""".()">
-							<button class="btn btn-primary">Add a House</button>
+						<a href=""""),_display_(/*30.17*/routes/*30.23*/.HomeController.cancelRent(property.getId())),format.raw/*30.67*/("""">
+							<button class="btn btn-primary">Cancel Rent</button>
 						</a>
 					</p>
 				""")))}),format.raw/*34.6*/("""
 			""")))}),format.raw/*35.5*/("""
 			"""),_display_(/*36.5*/if((user !=null) &&("member".equals(user.getRole())))/*36.58*/{_display_(Seq[Any](format.raw/*36.59*/("""
-			"""),format.raw/*37.4*/("""<script src="https://checkout.stripe.com/checkout.js">
-			  class="stripe-button"
-			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-			  data-name="Deposit"
-			  data-description="Deposit (&euro;"""),_display_(/*41.40*/property/*41.48*/.getDepositValue),format.raw/*41.64*/(""")"
-			  data-amount=""""),_display_(/*42.20*/property/*42.28*/.convertStripeNum(property.getDepositValue)),format.raw/*42.71*/(""""
-			</script>
-			""")))}),format.raw/*44.5*/("""
-		"""),format.raw/*45.3*/("""</div>
+				"""),format.raw/*37.5*/("""<a href=""""),_display_(/*37.15*/routes/*37.21*/.ShoppingCtrl.addToBasket(property.getId())),format.raw/*37.64*/("""">
+					<button class="btn btn-primary">Rent the House</button>
+				</a>
+			""")))}),format.raw/*40.5*/("""
+		"""),format.raw/*41.3*/("""</div>
 	</div>
 """)))}))
       }
@@ -91,11 +87,11 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 28 20:52:15 CEST 2019
-                  SOURCE: /home/wdd/collegeLastThisOneActually/PlayReminder/app/views/viewProperty.scala.html
-                  HASH: 7feca00a65f785d0d808adaa6e463a50e36db0a8
-                  MATRIX: 991->1|1146->64|1181->91|1220->93|1248->95|1333->154|1349->162|1382->175|1549->316|1566->324|1598->335|1630->340|1748->432|1765->440|1798->452|1830->457|1946->546|1963->554|2019->589|2069->612|2086->620|2124->636|2177->663|2241->718|2281->720|2313->726|2350->754|2390->756|2423->762|2500->822|2513->827|2552->828|2585->834|2744->966|2759->972|2795->987|2917->1079|2952->1084|2983->1089|3045->1142|3084->1143|3115->1147|3337->1342|3354->1350|3391->1366|3440->1388|3457->1396|3521->1439|3570->1458|3600->1461
-                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|52->21|52->21|52->21|52->21|52->21|52->21|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|57->26|57->26|58->27|61->30|61->30|61->30|65->34|66->35|67->36|67->36|67->36|68->37|72->41|72->41|72->41|73->42|73->42|73->42|75->44|76->45
+                  DATE: Sun Apr 28 21:11:35 IST 2019
+                  SOURCE: /home/wdd/temp/PlayReminder/app/views/viewProperty.scala.html
+                  HASH: a9c3b00f08393cd45421e9b7b1c715667d9edffe
+                  MATRIX: 991->1|1146->64|1181->91|1220->93|1248->95|1333->154|1349->162|1382->175|1549->316|1566->324|1598->335|1630->340|1748->432|1765->440|1798->452|1830->457|1946->546|1963->554|2019->589|2069->612|2086->620|2124->636|2177->663|2241->718|2281->720|2313->726|2350->754|2390->756|2423->762|2500->822|2513->827|2552->828|2585->834|2744->966|2759->972|2824->1016|2943->1105|2978->1110|3009->1115|3071->1168|3110->1169|3142->1174|3179->1184|3194->1190|3258->1233|3365->1310|3395->1313
+                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|52->21|52->21|52->21|52->21|52->21|52->21|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|57->26|57->26|58->27|61->30|61->30|61->30|65->34|66->35|67->36|67->36|67->36|68->37|68->37|68->37|68->37|71->40|72->41
                   -- GENERATED --
               */
           

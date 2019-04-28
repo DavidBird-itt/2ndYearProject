@@ -13,11 +13,9 @@
       </div>
       <div class="panel-body">
         <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                @if(env.resource("public/images/projectImages/" + landlord.getEmail + "thumb.jpg").isDefined) {
-                    <img src="/assets/images/projectImages/@(landlord.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive">
-                    } else {
+              
                         <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
-                    }
+                    
           
 
 
@@ -68,22 +66,12 @@
                       <i class="fas fa-toilet"></i> @property.getNumBaths&nbsp;
 
                       <i class="fas fa-leaf"></i>@property.getStock&nbsp;
-                      @if((user != null) && (landlord == user)) {
-                          &nbsp;
-                          @if(property.getStock == 0) {
-                              <td><a href="@routes.ShoppingCtrl.addToBasket(property.getId)"
-                                  class="btn btn-default btn-xs"><span
-                                  class="glyphicon glyphicon-shopping-cart"></span></a>
-                              </td>
-                          } else {
-                              <td><img src="/assets/images/sold.jpg"/></td>
-                          }
-
+                
                           &nbsp;
                           <a href="@routes.HomeController.updateProperty(property.getId)"><i class="fas fa-edit"></i></a>
                           &nbsp;
                           <a href="@routes.HomeController.deleteProperty(property.getId)" onclick="return confirmDel();"><i class="fas fa-trash"></i></a>
-                      }
+                      
                   </td>
               </a>
           </tr>

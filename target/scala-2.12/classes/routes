@@ -55,6 +55,9 @@ POST    /addAdminSubmit            controllers.HomeController.addAdminSubmit
 GET     /updateAdmin/:id           controllers.HomeController.updateAdmin(id: String)
 GET     /deleteAdmin/:id           controllers.HomeController.deleteAdmin(id: String)
 
+GET     /cancelRent/:id             controllers.HomeController.cancelRent(id: Long)
+
+
 GET     /showBasket                 controllers.ShoppingCtrl.showBasket()
 GET     /addToBasket/:id            controllers.ShoppingCtrl.addToBasket(id: Long)
 GET     /removeOne/:itemId          controllers.ShoppingCtrl.removeOne(itemId: Long)

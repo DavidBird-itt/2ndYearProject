@@ -52,10 +52,10 @@ Seq[Any](format.raw/*2.1*/("""
               <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
                         """),_display_(/*23.26*/if(env.resource("public/images/projectImages/" + member.getEmail + "thumb.jpg").isDefined)/*23.116*/ {_display_(Seq[Any](format.raw/*23.118*/("""
-                            """),format.raw/*24.29*/("""<td><img src="/assets/images/projectImages/"""),_display_(/*24.73*/(member.getEmail + "thumb.jpg")),format.raw/*24.104*/(""""/  id="profile-image1" class="img-circle img-responsive"></td>
+                            """),format.raw/*24.29*/("""<img src="/assets/images/projectImages/"""),_display_(/*24.69*/(member.getEmail + "thumb.jpg")),format.raw/*24.100*/(""""/  id="profile-image1" class="img-circle img-responsive">
                             """)))}/*25.31*/else/*25.36*/{_display_(Seq[Any](format.raw/*25.37*/("""
-                                """),format.raw/*26.33*/("""<td><img src="/assets/images/productImages/avatar.png" alt="Avatar" class="avatar"
-                                id="profile-image1" class="img-circle img-responsive"></td>
+                                """),format.raw/*26.33*/("""<img src="avatar.png" alt="Avatar" class="avatar"
+                                id="profile-image1" class="img-circle img-responsive">
                             """)))}),format.raw/*28.30*/("""
                   
         
@@ -94,8 +94,9 @@ Seq[Any](format.raw/*2.1*/("""
                 """),format.raw/*63.17*/("""</div>
             """)))}),format.raw/*64.14*/(""" 
         
-            """),_display_(/*66.14*/if(member.getBasket() != null)/*66.44*/ {_display_(Seq[Any](format.raw/*66.46*/("""
-                """),format.raw/*67.17*/("""<table class="table table-bordered table-hover table-condensed">
+          
+            """),_display_(/*67.14*/if(member.getBasket() != null)/*67.44*/ {_display_(Seq[Any](format.raw/*67.46*/("""
+                """),format.raw/*68.17*/("""<table class="table table-bordered table-hover table-condensed">
                         <thead>
                         <!-- The header row-->
                         <tr>
@@ -105,28 +106,31 @@ Seq[Any](format.raw/*2.1*/("""
                         </tr>
                         </thead>
                         <tbody>
-                            """),_display_(/*77.30*/if(member.getBasket() != null)/*77.60*/ {_display_(Seq[Any](format.raw/*77.62*/("""
-                                """),format.raw/*78.33*/("""<!-- Start of For loop - For each p in products add a row -->
-                                """),_display_(/*79.34*/for(i <- member.getBasket().getBasketItems()) yield /*79.79*/ {_display_(Seq[Any](format.raw/*79.81*/("""
-                                """),format.raw/*80.33*/("""<tr>
-                                    <td>&euro; """),_display_(/*81.49*/("%.2f".format(i.getProperty.getPrice))),format.raw/*81.88*/("""</td>
+                            """),_display_(/*78.30*/if(member.getBasket() != null)/*78.60*/ {_display_(Seq[Any](format.raw/*78.62*/("""
+                                """),format.raw/*79.33*/("""<!-- Start of For loop - For each p in products add a row -->
+                                """),_display_(/*80.34*/for(i <- member.getBasket().getBasketItems()) yield /*80.79*/ {_display_(Seq[Any](format.raw/*80.81*/("""
+                                  """),_display_(/*81.36*/if(i.getProperty().getStock() == 1)/*81.71*/ {_display_(Seq[Any](format.raw/*81.73*/("""
+                                    """),_display_(/*82.38*/routes/*82.44*/.ShoppingCtrl.emptyBasket()),format.raw/*82.71*/("""
+                                  """)))}),format.raw/*83.36*/("""
+                                """),format.raw/*84.33*/("""<tr>
+                                    <td>&euro; """),_display_(/*85.49*/("%.2f".format(i.getProperty.getPrice))),format.raw/*85.88*/("""</td>
         
                                 </tr>
-                                """)))}),format.raw/*84.34*/("""<!-- End of For loop -->
-                          """)))}),format.raw/*85.28*/("""
-                        """),format.raw/*86.25*/("""</tbody>
+                                """)))}),format.raw/*88.34*/("""<!-- End of For loop -->
+                          """)))}),format.raw/*89.28*/("""
+                        """),format.raw/*90.25*/("""</tbody>
                     </table>
         
             
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="text-right"><strong> Price of Rent &euro; """),_display_(/*92.78*/("%.2f".format(member.getBasket.getBasketTotal()))),format.raw/*92.128*/("""</strong></p>
+                        <p class="text-right"><strong> Price of Rent &euro; """),_display_(/*96.78*/("%.2f".format(member.getBasket.getBasketTotal()))),format.raw/*96.128*/("""</strong></p>
                     </div>  
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <p class="text-right">
-                            <a href=""""),_display_(/*98.39*/routes/*98.45*/.ShoppingCtrl.emptyBasket()),format.raw/*98.72*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                            <a href=""""),_display_(/*102.39*/routes/*102.45*/.ShoppingCtrl.emptyBasket()),format.raw/*102.72*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
                             <span class="glyphicon glyphicon-trash"></span>Cancel Rent</a>
                         </p>
                     </div>  
@@ -135,8 +139,8 @@ Seq[Any](format.raw/*2.1*/("""
                       class="stripe-button"
                       data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
                       data-name="Deposit"
-                      data-description="Deposit (&euro;"""),_display_(/*107.57*/member/*107.63*/.getBasket.getBasketTotal()),format.raw/*107.90*/(""")"
-                      data-amount=""""),_display_(/*108.37*/member/*108.43*/.convertStripeNum(member.getBasket().getBasketTotal())),format.raw/*108.97*/("""">
+                      data-description="Deposit (&euro;"""),_display_(/*111.57*/member/*111.63*/.getBasket.getBasketTotal()),format.raw/*111.90*/(""")"
+                      data-amount=""""),_display_(/*112.37*/member/*112.43*/.convertStripeNum(member.getBasket().getBasketTotal())),format.raw/*112.97*/("""">
                     </script>
                     </div>  
                 </div>
@@ -145,12 +149,12 @@ Seq[Any](format.raw/*2.1*/("""
         
         <script>
           // JavaScript function returns true if user clicks yes, otherwise, false
-          function confirmDel() """),format.raw/*117.33*/("""{"""),format.raw/*117.34*/("""
-            """),format.raw/*118.13*/("""return confirm('Are you sure?');
-          """),format.raw/*119.11*/("""}"""),format.raw/*119.12*/("""
-        """),format.raw/*120.9*/("""</script>
+          function confirmDel() """),format.raw/*121.33*/("""{"""),format.raw/*121.34*/("""
+            """),format.raw/*122.13*/("""return confirm('Are you sure?');
+          """),format.raw/*123.11*/("""}"""),format.raw/*123.12*/("""
+        """),format.raw/*124.9*/("""</script>
         
-      """)))}),format.raw/*122.8*/("""     
+      """)))}),format.raw/*126.8*/("""     
 """)))}))
       }
     }
@@ -167,11 +171,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 28 20:52:15 CEST 2019
-                  SOURCE: /home/wdd/collegeLastThisOneActually/PlayReminder/app/views/memberProfile.scala.html
-                  HASH: 3d7cf355ea8209b92d4ebd6ad79f48c18c1c4463
-                  MATRIX: 1008->1|1162->85|1198->115|1230->141|1283->83|1310->166|1337->168|1373->196|1412->198|1443->203|1663->396|1710->434|1749->435|1798->456|1835->466|1850->472|1914->515|2000->570|2071->613|2272->787|2372->877|2413->879|2470->908|2541->952|2594->983|2706->1077|2719->1082|2758->1083|2819->1116|3054->1320|3136->1374|3285->1496|3300->1502|3332->1513|3361->1515|3376->1521|3408->1532|3685->1782|3700->1788|3732->1799|3870->1910|3885->1916|3917->1927|4092->2075|4107->2081|4144->2097|4363->2289|4404->2321|4444->2323|4489->2340|4571->2395|4585->2400|4621->2415|4666->2432|4717->2452|4768->2476|4807->2506|4847->2508|4892->2525|5316->2922|5355->2952|5395->2954|5456->2987|5578->3082|5639->3127|5679->3129|5740->3162|5820->3215|5880->3254|5997->3340|6080->3392|6133->3417|6375->3632|6447->3682|6702->3910|6717->3916|6765->3943|7333->4483|7349->4489|7398->4516|7465->4555|7481->4561|7557->4615|7846->4875|7876->4876|7918->4889|7990->4932|8020->4933|8057->4942|8114->4968
-                  LINES: 28->1|31->3|32->4|33->5|36->2|37->6|38->7|38->7|38->7|40->9|45->14|45->14|45->14|46->15|46->15|46->15|46->15|47->16|50->19|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|59->28|63->32|66->35|66->35|66->35|66->35|66->35|66->35|73->42|73->42|73->42|76->45|76->45|76->45|80->49|80->49|80->49|91->60|91->60|91->60|92->61|93->62|93->62|93->62|94->63|95->64|97->66|97->66|97->66|98->67|108->77|108->77|108->77|109->78|110->79|110->79|110->79|111->80|112->81|112->81|115->84|116->85|117->86|123->92|123->92|129->98|129->98|129->98|138->107|138->107|138->107|139->108|139->108|139->108|148->117|148->117|149->118|150->119|150->119|151->120|153->122
+                  DATE: Sun Apr 28 21:07:35 IST 2019
+                  SOURCE: /home/wdd/temp/PlayReminder/app/views/memberProfile.scala.html
+                  HASH: 90b54c56cb9e91cda1a3a6c5392cc796445541fe
+                  MATRIX: 1008->1|1162->85|1198->115|1230->141|1283->83|1310->166|1337->168|1373->196|1412->198|1443->203|1663->396|1710->434|1749->435|1798->456|1835->466|1850->472|1914->515|2000->570|2071->613|2272->787|2372->877|2413->879|2470->908|2537->948|2590->979|2697->1068|2710->1073|2749->1074|2810->1107|3007->1273|3089->1327|3238->1449|3253->1455|3285->1466|3314->1468|3329->1474|3361->1485|3638->1735|3653->1741|3685->1752|3823->1863|3838->1869|3870->1880|4045->2028|4060->2034|4097->2050|4316->2242|4357->2274|4397->2276|4442->2293|4524->2348|4538->2353|4574->2368|4619->2385|4670->2405|4732->2440|4771->2470|4811->2472|4856->2489|5280->2886|5319->2916|5359->2918|5420->2951|5542->3046|5603->3091|5643->3093|5706->3129|5750->3164|5790->3166|5855->3204|5870->3210|5918->3237|5985->3273|6046->3306|6126->3359|6186->3398|6303->3484|6386->3536|6439->3561|6681->3776|6753->3826|7009->4054|7025->4060|7074->4087|7642->4627|7658->4633|7707->4660|7774->4699|7790->4705|7866->4759|8155->5019|8185->5020|8227->5033|8299->5076|8329->5077|8366->5086|8423->5112
+                  LINES: 28->1|31->3|32->4|33->5|36->2|37->6|38->7|38->7|38->7|40->9|45->14|45->14|45->14|46->15|46->15|46->15|46->15|47->16|50->19|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|59->28|63->32|66->35|66->35|66->35|66->35|66->35|66->35|73->42|73->42|73->42|76->45|76->45|76->45|80->49|80->49|80->49|91->60|91->60|91->60|92->61|93->62|93->62|93->62|94->63|95->64|98->67|98->67|98->67|99->68|109->78|109->78|109->78|110->79|111->80|111->80|111->80|112->81|112->81|112->81|113->82|113->82|113->82|114->83|115->84|116->85|116->85|119->88|120->89|121->90|127->96|127->96|133->102|133->102|133->102|142->111|142->111|142->111|143->112|143->112|143->112|152->121|152->121|153->122|154->123|154->123|155->124|157->126
                   -- GENERATED --
               */
           

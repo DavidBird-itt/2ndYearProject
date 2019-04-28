@@ -465,8 +465,7 @@ public class HomeController extends Controller {
 
     }
 
-    /*
-    public void reSellProperty(Long id){
+    public Result cancelRent(Long id){
 
         Property p;
 
@@ -476,12 +475,11 @@ public class HomeController extends Controller {
             p.setStock(1);
             p.update();
         } catch (Exception ex) {
-            
+            return badRequest("error");
         }
         flash("success", "Property is no back on the market");
         return redirect(controllers.routes.HomeController.properties(0));
     }
-    */
 
     // public String saveFileLandlord(String email, FilePart < File > uploaded) {
     //     if (uploaded != null) {
