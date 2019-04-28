@@ -20,6 +20,19 @@
 			<div id="title">Price</div>
 			&euro;@property.getDisplayValue(property.getPrice)<p>(deposit: <strong>€@property.getDepositValue</strong>)</p>
 			<br>
+			@if((user != null) && (property.getLandlord() == user) ) {
+				@if(property.getStock() != 0) {
+					<p>This Property is still currently on the market</p>
+				} else {
+					<p>This Property is being rented</p>
+					<p>Press button to Cancel this and add it back to the market</p>
+					<p>
+						<a href="@routes.HomeController.()">
+							<button class="btn btn-primary">Add a House</button>
+						</a>
+					</p>
+				}
+			}
 			@if((user !=null) &&("member".equals(user.getRole()))){
 			<script
 			  src="https://checkout.stripe.com/checkout.js"

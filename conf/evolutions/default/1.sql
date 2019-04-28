@@ -39,6 +39,7 @@ create table order_item (
   order_id                      bigint,
   basket_id                     bigint,
   property_id                   bigint,
+  constraint uq_order_item_property_id unique (property_id),
   constraint pk_order_item primary key (id)
 );
 
@@ -111,7 +112,6 @@ alter table order_item add constraint fk_order_item_basket_id foreign key (baske
 create index ix_order_item_basket_id on order_item (basket_id);
 
 alter table order_item add constraint fk_order_item_property_id foreign key (property_id) references property (id) on delete restrict on update restrict;
-create index ix_order_item_property_id on order_item (property_id);
 
 alter table property add constraint fk_property_landlord_email foreign key (landlord_email) references user (email) on delete restrict on update restrict;
 create index ix_property_landlord_email on property (landlord_email);
@@ -143,7 +143,6 @@ alter table order_item drop constraint if exists fk_order_item_basket_id;
 drop index if exists ix_order_item_basket_id;
 
 alter table order_item drop constraint if exists fk_order_item_property_id;
-drop index if exists ix_order_item_property_id;
 
 alter table property drop constraint if exists fk_property_landlord_email;
 drop index if exists ix_property_landlord_email;

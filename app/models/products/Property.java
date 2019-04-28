@@ -95,6 +95,10 @@ public class Property extends Model {
         this.stock = 0;
     }
 
+    public void cancelRent() {
+        this.stock = 1;
+    }
+
     //Mapping getters and setters
     public List<Style> getStyles() {
         return styles;

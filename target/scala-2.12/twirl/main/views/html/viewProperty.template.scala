@@ -51,17 +51,30 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 			<div id="title">Price</div>
 			&euro;"""),_display_(/*21.11*/property/*21.19*/.getDisplayValue(property.getPrice)),format.raw/*21.54*/("""<p>(deposit: <strong>€"""),_display_(/*21.77*/property/*21.85*/.getDepositValue),format.raw/*21.101*/("""</strong>)</p>
 			<br>
-			"""),_display_(/*23.5*/if((user !=null) &&("member".equals(user.getRole())))/*23.58*/{_display_(Seq[Any](format.raw/*23.59*/("""
-			"""),format.raw/*24.4*/("""<script
+			"""),_display_(/*23.5*/if((user != null) && (property.getLandlord() == user) )/*23.60*/ {_display_(Seq[Any](format.raw/*23.62*/("""
+				"""),_display_(/*24.6*/if(property.getStock() != 0)/*24.34*/ {_display_(Seq[Any](format.raw/*24.36*/("""
+					"""),format.raw/*25.6*/("""<p>This Property is still currently on the market</p>
+				""")))}/*26.7*/else/*26.12*/{_display_(Seq[Any](format.raw/*26.13*/("""
+					"""),format.raw/*27.6*/("""<p>This Property is being rented</p>
+					<p>Press button to Cancel this and add it back to the market</p>
+					<p>
+						<a href=""""),_display_(/*30.17*/routes/*30.23*/.HomeController),format.raw/*30.38*/(""".()">
+							<button class="btn btn-primary">Add a House</button>
+						</a>
+					</p>
+				""")))}),format.raw/*34.6*/("""
+			""")))}),format.raw/*35.5*/("""
+			"""),_display_(/*36.5*/if((user !=null) &&("member".equals(user.getRole())))/*36.58*/{_display_(Seq[Any](format.raw/*36.59*/("""
+			"""),format.raw/*37.4*/("""<script
 			  src="https://checkout.stripe.com/checkout.js"
 			  class="stripe-button"
 			  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
 			  data-name="Deposit"
-			  data-description="Deposit (&euro;"""),_display_(/*29.40*/property/*29.48*/.getDepositValue),format.raw/*29.64*/(""")"
-			  data-amount=""""),_display_(/*30.20*/property/*30.28*/.convertStripeNum(property.getDepositValue)),format.raw/*30.71*/(""""
+			  data-description="Deposit (&euro;"""),_display_(/*42.40*/property/*42.48*/.getDepositValue),format.raw/*42.64*/(""")"
+			  data-amount=""""),_display_(/*43.20*/property/*43.28*/.convertStripeNum(property.getDepositValue)),format.raw/*43.71*/(""""
 			</script>
-			""")))}),format.raw/*32.5*/("""
-		"""),format.raw/*33.3*/("""</div>
+			""")))}),format.raw/*45.5*/("""
+		"""),format.raw/*46.3*/("""</div>
 	</div>
 """)))}))
       }
@@ -79,11 +92,11 @@ Seq[Any](_display_(/*2.2*/main("View Property", user)/*2.29*/ {_display_(Seq[Any
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 23 00:12:10 IST 2019
+                  DATE: Sun Apr 28 15:04:15 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/viewProperty.scala.html
-                  HASH: 539af492df75ac074d3eb9c967a91db997e291ce
-                  MATRIX: 991->1|1146->64|1181->91|1220->93|1248->95|1333->154|1349->162|1382->175|1549->316|1566->324|1598->335|1630->340|1748->432|1765->440|1798->452|1830->457|1946->546|1963->554|2019->589|2069->612|2086->620|2124->636|2177->663|2239->716|2278->717|2309->721|2535->920|2552->928|2589->944|2638->966|2655->974|2719->1017|2768->1036|2798->1039
-                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|52->21|52->21|52->21|52->21|52->21|52->21|54->23|54->23|54->23|55->24|60->29|60->29|60->29|61->30|61->30|61->30|63->32|64->33
+                  HASH: cd4462226ce3ee2681bcff708288cc635611009d
+                  MATRIX: 991->1|1146->64|1181->91|1220->93|1248->95|1333->154|1349->162|1382->175|1549->316|1566->324|1598->335|1630->340|1748->432|1765->440|1798->452|1830->457|1946->546|1963->554|2019->589|2069->612|2086->620|2124->636|2177->663|2241->718|2281->720|2313->726|2350->754|2390->756|2423->762|2500->822|2513->827|2552->828|2585->834|2744->966|2759->972|2795->987|2917->1079|2952->1084|2983->1089|3045->1142|3084->1143|3115->1147|3341->1346|3358->1354|3395->1370|3444->1392|3461->1400|3525->1443|3574->1462|3604->1465
+                  LINES: 28->1|33->2|33->2|33->2|34->3|35->4|35->4|35->4|41->10|41->10|41->10|42->11|45->14|45->14|45->14|46->15|52->21|52->21|52->21|52->21|52->21|52->21|54->23|54->23|54->23|55->24|55->24|55->24|56->25|57->26|57->26|57->26|58->27|61->30|61->30|61->30|65->34|66->35|67->36|67->36|67->36|68->37|73->42|73->42|73->42|74->43|74->43|74->43|76->45|77->46
                   -- GENERATED --
               */
           

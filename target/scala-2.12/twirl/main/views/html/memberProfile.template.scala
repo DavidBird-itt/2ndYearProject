@@ -28,37 +28,42 @@ object memberProfile extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
   def apply/*1.2*/(member: models.users.Member, user: models.users.User, env: play.api.Environment):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
+/*3.2*/import play.api.Play.current
+/*4.2*/import models.shopping._
+/*5.2*/import models.products._
 
 
-Seq[Any](_display_(/*2.2*/main("Member Profile", user)/*2.30*/ {_display_(Seq[Any](format.raw/*2.32*/("""
+Seq[Any](format.raw/*2.1*/("""
+"""),format.raw/*6.1*/("""
+"""),_display_(/*7.2*/main("Member Profile", user)/*7.30*/ {_display_(Seq[Any](format.raw/*7.32*/("""
    
-"""),format.raw/*4.1*/("""<div id ="profile">
+"""),format.raw/*9.1*/("""<div id ="profile">
         <div class="container-fluid">
           <div class="row">
             <div class="panel panel-default">
               <div class="panel-heading">
-                  """),_display_(/*9.20*/if((user != null) && (member == user))/*9.58*/{_display_(Seq[Any](format.raw/*9.59*/("""
-                    """),format.raw/*10.21*/("""<a href=""""),_display_(/*10.31*/routes/*10.37*/.HomeController.updateMember(user.getEmail)),format.raw/*10.80*/(""""><i class="fas fa-edit"></i></a>
-                    """)))}),format.raw/*11.22*/("""
+                  """),_display_(/*14.20*/if((user != null) && (member == user))/*14.58*/{_display_(Seq[Any](format.raw/*14.59*/("""
+                    """),format.raw/*15.21*/("""<a href=""""),_display_(/*15.31*/routes/*15.37*/.HomeController.updateMember(user.getEmail)),format.raw/*15.80*/(""""><i class="fas fa-edit"></i></a>
+                    """)))}),format.raw/*16.22*/("""
         
                 
-                """),format.raw/*14.17*/("""<h4>User Profile</h4>
+                """),format.raw/*19.17*/("""<h4>User Profile</h4>
               </div>
               <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                        """),_display_(/*18.26*/if(env.resource("public/images/projectImages/" + member.getEmail + "thumb.jpg").isDefined)/*18.116*/ {_display_(Seq[Any](format.raw/*18.118*/("""
-                            """),format.raw/*19.29*/("""<img src="/assets/images/projectImages/"""),_display_(/*19.69*/(member.getEmail + "thumb.jpg")),format.raw/*19.100*/(""""/  id="profile-image1" class="img-circle img-responsive">
-                            """)))}/*20.31*/else/*20.36*/{_display_(Seq[Any](format.raw/*20.37*/("""
-                                """),format.raw/*21.33*/("""<img src="avatar.png" alt="Avatar" class="avatar"
+                        """),_display_(/*23.26*/if(env.resource("public/images/projectImages/" + member.getEmail + "thumb.jpg").isDefined)/*23.116*/ {_display_(Seq[Any](format.raw/*23.118*/("""
+                            """),format.raw/*24.29*/("""<img src="/assets/images/projectImages/"""),_display_(/*24.69*/(member.getEmail + "thumb.jpg")),format.raw/*24.100*/(""""/  id="profile-image1" class="img-circle img-responsive">
+                            """)))}/*25.31*/else/*25.36*/{_display_(Seq[Any](format.raw/*25.37*/("""
+                                """),format.raw/*26.33*/("""<img src="avatar.png" alt="Avatar" class="avatar"
                                 id="profile-image1" class="img-circle img-responsive">
-                            """)))}),format.raw/*23.30*/("""
+                            """)))}),format.raw/*28.30*/("""
                   
         
         
-                """),format.raw/*27.17*/("""</div>
+                """),format.raw/*32.17*/("""</div>
                 <div class="col-md-8 col-xs-4">
                   <div class="container">
-                    <h2>"""),_display_(/*30.26*/member/*30.32*/.getFname()),format.raw/*30.43*/(""" """),_display_(/*30.45*/member/*30.51*/.getLname()),format.raw/*30.62*/("""</h2>
+                    <h2>"""),_display_(/*35.26*/member/*35.32*/.getFname()),format.raw/*35.43*/(""" """),_display_(/*35.45*/member/*35.51*/.getLname()),format.raw/*35.62*/("""</h2>
                     <p><b>Member</b></p>
         
         
@@ -67,7 +72,7 @@ Seq[Any](_display_(/*2.2*/main("Member Profile", user)/*2.30*/ {_display_(Seq[An
                   <ul class="container details">
                     
                     <li>
-                      <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>"""),_display_(/*39.101*/member/*39.107*/.getEmail()),format.raw/*39.118*/("""</p>
+                      <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>"""),_display_(/*44.101*/member/*44.107*/.getEmail()),format.raw/*44.118*/("""</p>
                     </li>
                   </ul>
                   <hr>
@@ -78,7 +83,70 @@ Seq[Any](_display_(/*2.2*/main("Member Profile", user)/*2.30*/ {_display_(Seq[An
           </div>
         </div>
         </div>
-         
+
+        <div class="row">
+
+          <div class="col-md-12">
+            """),_display_(/*59.14*/if(flash.containsKey("success"))/*59.46*/ {_display_(Seq[Any](format.raw/*59.48*/("""
+                """),format.raw/*60.17*/("""<div class="alert alert-success">
+                    """),_display_(/*61.22*/flash/*61.27*/.get("success")),format.raw/*61.42*/("""
+                """),format.raw/*62.17*/("""</div>
+            """)))}),format.raw/*63.14*/(""" 
+        
+            """),_display_(/*65.14*/if(member.getBasket() != null)/*65.44*/ {_display_(Seq[Any](format.raw/*65.46*/("""
+                """),format.raw/*66.17*/("""<table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                        <!-- The header row-->
+                        <tr>
+                            
+                            <th>Rent</th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                            """),_display_(/*76.30*/if(member.getBasket() != null)/*76.60*/ {_display_(Seq[Any](format.raw/*76.62*/("""
+                                """),format.raw/*77.33*/("""<!-- Start of For loop - For each p in products add a row -->
+                                """),_display_(/*78.34*/for(i <- member.getBasket().getBasketItems()) yield /*78.79*/ {_display_(Seq[Any](format.raw/*78.81*/("""
+                                """),format.raw/*79.33*/("""<tr>
+                                    <td>&euro; """),_display_(/*80.49*/("%.2f".format(i.getProperty.getPrice))),format.raw/*80.88*/("""</td>
+        
+                                </tr>
+                                """)))}),format.raw/*83.34*/("""<!-- End of For loop -->
+                          """)))}),format.raw/*84.28*/("""
+                        """),format.raw/*85.25*/("""</tbody>
+                    </table>
+        
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-right"><strong> Price to rent the house a month &euro; """),_display_(/*91.96*/("%.2f".format(member.getBasket.getBasketTotal()))),format.raw/*91.146*/("""</strong></p>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-right">
+                            <a href=""""),_display_(/*97.39*/routes/*97.45*/.ShoppingCtrl.emptyBasket()),format.raw/*97.72*/("""" class="btn btn-danger btn-sm" onclick="return confirmDel();">
+                            <span class="glyphicon glyphicon-trash"></span>Cancel Rent</a>
+                        </p>
+                    </div>  
+                    <div class="col-md-6">
+                        <p class="text-right">
+                            <a href=""""),_display_(/*103.39*/routes/*103.45*/.ShoppingCtrl.placeOrder()),format.raw/*103.71*/("""" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-euro"></span> Place Order</a>
+                        </p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        
+        <script>
+          // JavaScript function returns true if user clicks yes, otherwise, false
+          function confirmDel() """),format.raw/*113.33*/("""{"""),format.raw/*113.34*/("""
+            """),format.raw/*114.13*/("""return confirm('Are you sure?');
+          """),format.raw/*115.11*/("""}"""),format.raw/*115.12*/("""
+        """),format.raw/*116.9*/("""</script>
+        
+      """)))}),format.raw/*118.8*/("""     
 """)))}))
       }
     }
@@ -95,11 +163,11 @@ Seq[Any](_display_(/*2.2*/main("Member Profile", user)/*2.30*/ {_display_(Seq[An
 
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 23 17:31:37 IST 2019
+                  DATE: Sun Apr 28 15:04:15 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/memberProfile.scala.html
-                  HASH: f0e42730b95b35bf0820dc3946c154360112aa53
-                  MATRIX: 1008->1|1183->84|1219->112|1258->114|1289->119|1508->312|1554->350|1592->351|1641->372|1678->382|1693->388|1757->431|1843->486|1914->529|2115->703|2215->793|2256->795|2313->824|2380->864|2433->895|2540->984|2553->989|2592->990|2653->1023|2850->1189|2932->1243|3081->1365|3096->1371|3128->1382|3157->1384|3172->1390|3204->1401|3540->1709|3556->1715|3589->1726
-                  LINES: 28->1|33->2|33->2|33->2|35->4|40->9|40->9|40->9|41->10|41->10|41->10|41->10|42->11|45->14|49->18|49->18|49->18|50->19|50->19|50->19|51->20|51->20|51->20|52->21|54->23|58->27|61->30|61->30|61->30|61->30|61->30|61->30|70->39|70->39|70->39
+                  HASH: e1586d85ab2eed70367c45917d59d2cb052c1c62
+                  MATRIX: 1008->1|1162->85|1198->115|1230->141|1283->83|1310->166|1337->168|1373->196|1412->198|1443->203|1663->396|1710->434|1749->435|1798->456|1835->466|1850->472|1914->515|2000->570|2071->613|2272->787|2372->877|2413->879|2470->908|2537->948|2590->979|2697->1068|2710->1073|2749->1074|2810->1107|3007->1273|3089->1327|3238->1449|3253->1455|3285->1466|3314->1468|3329->1474|3361->1485|3697->1793|3713->1799|3746->1810|4127->2164|4168->2196|4208->2198|4253->2215|4335->2270|4349->2275|4385->2290|4430->2307|4481->2327|4532->2351|4571->2381|4611->2383|4656->2400|5080->2797|5119->2827|5159->2829|5220->2862|5342->2957|5403->3002|5443->3004|5504->3037|5584->3090|5644->3129|5761->3215|5844->3267|5897->3292|6157->3525|6229->3575|6484->3803|6499->3809|6547->3836|6916->4177|6932->4183|6980->4209|7390->4590|7420->4591|7462->4604|7534->4647|7564->4648|7601->4657|7658->4683
+                  LINES: 28->1|31->3|32->4|33->5|36->2|37->6|38->7|38->7|38->7|40->9|45->14|45->14|45->14|46->15|46->15|46->15|46->15|47->16|50->19|54->23|54->23|54->23|55->24|55->24|55->24|56->25|56->25|56->25|57->26|59->28|63->32|66->35|66->35|66->35|66->35|66->35|66->35|75->44|75->44|75->44|90->59|90->59|90->59|91->60|92->61|92->61|92->61|93->62|94->63|96->65|96->65|96->65|97->66|107->76|107->76|107->76|108->77|109->78|109->78|109->78|110->79|111->80|111->80|114->83|115->84|116->85|122->91|122->91|128->97|128->97|128->97|134->103|134->103|134->103|144->113|144->113|145->114|146->115|146->115|147->116|149->118
                   -- GENERATED --
               */
           

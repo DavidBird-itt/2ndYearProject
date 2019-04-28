@@ -27,7 +27,7 @@ public class OrderItem extends Model {
     
     // Unidirection mapping - Many order items can have one product
     // Product not interested in this
-    @ManyToOne
+    @OneToOne
     private Property property;
 
     // Default constructor

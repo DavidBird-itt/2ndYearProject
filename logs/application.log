@@ -1,16 +1,16 @@
-2019-04-25 17:43:47,184 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-5 - Database [default] initialized at jdbc:h2:file:./data/productsDB
-2019-04-25 17:43:47,197 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
-2019-04-25 17:43:49,079 [WARN] from io.ebeaninternal.server.deploy.BeanDescriptorManager in play-dev-mode-akka.actor.default-dispatcher-5 - Bean [models.rent.RentDue] has no unique id set
-2019-04-25 17:43:49,540 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Starting application at 2019-04-25T16:43:49.539Z
-2019-04-25 17:43:50,144 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-5 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-04-25 17:43:50,528 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-5 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-04-28 15:07:36,631 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-10 - Database [default] initialized at jdbc:h2:file:./data/productsDB
+2019-04-28 15:07:36,641 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
+2019-04-28 15:07:38,829 [WARN] from io.ebeaninternal.server.deploy.BeanDescriptorManager in play-dev-mode-akka.actor.default-dispatcher-10 - Bean [models.rent.RentDue] has no unique id set
+2019-04-28 15:07:39,544 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - ApplicationTimer demo: Starting application at 2019-04-28T14:07:39.544Z
+2019-04-28 15:07:40,885 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-10 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-04-28 15:07:41,893 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2019-04-25 17:43:50,545 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-5 - Application started (Dev)
-2019-04-25 17:46:50,979 [INFO] from play.core.server.AkkaHttpServer in pool-5-thread-2 - Stopping server...
-2019-04-25 17:46:51,075 [INFO] from application in application-akka.actor.default-dispatcher-14 - ApplicationTimer demo: Stopping application at 2019-04-25T16:46:51.075Z after 182s.
-2019-04-25 17:46:51,080 [INFO] from application in application-akka.actor.default-dispatcher-14 - Shutting down connection pool.
+2019-04-28 15:07:41,915 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev)
+2019-04-28 15:07:47,353 [INFO] from play.core.server.AkkaHttpServer in pool-41-thread-5 - Stopping server...
+2019-04-28 15:07:47,568 [INFO] from application in application-akka.actor.default-dispatcher-6 - ApplicationTimer demo: Stopping application at 2019-04-28T14:07:47.568Z after 8s.
+2019-04-28 15:07:47,576 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.

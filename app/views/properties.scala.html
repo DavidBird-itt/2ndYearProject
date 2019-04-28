@@ -23,7 +23,8 @@
         <tbody>
             <!--Populating the database-->
             <tr>
-                @for(i<-property) {        
+                @for(i<-property) {       
+                    @if(i.getStock != 0){
                     <td>@i.getId</td>
                     <td>@i.getNumBeds</td>
                     <td>@i.getNumBaths</td>
@@ -50,9 +51,11 @@
                             } else {
                                 <td><img src="/assets/images/sold.jpg"/></td>
                             }
+                        }
+                    } <!--End of For loop-->
 
             </tr>
-        }
+        
         </tbody>
     </table>         
 

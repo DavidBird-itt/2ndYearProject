@@ -54,41 +54,44 @@ Seq[Any](format.raw/*2.1*/("""
         <tbody>
             <!--Populating the database-->
             <tr>
-                """),_display_(/*26.18*/for(i<-property) yield /*26.34*/ {_display_(Seq[Any](format.raw/*26.36*/("""        
-                    """),format.raw/*27.21*/("""<td>"""),_display_(/*27.26*/i/*27.27*/.getId),format.raw/*27.33*/("""</td>
-                    <td>"""),_display_(/*28.26*/i/*28.27*/.getNumBeds),format.raw/*28.38*/("""</td>
-                    <td>"""),_display_(/*29.26*/i/*29.27*/.getNumBaths),format.raw/*29.39*/("""</td>
-                    <td>&euro; """),_display_(/*30.33*/("%.2f".format(i.getPrice))),format.raw/*30.60*/("""</td>
+                """),_display_(/*26.18*/for(i<-property) yield /*26.34*/ {_display_(Seq[Any](format.raw/*26.36*/("""       
+                    """),_display_(/*27.22*/if(i.getStock != 0)/*27.41*/{_display_(Seq[Any](format.raw/*27.42*/("""
+                    """),format.raw/*28.21*/("""<td>"""),_display_(/*28.26*/i/*28.27*/.getId),format.raw/*28.33*/("""</td>
+                    <td>"""),_display_(/*29.26*/i/*29.27*/.getNumBeds),format.raw/*29.38*/("""</td>
+                    <td>"""),_display_(/*30.26*/i/*30.27*/.getNumBaths),format.raw/*30.39*/("""</td>
+                    <td>&euro; """),_display_(/*31.33*/("%.2f".format(i.getPrice))),format.raw/*31.60*/("""</td>
                     <!-- Update button -->
                     <td>
-                        <a href=""""),_display_(/*33.35*/routes/*33.41*/.HomeController.updateProperty(i.getId)),format.raw/*33.80*/("""" class="button-xs btn-danger">
+                        <a href=""""),_display_(/*34.35*/routes/*34.41*/.HomeController.updateProperty(i.getId)),format.raw/*34.80*/("""" class="button-xs btn-danger">
                             <span class="glyphicon-pencil"><</span>
                         </a>
                     </td>
 
                     <!-- Delete button -->
                     <td>
-                        <a href=""""),_display_(/*40.35*/routes/*40.41*/.HomeController.deleteProperty(i.getId)),format.raw/*40.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
+                        <a href=""""),_display_(/*41.35*/routes/*41.41*/.HomeController.deleteProperty(i.getId)),format.raw/*41.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
 
-                    """),_display_(/*45.22*/if(i.getStock() == 1)/*45.43*/ {_display_(Seq[Any](format.raw/*45.45*/("""
-                        """),format.raw/*46.25*/("""<td><a href=""""),_display_(/*46.39*/routes/*46.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*46.79*/(""""
+                    """),_display_(/*46.22*/if(i.getStock() == 1)/*46.43*/ {_display_(Seq[Any](format.raw/*46.45*/("""
+                        """),format.raw/*47.25*/("""<td><a href=""""),_display_(/*47.39*/routes/*47.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*47.79*/(""""
                                 class="btn btn-default btn-xs"><span
                                 class="glyphicon glyphicon-shopping-cart"></span></a>
                         </td>
-                            """)))}/*50.31*/else/*50.36*/{_display_(Seq[Any](format.raw/*50.37*/("""
-                                """),format.raw/*51.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
-                            """)))}),format.raw/*52.30*/("""
+                            """)))}/*51.31*/else/*51.36*/{_display_(Seq[Any](format.raw/*51.37*/("""
+                                """),format.raw/*52.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
+                            """)))}),format.raw/*53.30*/("""
+                        """)))}),format.raw/*54.26*/("""
+                    """)))}),format.raw/*55.22*/(""" """),format.raw/*55.23*/("""<!--End of For loop-->
 
-            """),format.raw/*54.13*/("""</tr>
-        """)))}),format.raw/*55.10*/("""
-        """),format.raw/*56.9*/("""</tbody>
+            </tr>
+        
+        </tbody>
     </table>         
 
     <p>
-        <a href=""""),_display_(/*60.19*/routes/*60.25*/.HomeController.addProperty()),format.raw/*60.54*/("""">
+        <a href=""""),_display_(/*63.19*/routes/*63.25*/.HomeController.addProperty()),format.raw/*63.54*/("""">
             <button class="btn btn-primary">Add a House</button>
         </a>
     </p>
@@ -108,11 +111,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Apr 25 16:47:43 IST 2019
+                  DATE: Sun Apr 28 15:04:15 IST 2019
                   SOURCE: /home/wdd/play/PlayReminder/app/views/properties.scala.html
-                  HASH: 007408d1e503efe229fdde45e8b0813e23d9cb19
-                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2246->753|2278->769|2318->771|2375->800|2407->805|2417->806|2444->812|2502->843|2512->844|2544->855|2602->886|2612->887|2645->899|2710->937|2758->964|2893->1072|2908->1078|2968->1117|3253->1375|3268->1381|3328->1420|3571->1636|3601->1657|3641->1659|3694->1684|3735->1698|3750->1704|3805->1738|4040->1955|4053->1960|4092->1961|4153->1994|4259->2069|4301->2083|4347->2098|4383->2107|4468->2165|4483->2171|4533->2200
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|57->26|57->26|57->26|58->27|58->27|58->27|58->27|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|64->33|64->33|64->33|71->40|71->40|71->40|76->45|76->45|76->45|77->46|77->46|77->46|77->46|81->50|81->50|81->50|82->51|83->52|85->54|86->55|87->56|91->60|91->60|91->60
+                  HASH: 9546389461ae35f3d7970428f4c675be580bd0fa
+                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2246->753|2278->769|2318->771|2374->800|2402->819|2441->820|2490->841|2522->846|2532->847|2559->853|2617->884|2627->885|2659->896|2717->927|2727->928|2760->940|2825->978|2873->1005|3008->1113|3023->1119|3083->1158|3368->1416|3383->1422|3443->1461|3686->1677|3716->1698|3756->1700|3809->1725|3850->1739|3865->1745|3920->1779|4155->1996|4168->2001|4207->2002|4268->2035|4374->2110|4431->2136|4484->2158|4513->2159|4657->2276|4672->2282|4722->2311
+                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|57->26|57->26|57->26|58->27|58->27|58->27|59->28|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|65->34|65->34|65->34|72->41|72->41|72->41|77->46|77->46|77->46|78->47|78->47|78->47|78->47|82->51|82->51|82->51|83->52|84->53|85->54|86->55|86->55|94->63|94->63|94->63
                   -- GENERATED --
               */
           

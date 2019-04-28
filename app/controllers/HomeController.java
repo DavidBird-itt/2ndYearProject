@@ -464,6 +464,24 @@ public class HomeController extends Controller {
 
     }
 
+    /*
+    public void reSellProperty(Long id){
+
+        Property p;
+
+        try{
+            //Find
+            p = Property.find.byId(id);
+            p.setStock(1);
+            p.update();
+        } catch (Exception ex) {
+            
+        }
+        flash("success", "Property is no back on the market");
+        return redirect(controllers.routes.HomeController.properties(0));
+    }
+    */
+
     // public String saveFileLandlord(String email, FilePart < File > uploaded) {
     //     if (uploaded != null) {
     //         String mimeType = uploaded.getContentType();
