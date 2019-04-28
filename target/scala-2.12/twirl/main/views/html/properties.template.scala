@@ -45,6 +45,7 @@ Seq[Any](format.raw/*2.1*/("""
         <thead>
             <!--Header-->
             <tr>
+                <th>Image</th>
                 <th>ID</th>
                 <th>Bedrooms</th>
                 <th>Bathrooms</th>
@@ -54,36 +55,42 @@ Seq[Any](format.raw/*2.1*/("""
         <tbody>
             <!--Populating the database-->
             <tr>
-                """),_display_(/*26.18*/for(i<-property) yield /*26.34*/ {_display_(Seq[Any](format.raw/*26.36*/("""       
-                    """),_display_(/*27.22*/if(i.getStock != 0)/*27.41*/{_display_(Seq[Any](format.raw/*27.42*/("""
-                    """),format.raw/*28.21*/("""<td>"""),_display_(/*28.26*/i/*28.27*/.getId),format.raw/*28.33*/("""</td>
-                    <td>"""),_display_(/*29.26*/i/*29.27*/.getNumBeds),format.raw/*29.38*/("""</td>
-                    <td>"""),_display_(/*30.26*/i/*30.27*/.getNumBaths),format.raw/*30.39*/("""</td>
-                    <td>&euro; """),_display_(/*31.33*/("%.2f".format(i.getPrice))),format.raw/*31.60*/("""</td>
+                """),_display_(/*27.18*/for(i<-property) yield /*27.34*/ {_display_(Seq[Any](format.raw/*27.36*/("""       
+                    """),_display_(/*28.22*/if(i.getStock != 0)/*28.41*/{_display_(Seq[Any](format.raw/*28.42*/("""
+                        """),format.raw/*29.25*/("""<tr>
+                            """),_display_(/*30.30*/if(env.resource("public/images/projectImages/" + i.getId + "thumb.jpg").isDefined)/*30.112*/ {_display_(Seq[Any](format.raw/*30.114*/("""
+                                """),format.raw/*31.33*/("""<td><img src="/assets/images/projectImages/"""),_display_(/*31.77*/(i.getId + "thumb.jpg")),format.raw/*31.100*/(""""/></td>
+                            """)))}/*32.31*/else/*32.36*/{_display_(Seq[Any](format.raw/*32.37*/("""
+                                """),format.raw/*33.33*/("""<td><img src="/assets/images/projectImages/noImage.jpg"/></td>
+                            """)))}),format.raw/*34.30*/("""
+                    """),format.raw/*35.21*/("""<td>"""),_display_(/*35.26*/i/*35.27*/.getId),format.raw/*35.33*/("""</td>
+                    <td>"""),_display_(/*36.26*/i/*36.27*/.getNumBeds),format.raw/*36.38*/("""</td>
+                    <td>"""),_display_(/*37.26*/i/*37.27*/.getNumBaths),format.raw/*37.39*/("""</td>
+                    <td>&euro; """),_display_(/*38.33*/("%.2f".format(i.getPrice))),format.raw/*38.60*/("""</td>
                     <!-- Update button -->
                     <td>
-                        <a href=""""),_display_(/*34.35*/routes/*34.41*/.HomeController.updateProperty(i.getId)),format.raw/*34.80*/("""" class="button-xs btn-danger">
+                        <a href=""""),_display_(/*41.35*/routes/*41.41*/.HomeController.updateProperty(i.getId)),format.raw/*41.80*/("""" class="button-xs btn-danger">
                             <span class="glyphicon-pencil"><</span>
                         </a>
                     </td>
 
                     <!-- Delete button -->
                     <td>
-                        <a href=""""),_display_(/*41.35*/routes/*41.41*/.HomeController.deleteProperty(i.getId)),format.raw/*41.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
+                        <a href=""""),_display_(/*48.35*/routes/*48.41*/.HomeController.deleteProperty(i.getId)),format.raw/*48.80*/("""" class="button-xs btn-danger" onclick="return confirmDel();">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
 
-                    """),_display_(/*46.22*/if(i.getStock() == 1)/*46.43*/ {_display_(Seq[Any](format.raw/*46.45*/("""
-                        """),format.raw/*47.25*/("""<td><a href=""""),_display_(/*47.39*/routes/*47.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*47.79*/(""""
+                    """),_display_(/*53.22*/if(i.getStock() == 1)/*53.43*/ {_display_(Seq[Any](format.raw/*53.45*/("""
+                        """),format.raw/*54.25*/("""<td><a href=""""),_display_(/*54.39*/routes/*54.45*/.ShoppingCtrl.addToBasket(i.getId)),format.raw/*54.79*/(""""
                                 class="btn btn-default btn-xs"><span
                                 class="glyphicon glyphicon-shopping-cart"></span></a>
                         </td>
-                            """)))}/*51.31*/else/*51.36*/{_display_(Seq[Any](format.raw/*51.37*/("""
-                                """),format.raw/*52.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
-                            """)))}),format.raw/*53.30*/("""
-                        """)))}),format.raw/*54.26*/("""
-                    """)))}),format.raw/*55.22*/(""" """),format.raw/*55.23*/("""<!--End of For loop-->
+                            """)))}/*58.31*/else/*58.36*/{_display_(Seq[Any](format.raw/*58.37*/("""
+                                """),format.raw/*59.33*/("""<td><img src="/assets/images/sold.jpg"/></td>
+                            """)))}),format.raw/*60.30*/("""
+                        """)))}),format.raw/*61.26*/("""
+                    """)))}),format.raw/*62.22*/(""" """),format.raw/*62.23*/("""<!--End of For loop-->
 
             </tr>
         
@@ -91,7 +98,7 @@ Seq[Any](format.raw/*2.1*/("""
     </table>         
 
     <p>
-        <a href=""""),_display_(/*63.19*/routes/*63.25*/.HomeController.addProperty()),format.raw/*63.54*/("""">
+        <a href=""""),_display_(/*70.19*/routes/*70.25*/.HomeController.addProperty()),format.raw/*70.54*/("""">
             <button class="btn btn-primary">Add a House</button>
         </a>
     </p>
@@ -111,11 +118,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Apr 28 16:39:02 IST 2019
+                  DATE: Sun Apr 28 19:12:15 IST 2019
                   SOURCE: /home/wdd/Desktop/PlayReminder/app/views/properties.scala.html
-                  HASH: 9546389461ae35f3d7970428f4c675be580bd0fa
-                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2246->753|2278->769|2318->771|2374->800|2402->819|2441->820|2490->841|2522->846|2532->847|2559->853|2617->884|2627->885|2659->896|2717->927|2727->928|2760->940|2825->978|2873->1005|3008->1113|3023->1119|3083->1158|3368->1416|3383->1422|3443->1461|3686->1677|3716->1698|3756->1700|3809->1725|3850->1739|3865->1745|3920->1779|4155->1996|4168->2001|4207->2002|4268->2035|4374->2110|4431->2136|4484->2158|4513->2159|4657->2276|4672->2282|4722->2311
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|57->26|57->26|57->26|58->27|58->27|58->27|59->28|59->28|59->28|59->28|60->29|60->29|60->29|61->30|61->30|61->30|62->31|62->31|65->34|65->34|65->34|72->41|72->41|72->41|77->46|77->46|77->46|78->47|78->47|78->47|78->47|82->51|82->51|82->51|83->52|84->53|85->54|86->55|86->55|94->63|94->63|94->63
+                  HASH: b8cbe147feccf1de008a43d0850340b18adf7eec
+                  MATRIX: 1044->1|1269->133|1296->135|1326->157|1365->159|1396->164|1489->232|1529->264|1568->266|1603->275|1676->322|1689->327|1724->342|1760->351|1802->363|1839->373|2277->784|2309->800|2349->802|2405->831|2433->850|2472->851|2525->876|2586->910|2678->992|2719->994|2780->1027|2851->1071|2896->1094|2953->1133|2966->1138|3005->1139|3066->1172|3189->1264|3238->1285|3270->1290|3280->1291|3307->1297|3365->1328|3375->1329|3407->1340|3465->1371|3475->1372|3508->1384|3573->1422|3621->1449|3756->1557|3771->1563|3831->1602|4116->1860|4131->1866|4191->1905|4434->2121|4464->2142|4504->2144|4557->2169|4598->2183|4613->2189|4668->2223|4903->2440|4916->2445|4955->2446|5016->2479|5122->2554|5179->2580|5232->2602|5261->2603|5405->2720|5420->2726|5470->2755
+                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|44->13|58->27|58->27|58->27|59->28|59->28|59->28|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|63->32|63->32|64->33|65->34|66->35|66->35|66->35|66->35|67->36|67->36|67->36|68->37|68->37|68->37|69->38|69->38|72->41|72->41|72->41|79->48|79->48|79->48|84->53|84->53|84->53|85->54|85->54|85->54|85->54|89->58|89->58|89->58|90->59|91->60|92->61|93->62|93->62|101->70|101->70|101->70
                   -- GENERATED --
               */
           

@@ -21,10 +21,10 @@
               <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
                         @if(env.resource("public/images/projectImages/" + member.getEmail + "thumb.jpg").isDefined) {
-                            <img src="/assets/images/projectImages/@(member.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive">
+                            <td><img src="/assets/images/projectImages/@(member.getEmail + "thumb.jpg")"/  id="profile-image1" class="img-circle img-responsive"></td>
                             } else {
-                                <img src="avatar.png" alt="Avatar" class="avatar"
-                                id="profile-image1" class="img-circle img-responsive">
+                                <td><img src="/assets/images/productImages/avatar.png" alt="Avatar" class="avatar"
+                                id="profile-image1" class="img-circle img-responsive"></td>
                             }
                   
         

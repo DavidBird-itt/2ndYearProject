@@ -40,10 +40,7 @@ public class OrderItem extends Model {
         price = prop.getPrice();
     }
     
-    public int convertStripeNum(double val) {
-        return (int)val * 100;
-        }
-    
+
     // Increment quantity
     public void increaseQty() {
         quantity += 1;

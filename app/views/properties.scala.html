@@ -14,6 +14,7 @@
         <thead>
             <!--Header-->
             <tr>
+                <th>Image</th>
                 <th>ID</th>
                 <th>Bedrooms</th>
                 <th>Bathrooms</th>
@@ -25,6 +26,12 @@
             <tr>
                 @for(i<-property) {       
                     @if(i.getStock != 0){
+                        <tr>
+                            @if(env.resource("public/images/projectImages/" + i.getId + "thumb.jpg").isDefined) {
+                                <td><img src="/assets/images/projectImages/@(i.getId + "thumb.jpg")"/></td>
+                            } else {
+                                <td><img src="/assets/images/projectImages/noImage.jpg"/></td>
+                            }
                     <td>@i.getId</td>
                     <td>@i.getNumBeds</td>
                     <td>@i.getNumBaths</td>
